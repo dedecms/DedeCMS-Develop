@@ -19,7 +19,7 @@ td {
     height: 180px;
     z-index: 2;
     background-color: #FFFFFF;
-    border: 1px solid #889D8F;
+    border: 1px solid #727473;
     padding: 0px;
     display: none;
     overflow: hidden;
@@ -33,7 +33,7 @@ td {
     height: 350px;
     z-index: 1;
     background-color: #FFFFFF;
-    border: 1px solid #889D8F;
+    border: 1px solid #949494;
     padding: 0px;
     display: none;
 }
@@ -63,7 +63,7 @@ td {
 
 .itemTable {
     margin-top: 8px;
-    background: #CBD8AC;
+    background: #7c7c7a;
 }
 
 #loaddiv {
@@ -110,7 +110,7 @@ td {
 }
 
 .dbox {
-    border: 1px solid #DEEAB6;
+    border: 1px solid #9e9e9c;
     width: 98%;
     margin-left: 1%;
     margin-top: 8px;
@@ -120,7 +120,7 @@ td {
     height: 28px;
     line-height: 28px;
     font-weight: bold;
-    color: #4D6C2F;
+    color: #262725;
     cursor: move;
 }
 
@@ -135,12 +135,12 @@ td {
 }
 
 .dbox dt.lside {
-    border-bottom: 1px solid #CFD7C4;
-    background-color: rgb(239, 248, 229);
+    border-bottom: 1px solid #acacac;
+    background-color: rgb(221, 221, 221);
 }
 
 .dbox dt.rside {
-    border-bottom: 1px solid #DEEAB6;
+    border-bottom: 1px solid #cfcfcf;
     background: url(../images/wbg.gif) repeat-x;
 }
 
@@ -174,13 +174,13 @@ td {
 }
 
 .dboxtable td.nline {
-    border-bottom: 1px dashed #CFD7C4;
+    border-bottom: 1px dashed #bfc0bf;
     height: 26px;
 }
 
 .dboxtable1 ul li {
     float: left;
-    border-bottom: 1px dashed #CFD7C4;
+    border-bottom: 1px dashed #bfc0bf;
     height: 26px;
     line-height: 26px;
     display: inline;
@@ -199,7 +199,7 @@ td {
 }
 
 .footer {
-    border-top: 1px solid #CFD7C4;
+    border-top: 1px solid #bfc0bf;
     line-height: 36px;
     margin-top: 8px;
     font-family: Verdana, Geneva, sans-serif;

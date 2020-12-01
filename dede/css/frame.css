@@ -45,7 +45,7 @@ form {
 .top {
 	height: 37px;
 	width: 100%;
-	background-color: rgb(94, 149, 0);
+	background-color:#000;
 	overflow: hidden;
 	clear: both;
 }
@@ -70,19 +70,19 @@ form {
 
 .top .top_link ul li.welcome {
 	border-right: none;
-	color: #A8C280;
+	color: #8e8f8c;
 	padding-right: 6px;
 }
 
 .top .top_link ul li {
 	float: left;
-	color: #CBDAB3;
-	border-right: 1px solid #61910F;
+	color: #a5a5a5;
+	border-right: 1px solid #32352e;
 	margin-right: -1px;
 }
 
 .top .top_link ul li a {
-	color: #CBDAB3;
+	color: #e4e4e4;
 	padding-left: 11px;
 	padding-right: 11px;
 	text-decoration: none;
@@ -131,7 +131,8 @@ form {
 .topnav {
 	width: 100%;
 	height: 29px;
-	background: url(../images/admin_top_bg.jpg) left -37px repeat-x;
+	background-color:#333;
+	/* background: url(../images/admin_top_bg.jpg) left -37px repeat-x; */
 	overflow: hidden;
 	clear: both;
 }
@@ -190,7 +191,7 @@ form {
 
 .nav ul li a.thisclass,
 .nav ul li a.thisclass:hover {
-	color: #4E8100;
+	color: #000000;
 	display: block;
 	font-weight: bold;
 	background: #FFF;

@@ -4,7 +4,7 @@
  *
  * @version        $Id: file_pic_view.php 1 23:44 2011/2/16  $
  * @package        DedeCMS.Administrator
- * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+ * @copyright      Copyright (c) 2004 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */

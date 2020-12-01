@@ -5,7 +5,7 @@
  *
  * @version        $Id: testenv.php 13:57 2011/11/10  $
  * @package        DedeCMS.Administrator
- * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+ * @copyright      Copyright (c) 2004 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */

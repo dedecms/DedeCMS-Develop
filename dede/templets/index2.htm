@@ -12,7 +12,7 @@
 #skinlist {
     display: block;
     height: 11px;
-	margin-top: 10px;
+  	margin-top: 10px;
     overflow: hidden;
     width: 86px;
 }
@@ -68,8 +68,7 @@
 </div>
 <div class="head">
   <div class="top">
-    <div class="top_logo"> <img src="images/style<?php echo $cfg_admin_skin;?>/admin_top_logo.gif" width="200" height="37" alt="DedeCMS Logo" title="Welcome use DedeCMS" id="topdedelogo" /> </div>
-    <div class="top_version" style="padding-top: 18px;font-weight: bolder;color: white;float: left;margin-left: -10px;font-style:italic;">v5.8</div>
+    <div class="top_logo"> <img src="images/admin_logo.png" width="200" height="37" alt="DedeCMS Logo" title="Welcome use DedeCMS" id="topdedelogo" /> </div>
     <div class="top_link">
       <ul>
         <li class="welcome">您好：<?php echo $cuserLogin->getUserName(); ?> ，欢迎使用DedeCMS！</li>
@@ -81,9 +80,7 @@
         <li><a href="../member" target="_blank">会员中心</a></li>
         <li><a href="exit.php" target="_top">注销</a></li>
       </ul>
-      <div class="quick"> <a href="#" class="ac_qucikmenu" id="ac_qucikmenu">快捷方式</a> <a href="#" class="ac_qucikadd" id="ac_qucikadd">
-        <!--ADD-->
-        </a> </div>
+
     </div>
   </div>
   <div class="topnav">
@@ -91,25 +88,6 @@
       <?php
 			if($cuserLogin->getUserType() >= 10) echo '<a href="#" id="allmenu">功能地图</a>';
 			?>
-    </div>
-    <div id="skin">
-        <div>
-          <ul id="skinlist">
-            <li id="s1">
-              <div<?php echo $cfg_admin_skin == 1? ' class="sel"' : '';?>><img alt="织梦绿" src="images/blank.gif"></div>
-            </li>
-            <li id="s2">
-              <div<?php echo $cfg_admin_skin == 2? ' class="sel"' : '';?>><img alt="淡蓝" src="images/blank.gif"></div>
-            </li>
-            <li id="s3">
-              <div<?php echo $cfg_admin_skin == 3? ' class="sel"' : '';?>><img alt="咖啡" src="images/blank.gif"></div>
-            </li>
-            <li id="s4">
-              <div<?php echo $cfg_admin_skin == 4? ' class="sel"' : '';?>><img alt="水墨" src="images/blank.gif"></div>
-            </li>
-          </ul>
-        </div>
-
     </div>
     <div class="nav" id="nav"> </div>
     <div class="sysmsg">
