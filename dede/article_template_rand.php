@@ -2,9 +2,9 @@
 /**
  * 文档随机模板
  *
- * @version        $Id: article_template_rand.php 1 14:31 2010年7月12日Z tianya $
+ * @version        $Id: article_template_rand.php 1 14:31 2010年7月12日 $
  * @package        DedeCMS.Administrator
- * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
+ * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
@@ -86,7 +86,7 @@ make_hash();
 $msg = "
 <link href='images/base.css' rel='stylesheet' type='text/css' />
 <script language='javascript' src='js/main.js'></script>
-<script language='javascript' src='../include/dedeajax2.js'></script>
+<script language='javascript' src='../static/js/dedeajax2.js'></script>
 <script language='javascript'>
 function DoRand(jobname)
 {

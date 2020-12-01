@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
 <title><?php echo $cfg_webname; ?>-<?php echo $cfg_softname." ".$cfg_version; ?></title>
 <link href="css/frame.css" rel="stylesheet" type="text/css" />
-<script src="../include/js/jquery/jquery.js" language="javascript" type="text/javascript"></script>
+<script src="../static/js/jquery.js" language="javascript" type="text/javascript"></script>
 <script src="js/frame.js" language="javascript" type="text/javascript"></script>
 <link href="images/style<?php echo $cfg_admin_skin;?>/style.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
@@ -68,7 +68,8 @@
 </div>
 <div class="head">
   <div class="top">
-    <div class="top_logo"> <img src="images/style<?php echo $cfg_admin_skin;?>/admin_top_logo.gif" width="200" height="37" alt="DedeCms Logo" title="Welcome use DedeCms" id="topdedelogo" /> </div>
+    <div class="top_logo"> <img src="images/style<?php echo $cfg_admin_skin;?>/admin_top_logo.gif" width="200" height="37" alt="DedeCMS Logo" title="Welcome use DedeCMS" id="topdedelogo" /> </div>
+    <div class="top_version" style="padding-top: 18px;font-weight: bolder;color: white;float: left;margin-left: -10px;font-style:italic;">v5.8</div>
     <div class="top_link">
       <ul>
         <li class="welcome">您好：<?php echo $cuserLogin->getUserName(); ?> ，欢迎使用DedeCMS！</li>
@@ -117,7 +118,7 @@
         <form action="action_search.php" target="main" method="post">
           <input name="keyword" type="text" value="功能搜索" onfocus="if(this.value=='功能搜索'){this.value='';}"  onblur="if(this.value==''){this.value='功能搜索';}" class="allsearch" style="width:150px;"/>
           <input name="" type="submit" value="搜索" class="np"/>
-          <a href='http://bbs.dedecms.com' target='_blank'>官方论坛</a> <a href='http://help.dedecms.com' target='_blank'>在线帮助</a>
+          <a href='http://bbs.dedecms.com' target='_blank'>官方论坛</a> <a href='https://github.com/dedecms' target='_blank'>Github</a>
         </form>
       </div>
     </div>

@@ -2,9 +2,9 @@
 /**
  * 栏目单元,主要用户管理后台管理处
  *
- * @version        $Id: typeunit.class.admin.php 1 15:21 2010年7月5日Z tianya $
+ * @version        $Id: typeunit.class.admin.php 1 15:21 2010年7月5日 $
  * @package        DedeCMS.Libraries
- * @copyright      Copyright (c) 2007 - 2010, DesDev, Inc.
+ * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
@@ -339,7 +339,7 @@ class TypeUnit
     function DelType($id, $isDelFile)
     {
         $this->idCounter = 0;
-        $this->idArray = "";
+        $this->idArray = array();
         $this->GetSunTypes($id);
         $query = "
         SELECT #@__arctype.*,#@__channeltype.typename AS ctypename,
