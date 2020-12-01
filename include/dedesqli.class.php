@@ -524,11 +524,30 @@ class DedeSqli
         }
     }
 
+    // 获取SQL语句类型
+    function getSQLType($sql){
+        if (strpos($sql,'UPDATE') !== false) {
+            return "update";
+        } else if (strpos($sql,'INSERT') !== false) {
+            return "insert";
+        } else if (strpos($sql,'DELETE') !== false) {
+            return "delete";
+        } else if (strpos($sql,'SELECT') !== false) {
+            return "select";
+        }
+    }
+
+
     //设置SQL语句，会自动把SQL语句里的#@__替换为$this->dbPrefix(在配置文件中为$cfg_dbprefix)
     function SetQuery($sql)
     {
         $prefix="#@__";
+        $sql = trim($sql);
+        if (substr($sql,-1) !== ";") {
+            $sql .= ";";
+        }
         $sql = str_replace($prefix,$GLOBALS['cfg_dbprefix'],$sql);
+        CheckSql($sql,$this->getSQLType($sql)); // 5.7前版本仅做了SELECT的过滤，对UPDATE、INSERT、DELETE等语句并未过滤。
         $this->queryString = $sql;
     }
 
