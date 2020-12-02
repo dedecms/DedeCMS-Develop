@@ -82,7 +82,7 @@ function GetTagList($dsql,$pageno,$pagesize,$orderby='aid')
     {
         $listurl = GetFreeListUrl($row['aid'],$row['namerule'],$row['listdir'],$row['defaultpage'],$row['nodefault']);
         $line = "
-    <tr align='center' bgcolor='#FFFFFF' onMouseMove=\"javascript:this.bgColor='#FCFDEE';\" onMouseOut=\"javascript:this.bgColor='#FFFFFF';\">
+    <tr align='center' bgcolor='#FFFFFF' onMouseMove=\"javascript:this.bgColor='#FBFBFB';\" onMouseOut=\"javascript:this.bgColor='#FFFFFF';\">
         <td>{$row['aid']}</td>
         <td> <a href='$listurl' target='_blank'>{$row['title']}</a> </td>
         <td> {$row['templet']} </td>

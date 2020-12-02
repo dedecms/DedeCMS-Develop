@@ -99,7 +99,7 @@ function deleteanswer(aid){
 	}
 	$fields['dateline'] = gmdate('Y-m-d H:i:s' , $fields['dateline'] + 3600*$cfg_ask_timeoffset);
 ?>
-<tr align='center' bgcolor="#FFFFFF"  onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
+<tr align='center' bgcolor="#FFFFFF"  onMouseMove="javascript:this.bgColor='#FBFBFB';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22" >
 <td><?php echo $fields['id']; ?></td>
 <td><input name="answerid" type="checkbox" id="id" value="<?php echo $fields['id']; ?>" class='np' /></td>
 <td align='left'><a title="点击查看问题页面" href="../ask/question.php?id=<?php echo $fields['askid']; ?>" target="_blank"><?php echo $fields['content']; ?></a></td>

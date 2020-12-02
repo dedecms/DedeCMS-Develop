@@ -93,7 +93,7 @@
 	$fields['uptime'] = GetDateMk($fields['uptime']);
 	$fields['tag'] = dede_htmlspecialchars($fields['tag']);
 ?>
-				<tr align="center" bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FCFDEE';"
+				<tr align="center" bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='#FBFBFB';"
 					onMouseOut="javascript:this.bgColor='#FFFFFF';">
 					<td height="24">
 						<input type="checkbox" name="ids[]" value="<?php echo $fields['id']; ?>" class='np' />
@@ -124,18 +124,18 @@
 				</tr>
 				{/dede:datalist}
 				<tr bgcolor="#F0FBBD">
-					<td align="center" bgcolor="#F8FEE0" height="28">
+					<td align="center" bgcolor="#FAFBFC" height="28">
 						<label>
 							<input type="checkbox" onclick="checkall(this.form, 'ids')" name="all" class="np" />
 							<br />全选
 						</label>
 					</td>
-					<td height="28" colspan="7" align="center" bgcolor="#F8FEE0">
+					<td height="28" colspan="7" align="center" bgcolor="#FAFBFC">
 						{dede:pagelist /}
 					</td>
 				</tr>
 			</form>
-			<tr align="center" bgcolor="#FAFDF0">
+			<tr align="center" bgcolor="#FBFBFB">
 				<td height="40" colspan="8">
 					<input type='button' onclick="document.form3.submit()" class="np coolbg" value='删除所选' />
 				</td>

@@ -89,7 +89,7 @@ function GetKeywordList($dsql,$pageno,$pagesize,$orderby='aid')
     while($row = $dsql->GetArray())
     {
         $line = "
-      <tr align='center' bgcolor='#FFFFFF' onMouseMove=\"javascript:this.bgColor='#FCFDEE';\" onMouseOut=\"javascript:this.bgColor='#FFFFFF';\">
+      <tr align='center' bgcolor='#FFFFFF' onMouseMove=\"javascript:this.bgColor='#FBFBFB';\" onMouseOut=\"javascript:this.bgColor='#FFFFFF';\">
       <td height='24'><input name=\"aids[]\" type=\"checkbox\" class=\"np\" value=\"{$row['aid']}\" /></td>
       <td height='24'>{$row['aid']}</td>
       <td style='padding:5px;'><input name='keyword' type='text' id='keyword{$row['aid']}' value='{$row['keyword']}' style='width:93%;'></td>
