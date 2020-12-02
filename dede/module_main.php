@@ -147,7 +147,7 @@ else if($action=='setup')
         }
     }
     $prvdir = "<table cellpadding='1' cellspacing='1' width='350' bgcolor='#cfcfcf' style='margin-top:5px;'>\r\n";
-    $prvdir .= "<tr style='background:#FBFCE2'><th width='270'>目录</td><th align='center'>可写</td></tr>\r\n";
+    $prvdir .= "<tr style='background:#E9E9E9'><th width='270'>目录</td><th align='center'>可写</td></tr>\r\n";
     foreach($prvdirs as $k=>$v)
     {
         if($v) $cw = '√';
@@ -199,7 +199,7 @@ else if($action=='setup')
     <td class='dtb'><a href='module_main.php?action=showreadme&hash={$hash}' target='_blank'>点击浏览...</a></td>
   </tr>
   <tr>
-    <td height='30' class='dtb' bgcolor='#F9FCEF' colspan='2'>
+    <td height='30' class='dtb' bgcolor='#e7e7e7' colspan='2'>
     <b>注意事项：</b>
     安装时请确保文件列表中涉及的目录前可写入权限，此外“后台管理目录”、“后台管理目录/templets”目录也必须暂时设置可写入权限。
     </td>

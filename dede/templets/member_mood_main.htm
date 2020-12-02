@@ -81,7 +81,7 @@ function CheckSel(){
   <tr align="center" bgcolor="#ffffff">
     <td height="32" colspan="4" align="left" bgcolor="#FAFAF1"><span <?php if(empty($ischeck)) echo "class='current'";?>><a href='member_info_main.php?type=mood'>全部(<?php echo $totalnum;?>)</a></span> | <span <?php if($ischeck=='1') echo "class='current'";?>><a href='member_info_main.php?type=mood&ischeck=1'>已审核(<?php echo $checknum;?>)</a></span>| <span <?php if($ischeck=='-1') echo "class='current'";?>><a href='member_info_main.php?type=mood&ischeck=-1'>未审核(<?php echo $ischecknum;?>)</a></span></td>
   </tr>
-  <tr align="center" height="26" bgcolor="#FBFCE2">
+  <tr align="center" height="26" bgcolor="#E9E9E9">
     <td width="8%">选择</td>
     <td width="11%">ID</td>
     <td>内容</td>
@@ -107,7 +107,7 @@ function CheckSel(){
        </td>
   </tr>
   <tr bgcolor="#E3F7D2">
-    <td height="24" colspan="4" align="center" bgcolor="#F9FCEF"> {dede:pagelist listsize='5' /} </td>
+    <td height="24" colspan="4" align="center" bgcolor="#e7e7e7"> {dede:pagelist listsize='5' /} </td>
   </tr>
 </table>
 </body>

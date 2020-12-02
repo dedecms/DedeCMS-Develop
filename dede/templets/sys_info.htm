@@ -149,7 +149,7 @@ foreach($ds as $dl)
 	$n++;
 ?>
      <table width="100%" style='<?php if($n!=$gp) echo "display:none"; ?>' id="td<?php echo $n?>" border="0" cellspacing="1" cellpadding="1" bgcolor="#cfcfcf">
-      <tr align="center" bgcolor="#FBFCE2" height="25">
+      <tr align="center" bgcolor="#E9E9E9" height="25">
        <td width="300">参数说明</td>
        <td>参数值</td>
        <td width="220">变量名</td>
@@ -162,7 +162,7 @@ while($row = $dsql->GetArray())
 {
 	if($i%2==0)
 	{
-		$bgcolor = "#F9FCEF";
+		$bgcolor = "#e7e7e7";
 	}
 	else
 	{
@@ -207,7 +207,7 @@ if($row['type']=='bool')
 ?>
 </div>
      <table width="100%" border="0" cellspacing="1" cellpadding="1"  style="border:1px solid #cfcfcf;border-top:none;">
-      <tr bgcolor="#F9FCEF">
+      <tr bgcolor="#e7e7e7">
        <td height="50" colspan="3"><table width="98%" border="0" cellspacing="1" cellpadding="1">
          <tr>
           <td width="11%">&nbsp;</td>

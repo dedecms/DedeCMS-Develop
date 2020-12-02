@@ -70,7 +70,7 @@ function GetKeywordList($dsql,$pageno,$pagesize,$orderby='aid')
     $printhead ="<form name='form3' action=\"search_keywords_main.php\" method=\"post\">
     <input name=\"dopost\" type=\"hidden\" value=\"\">
     <table width='98%' border='0' cellpadding='1' cellspacing='1' bgcolor='#cfcfcf' style='margin-bottom:3px' align='center'>
-    <tr align='center' bgcolor='#FBFCE2' height='24'>
+    <tr align='center' bgcolor='#E9E9E9' height='24'>
       <td width='5%'>选择</td>
       <td width='6%' height='23'><a href='#' onclick=\"ReloadPage('aid')\"><u>ID</u></a></td>
       <td width='20%'>关键字</td>

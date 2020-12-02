@@ -65,7 +65,7 @@
           <?php if($row['issystem']) echo "<font color='red'>系统模型,我们不建议您去修改基本配置信息!</font>";?></td>
       </tr>
       <tr>
-        <td height="28" align="left" bgcolor="#F9FCEF">模型名称：<br />
+        <td height="28" align="left" bgcolor="#e7e7e7">模型名称：<br />
           <span class="STYLE2" id="help3">　　会员模型类型统一使用中文,前台后台都保持一致。</span></td>
         <td bgcolor="#F8FCEF"><input name="name" type="text" id="name" value="<?php echo $row['name']?>"
             style="width:180px" class='alltxt' <?php if($row['issystem']) echo "disabled='1'";?> />
@@ -81,7 +81,7 @@
             onclick="ShowHide2('help5')" /></td>
       </tr>
       <tr>
-        <td height="28" align="left" bgcolor="#F9FCEF">模型字段配置：<br />
+        <td height="28" align="left" bgcolor="#e7e7e7">模型字段配置：<br />
           信息索引类字段系统已经加入，<br />
           您只需要增加其它个性化字段即可。</td>
         <td bgcolor="#F8FCEF"><input name="fset" type="button" id="fset" value="添加新字段"
@@ -91,7 +91,7 @@
       <tr>
         <td colspan='2' bgcolor="#FFFFFF" style="padding:6px">
           <table width="100%" border="0" cellpadding="1" cellspacing="1" align="center" style="background:#cfcfcf;">
-            <tr align="center" bgcolor="#FBFCE2" height="24">
+            <tr align="center" bgcolor="#E9E9E9" height="24">
               <td width="12%">提示文字</td>
               <td width="12%">数据字段名</td>
               <td width="12%">数据类型</td>
@@ -176,7 +176,7 @@ foreach($dtp->CTags as $ctag)
           <input name="state" type="radio" value="0" class='np' <?php if($row['state']=='0') echo " checked='1' "; ?> />
           禁用</td>
       </tr>
-      <tr bgcolor="#F9FCEF">
+      <tr bgcolor="#e7e7e7">
         <td height="28" colspan="2">
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
