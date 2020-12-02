@@ -5,7 +5,7 @@
  *
  * @version        $Id: digg_ajax.php 2 13:00 2011/11/25  $
  * @package        DedeCMS.Plus
- * @copyright      Copyright (c) 2004 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+ * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
