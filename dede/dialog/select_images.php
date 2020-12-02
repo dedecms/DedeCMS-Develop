@@ -74,7 +74,7 @@ function ChangeImage(surl){ document.getElementById('picview').src = surl; }
 </head>
 <body background='img/allbg.gif' leftmargin='0' topmargin='0'>
 <div id="floater" class="napisdiv">
-<a href="javascript:nullLink();" onClick="document.getElementById('floater').style.display='none';"><img src='img/picviewnone.gif' id='picview' border='0' alt='单击关闭预览'></a>
+<a href="javascript:nullLink();" onClick="document.getElementById('floater').style.display='none';"><img src='img/eye.png' id='picview' border='0' alt='单击关闭预览'></a>
 </div>
 <SCRIPT language=JavaScript src="../js/float.js"></SCRIPT>
 <SCRIPT language=JavaScript>
@@ -213,7 +213,7 @@ while($file = $dh->read()) {
 
         $line = "\n<tr>
    <td align='center' class='linerow' bgcolor='#F9FBF0'>
-   <a href=\"#\" onClick=\"ChangeImage('$reurl');\"><img src='img/picviewnone.gif' width='16' height='16' border='0' align=absmiddle></a>
+   <a href=\"#\" onClick=\"ChangeImage('$reurl');\"><img src='img/eye.png' width='16' height='16' border='0' align=absmiddle></a>
    </td>
    <td class='linerow' bgcolor='#F9FBF0'>
    <a href=# onclick=\"ReturnImg('$reurl');\" $lstyle><img src=img/gif.gif border=0 width=16 height=16 align=absmiddle>$file</a></td>
@@ -238,7 +238,7 @@ while($file = $dh->read()) {
 
         $line = "\n<tr>
    <td align='center' class='linerow' bgcolor='#F9FBF0'>
-   <a href=\"#\" onClick=\"ChangeImage('$reurl');\"><img src='img/picviewnone.gif' width='16' height='16' border='0' align=absmiddle></a>
+   <a href=\"#\" onClick=\"ChangeImage('$reurl');\"><img src='img/eye.png' width='16' height='16' border='0' align=absmiddle></a>
    </td>
    <td class='linerow' bgcolor='#F9FBF0'>
    <a href=# onclick=\"ReturnImg('$reurl');\" $lstyle><img src=img/jpg.gif border=0 width=16 height=16 align=absmiddle>$file</a>

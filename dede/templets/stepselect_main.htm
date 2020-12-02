@@ -12,7 +12,7 @@ li { float:left; padding-right:8px; line-height:24px; }
   position:absolute;
   top:73px; left:111px;
   width: 278px; height: 199px;
-  background-color: #e7e7e7;
+  background-color: #FAFBFC;
   border: 1px solid #dedede;
   display:none;
   padding:3px;
@@ -145,7 +145,7 @@ function ChangePage2(sobj)
 </head>
 <body background='images/allbg.gif' leftmargin='8' topmargin='8'>
 <div id='edsta'><center><img src='../static/loadinglit.gif' /></center></div>
-<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#cfcfcf" style="margin-bottom:6px">
+<table width="98%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#EAECEF" style="margin-bottom:6px">
   <tr>
      <td height="28" background="images/wbg.gif" colspan="6" style="padding-left:10px;">
      <div style="float:left"><b>·联动枚举组管理</b></div>
@@ -185,7 +185,7 @@ function ChangePage2(sobj)
                        <input type="button" name="addnew" id="addnew" value="新增类别组" class="np coolbg" onClick="AddType()" />
                   </td>
        </tr>
-       <tr><td colspan='3' height='24' style='color:#333333'><img src='images/help.gif' /> 灰色字的为系统内置枚举，您是不能对它进行删除修改操作的，但可以添加或修改它的元素。</td></tr>
+       <tr><td colspan='3' height='24' style='color:#333333'><img src='images/help.png' /> 灰色字的为系统内置枚举，您是不能对它进行删除修改操作的，但可以添加或修改它的元素。</td></tr>
      </table>
     </td>
   </tr>
@@ -247,7 +247,7 @@ if(!empty($egroup))
     <INPUT TYPE="submit" name='sb2' value="增加分类" class="np coolbg"/>
 </div>
 <div style='clear:both;color:#333333;line-height:24px;'>
-&nbsp;<img src='images/help.gif' /> 如果没选择隶属分类则表示增加的是顶级分类，用半角逗号","分开可以一次增加多个分类。
+&nbsp;<img src='images/help.png' /> 如果没选择隶属分类则表示增加的是顶级分类，用半角逗号","分开可以一次增加多个分类。
 </div>
 </form>    
    </td>
@@ -264,7 +264,7 @@ if(!empty($egroup))
     <div style="float:right"></div>
      </td>
   </tr>
-  <tr align="center" bgcolor="#E9E9E9" height="24"> 
+  <tr align="center" bgcolor="#FBFBFB" height="24"> 
       <td width="6%">选择</td>
       <td width="6%">编号</td>
       <td width="20%">枚举名</td>
@@ -337,7 +337,7 @@ if(!empty($egroup))
        <a href='javascript:DelSel();' class='np coolbg'>删除所选</a>
        </td>
      </tr>
-      <tr align="center" bgcolor="#e7e7e7" height="28"> 
+      <tr align="center" bgcolor="#FAFBFC" height="28"> 
        <td colspan="8">
           {dede:pagelist listsize=6/}
       </td>
@@ -357,7 +357,7 @@ else
     <div style="float:right"></div>
      </td>
   </tr>
-  <tr align="center" bgcolor="#E9E9E9" height="24"> 
+  <tr align="center" bgcolor="#FBFBFB" height="24"> 
       <td width="6%">选择</td>
       <td width="6%">编号</td>
       <td width="28%">组类别名</td>
@@ -395,7 +395,7 @@ else
         </td>
      </tr>
         {/dede:datalist}
-     <tr align="center" bgcolor="#e7e7e7" height="28"> 
+     <tr align="center" bgcolor="#FAFBFC" height="28"> 
        <td colspan="8">
           {dede:pagelist listsize=6/}
       </td>

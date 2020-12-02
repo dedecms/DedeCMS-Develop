@@ -47,11 +47,11 @@
     <div class="bodytitletxt" style="padding-left:10px;">自定义表单管理</div>
   </div>
   <table width="98%" border="0" cellpadding="1" cellspacing="1" align="center" class="tbtitle"
-    style="background:#CFCFCF;">
+    style="background:#EAECEF;">
     <form name="form1" action="diy_edit.php" method="post" onSubmit="return checkSubmit();">
       <input type='hidden' name='diyid' value='<?php echo $diyid;?>'>
       <input type='hidden' name='dopost' value='save'>
-      <tr bgcolor="#CFCFCF">
+      <tr bgcolor="#EAECEF">
         <td height="28" colspan="2" bgcolor="#EDF9D5" background='images/tbg.gif' style="padding-left:10px;">
           <b><a href="diy_main.php"><u>自定义表单管理</u></a> &gt; 修改自定义表单：</b>
           (修改表名不会创建新表，如果您不懂手工处理这些表，请不要更改)
@@ -62,16 +62,16 @@
           <span class="STYLE2" id='help1'>　　数字，创建后不可更改，并具有唯一性。</span> </td>
         <td bgcolor="#FFFFFF">
           <?php echo $diyid;?>
-          * <img src="images/help.gif" alt="帮助" width="16" height="16" border="0" style="cursor:hand"
+          * <img src="images/help.png" alt="帮助" width="16" height="16" border="0" style="cursor:hand"
             onclick="showHide2('help1')" /></td>
       </tr>
       <tr>
-        <td height="28" align="left" bgcolor="#e7e7e7">自定义表单名称：<br />
+        <td height="28" align="left" bgcolor="#FAFBFC">自定义表单名称：<br />
           <span class="STYLE2" id="help3">　　自定义表单的中文名称，在后台管理，前台发布等均使用此名字。</span></td>
-        <td bgcolor="#e7e7e7">
+        <td bgcolor="#FAFBFC">
           <input name="name" type="text" id="name" value="<?php echo $row['name']?>" style="width:180px"
             class='alltxt' />
-          *<img src="images/help.gif" alt="帮助" width="16" height="16" border="0" style="cursor:hand"
+          *<img src="images/help.png" alt="帮助" width="16" height="16" border="0" style="cursor:hand"
             onclick="showHide2('help3')" />
         </td>
       </tr>
@@ -81,15 +81,15 @@
         <td bgcolor="#FFFFFF">
           <input name="table" type="text" id="table" style="width:180px" value="<?php echo $row['table']; ?>"
             class='alltxt' disabled='1' />
-          *<img src="images/help.gif" alt="帮助" width="16" height="16" border="0" style="cursor:hand"
+          *<img src="images/help.png" alt="帮助" width="16" height="16" border="0" style="cursor:hand"
             onclick="showHide2('help5')" />
         </td>
       </tr>
       <tr>
-        <td height="28" align="left" bgcolor="#e7e7e7">模型字段配置：<br />
+        <td height="28" align="left" bgcolor="#FAFBFC">模型字段配置：<br />
           信息索引类字段系统已经加入，<br />
           您只需要增加其它个性化字段即可。</td>
-        <td bgcolor="#e7e7e7">
+        <td bgcolor="#FAFBFC">
           <input name="fset" type="button" id="fset" value="添加新字段"
             onClick="location.href='diy_field_add.php?diyid=<?php echo $diyid; ?>'" class="np coolbg"
             style="margin-top:5px" />
@@ -97,8 +97,8 @@
       </tr>
       <tr>
         <td colspan='2' bgcolor="#FFFFFF" style="padding:6px">
-          <table width="100%" border="0" cellpadding="1" cellspacing="1" align="center" style="background:#cfcfcf;">
-            <tr align="center" bgcolor="#E9E9E9" height="26">
+          <table width="100%" border="0" cellpadding="1" cellspacing="1" align="center" style="background:#EAECEF;">
+            <tr align="center" bgcolor="#FBFBFB" height="26">
               <td width="28%">表单提示文字</td>
               <td width="18%">数据字段名</td>
               <td width="20%">数据类型</td>
@@ -189,7 +189,7 @@ foreach($dtp->CTags as $ctag)
               class='np' />不公开</label>
         </td>
       </tr>
-      <tr bgcolor="#e7e7e7">
+      <tr bgcolor="#FAFBFC">
         <td height="28" colspan="2">
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>

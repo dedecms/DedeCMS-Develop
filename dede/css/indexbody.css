@@ -110,7 +110,7 @@ td {
 }
 
 .dbox {
-    border: 1px solid #c7c7c7;
+    border: 1px solid #EAECEF;
     width: 98%;
     margin-left: 1%;
     margin-top: 8px;
@@ -135,12 +135,12 @@ td {
 }
 
 .dbox dt.lside {
-    border-bottom: 1px solid #acacac;
-    background-color: rgb(221, 221, 221);
+    border-bottom: 1px solid #EAECEF;
+    background-color:#FAFBFC;
 }
 
 .dbox dt.rside {
-    border-bottom: 1px solid #cfcfcf;
+    border-bottom: 1px solid #EAECEF;
     background: url(../images/wbg.gif) repeat-x;
 }
 

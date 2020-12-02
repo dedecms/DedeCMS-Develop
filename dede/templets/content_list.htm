@@ -17,7 +17,7 @@
 <body leftmargin="8" topmargin="8" background='images/allbg.gif' onLoad="ContextMenu.intializeContextMenu()">
 
 	<!--  快速转换位置按钮  -->
-	<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#CFCFCF" align="center">
+	<table width="98%" border="0" cellpadding="0" cellspacing="1" bgcolor="#EAECEF" align="center">
 		<tr>
 			<td height="26" background="images/newlinebg3.gif">
 				<table width="98%" border="0" cellspacing="0" cellpadding="0">
@@ -52,14 +52,14 @@
 
 	<!--  内容列表   -->
 	<form name="form2">
-		<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#CFCFCF" align="center"
+		<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#EAECEF" align="center"
 			style="margin-top:8px">
-			<tr bgcolor="#E7E7E7">
+			<tr bgcolor="#FAFBFC">
 				<td height="28" colspan="10" background="images/tbg.gif" style="padding-left:10px;">
 					◆ {dede:global.positionname/}文档列表 &nbsp;(使用鼠标右键弹出菜单)
 				</td>
 			</tr>
-			<tr align="center" bgcolor="#E9E9E9" height="25">
+			<tr align="center" bgcolor="#FBFBFB" height="25">
 				<td width="6%">ID</td>
 				<td width="4%">选择</td>
 				<td width="28%">文章标题</td>
@@ -101,9 +101,9 @@
 					<img src='images/trun.gif' title="编辑属性" alt="编辑属性"
 						onClick="QuickEdit({dede:field.id/}, event, this);" style='cursor:pointer' border='0' width='16'
 						height='16' />
-					<img src='images/gtk-edit.png' title="编辑" alt="编辑" onClick="editArc({dede:field.id/});"
+					<img src='images/report_edit.png' title="编辑" alt="编辑" onClick="editArc({dede:field.id/});"
 						style='cursor:pointer' border='0' width='16' height='16' />
-					<img src='images/part-list.gif' title="预览" alt="预览" onClick="viewArc({dede:field.id/});"
+					<img src='images/part-list.png' title="预览" alt="预览" onClick="viewArc({dede:field.id/});"
 						style='cursor:pointer' border='0' width='16' height='16' />
 				</td>
 			</tr>
@@ -126,7 +126,7 @@
 				</td>
 			</tr>
 	</form>
-	<tr align="right" bgcolor="#e7e7e7">
+	<tr align="right" bgcolor="#FAFBFC">
 		<td height="36" colspan="10" align="center">
 			{dede:pagelist listsize=3/}
 		</td>
@@ -136,7 +136,7 @@
 	<!--  搜索表单  -->
 	<form name='form3' action='content_list.php' method='get'>
 		<input type='hidden' name='dopost' value='listArchives' />
-		<table width='98%' border='0' cellpadding='1' cellspacing='1' bgcolor='#cfcfcf' align="center"
+		<table width='98%' border='0' cellpadding='1' cellspacing='1' bgcolor='#EAECEF' align="center"
 			style="margin-top:8px">
 			<tr bgcolor='#EEF4EA'>
 				<td background='images/wbg.gif' align='center'>

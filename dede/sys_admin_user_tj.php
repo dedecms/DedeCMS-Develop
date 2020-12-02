@@ -106,8 +106,8 @@ if(isset($dopost) && $dopost=='getone')
     $ddd = $row['dd'] + $ddd;
     $ccd = $row['cc'] + $ccd;
     
-    $msg = "<table width='96%' border='0' align='center' cellpadding='3' cellspacing='1' bgcolor='#cfcfcf'>
-    <tr align='center' bgcolor='#E9E9E9'>
+    $msg = "<table width='96%' border='0' align='center' cellpadding='3' cellspacing='1' bgcolor='#EAECEF'>
+    <tr align='center' bgcolor='#FBFBFB'>
       <td width='18%' height='26'><strong>管理员↓|统计信息→</strong></td>
       <td width='18%'><strong>全部(文档|点击)</strong></td>
       <td width='16%'><strong>季度</strong></td>

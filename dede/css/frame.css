@@ -159,11 +159,15 @@ form {
 }
 
 .topnav .menuact #togglemenu {
-	background: url(../images/toggle_menu.gif) 5px 0px no-repeat;
+	background: url(../images/toggle_menu.png) 5px 2px no-repeat;
+	background-repeat: no-repeat;
+	background-size: 12px 12px;
 }
 
 .topnav .menuact #allmenu {
-	background: url(../images/allmenu.gif) 5px 0px no-repeat;
+	background: url(../images/allmenu.png) 5px 2px no-repeat;
+	background-repeat: no-repeat;
+	background-size: 12px 12px;
 }
 
 .nav {
@@ -348,7 +352,7 @@ body.hidemenu .right {
 .qucikmenu ul {
 	width: 110px;
 	list-style: none;
-	border: 1px solid #E7E7E7;
+	border: 1px solid #FAFBFC;
 	background: #FFF;
 }
 
@@ -580,6 +584,6 @@ input[type="radio"] {
 
 #help #content {
 	padding-right: 12px;
-	background: url(../images/gtk-edit.png) no-repeat scroll 0px -1px;
+	background: url(../images/report_edit.png) no-repeat scroll 0px -1px;
 	padding-left: 20px;
 }
