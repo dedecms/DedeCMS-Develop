@@ -22,7 +22,6 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.extraPlugins = 'dedepagebreak';
 
-	config.removeButtons = 'About,ShowBlocks,Iframe,Flash,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField';
+	config.removeButtons = 'About,ShowBlocks,Iframe,Flash,Form,Checkbox,Smiley,Emoji,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField';
 
-	// config.filebrowserImageUploadUrl = "./dialog/select_images_post.php";
 };
