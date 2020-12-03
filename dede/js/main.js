@@ -730,7 +730,7 @@ $(document).ready(function () {
 		litpicImgSrc = "";
 		litpicImg = "";
 		$("#litpic_b64").val(litpicImg);
-		$("#litPic").attr("src", "../resources/img/defaultpic.gif");
+		$("#litPic").attr("src", "../static/defaultpic.gif");
 	})
 
 	// 添加图片

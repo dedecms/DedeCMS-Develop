@@ -375,7 +375,7 @@ echo <<<EOT
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset={$cfg_soft_lang}">
 <title>德得广告</title>
-<link rel="stylesheet" type="text/css" href="{$cfg_static_dir}/css/base.css">
+<link rel="stylesheet" type="text/css" href="{$cfg_static_dir}/img/base.css">
 </head>
 <body background='{$cfg_static_dir}/img/allbg.gif' leftmargin="8" topmargin='8'>
 <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#DFF9AA">

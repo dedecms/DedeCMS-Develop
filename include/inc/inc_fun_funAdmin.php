@@ -189,7 +189,7 @@ function SpGetEditor($fname,$fvalue,$nheight="350",$etype="Basic",$gtype="print"
             $addConfig = ",{filebrowserImageUploadUrl:'./dialog/select_images_post.php'}";
         }
         $code = <<<EOT
-<script src="{$GLOBALS['cfg_static_dir']}/pkg/ckeditor/ckeditor.js"></script>
+<script src="{$GLOBALS['cfg_static_dir']}/ckeditor/ckeditor.js"></script>
 <textarea id="{$fname}" name="{$fname}" rows="8" cols="60">{$fvalue}</textarea>
 <script>
 var editor = CKEDITOR.replace('{$fname}'{$addConfig});

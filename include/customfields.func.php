@@ -54,7 +54,7 @@ function GetFormItem($ctag, $admintype='admin')
             $myformItem .= "<span id='span_{$fieldname}_sec'></span>\r\n";
             if($hasSetEnumJs != 'hasset')
             {
-                $myformItem .= '<script language="javascript" type="text/javascript" src="'.$cmspath.'resources/pkg/other/enums.js"></script>'."\r\n";
+                $myformItem .= '<script language="javascript" type="text/javascript" src="'.$cmspath.'static/enums.js"></script>'."\r\n";
                 $GLOBALS['hasSetEnumJs'] = 'hasset';
             }
             $myformItem .= "<script language='javascript' type='text/javascript' src='{$cmspath}data/enums/{$fieldname}.js'></script>\r\n";
@@ -413,7 +413,7 @@ function GetFormItemValue($ctag, $fvalue, $admintype='admin', $fieldname='')
         $myformItem .= "<span id='span_{$fieldname}_sec'></span>\r\n";
         if($hasSetEnumJs != 'hasset')
         {
-            $myformItem .= '<script language="javascript" type="text/javascript" src="'.$cmspath.'resources/pkg/other/enums.js"></script>'."\r\n";
+            $myformItem .= '<script language="javascript" type="text/javascript" src="'.$cmspath.'static/enums.js"></script>'."\r\n";
             $GLOBALS['hasSetEnumJs'] = 'hasset';
         }
         $myformItem .= "<script language='javascript' type='text/javascript' src='{$cmspath}data/enums/{$fieldname}.js'></script>\r\n";
