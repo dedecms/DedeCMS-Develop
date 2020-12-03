@@ -203,9 +203,23 @@ class OxWindow
 <td colspan='2' bgcolor='#F9FCEF'>
 <table width='270' border='0' cellpadding='0' cellspacing='0'>
 <tr align='center' height='28'>
-<td width='90'><input name='imageField1' type='image' class='np' src='{$cfg_static_dir}/img/button_".$wintype.".gif' width='60' height='22' border='0' /></td>
-<td width='90'><a href='#'><img class='np' src='{$cfg_static_dir}/img/button_reset.gif' width='60' height='22' border='0' onClick='this.form.reset();return false;' /></a></td>
-<td><a href='#'><img src='{$cfg_static_dir}/img/button_back.gif' width='60' height='22' border='0' onClick='history.go(-1);' /></a></td>
+<td width='90'>
+<button name='imageField1' type='submit' class='btn btn-primary'>
+<i class='bx bx-save'></i>
+<span>提交</span>
+</button>
+</td>
+<td width='90'>
+<button type='button' class='btn btn-secondary' onClick='this.form.reset();return false;' >
+<i class='bx bx-refresh'></i>
+<span>清空</span>
+</button>
+<td>
+<button type='button' class='btn btn-secondary' onClick='history.go(-1);'>
+<i class='bx bx-chevron-left'></i>
+<span>返回</span>
+</button>
+</td>
 </tr>
 </table>
 </td>
