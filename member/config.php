@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * @version        $Id: config.php 1 8:38 2010年7月9日 $
  * @package        DedeCMS.Member
@@ -68,6 +68,7 @@ function XSSClean($val) {
     if($cfg_soft_lang=='gb2312') utf82gb($val);
     return $val;
 }
+
 $_GET = XSSClean($_GET);
 $_POST = XSSClean($_POST);
 $_REQUEST = XSSClean($_REQUEST);

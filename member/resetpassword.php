@@ -81,7 +81,7 @@ else if($dopost == "safequestion")
 
     if(empty($safeanswer)) $safeanswer = '';
 
-    if($row['safequestion'] == $safequestion && $row['safeanswer'] == $safeanswer)
+    if($row['safequestion'] === $safequestion && $row['safeanswer'] === $safeanswer)
     {
         sn($mid, $row['userid'], $row['email'], 'N');
         exit();

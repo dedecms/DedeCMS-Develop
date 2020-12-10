@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * @version        $Id: tags.php 1 2010-06-30 11:43:09 $
  * @package        DedeCMS.Site

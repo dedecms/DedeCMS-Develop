@@ -1,5 +1,4 @@
-<?php
-if(!defined('DEDEINC')) exit('Request Error!');
+<?php if(!defined('DEDEINC')) exit('Request Error!');
 /**
  * 货到付款支付接口
  */

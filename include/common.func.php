@@ -1,4 +1,4 @@
-<?php
+<?php if (!defined('DEDEINC')) exit("Request Error!");
 /**
  * 系统核心函数存放文件
  * @version        $Id: common.func.php 4 16:39 2010年7月6日 $
@@ -7,8 +7,6 @@
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-if(!defined('DEDEINC')) exit('dedecms');
-
 if (version_compare(PHP_VERSION, '7.0.0', '>='))
 {
     if (!function_exists('mysql_connect') AND function_exists('mysqli_connect')) {
