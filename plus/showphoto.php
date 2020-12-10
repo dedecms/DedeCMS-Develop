@@ -76,5 +76,8 @@ else
 {
     $pageGuide .= " | 没有了";
 }
-require_once(DEDETEMPLATE.'/plus/showphoto.htm');
+
+$dlist = new DataListCP();
+$dlist->SetTemplate(DEDETEMPLATE.'/plus/showphoto.htm');
+$dlist->Display();
 exit();

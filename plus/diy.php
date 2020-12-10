@@ -32,7 +32,9 @@ if($action == 'post')
     if(empty($do))
     {
         $postform = $diy->getForm(true);
-        include DEDEROOT."/templets/plus/{$diy->postTemplate}";
+        $dlist = new DataListCP();
+        $dlist->SetTemplate(DEDEROOT."/templets/plus/{$diy->postTemplate}");
+        $dlist->Display();
         exit();
     }
     elseif($do == 2)
@@ -157,5 +159,7 @@ else if($action == 'view')
     }
 
     $fieldlist = $diy->getFieldList();
-    include DEDEROOT."/templets/plus/{$diy->viewTemplate}";
+    $dlist = new DataListCP();
+    $dlist->SetTemplate(DEDEROOT."/templets/plus/{$diy->viewTemplate}");
+    $dlist->Display();
 }

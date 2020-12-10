@@ -45,7 +45,9 @@ if($open==0)
     $ctag = '';
     $downlinks = ch_softlinks($row[$vname], $ctag, $cu, '', TRUE);
 
-    require_once(DEDETEMPLATE.'/plus/download_links_templet.htm');
+    $dlist = new DataListCP();
+    $dlist->SetTemplate(DEDETEMPLATE.'/plus/download_links_templet.htm');
+    $dlist->Display();
     exit();
 }
 /*------------------------
@@ -208,7 +210,9 @@ else if($open==2)
             $memberTypes[0] = "游客";
             $msgtitle = "你没有权限下载软件：{$arctitle}！";
             $moremsg = "这个软件需要 <font color='red'>".$memberTypes[$needRank]."</font> 才能下载，你目前是：<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> ！";
-            include_once(DEDETEMPLATE.'/plus/view_msg.htm');
+            $dlist = new DataListCP();
+            $dlist->SetTemplate(DEDETEMPLATE.'/plus/view_msg.htm');
+            $dlist->Display();
             exit();
         }
 
@@ -226,7 +230,9 @@ else if($open==2)
                 {
                     $msgtitle = "你没有权限下载软件：{$arctitle}！";
                     $moremsg = "这个软件需要 <font color='red'>".$needMoney." 金币</font> 才能下载，你目前拥有金币：<font color='red'>".$cfg_ml->M_Money." 个</font> ！";
-                    include_once(DEDETEMPLATE.'/plus/view_msg.htm');
+                    $dlist = new DataListCP();
+                    $dlist->SetTemplate(DEDETEMPLATE.'/plus/view_msg.htm');
+                    $dlist->Display();
                     exit(0);
                 }
                 //有足够金币，记录用户信息

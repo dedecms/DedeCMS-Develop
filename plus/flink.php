@@ -36,4 +36,6 @@ if($dopost=='save')
 }
 
 //显示模板(简单PHP文件)
-include_once(DEDETEMPLATE.'/plus/flink-list.htm');
+$dlist = new DataListCP();
+$dlist->SetTemplate(DEDETEMPLATE.'/plus/flink-list.htm');
+$dlist->Display();

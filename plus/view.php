@@ -68,7 +68,9 @@ if($needMoney>0 || $needRank>1)
         $memberTypes[0] = "游客或没权限会员";
         $msgtitle = "你没有权限浏览文档：{$arctitle} ！";
         $moremsg = "这篇文档需要 <font color='red'>".$memberTypes[$needRank]."</font> 才能访问，你目前是：<font color='red'>".$memberTypes[$cfg_ml->M_Rank]."</font> ！";
-        include_once(DEDETEMPLATE.'/plus/view_msg.htm');
+        $dlist = new DataListCP();
+        $dlist->SetTemplate(DEDETEMPLATE.'/plus/view_msg.htm');
+        $dlist->Display();
         exit();
     }
 
@@ -84,7 +86,9 @@ if($needMoney>0 || $needRank>1)
             {
                     $msgtitle = "你没有权限浏览文档：{$arctitle} ！";
                     $moremsg = "这篇文档需要 <font color='red'>".$needMoney." 金币</font> 才能访问，你目前拥有金币：<font color='red'>".$cfg_ml->M_Money." 个</font> ！";
-                    include_once(DEDETEMPLATE.'/plus/view_msg.htm');
+                    $dlist = new DataListCP();
+                    $dlist->SetTemplate(DEDETEMPLATE.'/plus/view_msg.htm');
+                    $dlist->Display();
                     $arc->Close();
                     exit();
             }

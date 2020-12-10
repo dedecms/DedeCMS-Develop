@@ -64,10 +64,14 @@ else if($job=='editok')
 if($g_isadmin)
 {
     $row = $dsql->GetOne("SELECT * FROM `#@__guestbook` WHERE id='$id'");
-    require_once(DEDETEMPLATE.'/plus/guestbook-admin.htm');
+    $dlist = new DataListCP();
+    $dlist->SetTemplate(DEDETEMPLATE.'/plus/guestbook-admin.htm');
+    $dlist->Display();
 }
 else
 {
     $row = $dsql->GetOne("SELECT id,title FROM `#@__guestbook` WHERE id='$id'");
-    require_once(DEDETEMPLATE.'/plus/guestbook-user.htm');
+    $dlist = new DataListCP();
+    $dlist->SetTemplate(DEDETEMPLATE.'/plus/guestbook-user.htm');
+    $dlist->Display();
 }

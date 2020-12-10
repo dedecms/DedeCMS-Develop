@@ -337,7 +337,9 @@ function ShowMsg($msg, $gourl, $onlymsg=0, $limittime=0)
         }
         $msg  = $htmlhead.$rmsg.$htmlfoot;
     }
-    echo $msg;
+    $dlist = new DataListCP();
+    $dlist->SetString($msg);
+    $dlist->Display();
 }
 
 /**
