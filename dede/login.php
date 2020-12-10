@@ -44,7 +44,7 @@ require_once (DEDEDATA.'/admin/config_update.php');
 
 if ($dopost=='showad')
 {
-    include('templets/login_ad.htm');
+    DedeInclude('templets/login_ad.htm');
     exit;
 }
 
@@ -117,4 +117,4 @@ if($dopost=='login')
     }
 }
 
-include('templets/login.htm');
+DedeInclude('templets/login.htm');
