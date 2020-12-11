@@ -9,8 +9,8 @@
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-require_once(dirname(__FILE__).'/../include/common.inc.php');
+require_once dirname(__FILE__) . '/../include/common.inc.php';
 //显示模板(简单PHP文件)
 $dlist = new DataListCP();
-$dlist->SetTemplate(DEDETEMPLATE.'/plus/flink-add.htm');
+$dlist->SetTemplate(DEDETEMPLATE . '/plus/flink-add.htm');
 $dlist->Display();

@@ -9,8 +9,8 @@
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
  */
-require_once(dirname(__FILE__).'/../include/common.inc.php');
-require_once(DEDEINC.'/typelink.class.php');
+require_once dirname(__FILE__) . '/../include/common.inc.php';
+require_once DEDEINC . '/typelink.class.php';
 $dlist = new DataListCP();
-$dlist->SetTemplate(DEDETEMPLATE.'/plus/heightsearch.htm');
+$dlist->SetTemplate(DEDETEMPLATE . '/plus/heightsearch.htm');
 $dlist->Display();
