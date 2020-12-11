@@ -1,5 +1,4 @@
 <?php if (!defined('DEDEINC')) {exit("Request Error!");}
-
 /**
  * 单页文档调用标签
  *

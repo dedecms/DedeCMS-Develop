@@ -1,5 +1,4 @@
 <?php if (!defined('DEDEINC')) {exit("Request Error!");}
-
 /**
  * 自定义宏标记调用标签
  *

@@ -1,5 +1,4 @@
 <?php if (!defined('DEDEINC')) {exit("Request Error!");}
-
 /**
  * 广告调用
  *
