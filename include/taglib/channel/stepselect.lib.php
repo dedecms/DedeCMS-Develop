@@ -11,7 +11,7 @@ function ch_stepselect($fvalue, &$arcTag, &$refObj, $fname = '')
  * @version        $Id: stepselect.lib.php 16:24 2010年7月26日 $
  * @package        DedeCMS.Taglib
  * @founder        IT柏拉图, https: //weibo.com/itprato
- * @author         IT柏拉图, DedeCMS团队
+ * @author         DedeCMS团队
  * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license        http://help.dedecms.com/usersguide/license.html
  * @link           http://www.dedecms.com
