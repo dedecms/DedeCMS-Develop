@@ -155,7 +155,6 @@ html {
 }
 
 .dede-tab {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
   padding: 0;
   background-color: #222a30;
   position: fixed;
