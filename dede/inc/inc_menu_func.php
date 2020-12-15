@@ -72,7 +72,7 @@ function GetMenus($userrank, $topos = 'main', $openitem='1')
                         //an add icos , small items use att ischannel='1' addico='ico' addalt='msg' linkadd=''
                         $link = "<li class=\"uk-flex dede_menu_icon\" >
                         $link
-                        <a class=\"icon\" href='" . $ctag2->GetAtt('linkadd') . "' target='" . $ctag2->GetAtt('target') . "'><span data-uk-icon=\"icon: ".$addico."\" width=\"16\" class=\"uk-margin-small-right\"></span></a>
+                        <a class=\"icon\" uk-tooltip='title: ".$addalt."; pos: left' href='" . $ctag2->GetAtt('linkadd') . "' target='" . $ctag2->GetAtt('target') . "'><span data-uk-icon=\"icon: ".$addico."\" width=\"16\" class=\"uk-margin-small-right\"></span></a>
                         </li>\r\n";
 
                     } else {
