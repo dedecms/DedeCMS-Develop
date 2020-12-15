@@ -55,7 +55,6 @@ $menusMain = "
 <m:item name='发布向导' link='public_guide.php' rank='a_List,a_AccList' target='main' />
 <m:item name='文档列表' link='content_list.php' rank='a_List,a_AccList' target='main' />
 <m:item name='批量增加栏目' link='catalog_add.php?dopost=quick' rank='a_List,a_AccList' target='main' />
-<m:item name='栏目管理' link='catalog_main.php' rank='a_List,a_AccList' target='main' />
 </m:top>
 
 <m:top mapitem='1' item='1_' name='内容维护' display='block'>
