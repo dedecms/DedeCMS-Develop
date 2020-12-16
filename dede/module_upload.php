@@ -108,7 +108,7 @@ if ($action == 'upload') {
     <div class=\"uk-margin uk-grid-small uk-child-width-auto uk-grid\">
     <div uk-form-custom=\"target: true\">
         <input type=\"file\">
-        <input class=\"uk-input uk-form-width-medium\" type=\"text\" placeholder=\"选择文件\" disabled>
+        <input class=\"uk-input uk-form-width-medium\" type=\"text\" placeholder=\"点击选择文件\" disabled>
     </div>
     </div>
     </div>
