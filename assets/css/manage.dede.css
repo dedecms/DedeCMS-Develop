@@ -41,7 +41,12 @@ html {
   margin-left: -15px;
   margin-top: 7px;
 }
-
+#oswindos-container{
+  min-width: 960px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 35px;
+}
 thead{
   background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
@@ -81,4 +86,13 @@ thead{
 }
 .e1e02{
   margin-right: 25px;
+}
+#dede-table-oswindow-body {
+  position: relative;
+  top: -1px;
+  margin-bottom: 50px;
+}
+#dede-oswindow-toolbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
