@@ -30,11 +30,11 @@ html {
   border-top-right-radius: 3px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 0;
+
 }
 #dede-table-body{
   position: relative;
-  top: -51px;
+  top: -50px;
 }
 
 #dede-table-header{
