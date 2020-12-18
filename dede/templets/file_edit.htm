@@ -23,7 +23,7 @@
 		<div id="dede-card-header" class="uk-card-header">
 		  <div class="uk-grid uk-grid-small uk-text-small" data-uk-grid="">
 			<div class="uk-width-expand uk-first-column">
-			  <span class="cat-txt"><ul class="uk-breadcrumb"><li><a href="file_manage_main.php?activepath={dede:global.activepath/}">文件浏览器</a></li><li><span>修改/新建文件</span></li></ul></span>
+			  <span class="cat-txt"><ul class="uk-breadcrumb"><li><a href="file_manage_main.php?activepath={dede:global.activepath/}">文件管理器</a></li><li><span>修改/新建文件</span></li></ul></span>
 			</div>
 		  </div>
 		</div>
@@ -31,22 +31,22 @@
 
 			<div class="uk-inline">
 				<span class="uk-form-icon" uk-icon="icon: file-text"></span>
-				<input class="uk-input dede-oswindows-input uk-form-small" id="form-horizontal-text" type="text" value="{dede:global.filename/}"> （不允许用 “..” 形式的路径）
+				<input name="filename" class="uk-input dede-oswindows-input uk-form-small" id="form-horizontal-text"  type="text" value="{dede:global.filename/}"> （不允许用 “..” 形式的路径）
 			</div>
 			<div class="uk-button-group">
 				<a href="#"  onClick='history.go(-1);' class="uk-button uk-button-default  uk-button-small uk-flex-inline">
 					<span class="dede-toolbar-icon" uk-icon="icon:arrow-left-short;ratio:0.8"></span> 返回
 				</a>
-				<button type="reset" class="uk-button uk-button-default  uk-button-small uk-flex-inline">
+				<a onClick='location.reload();' class="uk-button uk-button-default  uk-button-small uk-flex-inline">
 					<span class="dede-toolbar-icon" uk-icon="icon: arrow-counterclockwise;ratio:0.8"></span> 重置
-				</button>
+				</a>
 				<button type='submit' class="uk-button uk-button-default  uk-button-small uk-flex-inline">
-					<span class="dede-toolbar-icon" uk-icon="icon: record2;ratio:0.8"></span> 提交
+					<span class="dede-toolbar-icon" uk-icon="icon: record2;ratio:0.8"></span> 保存
 				</button>
 			</div>
 				<div class="uk-inline">
 					<span class="uk-form-icon" uk-icon="icon: folder"></span>
-					<input class="uk-input dede-oswindows-input uk-form-small" id="form-horizontal-text" type="text" value="{dede:global.activepath/}"> （空白表示根目录 ，不允许用 “..” 形式的路径）
+					<input name="activepath" class="uk-input dede-oswindows-input uk-form-small" id="form-horizontal-text" type="text" value="{dede:global.activepath/}"> （空白表示根目录 ，不允许用 “..” 形式的路径）
 				</div>
 		</td></tr></tbody></table>
 	</div>
