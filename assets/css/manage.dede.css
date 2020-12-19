@@ -136,3 +136,31 @@ margin-right: 9px;
 .uk-child-width-1-8 > * {
   width: 100px;
 }
+
+.uk-button-primary {
+  background-color: #e2833c;
+  color: #fff;
+  border: 1px solid transparent;
+}
+.uk-button-primary:hover {
+  background-color: #eea86f;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.uk-modal-header {
+  height: 35px;
+  padding: 0 20px;
+  padding-top: 15px;
+  border-top: 2px solid;
+  border-top-color: #f98020;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.uk-modal-title{
+  font-size: 16px;
+}
+#modal-overflow .uk-alert {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}

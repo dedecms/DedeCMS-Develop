@@ -139,11 +139,11 @@
 							<td></td>
 							<td><input type="checkbox" id="select-all" class="uk-checkbox" /></td>
 							<td height="36" colspan="8">
-								<a href="javascript:Update()">&nbsp;更新&nbsp;</a>
-								<a href="javascript:Review()">&nbsp;审核&nbsp;</a>
-								<a href="javascript:Recommend()">&nbsp;推荐&nbsp;</a>
-								<a href="javascript:Deletes()">&nbsp;删除&nbsp;</a>
-								<a href="javascript:;" onClick="moveArc(event,this,<?php echo (empty($channelid) ? 0 : $channelid); ?>)" >&nbsp;移动&nbsp;</a>
+								<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Update()">&nbsp;更新&nbsp;</a>
+								<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Review()">&nbsp;审核&nbsp;</a>
+								<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Recommend()">&nbsp;推荐&nbsp;</a>
+								<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Delete()">&nbsp;删除&nbsp;</a>
+								<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Move('{dede:global.channelid/}')">&nbsp;移动&nbsp;</a>
 								<?php if($channelid==1) echo "	<a href=\"javascript:kwArc(0)\" class=\"coolbg\">&nbsp;自动关键字&nbsp;</a>\r\n"; ?>
 								<a href="javascript:;" onClick="cAtts('attsAdd',event,this)" class="coolbg">&nbsp;增加属性&nbsp;</a>
 								<a href="javascript:;" onClick="cAtts('attsDel',event,this)" class="coolbg">&nbsp;删除属性&nbsp;</a>
@@ -182,7 +182,7 @@
 					<li><a href="catalog_main.php"
 						class="uk-icon-link" data-uk-icon="icon: diagram-3" title="栏目管理" data-uk-tooltip></a></li>
 					<li><a href="makehtml_list.php?cid={dede:global.cid/}"
-						class="uk-icon-link" data-uk-icon="icon: view-list" title="更新列表" data-uk-tooltip></a></li>
+						class="uk-icon-link" data-uk-icon="icon: ui-checks" title="更新列表" data-uk-tooltip></a></li>
 					<li><a href="makehtml_archives.php?cid={dede:global.cid/}"
 						class="uk-icon-link" data-uk-icon="icon: file-earmark-break" title="更新文档" data-uk-tooltip></a></li>
 					<li><a href="recycling.php?cid={dede:global.cid/}"
@@ -193,80 +193,19 @@
 		<div class="e1e02">Copyright &copy; 2007-2020 <a href='http://www.dedecms.com' target='_blank'><u>DedeCMS</u></a>, 上海卓卓网络科技有限公司 (DesDev, Inc.)</div>
 	</div>
 		
+
+
+
+<div id="modal-overflow" uk-modal>
+    <div class="uk-modal-dialog">
+    </div>
+</div>
 	
 	<!-- JS FILES -->
     <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit.min.js"></script>
 	<script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit-icons.min.js"></script>
 	<script src="{dede:global.cfg_assets_dir/}/pkg/jquery/jquery.min.js"></script>
-	<script language="javascript">
-	$('#select-all').click(function(event) {
-		if (this.checked) {
-		  $(':checkbox').prop('checked', true);
-		} else {
-		  $(':checkbox').prop('checked', false);
-		}
-	  });
-
-	// 更新
-	function Update(){
-		var qstr=getCheckboxItem();
-		if(qstr=='')
-		{
-			alert('必须选择一个或多个文档！');
-			return;
-		}
-		location="archives_do.php?aid=0&dopost=makeArchives&qstr="+qstr;
-	}
-
-	// 审核
-	function Review(){
-		var qstr=getCheckboxItem();
-		if(qstr=='')
-		{
-			alert('必须选择一个或多个文档！');
-			return;
-		}
-		location="archives_do.php?aid=0&dopost=checkArchives&qstr="+qstr;
-	}
-
-	// 推荐
-	function Recommend(){
-		var qstr=getCheckboxItem();
-		if(qstr=='')
-		{
-			alert('必须选择一个或多个文档！');
-			return;
-		}
-		location="archives_do.php?aid=0&dopost=commendArchives&qstr="+qstr;
-	}
-
-	// 删除
-	function Deletes(){
-		var qstr=getCheckboxItem();
-		if(qstr=='')
-		{
-			alert('必须选择一个或多个文档！');
-			return;
-		}
-		location="archives_do.php?aid=0&dopost=delArchives&qstr="+qstr;
-	}
-
-	//获得选中文件的文件名
-	function getCheckboxItem()
-	{
-		var checkedVals = $('.check:checkbox:checked').map(function() {
-			return this.value;
-		}).get();
-		return checkedVals.join("`")
-	}
-
-	</script>
-<!-- 	
-	<script language="javascript" src="../assets/pkg/dede/dedeajax2.js"></script>
-	<script language="javascript" src="js/ieemu.js"></script>
-	<script language="javascript" src="js/context_menu.js"></script>
-	<script language="javascript" src="js/main.js"></script>
-	<script language="javascript" src="js/list.js"></script> -->
+	<script src="{dede:global.cfg_assets_dir/}/js/dede.manage.min.js"></script>
 </body>
 
 </html>
