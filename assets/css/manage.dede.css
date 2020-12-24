@@ -190,3 +190,7 @@ margin-right: 9px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px; 
 }
+
+.uk-checkbox{
+  margin-top: 1px;
+}
