@@ -121,8 +121,8 @@ margin-right: 9px;
 }
 
 .dede-card-navbar,
-.dede-card-navbar>li>a{
-  min-height: 40px;
+.dede-card-navbar >li>a{
+  min-height: 30px;
 }
 
 #dede-dropdown-margin > .uk-margin{
