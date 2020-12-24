@@ -14,48 +14,9 @@
   <div id="dede-table-header" class="uk-card uk-card-small uk-card-default" uk-sticky="bottom: #offset">
 		<div id="dede-card-header" class="uk-card-header">
 			<div class="uk-grid uk-grid-small uk-text-small">
-        <span><ul class="uk-breadcrumb"><li><span>附件数据管理</span></li></ul></span>
+        <span><ul class="uk-breadcrumb"><li><span>内容类型管理</span></li></ul></span>
 			</div>
-			<!--  搜索表单  -->
-			<ul class="uk-navbar-nav dede-card-navbar" uk-navbar >
-				<li style="margin-right: 12px;"><a href="media_add.php" class="uk-button uk-button-default uk-button-small uk-flex-inline ">上传文件</a></li>
-				<li>
-					<button class="uk-button uk-button-default uk-button-small uk-flex-inline "><span class="dede-toolbar-icon" uk-icon="icon: filter-circle;ratio:0.8"></span> 筛选</button>
-					<div class="uk-navbar-dropdown " uk-dropdown="offset: 12;mode: click" style="width: 300px;">
-	
-						<ul class="uk-nav uk-navbar-dropdown-nav" >
-							<li>
-								<form name='form3' action='content_s_list.php' method='get'>
-								<input type='hidden' name='dopost' value='listArchives'>
-								<fieldset id="dede-dropdown-margin" class="uk-fieldset">
-									<div class="uk-margin">
-                    <select name='mediatype'  class="uk-select uk-form-small uk-flex-inline uk-width-1-1">
-                      <option value='0'>文件类型</option>
-                      <option value='1'<?php if($mediatype==1) echo " selected"?>>图片</option>
-                      <option value='3'<?php if($mediatype==3) echo " selected"?>>视频/音频</option>
-                      <option value='4'<?php if($mediatype==4) echo " selected"?>>其它附件</option>
-                    </select> </td>
-
-									</div>
-									<div class="uk-margin">
-                    <select name='membertype'  class="uk-select uk-form-small uk-flex-inline uk-width-1-1">
-                      <option value='0'>用户组</option>
-                      <option value='1'<?php if($membertype==1) echo " selected"?>>管理员</option>
-                      <option value='2'<?php if($membertype==2) echo " selected"?>>外部会员</option>
-             </select>
-              </div>
-              <div class="uk-margin">
-								<input type='text' class="uk-input uk-form-small uk-flex-inline uk-width-1-1" name='keyword' value='{dede:global.keyword/}' placeholder="关键字"/>
-							</div>
-								<button type='submit' class="uk-button-primary uk-form-small uk-width-1-1" > <span class="dede-toolbar-icon" uk-icon="icon: search;ratio:0.8"></span> 查找</button>
-						</fieldset>
-								</form>
-								</li>
-							</ul>
-					</div>
-				</li>
-			</ul>
-			<!--  /搜索表单  -->
+		
 		</div>
 
 		<table id="dede-table-toolbar" class="uk-table uk-table-middle uk-table-divider uk-table-striped uk-margin-remove">
