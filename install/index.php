@@ -391,7 +391,7 @@ else if ($step == 10) {
         if (empty($dbname)) {
             echo "<font color='green'>信息正确</font>";
         } else {
-            $info = mysqli_select_db($conn, $dbname) === TRUE ? "<font color='red'>数据库已经存在，系统将覆盖数据库</font>" : "<font color='green'>数据库不存在,系统将自动创建</font>";
+            $info = mysqli_select_db($conn, $dbname) === true ? "<font color='red'>数据库已经存在，系统将覆盖数据库</font>" : "<font color='green'>数据库不存在,系统将自动创建</font>";
             echo $info;
         }
     } else {

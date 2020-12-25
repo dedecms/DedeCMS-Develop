@@ -1,8 +1,6 @@
 <?php if (!defined('DEDEINC')) {exit('Request Error');
 }
 /**
-* 
-* 
  * 字符串小助手
  *
  * @version   $Id: string.helper.php 5 14:24 2010年7月5日 $
@@ -12,14 +10,11 @@
  * @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license   http://help.dedecms.com/usersguide/license.html
  * @link      http://www.dedecms.com
- 
 */
 //拼音的缓冲数组
 $pinyins = array();
 
 /**
-* 
-* 
  *  中文截取2，单字节截取模式
  *  如果是request的内容，必须使用这个函数
  *
@@ -28,7 +23,6 @@ $pinyins = array();
  * @param  int  $slen  截取的长度
  * @param  int  $startdd  开始标记处
  * @return string
- 
 */
 if (!function_exists('cn_substrR')) {
     function cn_substrR($str, $slen, $startdd = 0)
@@ -41,8 +35,6 @@ if (!function_exists('cn_substrR')) {
 }
 
 /**
-* 
-* 
  *  中文截取2，单字节截取模式
  *
  * @access public
@@ -50,7 +42,6 @@ if (!function_exists('cn_substrR')) {
  * @param  int  $slen  截取的长度
  * @param  int  $startdd  开始标记处
  * @return string
- 
 */
 if (!function_exists('cn_substr')) {
     function cn_substr($str, $slen, $startdd = 0)
@@ -113,8 +104,6 @@ if (!function_exists('cn_substr')) {
 }
 
 /**
-* 
-* 
  *  utf-8中文截取，单字节截取模式
  *
  * @access public
@@ -122,7 +111,6 @@ if (!function_exists('cn_substr')) {
  * @param  int  $slen  截取的长度
  * @param  int  $startdd  开始标记处
  * @return string
- 
 */
 if (!function_exists('cn_substr_utf8')) {
     function cn_substr_utf8($str, $length, $start = 0)
@@ -159,14 +147,11 @@ if (!function_exists('cn_substr_utf8')) {
 }
 
 /**
-* 
-* 
  *  HTML转换为文本
  *
  * @param  string  $str 需要转换的字符串
  * @param  string  $r   如果$r=0直接返回内容,否则需要使用反斜线引用字符串
  * @return string
- 
 */
 if (!function_exists('Html2Text')) {
     function Html2Text($str, $r = 0)
@@ -189,13 +174,10 @@ if (!function_exists('Html2Text')) {
 }
 
 /**
-* 
-* 
  *  文本转HTML
  *
  * @param  string  $txt 需要转换的文本内容
  * @return string
- 
 */
 if (!function_exists('Text2Html')) {
     function Text2Html($txt)
@@ -211,13 +193,10 @@ if (!function_exists('Text2Html')) {
 }
 
 /**
-* 
-* 
  *  获取半角字符
  *
  * @param  string  $fnum  数字字符串
  * @return string
- 
 */
 if (!function_exists('GetAlabNum')) {
     function GetAlabNum($fnum)
@@ -238,8 +217,6 @@ if (!function_exists('GetAlabNum')) {
 }
 
 /**
-* 
-* 
  *  获取拼音以gbk编码为准
  *
  * @access public
@@ -247,7 +224,6 @@ if (!function_exists('GetAlabNum')) {
  * @param  int     $ishead  是否取头字母
  * @param  int     $isclose 是否关闭字符串资源
  * @return string
- 
 */
 if (!function_exists('GetPinyin')) {
     function GetPinyin($str, $ishead = 0, $isclose = 1)
@@ -270,15 +246,12 @@ if (!function_exists('GetPinyin')) {
 
 }
 /**
-* 
-* 
  *  将实体html代码转换成标准html代码（兼容php4）
  *
  * @access public
  * @param  string  $str     字符串信息
  * @param  long    $options  替换的字符集
  * @return string
- 
 */
 
 if (!function_exists('htmlspecialchars_decode')) {
