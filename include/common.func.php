@@ -46,12 +46,12 @@ if (version_compare(PHP_VERSION, '7.0.0', '>=')) {
             return mysqli_close($link);
         }
     }
-    if (!function_exists('split')) {
-        function split($pattern, $string)
-        {
-            return explode($pattern, $string);
-        }
-    }
+    // if (!function_exists('split')) {
+    //     function split($pattern, $string)
+    //     {
+    //         return explode($pattern, $string);
+    //     }
+    // }
 }
 
 function make_hash()
@@ -81,7 +81,7 @@ function dede_random_bytes($length)
             return false;
         }
     }
-    if (defined('MCRYPT_DEV_URANDOM') && ($output = mcrypt_create_iv($length, MCRYPT_DEV_URANDOM)) !== false) {
+    if (($output = random_bytes($length)) !== false) {
         return $output;
     }
     if (is_readable('/dev/urandom') && ($fp = fopen('/dev/urandom', 'rb')) !== false) {

@@ -55,7 +55,7 @@ if (!TestWrite($moduleDir)) {
 }
 
 require $moduleCacheFile;
-$modules = split(',', $selModule);
+$modules = explode(',', $selModule);
 $totalMod = count($modules);
 if ($step >= $totalMod) {
     $msg = "<font color='red'>完成所有模块的安装！</font><br /><br />";

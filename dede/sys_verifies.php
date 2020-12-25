@@ -296,7 +296,7 @@ else if ($action == 'update') {
     $dhd->OpenUrl($rmFile);
     $ct = $dhd->GetHtml();
     $dhd->Close();
-    $cts = split("[\r\n]{1,}", $ct);
+    $cts = preg_split("[\r\n]{1,}", $ct);
     foreach ($cts as $ct) {
         $ct = trim($ct);
         if (empty($ct)) {

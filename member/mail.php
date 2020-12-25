@@ -72,8 +72,8 @@ if ($dopost == '') {
 } elseif ($dopost == 'sendmail') {
     $userhash = md5($cfg_cookie_encode . '--' . $cfg_ml->fields['mid'] . '--' . $cfg_ml->fields['email']);
     $url = $cfg_basehost . (empty($cfg_cmspath) ? '/' : $cfg_cmspath) . "/member/mail.php?dopost=checkmail&mid={$cfg_ml->fields['mid']}&userhash={$userhash}&do=1";
-    $url = eregi_replace('http://', '', $url);
-    $url = 'http://' . eregi_replace('//', '/', $url);
+    $url = preg_replace('http://', '', $url);
+    $url = 'http://' . preg_replace('//', '/', $url);
     $mailtitle = "{$cfg_webname}--会员邮件验证通知";
     $mailbody = '';
     $mailbody .= "尊敬的用户[{$cfg_ml->fields['uname']}]，您好：\r\n";

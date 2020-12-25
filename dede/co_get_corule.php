@@ -33,14 +33,14 @@ if ($job == '') {
     $notes = trim($notes);
 
     //对Base64格式的规则进行解码
-    if (ereg('^BASE64:', $notes)) {
-        if (!ereg(':END$', $notes)) {
+    if (preg_match('^BASE64:', $notes)) {
+        if (!preg_match(':END$', $notes)) {
             ShowMsg('该规则不合法，Base64格式的采集规则为：BASE64:base64编码后的配置:END !', '-1');
             exit();
         }
         $notess = explode(':', $notes);
         $notes = $notess[1];
-        $notes = base64_decode(ereg_replace("[\r\n\t ]", '', $notes)) or die('配置字符串有错误！');
+        $notes = base64_decode(preg_replace("[\r\n\t ]", '', $notes)) or die('配置字符串有错误！');
     } else {
         $notes = stripslashes($notes);
     }

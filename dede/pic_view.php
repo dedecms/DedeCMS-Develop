@@ -27,7 +27,7 @@ function GetPrePath($nowPath)
     if ($nowPath == "" || $nowPath == "/") {
         echo ("当前为根目录\n");
     } else {
-        $dirs = split("/", $nowPath);
+        $dirs = explode("/", $nowPath);
         $nowPath = "";
         for ($i = 1; $i < count($dirs) - 1; $i++) {
             $nowPath .= "/" . $dirs[$i];
