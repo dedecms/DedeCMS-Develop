@@ -280,7 +280,7 @@ if (!isset($cfg_NotPrintHead)) {
 }
 
 //自动加载类库处理
-include_once DEDEINC . '/autoload.inc.php';
+require_once DEDEINC . '/autoload.inc.php';
 
 
 //引入数据库类

@@ -48,7 +48,7 @@ function lib_mynews(&$ctag, &$refObj)
 
     $idsql = '';
     if ($envs['typeid'] > 0) {
-        $idsql = " WHERE typeid='" . GetTopid( $refObj->TypeID ) . "' ";
+        $idsql = " WHERE typeid='" . GetTopid($refObj->TypeID) . "' ";
     }
 
     $dsql->SetQuery("SELECT * FROM #@__mynews $idsql ORDER BY senddate DESC LIMIT 0,$row");
