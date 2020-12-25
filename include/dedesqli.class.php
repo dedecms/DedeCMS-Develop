@@ -366,7 +366,7 @@ class DedeSqli
             $this->Open(false);
             $dsqli->isClose = false;
         }
-        $this->result[$id] = @mysqli_query($sql, $this->linkID);
+        $this->result[$id] = @mysqli_query($this->linkID, $sql);
     }
 
     //返回当前的一条记录并把游标移向下一记录

@@ -87,7 +87,7 @@ function UpDateCatCache()
 {
     global $conn, $cfg_multi_site, $dbprefix;
     $cache1 = DEDEDATA . "/cache/inc_catalog_base.inc";
-    $rs = mysqli_query("Select id,reid,channeltype,issend,typename From `" . $dbprefix . "arctype`", $conn);
+    $rs = mysqli_query($conn, "Select id,reid,channeltype,issend,typename From `" . $dbprefix . "arctype`");
 
     $fp1 = fopen($cache1, 'w');
     $phph = '?';

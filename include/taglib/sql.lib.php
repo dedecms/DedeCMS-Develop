@@ -88,13 +88,13 @@ function lib_sql(&$ctag, &$refObj)
         
         }
 
-        @mysqli_select_db($config['dbname']);
+        @mysqli_select_db($linkid, $config['dbname']);
         $mysqlver = explode('.', $dsql->GetVersion());
         $mysqlver = $mysqlver[0] . '.' . $mysqlver[1];
 
         // 设定数据库编码及长连接
         if ($mysqlver > 4.0) {
-            @mysqli_query("SET NAMES '" . $config['dblanguage'] . "', character_set_client=binary, sql_mode='', interactive_timeout=3600 ;", $linkid);
+            @mysqli_query($linkid, "SET NAMES '" . $config['dblanguage'] . "', character_set_client=binary, sql_mode='', interactive_timeout=3600 ;");
         
         }
 
@@ -103,7 +103,7 @@ function lib_sql(&$ctag, &$refObj)
 
         // 校验SQL字符串并获取数组返回
         $sql = CheckSql($sql);
-        $rs = @mysqli_query($sql, $linkid);
+        $rs = @mysqli_query($linkid, $sql);
         while ($row = mysqli_fetch_array($rs, MYSQLI_ASSOC)) {
             $sqlCt++;
             $GLOBALS['autoindex']++;
