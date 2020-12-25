@@ -283,7 +283,7 @@ function __SaveCopy()
 -----------------*/
 else if ($dopost == "copysave") {
     $cid = intval($cid);
-    $row = $dsql->GetOne("SELECT * FROM `#@__channeltype` WHERE id='$cid' ", MYSQL_ASSOC);
+    $row = $dsql->GetOne("SELECT * FROM `#@__channeltype` WHERE id='$cid' ", MYSQLI_ASSOC);
     foreach ($row as $k => $v) {
         ${strtolower($k)} = addslashes($v);
     }
@@ -297,7 +297,7 @@ else if ($dopost == "copysave") {
     $mysql_version = $dsql->GetVersion(true);
     if (!$dsql->IsTable($newaddtable)) {
         $dsql->Execute('me', "SHOW CREATE TABLE {$dsql->dbName}.{$addtable}");
-        $row = $dsql->GetArray('me', MYSQL_BOTH);
+        $row = $dsql->GetArray('me', MYSQLI_BOTH);
         $tableStruct = $row[1];
         $tb = str_replace('#@__', $cfg_dbprefix, $addtable);
         $tableStruct = preg_replace("/CREATE TABLE `$addtable`/iU", "CREATE TABLE `$newaddtable`", $tableStruct);
@@ -422,7 +422,7 @@ else if ($dopost == "delete") {
     } else if ($job == "yes") //操作
     {
         include_once DEDEINC . "/typeunit.class.admin.php";
-        $myrow = $dsql->GetOne("SELECT addtable FROM `#@__channeltype` WHERE id='$id'", MYSQL_ASSOC);
+        $myrow = $dsql->GetOne("SELECT addtable FROM `#@__channeltype` WHERE id='$id'", MYSQLI_ASSOC);
         if (!is_array($myrow)) {
             ShowMsg('你所指定的频道信息不存在!', '-1');
             exit();

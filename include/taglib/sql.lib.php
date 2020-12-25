@@ -82,19 +82,19 @@ function lib_sql(&$ctag, &$refObj)
         }
 
         // 链接数据库
-        $linkid = @mysql_connect($config['dbhost'], $config['dbuser'], $config['dbpwd']);
+        $linkid = @mysqli_connect($config['dbhost'], $config['dbuser'], $config['dbpwd']);
         if (!$linkid) {
             return '';
         
         }
 
-        @mysql_select_db($config['dbname']);
+        @mysqli_select_db($config['dbname']);
         $mysqlver = explode('.', $dsql->GetVersion());
         $mysqlver = $mysqlver[0] . '.' . $mysqlver[1];
 
         // 设定数据库编码及长连接
         if ($mysqlver > 4.0) {
-            @mysql_query("SET NAMES '" . $config['dblanguage'] . "', character_set_client=binary, sql_mode='', interactive_timeout=3600 ;", $linkid);
+            @mysqli_query("SET NAMES '" . $config['dblanguage'] . "', character_set_client=binary, sql_mode='', interactive_timeout=3600 ;", $linkid);
         
         }
 
@@ -103,8 +103,8 @@ function lib_sql(&$ctag, &$refObj)
 
         // 校验SQL字符串并获取数组返回
         $sql = CheckSql($sql);
-        $rs = @mysql_query($sql, $linkid);
-        while ($row = mysql_fetch_array($rs, MYSQL_ASSOC)) {
+        $rs = @mysqli_query($sql, $linkid);
+        while ($row = mysqli_fetch_array($rs, MYSQLI_ASSOC)) {
             $sqlCt++;
             $GLOBALS['autoindex']++;
 
@@ -133,7 +133,7 @@ function lib_sql(&$ctag, &$refObj)
             $revalue .= $ctp->GetResult();
         
         }
-        @mysql_free_result($rs);
+        @mysqli_free_result($rs);
 
     
     } else {

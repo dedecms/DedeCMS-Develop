@@ -43,7 +43,7 @@ else if ($dopost == 'delsel') {
         exit();
     }
 
-    $titless = split('`', $titles);
+    $titless = explode('`', $titles);
 
     if ($channelid < -1) {
         $orderby = ($deltype == 'delnew' ? " ORDER BY aid DESC " : " ORDER BY aid ASC ");

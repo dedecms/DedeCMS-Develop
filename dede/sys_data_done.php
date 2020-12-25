@@ -84,7 +84,7 @@ if ($dopost == 'bak') {
                 fwrite($fp, "DROP TABLE IF EXISTS `$t`;\r\n\r\n");
                 $dsql->SetQuery("SHOW CREATE TABLE " . $dsql->dbName . "." . $t);
                 $dsql->Execute('me');
-                $row = $dsql->GetArray('me', MYSQL_BOTH);
+                $row = $dsql->GetArray('me', MYSQLI_BOTH);
 
                 //去除AUTO_INCREMENT
                 $row[1] = preg_replace("#AUTO_INCREMENT=([0-9]{1,})[ \r\n\t]{1,}#i", "", $row[1]);

@@ -102,7 +102,7 @@ $dsql->ExecuteNoneQuery($tabsql);
 $fields = array();
 $rs = $dsql->SetQuery("show fields from `$trueTable`");
 $dsql->Execute('a');
-while ($nrow = $dsql->GetArray('a', MYSQL_ASSOC)) {
+while ($nrow = $dsql->GetArray('a', MYSQLI_ASSOC)) {
     $fields[strtolower($nrow['Field'])] = 1;
 }
 $f = '';

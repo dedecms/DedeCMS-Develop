@@ -11,48 +11,6 @@
  * @license   http://help.dedecms.com/usersguide/license.html
  * @link      http://www.dedecms.com
  */
-if (version_compare(PHP_VERSION, '7.0.0', '>=')) {
-    if (!function_exists('mysql_connect') and function_exists('mysqli_connect')) {
-        function mysql_connect($server, $username, $password)
-        {
-            return mysqli_connect($server, $username, $password);
-        }
-    }
-
-    if (!function_exists('mysql_query') and function_exists('mysqli_query')) {
-        function mysql_query($query, $link)
-        {
-            return mysqli_query($link, $query);
-        }
-    }
-
-    if (!function_exists('mysql_select_db') and function_exists('mysqli_select_db')) {
-        function mysql_select_db($database_name, $link)
-        {
-            return mysqli_select_db($link, $database_name);
-        }
-    }
-
-    if (!function_exists('mysql_fetch_array') and function_exists('mysqli_fetch_array')) {
-        function mysql_fetch_array($result)
-        {
-            return mysqli_fetch_array($result);
-        }
-    }
-
-    if (!function_exists('mysql_close') and function_exists('mysqli_close')) {
-        function mysql_close($link)
-        {
-            return mysqli_close($link);
-        }
-    }
-    // if (!function_exists('split')) {
-    //     function split($pattern, $string)
-    //     {
-    //         return explode($pattern, $string);
-    //     }
-    // }
-}
 
 function make_hash()
 {

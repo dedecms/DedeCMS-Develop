@@ -119,7 +119,7 @@ if (empty($row['maintable'])) {
 
 $rs = $dsql->SetQuery("SHOW fields FROM `{$row['maintable']}`");
 $dsql->Execute('a');
-while ($nrow = $dsql->GetArray('a', MYSQL_ASSOC)) {
+while ($nrow = $dsql->GetArray('a', MYSQLI_ASSOC)) {
     if ($cfg_dbtype == 'sqlite') {
         $nrow['Field'] = $nrow['name'];
     }
@@ -127,7 +127,7 @@ while ($nrow = $dsql->GetArray('a', MYSQL_ASSOC)) {
 }
 
 $dsql->Execute("a", "SHOW fields FROM `{$row['addtable']}`");
-while ($nrow = $dsql->GetArray('a', MYSQL_ASSOC)) {
+while ($nrow = $dsql->GetArray('a', MYSQLI_ASSOC)) {
     if ($cfg_dbtype == 'sqlite') {
         $nrow['Field'] = $nrow['name'];
     }

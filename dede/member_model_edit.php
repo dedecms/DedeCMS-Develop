@@ -141,7 +141,7 @@ else if ($dopost == "copy") {
         //拷贝数据表
         if (!$dsql->IsTable($newtable)) {
             $dsql->Execute('me', "SHOW CREATE TABLE {$dsql->dbName}.{$thistable}");
-            $row = $dsql->GetArray('me', MYSQL_BOTH);
+            $row = $dsql->GetArray('me', MYSQLI_BOTH);
             $tableStruct = $row[1];
             $tb = str_replace('#@__', $cfg_dbprefix, $thistable);
             $tableStruct = preg_replace("/CREATE TABLE `$thistable`/iU", "CREATE TABLE `$newtable`", $tableStruct);
@@ -193,7 +193,7 @@ else if ($dopost == "delete") {
 
     //操作
     else if ($job == "yes") {
-        $row = $dsql->GetOne("SELECT `table` FROM `#@__member_model` WHERE id='$id'", MYSQL_ASSOC);
+        $row = $dsql->GetOne("SELECT `table` FROM `#@__member_model` WHERE id='$id'", MYSQLI_ASSOC);
         if (!is_array($row)) {
             ShowMsg("你所指定的会员模型信息不存在!", "-1");
             exit();

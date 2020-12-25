@@ -31,8 +31,8 @@ $dsql = $dsqlitete = $db = new DedeSqlite(false);
  * @subpackage DedeCMS.Libraries
  * @link       http://www.dedecms.com
  */
-if (!defined('MYSQL_BOTH')) {
-    define('MYSQL_BOTH', MYSQLI_BOTH);
+if (!defined('MYSQLI_BOTH')) {
+    define('MYSQLI_BOTH', MYSQLI_BOTH);
 }
 class DedeSqlite
 {
@@ -342,10 +342,10 @@ class DedeSqlite
     public function GetArray($id = "me", $acctype = SQLITE3_ASSOC)
     {
         switch ($acctype) {
-        case MYSQL_ASSOC:
+        case MYSQLI_ASSOC:
             $acctype = SQLITE3_ASSOC;
             break;
-        case MYSQL_NUM:
+        case MYSQLI_NUM:
             $acctype = SQLITE3_NUM;
             break;
         default:

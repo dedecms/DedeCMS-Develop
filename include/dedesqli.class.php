@@ -36,12 +36,12 @@ $dsql = $dsqli = $db = new DedeSqli(false);
  * @subpackage DedeCMS.Libraries
  * @link       http://www.dedecms.com
  */
-if (!defined('MYSQL_BOTH')) {
-    define('MYSQL_BOTH', MYSQLI_BOTH);
+if (!defined('MYSQLI_BOTH')) {
+    define('MYSQLI_BOTH', MYSQLI_BOTH);
 }
 
-if (!defined('MYSQL_ASSOC')) {
-    define('MYSQL_ASSOC', MYSQLI_ASSOC);
+if (!defined('MYSQLI_ASSOC')) {
+    define('MYSQLI_ASSOC', MYSQLI_ASSOC);
 }
 class DedeSqli
 {

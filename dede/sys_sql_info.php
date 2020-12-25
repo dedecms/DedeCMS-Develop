@@ -110,11 +110,11 @@ class MakeDBDocument
         $namehtml = $tablehtml = '';
         $this->dsql->Execute('me', ' SHOW TABLES; ');
         if (version_compare(PHP_VERSION, '7.0.0', '>=')) {
-            define("MYSQL_NUM", MYSQLI_NUM);
+            define("MYSQLI_NUM", MYSQLI_NUM);
         }
-        while ($row = $this->dsql->GetArray('me', MYSQL_NUM)) {
+        while ($row = $this->dsql->GetArray('me', MYSQLI_NUM)) {
             $this->dsql->Execute('dd', " Show CREATE TABLE `{$row[0]}` ");
-            $row2 = $this->dsql->GetArray('dd', MYSQL_NUM);
+            $row2 = $this->dsql->GetArray('dd', MYSQLI_NUM);
 
             if ($type == '') {
                 if (preg_match("/^cms_/", $row[0])) {

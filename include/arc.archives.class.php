@@ -1019,27 +1019,6 @@ class Archives
         //暂时屏蔽超链接
         $body = preg_replace("#(<a(.*))(>)(.*)(<)(\/a>)#isU", '\\1-]-\\4-[-\\6', $body);
 
-        /*
-        foreach($kws as $k)
-        {
-        $k = trim($k);
-        if($k!="")
-        {
-        if($i > $maxkey)
-        {
-        break;
-        }
-        $myrow = $this->dsql->GetOne("SELECT * FROM #@__keywords WHERE keyword='$k' AND rpurl<>'' ");
-        if(is_array($myrow))
-        {
-        $karr[] = $k;
-        $GLOBALS['replaced'][$k] = 0;
-        $kaarr[] = "<a href='{$myrow['rpurl']}'><u>$k</u></a>";
-        }
-        $i++;
-        }
-        }
-         */
         $query = "SELECT * FROM #@__keywords WHERE rpurl<>'' ORDER BY rank DESC";
         $this->dsql->SetQuery($query);
         $this->dsql->Execute();
@@ -1057,10 +1036,7 @@ class Archives
             } else {
                 $body = @preg_replace_callback("#(^|>)([^<]+)(?=<|$)#sU", "_highlight('\\2', \$karr, \$kaarr, '\\1')", $body);
             }
-
-        } else {
-            $body = @preg_replace("#(^|>)([^<]+)(?=<|$)#sUe", "_highlight('\\2', \$karr, \$kaarr, '\\1')", $body);
-        }
+        } 
 
         //恢复超链接
         $body = preg_replace("#(<a(.*))-\]-(.*)-\[-(\/a>)#isU", '\\1>\\3<\\4', $body);

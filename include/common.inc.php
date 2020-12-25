@@ -30,29 +30,6 @@ define('DEDEAPPTPL', './templates');
 
 define('DEBUG_LEVEL', false);
 
-if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-    set_magic_quotes_runtime(0);
-}
-
-if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-    if (!function_exists('session_register')) {
-        function session_register()
-        {
-            $args = func_get_args();
-            foreach ($args as $key) {
-                $_SESSION[$key] = $GLOBALS[$key];
-            }
-        }
-        function session_is_registered($key)
-        {
-            return isset($_SESSION[$key]);
-        }
-        function session_unregister($key)
-        {
-            unset($_SESSION[$key]);
-        }
-    }
-}
 
 //是否启用mb_substr替换cn_substr来提高效率
 $cfg_is_mb = $cfg_is_iconv = false;
@@ -311,7 +288,7 @@ if (version_compare(PHP_VERSION, '7.2.0', '>=')) {
 
 //引入数据库类
 if ($GLOBALS['cfg_dbtype'] == 'mysql') {
-    if ($GLOBALS['cfg_mysql_type'] == 'mysqli' && function_exists("mysqli_init") || !function_exists('mysql_connect')) {
+    if ($GLOBALS['cfg_mysql_type'] == 'mysqli' && function_exists("mysqli_init") || !function_exists('mysqli_connect')) {
         include_once DEDEINC . '/dedesqli.class.php';
     } else {
         include_once DEDEINC . '/dedesql.class.php';

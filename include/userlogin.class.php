@@ -266,22 +266,17 @@ class userLogin
                 $adminstyle = 'dedecms';
             }
 
-            @session_register($this->keepUserIDTag);
+            $args = func_get_args();
+            
+            foreach ($args as $key) {
+                $_SESSION[$key] = $GLOBALS[$key];
+            }
+
             $_SESSION[$this->keepUserIDTag] = $this->userID;
-
-            @session_register($this->keepUserTypeTag);
             $_SESSION[$this->keepUserTypeTag] = $this->userType;
-
-            @session_register($this->keepUserChannelTag);
             $_SESSION[$this->keepUserChannelTag] = $this->userChannel;
-
-            @session_register($this->keepUserNameTag);
             $_SESSION[$this->keepUserNameTag] = $this->userName;
-
-            @session_register($this->keepUserPurviewTag);
             $_SESSION[$this->keepUserPurviewTag] = $this->userPurview;
-
-            @session_register($this->keepAdminStyleTag);
             $_SESSION[$this->keepAdminStyleTag] = $adminstyle;
 
             PutCookie('DedeUserID', $this->userID, 3600 * 24, '/');
@@ -340,11 +335,11 @@ class userLogin
     public function exitUser()
     {
         ClearMyAddon();
-        @session_unregister($this->keepUserIDTag);
-        @session_unregister($this->keepUserTypeTag);
-        @session_unregister($this->keepUserChannelTag);
-        @session_unregister($this->keepUserNameTag);
-        @session_unregister($this->keepUserPurviewTag);
+        unset($_SESSION[$this->keepUserIDTag]);
+        unset($_SESSION[$this->keepUserTypeTag]);
+        unset($_SESSION[$this->keepUserChannelTag]);
+        unset($_SESSION[$this->keepUserNameTag]);
+        unset($_SESSION[$this->keepUserPurviewTag]);
         DropCookie('dedeAdmindir');
         DropCookie('DedeUserID');
         DropCookie('DedeLoginTime');

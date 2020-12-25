@@ -24,7 +24,7 @@ if ($dopost == "viewinfo") {
     } else {
         $dsql->SetQuery("SHOW CREATE TABLE " . $dsql->dbName . "." . $tablename);
         $dsql->Execute('me');
-        $row2 = $dsql->GetArray('me', MYSQL_BOTH);
+        $row2 = $dsql->GetArray('me', MYSQLI_BOTH);
         $ctinfo = $row2[1];
         echo "<xmp>" . trim($ctinfo) . "</xmp>";
     }
@@ -51,7 +51,7 @@ else if ($dopost == "opimizeAll") {
     csrf_check();
     $dsql->SetQuery("SHOW TABLES");
     $dsql->Execute('t');
-    while ($row = $dsql->GetArray('t', MYSQL_BOTH)) {
+    while ($row = $dsql->GetArray('t', MYSQLI_BOTH)) {
         $rs = $dsql->ExecuteNoneQuery("OPTIMIZE TABLE `{$row[0]}` ");
         if ($rs) {
             echo "优化表: {$row[0]} ok!<br />\r\n";
@@ -82,7 +82,7 @@ else if ($dopost == "repairAll") {
     csrf_check();
     $dsql->SetQuery("Show Tables");
     $dsql->Execute('t');
-    while ($row = $dsql->GetArray('t', MYSQL_BOTH)) {
+    while ($row = $dsql->GetArray('t', MYSQLI_BOTH)) {
         $rs = $dsql->ExecuteNoneQuery("REPAIR TABLE `{$row[0]}` ");
         if ($rs) {
             echo "修复表: {$row[0]} ok!<br />\r\n";

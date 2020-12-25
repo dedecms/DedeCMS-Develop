@@ -328,13 +328,7 @@ if (!function_exists('ubb')) {
         $Text = preg_replace("/\[sup\](.+?)\[\/sup\]/is", "<sup>\\1</sup>", $Text);
         $Text = preg_replace("/\[sub\](.+?)\[\/sub\]/is", "<sub>\\1</sub>", $Text);
         $Text = preg_replace("/\[pre\](.+?)\[\/pre\]/is", "<pre>\\1</pre>", $Text);
-        if (version_compare(PHP_VERSION, '5.5.0', '>=')) {
-            $Text = preg_replace_callback("/\[colorTxt\](.+?)\[\/colorTxt\]/is", "color_txt", $Text);
-        
-        } else {
-            $Text = preg_replace("/\[colorTxt\](.+?)\[\/colorTxt\]/eis", "color_txt('\\1')", $Text);
-        
-        }
+        $Text = preg_replace_callback("/\[colorTxt\](.+?)\[\/colorTxt\]/is", "color_txt", $Text);
         $Text = preg_replace("/\[email\](.+?)\[\/email\]/is", "<a href='mailto:\\1'>\\1</a>", $Text);
         $Text = preg_replace("/\[i\](.+?)\[\/i\]/is", "<i>\\1</i>", $Text);
         $Text = preg_replace("/\[u\](.+?)\[\/u\]/is", "<u>\\1</u>", $Text);

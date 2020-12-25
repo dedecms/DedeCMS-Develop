@@ -1032,11 +1032,9 @@ class DedeTemplate
         if ($condition == '') {
             $cTag->tagValue = '';return '';
         }
-        if (version_compare(PHP_VERSION, '5.5.0', '>=')) {
-            $condition = preg_replace_callback("/((var\.|field\.|cfg\.|global\.|key[0-9]{0,}\.|value[0-9]{0,}\.)[\._a-z0-9]+)/is", "private_rt", $condition);
-        } else {
-            $condition = preg_replace("/((var\.|field\.|cfg\.|global\.|key[0-9]{0,}\.|value[0-9]{0,}\.)[\._a-z0-9]+)/ies", "private_rt('\\1')", $condition);
-        }$rsvalue = '<' . '?php if(' . $condition . '){ ?' . '>';
+        
+        $condition = preg_replace_callback("/((var\.|field\.|cfg\.|global\.|key[0-9]{0,}\.|value[0-9]{0,}\.)[\._a-z0-9]+)/is", "private_rt", $condition);
+        $rsvalue = '<' . '?php if(' . $condition . '){ ?' . '>';
         $rsvalue .= $cTag->GetInnerText();
         $rsvalue .= '<' . '?php } ?' . '>';
         return $rsvalue;
