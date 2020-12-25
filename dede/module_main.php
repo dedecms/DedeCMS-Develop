@@ -2,20 +2,20 @@
 /**
  * 模块管理
  *
- * @version   $Id: module_main.php 1 14:17 2010年7月20日 $
- * @package   DedeCMS.Administrator
- * @founder   IT柏拉图, https: //weibo.com/itprato
- * @author    DedeCMS团队
- * @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
- * @license   http://help.dedecms.com/usersguide/license.html
- * @link      http://www.dedecms.com
+ * @version        $Id: module_main.php 1 14:17 2010年7月20日 $
+ * @package        DedeCMS.Administrator
+ * @founder        IT柏拉图, https: //weibo.com/itprato
+ * @author         DedeCMS团队
+ * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+ * @license        http://help.dedecms.com/usersguide/license.html
+ * @link           http://www.dedecms.com
  */
 require_once dirname(__FILE__) . "/config.php";
 CheckPurview('sys_module');
 require_once dirname(__FILE__) . "/../include/dedemodule.class.php";
 require_once dirname(__FILE__) . "/../include/oxwindow.class.php";
 if (empty($action)) {
-    $action = '';
+  $action = '';
 }
 
 require_once DEDEINC . '/datalistcp.class.php';
@@ -95,17 +95,16 @@ function SendData($hash = '', $type = 1)
 function ShowAll();
 --------------*/
 if ($action == '') {
-    $dm = new DedeModule($mdir);
-    if (empty($moduletype)) {
-        $moduletype = '';
-    }
+  $dm = new DedeModule($mdir);
+  if (empty($moduletype)) {
+    $moduletype = '';
+  }
   
 
-    function getTypes($name)
-    {
-        $types = array('soft' => '模块', 'templets' => '模板', 'plus' => '小插件', 'patch' => '补丁');
-        return $types[$name];
-    }
+  function getTypes($name) {
+    $types = array('soft' => '模块', 'templets' => '模板', 'plus' => '小插件', 'patch' => '补丁');
+    return $types[$name];
+  }
     
     $modules_remote = $dm->GetModuleUrlList($moduletype, $mdurl);
     $modules = array();
@@ -702,7 +701,7 @@ else if ($action == 'edit') {
     $indexurl = str_replace('**', '=', $indexurl);
     $dm->Clear();
 
-    include_once dirname(__FILE__) . '/templets/module_edit.htm';
+    require_once dirname(__FILE__) . '/templets/module_edit.htm';
     exit();
 }
 /*--------------
