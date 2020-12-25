@@ -2,22 +2,23 @@
 /**
  * 模块管理
  *
- * @version   $Id: module_main.php 1 14:17 2010年7月20日 $
- * @package   DedeCMS.Administrator
- * @founder   IT柏拉图, https: //weibo.com/itprato
- * @author    DedeCMS团队
- * @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
- * @license   http://help.dedecms.com/usersguide/license.html
- * @link      http://www.dedecms.com
+ * @version        $Id: module_main.php 1 14:17 2010年7月20日 $
+ * @package        DedeCMS.Administrator
+ * @founder        IT柏拉图, https: //weibo.com/itprato
+ * @author         DedeCMS团队
+ * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+ * @license        http://help.dedecms.com/usersguide/license.html
+ * @link           http://www.dedecms.com
  */
 require_once dirname(__FILE__) . "/config.php";
 CheckPurview('sys_module');
 require_once dirname(__FILE__) . "/../include/dedemodule.class.php";
 require_once dirname(__FILE__) . "/../include/oxwindow.class.php";
 if (empty($action)) {
-    $action = '';
+  $action = '';
 }
 
+require_once DEDEINC . '/datalistcp.class.php';
 require_once DEDEDATA . "/admin/config_update.php";
 $mdir = DEDEDATA . '/module';
 $mdurl = UPDATEHOST . 'dedecms/module_' . $cfg_soft_lang . '/modulelist.txt';
@@ -88,22 +89,34 @@ function SendData($hash = '', $type = 1)
         return false;
     }
 }
+
+
 /*--------------
 function ShowAll();
 --------------*/
 if ($action == '') {
-    $types = array('soft' => '模块', 'templets' => '模板', 'plus' => '小插件', 'patch' => '补丁');
-    $dm = new DedeModule($mdir);
-    if (empty($moduletype)) {
-        $moduletype = '';
-    }
+  $dm = new DedeModule($mdir);
+  if (empty($moduletype)) {
+    $moduletype = '';
+  }
+  
 
+  function getTypes($name) {
+    $types = array('soft' => '模块', 'templets' => '模板', 'plus' => '小插件', 'patch' => '补丁');
+    return $types[$name];
+  }
+    
     $modules_remote = $dm->GetModuleUrlList($moduletype, $mdurl);
     $modules = array();
     $modules = $dm->GetModuleList($moduletype);
     is_array($modules) || $modules = array();
     $modules = array_merge($modules, $modules_remote);
-    include_once dirname(__FILE__) . "/templets/module_main.htm";
+
+    $dlist = new DataListCP();
+    $dlist->SetParameter("modules", $modules);
+    $dlist->SetParameter("GetTypes", GetTypes);
+    $dlist->SetTemplate(DEDEADMIN . "/templets/module_main.htm");
+    $dlist->Display();
     $dm->Clear();
     exit();
 }
@@ -321,7 +334,7 @@ else if ($action == 'setupstart') {
         $setupsql = preg_replace("#_ROOTURL_#i", $rooturl, $setupsql);
         $setupsql = preg_replace("#[\r\n]{1,}#", "\n", $setupsql);
 
-        $sqls = @preg_split(";[ \t]{0,}\n", $setupsql);
+        $sqls = @split(";[ \t]{0,}\n", $setupsql);
         foreach ($sqls as $sql) {
             if (trim($sql) != '') {
                 $dsql->ExecuteNoneQuery($sql);
@@ -688,7 +701,7 @@ else if ($action == 'edit') {
     $indexurl = str_replace('**', '=', $indexurl);
     $dm->Clear();
 
-    include_once dirname(__FILE__) . '/templets/module_edit.htm';
+    require_once dirname(__FILE__) . '/templets/module_edit.htm';
     exit();
 }
 /*--------------
