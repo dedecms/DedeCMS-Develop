@@ -83,7 +83,7 @@ if ($dopost == '') {
 
     if ($cfg_sendmail_bysmtp == 'Y' && !empty($cfg_smtp_server)) {
         $mailtype = 'TXT';
-        require_once DEDEINC . '/mail.class.php';
+        include_once DEDEINC . '/mail.class.php';
         $smtp = new smtp($cfg_smtp_server, $cfg_smtp_port, true, $cfg_smtp_usermail, $cfg_smtp_password);
         $smtp->debug = false;
         if (!$smtp->smtp_sockopen($cfg_smtp_server)) {

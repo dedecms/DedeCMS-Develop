@@ -1,12 +1,12 @@
 <?php
 /**
- * @version        $Id: index.php 1 13:41 2010年7月26日 $
- * @package        DedeCMS.Install
- * @founder        IT柏拉图, https: //weibo.com/itprato
- * @author         DedeCMS团队
- * @copyright      Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
- * @license        http://help.dedecms.com/usersguide/license.html
- * @link           http://www.dedecms.com
+ * @version   $Id: index.php 1 13:41 2010年7月26日 $
+ * @package   DedeCMS.Install
+ * @founder   IT柏拉图, https: //weibo.com/itprato
+ * @author    DedeCMS团队
+ * @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+ * @license   http://help.dedecms.com/usersguide/license.html
+ * @link      http://www.dedecms.com
  */
 @set_time_limit(0);
 //error_reporting(E_ALL);
@@ -404,17 +404,17 @@ else if ($step == 10) {
     @mysql_close($conn);
     exit();
 }
-else if($step==11)
-{
-	require_once('../data/admin/config_update.php');
-	$rmurl = UPDATEHOST."dedecms/demodata.{$s_lang}.txt";
-	$sql_content = file_get_contents($rmurl);
-	$fp = fopen(INSTALL_DEMO_NAME,'w');
-	if(fwrite($fp,$sql_content))
-		echo '&nbsp; <font color="green">[√]</font> 存在(您可以选择安装进行体验)';
-	else
-		echo '&nbsp; <font color="red">[×]</font> 远程获取失败';
-	unset($sql_content);
-	fclose($fp);
-	exit();
+else if($step==11) {
+    include_once '../data/admin/config_update.php';
+    $rmurl = UPDATEHOST."dedecms/demodata.{$s_lang}.txt";
+    $sql_content = file_get_contents($rmurl);
+    $fp = fopen(INSTALL_DEMO_NAME, 'w');
+    if(fwrite($fp, $sql_content)) {
+        echo '&nbsp; <font color="green">[√]</font> 存在(您可以选择安装进行体验)';
+    } else {
+        echo '&nbsp; <font color="red">[×]</font> 远程获取失败';
+    }
+    unset($sql_content);
+    fclose($fp);
+    exit();
 }
