@@ -472,12 +472,6 @@ $actionSearch[10] = array(
             'purview' => 'sys_data',
             'linkurl' => 'sys_data.php',
         ),
-        12 => array(
-            'title' => 'SQL命令行工具',
-            'description' => '可以在针对每张数据表执行单行或者多行的SQL语句',
-            'purview' => 'sys_data',
-            'linkurl' => 'sys_sql_query.php',
-        ),
         13 => array(
             'title' => '文件校验[S]',
             'description' => '文件校验将检查本站文件是否和dedecms原始文件是否完全一致',
