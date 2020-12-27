@@ -65,11 +65,7 @@ class DataListCP
      */
     public function __construct($tplfile = '')
     {
-        if ($GLOBALS['cfg_dbtype'] == 'mysql') {
-            $dsql = $GLOBALS['dsqli'];
-        } else {
-            $dsql = $GLOBALS['dsqlitete'];
-        }
+        $dsql = $GLOBALS['dsqli'];
 
         $this->sourceSql = '';
         $this->pageSize = 25;

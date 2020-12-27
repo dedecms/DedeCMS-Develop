@@ -172,12 +172,6 @@ $actionSearch[4] = array(
             'purview' => 'sys_Keyword',
             'linkurl' => 'tags_main.php',
         ),
-        7 => array(
-            'title' => '数据库内容替换 ',
-            'description' => '可以对数据库中的某张表中的字段进行内容的批量替换',
-            'purview' => 'sys_ArcBatch',
-            'linkurl' => 'sys_data_replace.php',
-        ),
     ),
 );
 $actionSearch[5] = array(

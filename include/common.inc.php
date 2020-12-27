@@ -287,7 +287,7 @@ require_once DEDEINC . '/autoload.inc.php';
 if ($GLOBALS['cfg_dbtype'] == 'mysql') {
     include_once DEDEINC . '/dedesqli.class.php';
 } else {
-    include_once DEDEINC . '/dedesqlite.class.php';
+    exit("DedeCMS ERROR: Pleass Set Database Type.");
 }
 
 //全局常用函数
