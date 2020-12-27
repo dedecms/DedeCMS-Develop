@@ -46,4 +46,28 @@ $filelists = GetInfoArray($templetdir . '/templet-filelist.inc');
 $pluslists = GetInfoArray($templetdir . '/templet-pluslist.inc');
 $fileinfos = ($acdir == 'plus' ? $pluslists : $filelists);
 
-DedeInclude('templets/templets_default.htm');
+$filearray = array();
+// 判断$dir定义的路径是否是一个目录
+if (is_dir($templetdird)) {
+    // 如果是一个目录则打开目录句柄
+    if ($dh = opendir($templetdird)) {
+        // 循环遍历目录句柄中的所有文件和目录
+        while (($file = readdir($dh)) !== false){
+            if(preg_match("#\.htm#", $file)) {
+
+                $filetime = filemtime($templetdird.'/'.$file);
+                $_file['filename'] = $file;
+                $_file['filetime'] = MyDate("Y-m-d H:i", $filetime);
+                $_file['fileinfo'] = $fileinfos[$file] ?? '未知模板';
+                // echo "目录名：$file 、文件类型：" . filetype($dir.$file) . "<br />";
+                $filearray[] = $_file;
+            }
+        }
+        // 关闭目录句柄，这里可以不传入参数，因为最后一次打开的就是$dh。
+        closedir($dh);
+    }
+}
+$dlist = new DataListCP();
+$dlist->SetParameter("files", $filearray);
+$dlist->SetTemplet(DEDEADMIN . "/templets/templets_default.htm");
+$dlist->display();

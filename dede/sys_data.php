@@ -16,10 +16,6 @@ if (empty($dopost)) {
     $dopost = '';
 }
 
-if ($cfg_dbtype == 'sqlite') {
-    showMsg('备份系统根目录下/data/' . $cfg_dbname . '.db文件即可', 'javascript:;');
-    exit();
-}
 
 if ($dopost == "viewinfo") //查看表结构
 {
