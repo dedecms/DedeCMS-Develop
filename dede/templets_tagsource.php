@@ -32,11 +32,11 @@ function GetHelpInfo($tagname)
 
 
 $filearray = array();
-// 判断$dir定义的路径是否是一个目录
+// 判断是否为目录
 if (is_dir($libdir)) {
-    // 如果是一个目录则打开目录句柄
+    // 打开目录句柄
     if ($dh = opendir($libdir)) {
-        // 循环遍历目录句柄中的所有文件和目录
+        // 获取目录下内容
         while (($file = readdir($dh)) !== false){
             if(preg_match("#\.php#", $file)) {
 
@@ -47,7 +47,7 @@ if (is_dir($libdir)) {
                 $filearray[] = $_file;
             }
         }
-        // 关闭目录句柄，这里可以不传入参数，因为最后一次打开的就是$dh。
+         // 关闭目录句柄
         closedir($dh);
     }
 }

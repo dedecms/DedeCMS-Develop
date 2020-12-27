@@ -47,11 +47,11 @@ $pluslists = GetInfoArray($templetdir . '/templet-pluslist.inc');
 $fileinfos = ($acdir == 'plus' ? $pluslists : $filelists);
 
 $filearray = array();
-// 判断$dir定义的路径是否是一个目录
+// 判断是否为目录
 if (is_dir($templetdird)) {
-    // 如果是一个目录则打开目录句柄
+    // 打开目录句柄
     if ($dh = opendir($templetdird)) {
-        // 循环遍历目录句柄中的所有文件和目录
+        // 获取目录下内容
         while (($file = readdir($dh)) !== false){
             if(preg_match("#\.htm#", $file)) {
 
@@ -59,11 +59,10 @@ if (is_dir($templetdird)) {
                 $_file['filename'] = $file;
                 $_file['filetime'] = MyDate("Y-m-d H:i", $filetime);
                 $_file['fileinfo'] = $fileinfos[$file] ?? '未知模板';
-                // echo "目录名：$file 、文件类型：" . filetype($dir.$file) . "<br />";
                 $filearray[] = $_file;
             }
         }
-        // 关闭目录句柄，这里可以不传入参数，因为最后一次打开的就是$dh。
+        // 关闭目录句柄
         closedir($dh);
     }
 }
