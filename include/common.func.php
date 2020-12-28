@@ -301,9 +301,10 @@ function ShowMsg($msg, $gourl, $onlymsg = 0, $limittime = 0)
         }
         $msg = $htmlhead . $rmsg . $htmlfoot;
     }
-    $dlist = new DataListCP();
-    $dlist->SetString($msg);
-    $dlist->Display();
+    
+    $tpl = new DedeTemplate();
+    $tpl->LoadString($msg);
+    $tpl->Display();
 }
 
 /**
