@@ -351,12 +351,6 @@ $actionSearch[9] = array(
             'purview' => 'temp_MyTag',
             'linkurl' => 'mytag_main.php',
         ),
-        4 => array(
-            'title' => '全局标记测试 ',
-            'description' => '可以对全局的标签调用进行测试',
-            'purview' => 'temp_Test',
-            'linkurl' => 'tag_test.php',
-        ),
     ),
 );
 $actionSearch[10] = array(
