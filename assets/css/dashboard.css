@@ -313,6 +313,7 @@ body .right {
 
 .main {
   height: 100%;
+  background-color: #fff;
 }
 
 .main iframe {
