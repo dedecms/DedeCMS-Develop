@@ -64,10 +64,11 @@
 <div class="uk-margin">
 <label class="uk-form-label">上传新文件</label>
 <div class="uk-form-controls">
-数量： <input name="picnum" type="text" id="picnum" value="5" class="uk-input uk-form-small uk-form-width-small" />　&nbsp;&nbsp;
+数量： <input name="picnum" type="text" id="picnum" value="1" class="uk-input uk-form-small uk-form-width-small" />　&nbsp;&nbsp;
 <button type="button" name="Submit" onClick="MakeUpload()" class="uk-button uk-button-small  uk-button-primary">增加</button>
 &nbsp;
-<button type="button" name="Submit" onClick="ResetUpload()" class="uk-button uk-button-small ">恢复</button>
+<button type="button" name="Submit" onClick="ResetUpload()" class="uk-button uk-button-small ">恢复</button> &nbsp;&nbsp;
+(如出现服务器413错误，请调整您PHP或Web Server的上传限制。)
 </div>
 </div>
 
@@ -76,18 +77,18 @@
 <div class="uk-form-controls">
 <div class="uk-inline" uk-form-custom="target: true">
 <span class="uk-form-icon" uk-icon="icon: file"></span>
-<input name="upfile1" type="file">
+<input name="upfile[]" type="file">
 <input class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="点击选择文件" >
 </div>
 </div>
 </div>
 
-<div class="uk-margin" id="upfile2">
+<div class="uk-margin" id="upfile">
 <label class="uk-form-label"></label>
 <div class="uk-form-controls">
 <div class="uk-inline" uk-form-custom="target: true">
 <span class="uk-form-icon" uk-icon="icon: file"></span>
-<input name="upfile2" type="file">
+<input name="upfile[]" type="file">
 <input class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="点击选择文件" >
 </div>
 </div>
@@ -134,7 +135,6 @@ var startNum = 3;
 function MakeUpload()
 {
 var endNum =  Number(document.form1.picnum.value)+startNum -1;
-if(endNum>40) endNum = 40;
 for(startNum;startNum<=endNum;startNum++){
 html = ""
 html += "<div class=\"uk-margin\">";
