@@ -23,8 +23,9 @@ if ($dopost == "upload") {
 
     csrf_check();
 
-    if (!isset($_FILES['upfile'])) {
-        ShowMsg("您没有上传任务文件，请返回重新上传。", "media_add.php");
+    if (isset($_FILES['upfile'])) {
+        ShowMsg("您没有上传任务文件，请重新上传。", "media_add.php");
+        exit();
     }
 
     include_once DEDEINC . "/image.func.php";
