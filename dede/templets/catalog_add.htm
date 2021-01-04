@@ -47,7 +47,7 @@
 
 
 <ul class="uk-switcher">
-<li class="uk-active  uk-form-horizontal uk-margin-small" >
+<li class="uk-active uk-form-horizontal uk-margin-small">
 
 <!-- 常规选项 -->
 <div class="uk-margin">
@@ -194,7 +194,7 @@ if($moresite==0){
 </div>
 </div>
 
-<div class="uk-margin" style="<?php echo ($channelid<0 ? '' : 'display:none');?>" >
+<div class="uk-margin" style=<?php echo ($channelid<0 ? '' : 'display:none');?>>
 <label class="uk-form-label">绑定小分类</label>
 <div class="uk-form-controls uk-form-controls-text">
 <select name='smalltype[]' size='5' class="uk-select uk-form-small uk-form-width-medium" multiple='yes'>
@@ -317,16 +317,7 @@ GetEditor("content", "", "450", "Default", "print", "false");
 ?>
 </li>
 </ul>
-
-
-
-
-
 </div>
-
-
-
-
 
 </div>
 
@@ -352,6 +343,25 @@ GetEditor("content", "", "450", "Default", "print", "false");
 <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit-icons.min.js"></script>
 <script src="{dede:global.cfg_assets_dir/}/pkg/jquery/jquery.min.js"></script>
 <script src="{dede:global.cfg_assets_dir/}/js/dede.manage.min.js"></script>
+<script language="javascript">
+
+function CheckTypeDir()
+{
+var upinyin = document.getElementById('upinyin');
+var tpobj = document.getElementById('typedir');
+if(upinyin.checked) tpobj.disabled = true;
+else tpobj.disabled = false;
+}
+
+function CheckCross()
+{
+var cross2 = document.getElementById('cross2');
+var crossid = document.getElementById('crossid');
+if(cross2.checked) crossid.style.display = 'block';
+else crossid.style.display = 'none';
+}
+
+</script>
 <!-- / JS FILES -->
 </body>
 </html>
