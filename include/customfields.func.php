@@ -1,8 +1,6 @@
 <?php if (!defined('DEDEMEMBER')) {exit('Request Error');
 }
 /**
- * 
- * 
  * 系统核心函数存放文件
  *
  * @version   $Id: customfields.func.php 2 20:50 2010年7月7日 $
@@ -12,19 +10,15 @@
  * @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
  * @license   http://help.dedecms.com/usersguide/license.html
  * @link      http://www.dedecms.com
- 
  */
 
 /**
- * 
- * 
  *  获得一个附加表单(发布时用)
  *
  * @access public
  * @param  object $ctag      标签
  * @param  string $admintype 管理员类型
  * @return string
- 
  */
 function GetFormItem($ctag, $admintype = 'admin')
 {
@@ -174,8 +168,6 @@ function GetFormItem($ctag, $admintype = 'admin')
 }
 
 /**
- * 
- * 
  *  处理不同类型的数据
  *
  * @access public
@@ -187,7 +179,6 @@ function GetFormItem($ctag, $admintype = 'admin')
  * @param  string $admintype 管理类型
  * @param  string $fieldname 变量类型
  * @return string
- 
  */
 function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $admintype = 'admin', $fieldname = '')
 {
@@ -356,8 +347,6 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
 }
 
 /**
- * 
- * 
  *  获得带值的表单(编辑时用)
  *
  * @access public
@@ -366,7 +355,6 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
  * @param  string $admintype 会员类型
  * @param  string $fieldname 变量名称
  * @return string
- 
  */
 function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
 {
