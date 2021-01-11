@@ -133,16 +133,16 @@ if($subday>0) echo "<option value='$subday' selected>置顶 $subday 天</option>
 <td width="500"><input type='text' name="keywords" id="keywords" class="uk-input uk-form-width-medium uk-form-small" />&nbsp;&nbsp;<input name="autokey" type="checkbox" class="uk-checkbox" id="autokey" value="1" <?php if($cfg_arc_autokeyword=='Y' ) echo ' checked="1" ' ; ?>/> 自动获取，手动填写用 "," 分开。</td>
 <td  style="vertical-align:middle;">标题颜色：</td>
 <td  style="vertical-align:middle;">
-  <select id="colorpicker" name="color">
-  <option value="">#e1e1e1</option>
-  <?php foreach ($colors as $color): ?>
-  <?php if ($color === $arcRow['color']): ?>
-  <option value="<?=$color?>" selected><?=$color?></option>
-  <?php else: ?>
-  <option value="<?=$color?>" ><?=$color?></option>
-  <?php endif; ?>
-  <?php endforeach; ?>
-  </select>
+<select id="colorpicker" name="color">
+<option value="">#e1e1e1</option>
+<?php foreach ($colors as $color): ?>
+<?php if ($color === $arcRow['color']): ?>
+<option value="<?=$color?>" selected><?=$color?></option>
+<?php else: ?>
+<option value="<?=$color?>" ><?=$color?></option>
+<?php endif; ?>
+<?php endforeach; ?>
+</select>
 </td>
 </tr>
 <tr colspan="2">
@@ -194,135 +194,135 @@ else echo "     <option value='{$row['rank']}'>{$row['membername']}</option>\r\n
 <tr >
 <td colspan="2">
 <table class="uk-table">
-  <tr>
-          <td width="90px" style="vertical-align:middle;">文件类型：</td>
-          <td width="550px">
-            <select name="filetype" id="filetype" class="uk-select uk-form-width-medium uk-form-small">
-              <option value=".exe" selected>.exe</option>
-              <option value=".zip">.zip</option>
-              <option value=".rar">.rar</option>
-              <option value=".iso">.iso</option>
-              <option value=".gz">.gz</option>
-              <option value="其它">其它</option>
-            </select>
-          </td>
-          <td width="90px" style="vertical-align:middle;">软件等级：</td>
-          <td><select name="softrank" id="softrank" class="uk-select uk-form-width-small uk-form-small">
-              <option value="1">一星</option>
-              <option value="2">二星</option>
-              <option value="3" selected>三星 </option>
-              <option value="4">四星</option>
-              <option value="5">五星</option>
-            </select>
-          </td>
+<tr>
+<td width="90px" style="vertical-align:middle;">文件类型：</td>
+<td width="550px">
+<select name="filetype" id="filetype" class="uk-select uk-form-width-medium uk-form-small">
+<option value=".exe" selected>.exe</option>
+<option value=".zip">.zip</option>
+<option value=".rar">.rar</option>
+<option value=".iso">.iso</option>
+<option value=".gz">.gz</option>
+<option value="其它">其它</option>
+</select>
+</td>
+<td width="90px" style="vertical-align:middle;">软件等级：</td>
+<td><select name="softrank" id="softrank" class="uk-select uk-form-width-small uk-form-small">
+<option value="1">一星</option>
+<option value="2">二星</option>
+<option value="3" selected>三星 </option>
+<option value="4">四星</option>
+<option value="5">五星</option>
+</select>
+</td>
 
-  </tr>
-  <tr>
-    <td width="90px" style="vertical-align:middle;">官方网址：</td>
-    <td><input name="officialUrl" type="text" id="officialUrl" value="http://" class="uk-input uk-form-width-large uk-form-small" /></td>
-
-
-          <td width="90px" style="vertical-align:middle;">界面语言： </td>
-          <td>
-            <select name="language" id="language" class="uk-select uk-form-width-small uk-form-small">
-              <option value="简体中文" selected>简体中文</option>
-              <option value="英文软件">英文软件</option>
-              <option value="繁体中文">繁体中文</option>
-              <option value="其它类型">其它类型</option>
-            </select>
-          </td>
+</tr>
+<tr>
+<td width="90px" style="vertical-align:middle;">官方网址：</td>
+<td><input name="officialUrl" type="text" id="officialUrl" value="http://" class="uk-input uk-form-width-large uk-form-small" /></td>
 
 
-  </tr>
-  <tr>
+<td width="90px" style="vertical-align:middle;">界面语言： </td>
+<td>
+<select name="language" id="language" class="uk-select uk-form-width-small uk-form-small">
+<option value="简体中文" selected>简体中文</option>
+<option value="英文软件">英文软件</option>
+<option value="繁体中文">繁体中文</option>
+<option value="其它类型">其它类型</option>
+</select>
+</td>
 
-    <td width="90" style="vertical-align:middle;">演示地址：</td>
-    <td><input name="officialDemo" type="text" id="officialDemo" value="http://" class="uk-select uk-form-width-large uk-form-small" /></td>
+
+</tr>
+<tr>
+
+<td width="90" style="vertical-align:middle;">演示地址：</td>
+<td><input name="officialDemo" type="text" id="officialDemo" value="http://" class="uk-select uk-form-width-large uk-form-small" /></td>
 
 
-          <td width="90" style="vertical-align:middle;">授权方式：</td>
-          <td >
-            <select name="accredit" id="accredit" class="uk-select uk-form-width-small uk-form-small">
-              <option value="共享软件" selected>共享软件</option>
-              <option value="免费软件">免费软件</option>
-              <option value="开源软件">开源软件</option>
-              <option value="商业软件">商业软件</option>
-              <option value="破解软件">破解软件</option>
-              <option value="游戏外挂">游戏外挂</option>
-            </select>
-          </td>
-  </tr>
-  <tr>
-    <td width="90" style="vertical-align:middle;">运行环境：</td>
+<td width="90" style="vertical-align:middle;">授权方式：</td>
+<td >
+<select name="accredit" id="accredit" class="uk-select uk-form-width-small uk-form-small">
+<option value="共享软件" selected>共享软件</option>
+<option value="免费软件">免费软件</option>
+<option value="开源软件">开源软件</option>
+<option value="商业软件">商业软件</option>
+<option value="破解软件">破解软件</option>
+<option value="游戏外挂">游戏外挂</option>
+</select>
+</td>
+</tr>
+<tr>
+<td width="90" style="vertical-align:middle;">运行环境：</td>
 
-    <td>
-      <input type='text' name='os' value='Win2003,WinXP,Win2000,Win9X' class="uk-input uk-form-width-large uk-form-small"/>
-    </td>
-          <td width="90" style="vertical-align:middle;">软件类型：</td>
-          <td>
-            <select name="softtype" id="softtype" class="uk-select uk-form-width-small uk-form-small">
-              <option value="国产软件" selected>国产软件</option>
-              <option value="国外软件">国外软件</option>
-              <option value="汉化补丁">汉化补丁</option>
-            </select>
-          </td>
-  </tr>
-  <tr>
+<td>
+<input type='text' name='os' value='Win2003,WinXP,Win2000,Win9X' class="uk-input uk-form-width-large uk-form-small"/>
+</td>
+<td width="90" style="vertical-align:middle;">软件类型：</td>
+<td>
+<select name="softtype" id="softtype" class="uk-select uk-form-width-small uk-form-small">
+<option value="国产软件" selected>国产软件</option>
+<option value="国外软件">国外软件</option>
+<option value="汉化补丁">汉化补丁</option>
+</select>
+</td>
+</tr>
+<tr>
 
-          <td width="90" style="vertical-align:middle;">软件大小：</td>
-          <td  colspan="3" style="vertical-align:middle;">
-            <input name="softsize" type="text" id="softsize" class="uk-input uk-form-width-medium uk-form-small" />
-            <select name="unit" id="unit" class="uk-select uk-form-width-small uk-form-small">
-              <option value="MB" selected>MB</option>
-              <option value="KB">KB</option>
-              <option value="GB">GB</option>
-            </select>&nbsp;&nbsp;
-            <input name="autosize" type="checkbox" class="uk-checkbox" id="autosize" value="1" checked> 自动获得 (必须包含一个本地软件)
-          </td>
-          
-        </tr>
+<td width="90" style="vertical-align:middle;">软件大小：</td>
+<td  colspan="3" style="vertical-align:middle;">
+<input name="softsize" type="text" id="softsize" class="uk-input uk-form-width-medium uk-form-small" />
+<select name="unit" id="unit" class="uk-select uk-form-width-small uk-form-small">
+<option value="MB" selected>MB</option>
+<option value="KB">KB</option>
+<option value="GB">GB</option>
+</select>&nbsp;&nbsp;
+<input name="autosize" type="checkbox" class="uk-checkbox" id="autosize" value="1" checked> 自动获得 (必须包含一个本地软件)
+</td>
+
+</tr>
 
 <tr >
-  <tr>
+<tr>
 
-          <td width="90" style="vertical-align:middle;">本地地址：</td>
-          <td>
-            <input name="softurl1" type="text" id="softurl1" class="uk-input uk-form-width-large uk-form-small"/>
-          </td>
-          <td width="90" style="vertical-align:middle;">服务器名称：</td>
-          <td>
-            <input name="servermsg1" type="text" id="servermsg1" value="本地下载" class="uk-input uk-form-width-small uk-form-small" />
-          </td>
+<td width="90" style="vertical-align:middle;">本地地址：</td>
+<td>
+<input name="softurl1" type="text" id="softurl1" class="uk-input uk-form-width-large uk-form-small"/>
+</td>
+<td width="90" style="vertical-align:middle;">服务器名称：</td>
+<td>
+<input name="servermsg1" type="text" id="servermsg1" value="本地下载" class="uk-input uk-form-width-small uk-form-small" />
+</td>
 
-  </tr>
-  <?php
+</tr>
+<?php
 if($softconfig['moresitedo'] == 0 && trim($softconfig['sites']) != '')
 {
 ?>
 
 
-    <?php
-    $sites = explode("\n", $softconfig['sites']);
-    $startNum = 2;
-    foreach($sites as $site)
-    {
-      $site = trim($site);
-      if(empty($site)) continue;
-      list($siteurl, $sitename) = explode('|', $site);
-      $siteurl = trim($siteurl);
-      $sitename = trim($sitename);
-  ?>
-  <tr >    
-    <td width="90" style="vertical-align:middle;"> <?=$sitename; ?>：</td>
-    <td colspan="3">
-      <input type='hidden' name='forconfig<?php echo $startNum; ?>' value='1' />
-      <input type='text' name='softurlfirst<?php echo $startNum; ?>' class="uk-input uk-form-width-medium uk-form-small" value='<?php echo $siteurl; ?>' /> /
-      <input type='text' name='softurl<?php echo $startNum; ?>' class="uk-input uk-form-width-medium uk-form-small" value='' />
-      <input type='text' name='servermsg<?php echo $startNum; ?>' class="uk-input uk-form-width-medium uk-form-small" value='<?php echo $sitename; ?>' />
-      &nbsp;&nbsp;<input type='checkbox' name='need<?php echo $startNum; ?>' class='uk-checkbox' value='1' checked /> 启用
-    </td>
-  </tr>
-      <?php
+<?php
+$sites = explode("\n", $softconfig['sites']);
+$startNum = 2;
+foreach($sites as $site)
+{
+$site = trim($site);
+if(empty($site)) continue;
+list($siteurl, $sitename) = explode('|', $site);
+$siteurl = trim($siteurl);
+$sitename = trim($sitename);
+?>
+<tr >    
+<td width="90" style="vertical-align:middle;"> <?=$sitename; ?>：</td>
+<td colspan="3">
+<input type='hidden' name='forconfig<?php echo $startNum; ?>' value='1' />
+<input type='text' name='softurlfirst<?php echo $startNum; ?>' class="uk-input uk-form-width-medium uk-form-small" value='<?php echo $siteurl; ?>' /> /
+<input type='text' name='softurl<?php echo $startNum; ?>' class="uk-input uk-form-width-medium uk-form-small" value='' />
+<input type='text' name='servermsg<?php echo $startNum; ?>' class="uk-input uk-form-width-medium uk-form-small" value='<?php echo $sitename; ?>' />
+&nbsp;&nbsp;<input type='checkbox' name='need<?php echo $startNum; ?>' class='uk-checkbox' value='1' checked /> 启用
+</td>
+</tr>
+<?php
 $startNum++;
 }//foreach
 echo "<script language='javascript'>startNum = $startNum;</script>\r\n";
