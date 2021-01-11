@@ -78,14 +78,9 @@ height:25px;
 <?php
 $dsql->SetQuery("Select * From `#@__arcatt` order by sortid asc");
 $dsql->Execute();
-while($trow = $dsql->GetObject())
-{
-if($trow->att!='j')
-{
+while($trow = $dsql->GetObject()) {
 echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}'> {$trow->attname}[{$trow->att}] &nbsp;&nbsp;";
-}
-}
-?>
+}?>
 </td>
 </tr>
 
