@@ -3,8 +3,6 @@
 - @author    DedeCMS团队
 - @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
 --->
-
-
 <html>
   
   <head>
@@ -63,6 +61,12 @@ height:25px;
 <li><a href="#" >图集图片</a></li>
 </ul>
 
+<ul class="uk-switcher uk-margin">
+<!-- 常规参数 -->
+<li> 
+
+
+
 <table width="100%" border="0" uk-table>
 <tr>
 <td style="vertical-align:top;"  width="200px">
@@ -72,6 +76,7 @@ height:25px;
 <img id="result-image" />
 <div id="no_image" class="uk-flex uk-flex-center uk-flex-middle">
 <span uk-icon="icon: image; ratio: 4"></span>
+
 </div>
 </div>
 <!-- /缩略图 -->
@@ -103,7 +108,7 @@ echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow-
 <td><input name="weight" type="text" id="weight" value="<?php echo $maxWright['cc'];?>" class="uk-input uk-form-width-small uk-form-small" /> (越小越靠前)</td>
 </tr>
 <tr>
-<td width="90">文章来源：</td>
+<td width="90">来源：</td>
 <td width="240">
 <input name="source" type="text" id="source" value="<?php echo $source; ?>" class="uk-input uk-form-width-large uk-form-small" />
 </td>
@@ -116,9 +121,9 @@ echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow-
 <td width="90" style="vertical-align:middle;">主分类：</td>
 <td>
 <?php
-$typeOptions = GetOptionList($cid, $cuserLogin->getUserChannel(), 0);
+$typeOptions = GetOptionList($cid,$cuserLogin->getUserChannel(),$channelid);
 echo "<select name='typeid' id='typeid' class='uk-select uk-form-width-large uk-form-small'>\r\n";
-echo "<option value='0'>请选择主分类...</option>\r\n";
+echo "<option value='0'>请选择栏目...</option>\r\n";
 echo $typeOptions;
 echo "</select>";
 ?>
@@ -130,7 +135,7 @@ echo "</select>";
 <td colspan="2" width="202" style="vertical-align:middle;"><input name="autokey" type="checkbox" class="uk-checkbox" id="autokey" value="1" <?php if($cfg_arc_autokeyword=='Y' ) echo ' checked="1" ' ; ?>/> 自动获取，手动填写用 "," 分开。</td>
 </tr>
 <tr colspan="2">
-<td width="90">专题简介：</td>
+<td width="90">图集内容摘要：</td>
 <td><textarea name="description" rows="5" id="description" class="uk-textarea uk-form-width-large uk-form-small"></textarea></td>
 </tr>
 <tr>
@@ -202,8 +207,8 @@ echo "<option value='".$row->rank."'>".$row->membername."</option>\r\n";
 <td colspan="2">
 <table border="0" cellspacing="0" cellpadding="0" class="uk-table">
 <tr>
-<td width="90">评论选项：</td>
-<td width="240">
+<td width="90px">评论选项：</td>
+<td>
 <input type='radio' name='notpost' class="uk-radio" value='0' <?php if($cfg_feedback_forbid=='N' )
 echo "checked='1' " ; ?> /> 允许评论 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;
@@ -213,40 +218,65 @@ echo "checked='1' " ; ?> /> 禁止评论
 
 </tr>
 <tr>
-<td width="90">发布选项：</td>
+<td width="90px">发布选项：</td>
 <td ><input name="ishtml" type="radio" class="uk-radio" value="1" checked="1" />
 生成HTML &nbsp;&nbsp;
 <input type="radio" name="ishtml" class="uk-radio" value="0" />
 仅动态浏览
 </td>
 </tr>
-<tr>
-<td width="90">分页方式：</td>
-<td>
-<input name="sptype" type="radio" class="uk-radio" value="hand" <?php if($cfg_arcautosp=='N' )
-echo " checked='1' " ?> />
-手动 &nbsp;&nbsp;
-<input type="radio" name="sptype" value="auto" class="uk-radio" <?php if($cfg_arcautosp=='Y' )
-echo " checked='1' " ?> />
-自动　大小：
-<input name="spsize" type="text" id="spsize" value="<?php echo $cfg_arcautosp_size?>" class=" uk-input uk-form-width-small uk-form-small" /> K
-(分页符为： <font color="#FF0000">#p#分页标题#e# </font>)
+</table>
 </td>
 </tr>
-<tr>
-<td width="90">附加选项：</td>
-<td>
-<input name="remote" type="checkbox" class="uk-checkbox" id="remote" value="1" <?php if($cfg_rm_remote=='Y' ) echo ' checked="1" ' ; ?> /> 下载远程图片和资源 &nbsp;&nbsp;
-<input name="dellink" type="checkbox" class="uk-checkbox" id="dellink" value="1" <?php if($cfg_arc_dellink=='Y' ) echo ' checked="1" ' ; ?> /> 删除非站内链接 <a href="javascript:OpenMyWin('article_allowurl_edit.php');">[设置]</a> &nbsp;&nbsp;
-<input name="autolitpic" type="checkbox" class="uk-checkbox" id="autolitpic" value="1" <?php if($cfg_arc_autopic=='Y' ) echo ' checked="1" ' ; ?> /> 提取第一个图片为缩略图 &nbsp;&nbsp;
-<input type='checkbox' name='needwatermark' value='1' class="uk-checkbox" <?php if($photo_markup=='1' ) echo "checked" ; ?> /> 图片是否加水印
-</td>
-</tr>
+</table>
 
-</table>
-</td>
-</tr>
-</table>
+</li>
+<!-- /常规参数 -->
+<!-- 专题文档 -->
+<li>
+
+
+  <label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="1" <?php if($cfg_album_style==1) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 202X2W2X1X292F"></span> 单页多图样式</label>
+&nbsp;&nbsp;
+<label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="2" <?php if($cfg_album_style==2) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 1W2T2S2T1V252B"></span> 幻灯片样式</label>
+&nbsp;&nbsp;
+<label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="3" <?php if($cfg_album_style==3) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 3E5B5A5B3D454B"></span> 多缩略图样式</label>
+
+
+<div>
+  <ul class="uk-grid-small uk-child-width-1-6 uk-child-width-1-6@s" uk-sortable="handle: .uk-card" uk-grid>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 1</div>
+    </li>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 2</div>
+    </li>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 3</div>
+    </li>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 4</div>
+    </li>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 5</div>
+    </li>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 6</div>
+    </li>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 7</div>
+    </li>
+    <li>
+        <div class="uk-card uk-card-default uk-card-body uk-text-center">Item 8</div>
+    </li>
+</ul>
+</div>
+
+
+
+
+</li>
+</ul>
 
 
 
@@ -420,16 +450,7 @@ $(this).val(start.format("YYYY-MM-DD HH:mm:ss"));
       });
     });
   </script>
-  <style>
-    img {
-      vertical-align: baseline;
-    }
 
-    input,
-    select {
-      height: auto !important;
-    }
-  </style>
 </head>
 
 <body topmargin="8" background="images/allbg.gif">
@@ -790,8 +811,7 @@ $(this).val(start.format("YYYY-MM-DD HH:mm:ss"));
       </tr>
     </table>
     <!-- //高级参数 -->
-    <table width="98%" border="0" align="center" cellpadding="2" cellspacing="2" id="adset"
-      style="border:1px solid #EAECEF;background:#ffffff;display:none">
+    <table width="98%" >
       <tr>
         <td height="24" colspan="4" class="bline">
           <table width="800" border="0" cellspacing="0" cellpadding="0">

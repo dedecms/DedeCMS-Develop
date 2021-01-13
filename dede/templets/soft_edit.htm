@@ -217,8 +217,8 @@ else echo "     <option value='{$row['rank']}'>{$row['membername']}</option>\r\n
 <td width="90px" style="vertical-align:middle;">文件类型：</td>
 <td width="550px">
 <select name="filetype" id="filetype" class="uk-select uk-form-width-medium uk-form-small">
-<?php if($addRow["filetype"]!="") echo "<option value=\"".$addRow["filetype"]."\">".$addRow["filetype"]."</option>\r\n";?>
-<option value=".exe" selected>.exe</option>
+<?php if($addRow["filetype"]!="") echo "<option value=\"".$addRow["filetype"]."\" selected>".$addRow["filetype"]."</option>\r\n";?>
+<option value=".exe">.exe</option>
 <option value=".zip">.zip</option>
 <option value=".rar">.rar</option>
 <option value=".iso">.iso</option>
@@ -228,7 +228,7 @@ else echo "     <option value='{$row['rank']}'>{$row['membername']}</option>\r\n
 </td>
 <td width="90px" style="vertical-align:middle;">软件等级：</td>
 <td><select name="softrank" id="softrank" class="uk-select uk-form-width-small uk-form-small">
-<?php if($addRow["softrank"]!="") echo "<option value=\"".$addRow["softrank"]."\">".$addRow["softrank"]."星</option>\r\n";?>
+<?php if($addRow["softrank"]!="") echo "<option value=\"".$addRow["softrank"]."\" selected>".$addRow["softrank"]."星</option>\r\n";?>
 <option value="1">一星</option>
 <option value="2">二星</option>
 <option value="3">三星 </option>
@@ -246,8 +246,8 @@ else echo "     <option value='{$row['rank']}'>{$row['membername']}</option>\r\n
 <td width="90px" style="vertical-align:middle;">界面语言： </td>
 <td>
 <select name="language" id="language" class="uk-select uk-form-width-small uk-form-small">
-<?php if($addRow["language"]!="") echo "<option value=\"".$addRow["language"]."\">".$addRow["language"]."</option>\r\n";?>
-<option value="简体中文" selected>简体中文</option>
+<?php if($addRow["language"]!="") echo "<option value=\"".$addRow["language"]."\" selected>".$addRow["language"]."</option>\r\n";?>
+<option value="简体中文">简体中文</option>
 <option value="英文软件">英文软件</option>
 <option value="繁体中文">繁体中文</option>
 <option value="其它类型">其它类型</option>
@@ -265,7 +265,7 @@ else echo "     <option value='{$row['rank']}'>{$row['membername']}</option>\r\n
 <td width="90" style="vertical-align:middle;">授权方式：</td>
 <td >
 <select name="accredit" id="accredit" class="uk-select uk-form-width-small uk-form-small">
-<?php if($addRow["accredit"]!="") echo "<option value=\"".$addRow["accredit"]."\">".$addRow["accredit"]."</option>\r\n";?>
+<?php if($addRow["accredit"]!="") echo "<option value=\"".$addRow["accredit"]."\" selected>".$addRow["accredit"]."</option>\r\n";?>
 <option value="共享软件">共享软件</option>
 <option value="免费软件">免费软件</option>
 <option value="开源软件">开源软件</option>
@@ -284,8 +284,8 @@ else echo "     <option value='{$row['rank']}'>{$row['membername']}</option>\r\n
 <td width="90" style="vertical-align:middle;">软件类型：</td>
 <td>
 <select name="softtype" id="softtype" class="uk-select uk-form-width-small uk-form-small">
-<?php if($addRow["softtype"]!="") echo "<option value=\"".$addRow["softtype"]."\">".$addRow["softtype"]."</option>\r\n";?>
-<option value="国产软件" selected>国产软件</option>
+<?php if($addRow["softtype"]!="") echo "<option value=\"".$addRow["softtype"]."\" selected>".$addRow["softtype"]."</option>\r\n";?>
+<option value="国产软件">国产软件</option>
 <option value="国外软件">国外软件</option>
 <option value="汉化补丁">汉化补丁</option>
 </select>
