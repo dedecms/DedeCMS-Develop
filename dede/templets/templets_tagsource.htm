@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>标签源码碎片管理</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -45,12 +51,12 @@
 <!-- 表头隐藏部分，用于固定表结构宽度 -->
 <table class="uk-table uk-table-hover uk-table-middle uk-table-divider uk-table-striped uk-margin-remove">
 <thead>
-  <tr>
-  <td >文件名</td>
-  <td width="18%">文件描述</td>
-  <td width="12%">修改时间</td>
-  <td width="20%">操作</td>
-  </tr>
+<tr>
+<td >文件名</td>
+<td width="18%">文件描述</td>
+<td width="12%">修改时间</td>
+<td width="20%">操作</td>
+</tr>
 </thead>
 <!-- /表头隐藏部分 -->
 <tbody>
@@ -61,7 +67,7 @@
 <td>{dede:value.fileinfo /}</td>
 <td>{dede:value.filetime /}</td>
 <td>
-  <a href='tpl.php?action=edittag&filename={dede:value.filename /}'>[修改]</a>
+<a href='tpl.php?action=edittag&filename={dede:value.filename /}'>[修改]</a>
 </td>
 </tr>
 {/dede:array}

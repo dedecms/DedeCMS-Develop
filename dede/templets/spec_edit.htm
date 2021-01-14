@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>修改专题</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -23,7 +29,7 @@ background: none;
 }
 #dede-modal-card-header .uk-card-header{
 height:25px;
-}  
+}
 </style>
 
 </head>
@@ -63,7 +69,7 @@ height:25px;
 
 <ul class="uk-switcher uk-margin">
 <!-- 常规参数 -->
-<li> 
+<li>
 <table width="100%" border="0" uk-table>
 <tr>
 <td style="vertical-align:top;"  width="200px">
@@ -128,7 +134,7 @@ if($subday>0) echo "<option value='$subday' selected>置顶 $subday 天</option>
 <option value="90">置顶三个月</option>
 <option value="180">置顶半年</option>
 <option value="360">置顶一年</option>
-</select> 
+</select>
 </td>
 <td width="60" style="vertical-align:middle;">标题颜色：</td>
 <td style="vertical-align:middle;">
@@ -225,15 +231,15 @@ echo "</select>";
 
 
 
-  <?php
-  $speclisttmp = GetSysTemplets("spec_arclist.htm");
-  $i = 1;
-  $dtp = new DedeTagParse();
+<?php
+$speclisttmp = GetSysTemplets("spec_arclist.htm");
+$i = 1;
+$dtp = new DedeTagParse();
 $dtp->LoadSource($addRow["note"]);
 if(is_array($dtp->CTags)){
 foreach($dtp->CTags as $tagid=>$ctag)
 {
-  if($ctag->GetName()!="specnote") continue;
+if($ctag->GetName()!="specnote") continue;
 ?>
 
 
@@ -296,56 +302,56 @@ for($i;$i<=$cfg_specnote;$i++)
 
 
 <table class="uk-table">
-  <tr>
-  <td width="90px" style="vertical-align:middle;">节点 <?php echo $i?> 名称： </td>
-  <td width="550px"><input name="notename<?php echo $i?>" type="text" value="<?php echo $nodename; ?>" id="notename<?php echo $i?>" class="uk-input uk-form-width-large  uk-form-small"></td>
-  <td width="60px" style="vertical-align:middle;">节点标识：</td>
-  <td><input name="noteid<?php echo $i?>" type="text" value="<?php echo $nodeid; ?>" id="noteid<?php echo $i?>" class="uk-input uk-form-width-medium uk-form-small "></td>
-  </tr>
-  <tr colspan="3">
-  <td>节点文章列表：</td>
-  <td><textarea name="arcid<?php echo $i?>" rows="3" id="arcid<?php echo $i?>" class="uk-textarea uk-form-width-large  uk-form-small"></textarea></td>
-  <td colspan="2">
-  <button type="button" class="uk-button uk-button-default uk-button-small"  onClick="_DedeCMS_JSCODE_Version_Open_Windows_Get_Archive_ID('arcid<?php echo $i?>');">选择节点文章</button></td>
-  </tr>
-  <tr>
-  <td style="vertical-align:middle;">文档来源：</td>
-  <td colspan="4"><input name="isauto<?php echo $i?>" type="radio" id="isauto<?php echo $i?>" value="0"
-  class="uk-radio" checked>
-  按文章列表 &nbsp;&nbsp;
-  <input name="isauto<?php echo $i?>" type="radio" id="isauto<?php echo $i?>" value="1" class="uk-radio">
-  自动获取文档 &nbsp;&nbsp;&nbsp;&nbsp;
-  
-  关键字：
-  <input name="keywords<?php echo $i?>" type="text" id="keywords<?php echo $i?>" value="" class="uk-input uk-form-width-medium uk-form-small ">
-  (逗号分开) &nbsp;&nbsp;
-  栏目ID：
-  <input name="typeid<?php echo $i?>" type="text" id="typeid<?php echo $i?>" value="0" class="uk-input uk-form-width-medium uk-form-small ">
-  </td>
-  </tr>
-  <tr>
-  <td rowspan="2" style="vertical-align:middle;">节点布局： </td>
-  <td colspan="3" style="vertical-align:middle;"> 列数：
-  <input name="col<?php echo $i?>" type="text" id="col<?php echo $i?>" value="1" style="width:45px;"  class="uk-input uk-form-small"> &nbsp;&nbsp;
-  图片宽：
-  <input name="imgwidth<?php echo $i?>" type="text" id="imgwidth<?php echo $i?>" value="120" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
-  图片高：
-  <input name="imgheight<?php echo $i?>" type="text" id="imgheight<?php echo $i?>" value="90" style="width:45px;"   class="uk-input  uk-form-small "> &nbsp;&nbsp;
-  标题长：
-  <input name="titlelen<?php echo $i?>" type="text" id="titlelen<?php echo $i?>" value="60" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
-  简介长：
-  <input name="infolen<?php echo $i?>" type="text" id="infolen<?php echo $i?>" value="160" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
-  文档数：
-  <input name="rownum<?php echo $i?>" type="text" id="rownum<?php echo $i?>" value="10" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
-  </td>
-  </tr>
-  <tr colspan="4">
-  <td >单条记录的模板：<br />
-  <textarea name="listtmp<?php echo $i?>" rows="3" id="listtmp<?php echo $i?>" class="uk-textarea uk-form-width-large  uk-form-small"><?php echo $speclisttmp?></textarea>
-  </td>
-  </tr>
-  </table>
-  <hr>
+<tr>
+<td width="90px" style="vertical-align:middle;">节点 <?php echo $i?> 名称： </td>
+<td width="550px"><input name="notename<?php echo $i?>" type="text" value="<?php echo $nodename; ?>" id="notename<?php echo $i?>" class="uk-input uk-form-width-large  uk-form-small"></td>
+<td width="60px" style="vertical-align:middle;">节点标识：</td>
+<td><input name="noteid<?php echo $i?>" type="text" value="<?php echo $nodeid; ?>" id="noteid<?php echo $i?>" class="uk-input uk-form-width-medium uk-form-small "></td>
+</tr>
+<tr colspan="3">
+<td>节点文章列表：</td>
+<td><textarea name="arcid<?php echo $i?>" rows="3" id="arcid<?php echo $i?>" class="uk-textarea uk-form-width-large  uk-form-small"></textarea></td>
+<td colspan="2">
+<button type="button" class="uk-button uk-button-default uk-button-small"  onClick="_DedeCMS_JSCODE_Version_Open_Windows_Get_Archive_ID('arcid<?php echo $i?>');">选择节点文章</button></td>
+</tr>
+<tr>
+<td style="vertical-align:middle;">文档来源：</td>
+<td colspan="4"><input name="isauto<?php echo $i?>" type="radio" id="isauto<?php echo $i?>" value="0"
+class="uk-radio" checked>
+按文章列表 &nbsp;&nbsp;
+<input name="isauto<?php echo $i?>" type="radio" id="isauto<?php echo $i?>" value="1" class="uk-radio">
+自动获取文档 &nbsp;&nbsp;&nbsp;&nbsp;
+
+关键字：
+<input name="keywords<?php echo $i?>" type="text" id="keywords<?php echo $i?>" value="" class="uk-input uk-form-width-medium uk-form-small ">
+(逗号分开) &nbsp;&nbsp;
+栏目ID：
+<input name="typeid<?php echo $i?>" type="text" id="typeid<?php echo $i?>" value="0" class="uk-input uk-form-width-medium uk-form-small ">
+</td>
+</tr>
+<tr>
+<td rowspan="2" style="vertical-align:middle;">节点布局： </td>
+<td colspan="3" style="vertical-align:middle;"> 列数：
+<input name="col<?php echo $i?>" type="text" id="col<?php echo $i?>" value="1" style="width:45px;"  class="uk-input uk-form-small"> &nbsp;&nbsp;
+图片宽：
+<input name="imgwidth<?php echo $i?>" type="text" id="imgwidth<?php echo $i?>" value="120" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
+图片高：
+<input name="imgheight<?php echo $i?>" type="text" id="imgheight<?php echo $i?>" value="90" style="width:45px;"   class="uk-input  uk-form-small "> &nbsp;&nbsp;
+标题长：
+<input name="titlelen<?php echo $i?>" type="text" id="titlelen<?php echo $i?>" value="60" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
+简介长：
+<input name="infolen<?php echo $i?>" type="text" id="infolen<?php echo $i?>" value="160" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
+文档数：
+<input name="rownum<?php echo $i?>" type="text" id="rownum<?php echo $i?>" value="10" style="width:45px;"  class="uk-input  uk-form-small "> &nbsp;&nbsp;
+</td>
+</tr>
+<tr colspan="4">
+<td >单条记录的模板：<br />
+<textarea name="listtmp<?php echo $i?>" rows="3" id="listtmp<?php echo $i?>" class="uk-textarea uk-form-width-large  uk-form-small"><?php echo $speclisttmp?></textarea>
+</td>
+</tr>
+</table>
+<hr>
 <?php } ?>
 
 </li>

@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>修改单独页面</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -43,12 +49,12 @@ height: 35px;
 <form action="templets_one_edit.php" method="post" name="form1" onSubmit="return checkSubmit()">
 <input type='hidden' name='dopost' value='saveedit'>
 <input type='hidden' name='aid' value='<?php echo $aid?>'>
-<tr> 
+<tr>
 <td width="15%">页面标题：</td>
-<td> 
+<td>
 <input name="title" type="text" id="title" class="uk-input uk-form-small uk-form-width-large" value="<?php echo $row['title']; ?>"></td>
 </tr>
-<tr> 
+<tr>
 <td>页面关键字：</td>
 <td><input name="keywords" type="text" id="keywords" value="<?php echo $row['keywords']; ?>" class="uk-input uk-form-small uk-form-width-large">
 (用&quot;,&quot;分开) </td>
@@ -81,7 +87,7 @@ echo "</select>\r\n";
 <input name="template" type="text" id="template" value="<?php echo $row['template']; ?>" class="uk-input uk-form-small uk-form-width-large">
 </td>
 </tr>
-<tr> 
+<tr>
 <td>文件名：</td>
 <td>
 <input name="oldfilename" type="hidden" id="oldfilename" value="<?php echo $row['filename']; ?>">
@@ -89,7 +95,7 @@ echo "</select>\r\n";
 （相对于CMS安装目录）
 </td>
 </tr>
-<tr> 
+<tr>
 <td>是否编译内容：</td>
 <td>
 <input name="ismake" type="radio" class='uk-radio' value="1"<?php if($row['ismake']==1) echo " checked"; ?>>
@@ -97,11 +103,11 @@ echo "</select>\r\n";
 <input type="radio" name="ismake" class='uk-radio' value="0"<?php if($row['ismake']==0) echo " checked"; ?>>
 不含模板标记，不需要编译</td>
 </tr>
-<tr> 
+<tr>
 <td height="24" colspan="2"  bgcolor="#FBFBFB">内容：(模板里用"dede:field name='body'/"来获得文件内容)</td>
 </tr>
-<tr> 
-<td height="80" colspan="2" align="center"> 
+<tr>
+<td height="80" colspan="2" align="center">
 <?php GetEditor("body",$row['body'],"500","Default","print","false"); ?>
 </td>
 </tr>
@@ -118,7 +124,7 @@ echo "</select>\r\n";
 <button type="submit" class="uk-button uk-button-small uk-button-primary">提交</button>
 </div>
 </div>
-</div> 
+</div>
 </form>
 
 <!-- 列表底部 -->

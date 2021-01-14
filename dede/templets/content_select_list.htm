@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>文档管理</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -73,7 +79,7 @@ min-width: 1050px;
 <tbody>
 <!-- 内容列表 -->
 {dede:datalist}
-<tr> 
+<tr>
 <td>{dede:field.id/}</td>
 <td><input name="arcID" type="checkbox" id="arcID" value="{dede:field.id/}" class="uk-checkbox dede-checkbox"></td>
 <td align='left'><a href='archives_do.php?aid={dede:field.id/}&dopost=editArchives'><u>{dede:field.title/}</u></a></td>
@@ -106,7 +112,7 @@ min-width: 1050px;
 <div class="bar-bottom uk-flex uk-light uk-flex-right">
 <div class="uk-button-group" style="margin-left: 20px;">
 <form name='form3' action='content_select_list.php' method='get' class="uk-flex uk-flex-left " >
-<input type='hidden' name='f' value='<?php echo $f?>'> 
+<input type='hidden' name='f' value='<?php echo $f?>'>
 <div>
 <select name='cid' class="uk-select uk-form-small uk-width-small">
 <option value='0'>选择分类...</option>

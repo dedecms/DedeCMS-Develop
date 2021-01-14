@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>采集内容导出</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -49,9 +55,9 @@
 <td width="50%">
 <table class="uk-table uk-table-middle uk-margin-remove" >
 <tbody>
-<tr> 
+<tr>
 <td>默认导出栏目</td>
-<td > 
+<td >
 <?php
 $typeOptions = GetOptionList(0,$cuserLogin->getUserChannel(),$channelid);
 echo "<select name='typeid'  class='uk-select uk-form-small uk-form-width-medium'>\r\n";
@@ -61,20 +67,20 @@ echo "</select>";
 ?>
 </td>
 </tr>
-<tr> 
+<tr>
 <td>批量采集选项</td>
 <td>
 <input name="autotype" type="checkbox" id="autotype" value="1" class="uk-checkbox"<?php if($usemore==1 || empty($nid)) echo " checked='1' "; ?>/>
 使用采集规则中指定的栏目ID(如果目标的栏目ID为0，则用上面选择的栏目)
 </td>
 </tr>
-<tr> 
+<tr>
 <td>发布选项</td>
 <td>
 <label><input name="arcrank" type="radio" class="uk-radio" value="0" checked='1' /></label>
-普通文档 
+普通文档
 <label style="margin-left: 12px;"><input name="arcrank" type="radio" class="uk-radio" value="-1" /></label>
-保存为草稿 
+保存为草稿
 </td>
 </tr>
 </tbody>
@@ -84,13 +90,13 @@ echo "</select>";
 <table class="uk-table uk-table-middle uk-margin-remove" >
 <tbody>
 
-<tr> 
+<tr>
 <td width="30%">每批导入</td>
 <td>
 <input name="pagesize" type="text" id="pagesize" value="60" class="uk-input uk-form-width-small uk-form-small" /> 条
 </td>
 </tr>
-<tr> 
+<tr>
 <td>附带选项</td>
 <td>
 <label><input name="onlytitle" type="checkbox" id="onlytitle" value="1" class="uk-radio" /></label>
@@ -101,7 +107,7 @@ echo "</select>";
 使用列表索引的标题
 </td>
 </tr>
-<tr> 
+<tr>
 <td>随机推荐</td>
 <td>
 <input name="randcc" type="text" id="randcc" value="12" class="uk-input uk-form-width-small uk-form-small" />
@@ -121,7 +127,7 @@ echo "</select>";
 <tbody>
 <tr>
 <td align="right" >
-<button type="submit" class="uk-button uk-button-primary uk-button-small">导出</button> 
+<button type="submit" class="uk-button uk-button-primary uk-button-small">导出</button>
 </td>
 </tr>
 </tbody>

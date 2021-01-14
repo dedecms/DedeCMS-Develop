@@ -1,3 +1,9 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 {dede:config.pagesize value="20"/}
 <html>
 
@@ -5,8 +11,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>系统用户列表</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -32,17 +38,17 @@
 <fieldset id="dede-dropdown-margin" class="uk-fieldset">
 <div class="uk-margin">
 <select name="spacesta" id="spacesta" class="uk-select uk-form-small uk-flex-inline uk-width-1-1">
-  <option value='-10'>--会员状态--</option>
-  <?php foreach($staArr as $k=>$v) {
-  if($spacesta==$k) echo "<option value='$k' selected>$v</option>\r\n";
-  else echo "<option value='$k'>$v</option>\r\n"; } ?>
-  </select>
+<option value='-10'>--会员状态--</option>
+<?php foreach($staArr as $k=>$v) {
+if($spacesta==$k) echo "<option value='$k' selected>$v</option>\r\n";
+else echo "<option value='$k'>$v</option>\r\n"; } ?>
+</select>
 </div>
 
 <div class="uk-margin">
 <select name="mtype" id="mtype" class="uk-select uk-form-small uk-flex-inline uk-width-1-1">
-  <?php foreach($MemberModels as $row) {
-  echo "<option value=".$row['name'].">".$row['name']."</option>\r\n"; } ?>
+<?php foreach($MemberModels as $row) {
+echo "<option value=".$row['name'].">".$row['name']."</option>\r\n"; } ?>
 </select>
 </div>
 <div class="uk-margin">
@@ -103,8 +109,8 @@
 <!-- /表头隐藏部分 -->
 <tbody>
 <!-- 内容列表 -->
-{dede:datalist} 
-<tr> 
+{dede:datalist}
+<tr>
 <td><input name="mid" type="checkbox" id="mid" value="{dede:field.mid/}" class="uk-checkbox dede-checkbox" /></td>
 <td>{dede:field.mid/}</td>
 <td>{dede:field.userid /} <?php
@@ -124,13 +130,13 @@ if($fields['spacesta']==-1) echo "<font color='red'>(未审核)</font>";?>
 {dede:field.logintime function="MyDate('Y-m-d H:i',@me)" /} - {dede:field.loginip /}
 </td>
 <td>
-<a href="member_view.php?id={dede:field.mid/}">[修改]</a> 
+<a href="member_view.php?id={dede:field.mid/}">[修改]</a>
 <a href="member_do.php?id={dede:field.mid/}&dopost=delmember">[删除]</a>
 <a href="content_list.php?mid={dede:field.mid/}" target="_blank">[文档]</a>
 <a href="member_toadmin.php?id={dede:field.mid/}" target="_self">[提升]</a>
 </td>
 </tr>
-{/dede:datalist} 
+{/dede:datalist}
 <!-- /内容列表 -->
 </tbody>
 <!-- 批量操作 -->

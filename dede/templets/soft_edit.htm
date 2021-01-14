@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>编辑软件集</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -23,7 +29,7 @@ background: none;
 }
 #dede-modal-card-header .uk-card-header{
 height:25px;
-}  
+}
 </style>
 
 </head>
@@ -167,7 +173,7 @@ if($subday>0) echo "<option value='$subday' selected>置顶 $subday 天</option>
 </tr>
 <tr>
 <td width="90" style="vertical-align:middle;">下载限制:</td>
-<td width="240"> 
+<td width="240">
 <select name="daccess" id="daccess" class="uk-select uk-form-width-large uk-form-small">
 <?php
 $dsql->SetQuery("Select * from `#@__arcrank` where rank>=0 ");

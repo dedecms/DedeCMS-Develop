@@ -1,3 +1,9 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,91 +20,91 @@
 <!-- /header -->
 
 <div class="channel-nav w960 center clear">
-	<div class='sonnav'>
-	{dede:channel type='son' currentstyle="<span><a href='~typelink~' class='thisclass'>~typename~</a></span>"}
-		<span><a href='[field:typeurl/]'>[field:typename/]</a></span>{/dede:channel}
-	</div>
+<div class='sonnav'>
+{dede:channel type='son' currentstyle="<span><a href='~typelink~' class='thisclass'>~typename~</a></span>"}
+<span><a href='[field:typeurl/]'>[field:typename/]</a></span>{/dede:channel}
+</div>
 </div><!-- /channel-nav -->
 
 <div class="w960 center clear mt1">
-	<div class="pleft">
-	
-		<div class="topcommand">
-			<dl class="tbox">
-				<dt><strong>频道头条</strong></dt>
-				<dd>
-					<div class="onenews">
-                        {dede:arclist flag='h' limit='0,1'}
-                        <h2><a href="[field:arcurl/]">[field:title/]</a></h2>
-                        <p>[field:description function='cn_substr(@me,110)'/]...<a href="[field:arcurl/]">[查看全文]</a></p>
-                        {/dede:arclist}
-					</div><!-- /onenews -->
-					<ul class="c2 ico1">
-                        {dede:arclist flag='h' limit='1,6'}
-                        <li><a href="[field:arcurl/]">[field:title/]</a></li>
-                        {/dede:arclist}
-					</ul>
-				</dd>
-			</dl>
-		</div><!-- /topcommand -->
+<div class="pleft">
 
-		<div class="picnews mt1">
-			<dl class="tbox">
-				<dt><strong>图文资讯</strong></dt>
-				<dd>
-					<ul class="e1">
-                    {dede:arclist row=5 orderby=pubdate type='image.' imgwidth='124' imgheight='94'}
-          	<li><a href="[field:arcurl/]">[field:image/]<span class="title">[field:title/]</span></a></li>{/dede:arclist}
-					</ul>
-				</dd>
-			</dl>
-		</div><!-- /picnews -->
+<div class="topcommand">
+<dl class="tbox">
+<dt><strong>频道头条</strong></dt>
+<dd>
+<div class="onenews">
+{dede:arclist flag='h' limit='0,1'}
+<h2><a href="[field:arcurl/]">[field:title/]</a></h2>
+<p>[field:description function='cn_substr(@me,110)'/]...<a href="[field:arcurl/]">[查看全文]</a></p>
+{/dede:arclist}
+</div><!-- /onenews -->
+<ul class="c2 ico1">
+{dede:arclist flag='h' limit='1,6'}
+<li><a href="[field:arcurl/]">[field:title/]</a></li>
+{/dede:arclist}
+</ul>
+</dd>
+</dl>
+</div><!-- /topcommand -->
 
-		<div class="listbox">
-	{dede:channelartlist}
-      <dl class="tbox">
-        <dt><strong><a href="{dede:field name='typeurl'/}">{dede:field name='typename'/}</a></strong><span class="more"><a href="{dede:field name='typeurl'/}">更多...</a></span></dt>
-        <dd>
-          <ul class="d1 ico3">
-          {dede:arclist titlelen='60' row='8'}
-            <li><span class="date">[field:pubdate function="MyDate('m-d',@me)"/]</span><a href="[field:arcurl /]">[field:title /]</a></li>
-          {/dede:arclist}
-          </ul>
-        </dd>
-      </dl>
-	{/dede:channelartlist}
-		</div><!-- /listbox -->
-	</div><!-- /pleft -->
+<div class="picnews mt1">
+<dl class="tbox">
+<dt><strong>图文资讯</strong></dt>
+<dd>
+<ul class="e1">
+{dede:arclist row=5 orderby=pubdate type='image.' imgwidth='124' imgheight='94'}
+<li><a href="[field:arcurl/]">[field:image/]<span class="title">[field:title/]</span></a></li>{/dede:arclist}
+</ul>
+</dd>
+</dl>
+</div><!-- /picnews -->
 
-	<div class="pright">
-		<div class="commend">
-			<dl class="tbox">
-				<dt><strong>推荐内容</strong></dt>
-				<dd>
-					<ul class="d4">
+<div class="listbox">
+{dede:channelartlist}
+<dl class="tbox">
+<dt><strong><a href="{dede:field name='typeurl'/}">{dede:field name='typename'/}</a></strong><span class="more"><a href="{dede:field name='typeurl'/}">更多...</a></span></dt>
+<dd>
+<ul class="d1 ico3">
+{dede:arclist titlelen='60' row='8'}
+<li><span class="date">[field:pubdate function="MyDate('m-d',@me)"/]</span><a href="[field:arcurl /]">[field:title /]</a></li>
+{/dede:arclist}
+</ul>
+</dd>
+</dl>
+{/dede:channelartlist}
+</div><!-- /listbox -->
+</div><!-- /pleft -->
 
-           {dede:arclist flag='c' titlelen=42 row=6}
-          	<li><a href="[field:arcurl/]">[field:title/]</a>
-            	<p>[field:description function='cn_substr(@me,80)'/]...</p>
-            </li>{/dede:arclist}
-					</ul>
-				</dd>
-			</dl>
-		</div><!-- /commend -->
-		<div class="hot mt1">
-			<dl class="tbox">
-				<dt><strong>热点内容</strong></dt>
-				<dd>
-					<ul class="c1 ico2">
-                    {dede:arclist row=10 orderby=click}
-                    	<li><a href="[field:arcurl/]">[field:title/]</a></li>
-                    {/dede:arclist}
-					</ul>
-				</dd>
-			</dl>
-		</div>
-		{dede:qrcode/}
-	</div><!-- /pright -->
+<div class="pright">
+<div class="commend">
+<dl class="tbox">
+<dt><strong>推荐内容</strong></dt>
+<dd>
+<ul class="d4">
+
+{dede:arclist flag='c' titlelen=42 row=6}
+<li><a href="[field:arcurl/]">[field:title/]</a>
+<p>[field:description function='cn_substr(@me,80)'/]...</p>
+</li>{/dede:arclist}
+</ul>
+</dd>
+</dl>
+</div><!-- /commend -->
+<div class="hot mt1">
+<dl class="tbox">
+<dt><strong>热点内容</strong></dt>
+<dd>
+<ul class="c1 ico2">
+{dede:arclist row=10 orderby=click}
+<li><a href="[field:arcurl/]">[field:title/]</a></li>
+{/dede:arclist}
+</ul>
+</dd>
+</dl>
+</div>
+{dede:qrcode/}
+</div><!-- /pright -->
 </div>
 {dede:include filename="footer.htm"/}
 <!-- /footer -->

@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>栏目管理</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -65,7 +71,7 @@
 <label class="uk-form-label">内容类型</label>
 <div class="uk-form-controls">
 <select name="channeltype" id="channeltype" class="uk-select uk-form-small uk-form-width-medium">
-<?php    
+<?php
 foreach($channelArray as $k=>$arr)
 {
 if($k==$channelid) echo "<option value='{$k}' selected>{$arr['typename']}|{$arr['nid']}</option>\r\n";
@@ -192,7 +198,7 @@ echo "<option value='{$arr['evalue']}'{$selstr}> └─{$arr['ename']}</option>\
 }
 }
 ?>
-</select>    
+</select>
 按 Ctrl 多选，不选系统将调用全部分类，在<a href='stepselect_main.php'>“<u>联动类别管理</u>”</a>中管理
 </div>
 </div>

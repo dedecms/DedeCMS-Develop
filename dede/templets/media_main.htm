@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>附件数据管理</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -106,13 +112,13 @@
 <u>{dede:field.title/}</u>
 </a>
 </td>
-<td>{dede:field.filesize function='GetFileSize(@me)'/}</td> 
+<td>{dede:field.filesize function='GetFileSize(@me)'/}</td>
 <td>{dede:field.adminname function="UploadAdmin(@me,$fields['membername'])"/}</td>
 <td>{dede:field.uptime function="MyDate('Y-m-d H:i',@me)"/}</td>
 <td>{dede:field.mediatype function="MediaType(@me,$fields['url'])"/}</td>
 <td>
-<a href='media_edit.php?aid={dede:field.aid/}&dopost=edit'>[更改]</a> 
-<a href='media_edit.php?aid={dede:field.aid/}&dopost=del'>[删除]</a> 
+<a href='media_edit.php?aid={dede:field.aid/}&dopost=edit'>[更改]</a>
+<a href='media_edit.php?aid={dede:field.aid/}&dopost=del'>[删除]</a>
 </td>
 
 </tr>

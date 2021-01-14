@@ -1,11 +1,17 @@
+<!--
+- @founder   IT柏拉图, https: //weibo.com/itprato
+- @author    DedeCMS团队
+- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
+--->
+
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>关键字管理</title>
-    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-    <link rel="icon" href="/favicon.ico" />
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -120,7 +126,7 @@
 <input type='text'  class="uk-input uk-form-small uk-flex-inline uk-width-1-1" value='{dede:field.rank/}' name='rank' />
 </td>
 <td>
-    <a href="article_keywords_main.php?dopost=disable&staold={dede:field.sta /}&aid={dede:field.aid/}">{dede:if field.sta == 0}<font color=green>[启用]</font>{else}<font color=red>[禁用]</font>{/dede:if}</a>
+<a href="article_keywords_main.php?dopost=disable&staold={dede:field.sta /}&aid={dede:field.aid/}">{dede:if field.sta == 0}<font color=green>[启用]</font>{else}<font color=red>[禁用]</font>{/dede:if}</a>
 <button type="submit" value='update' name='dopost'  class="uk-button uk-button-link">[更新]</button>
 <a href="article_keywords_main.php?dopost=del&aid={dede:field.aid/}">[删除]</a>
 </td>
