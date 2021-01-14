@@ -1,25 +1,19 @@
-<!--
-- @founder   IT柏拉图, https: //weibo.com/itprato
-- @author    DedeCMS团队
-- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
---->
-
 {dede:config pagesize='5'/}
 {dede:datalist}
 <?php
-if($fields['userid']!='') $spaceurl = $cfg_basehost.'/member/index.php?uid='.$fields['userid'];
-else $spaceurl = "#";
-if($fields['username']=='匿名') $spaceurl = "#";
-$fields['bgimg'] = 'cmt-neu.gif';
-$fields['ftypetitle'] = '该用户表示中立';
-if($fields['ftype']=='bad') {
-$fields['bgimg'] = 'cmt-bad.gif';
-$fields['ftypetitle'] = '该用户表示差评';
-}
-else if($fields['ftype']=='good') {
-$fields['bgimg'] = 'cmt-good.gif';
-$fields['ftypetitle'] = '该用户表示好评';
-}
+  if($fields['userid']!='') $spaceurl = $cfg_basehost.'/member/index.php?uid='.$fields['userid'];
+  else $spaceurl = "#";
+  if($fields['username']=='匿名') $spaceurl = "#";
+  $fields['bgimg'] = 'cmt-neu.gif';
+  $fields['ftypetitle'] = '该用户表示中立';
+  if($fields['ftype']=='bad') {
+  	$fields['bgimg'] = 'cmt-bad.gif';
+  	$fields['ftypetitle'] = '该用户表示差评';
+  }
+  else if($fields['ftype']=='good') {
+  	$fields['bgimg'] = 'cmt-good.gif';
+  	$fields['ftypetitle'] = '该用户表示好评';
+  }
 ?>
 document.write("<div class='decmt-box'>");
 document.write("<div class='decmt-title'>");

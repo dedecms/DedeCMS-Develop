@@ -1,17 +1,11 @@
-<!--
-- @founder   IT柏拉图, https: //weibo.com/itprato
-- @author    DedeCMS团队
-- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
---->
-
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>增加新页面</title>
-<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-<link rel="icon" href="/favicon.ico" />
+    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+    <link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -48,23 +42,23 @@ height: 35px;
 <table width="100%" border="0" cellspacing="4" cellpadding="2" class="uk-table">
 <form action="templets_one_add.php" method="post" name="form1" onSubmit="return checkSubmit()">
 <input type='hidden' name='dopost' value='save'>
-<tr>
+<tr> 
 <td colspan="2">
 单独页面管理仅适用于页面较少的情况(建议小于500个页面)，大量文档的用文章模型进行管理。
 </td>
 </tr>
-<tr>
+<tr> 
 <td width="15%">页面标题：</td>
-<td>
+<td> 
 <input name="title" type="text" id="title" class="uk-input uk-form-small uk-form-width-large">
 </td>
 </tr>
-<tr>
+<tr> 
 <td>页面关键字：</td>
 <td><input name="keywords" type="text" id="keywords" class="uk-input uk-form-small uk-form-width-large">
 (用&quot;,&quot;分开)</td>
 </tr>
-<tr>
+<tr> 
 <td>页面摘要信息：</td>
 <td><textarea name="description" cols="50" id="description" class="uk-textarea uk-form-small uk-form-width-large"></textarea>
 (100字左右)</td>
@@ -98,21 +92,21 @@ echo "</select>\r\n";
 <td>模板文件名：</td>
 <td><input name="template" type="text" id="template" value="{style}/singlepage.htm" class="uk-input uk-form-small uk-form-width-large"></td>
 </tr>
-<tr>
+<tr> 
 <td>是否编译内容：</td>
 <td><input name="ismake" type="radio" value="1" class='uk-radio'>
-含模板标记，要编译
+含模板标记，要编译 
 <input name="ismake" type="radio" value="0" checked class='uk-radio'>
 不含模板标记，不需要编译</td>
 </tr>
-<tr>
+<tr> 
 <td height="24" colspan="2" bgcolor="#FBFBFB"">内容：(模板里用"dede:field name='body'/"来获得)</td>
 </tr>
-<tr>
-<td height="80" colspan="2" align="center">
+<tr> 
+<td height="80" colspan="2" align="center"> 
 <?php
 GetEditor("body","","500","Default","print","false");
-?>
+?>            
 </td>
 </tr>
 
@@ -125,7 +119,7 @@ GetEditor("body","","500","Default","print","false");
 <button type="submit" class="uk-button uk-button-small uk-button-primary">提交</button>
 </div>
 </div>
-</div>
+</div> 
 </form>
 
 <!-- 列表底部 -->

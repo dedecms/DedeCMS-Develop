@@ -1,9 +1,3 @@
-<!--
-- @founder   IT柏拉图, https: //weibo.com/itprato
-- @author    DedeCMS团队
-- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
---->
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -21,59 +15,59 @@
 <!-- /header -->
 
 <div class="channel-nav w960 center clear">
-<div class='sonnav'>
-{dede:channel currentstyle="<span><a href='~typelink~' class='thisclass'>~typename~</a></span>"}
-<span><a href='[field:typeurl/]'>[field:typename/]</a></span>{/dede:channel}
-</div>
+	<div class='sonnav'>
+	{dede:channel currentstyle="<span><a href='~typelink~' class='thisclass'>~typename~</a></span>"}
+		<span><a href='[field:typeurl/]'>[field:typename/]</a></span>{/dede:channel}
+	</div>
 </div><!-- /channel-nav -->
 
 <div class="w960 center clear mt1">
-<div class="pleft">
-<div class="place">
-<strong>当前位置:</strong> {dede:field name='position'/}
-</div><!-- /place -->
-<div class="listbox">
-<ul class="d5">
-{dede:list pagesize='20'}
-<li><a href="[field:arcurl/]" class="title">[field:title/]</a><span class="date">[field:pubdate function="GetDateTimeMK(@me)"/]</span></li>
-{/dede:list}
-</ul>
-</div><!-- /listbox -->
-<div class="dede_pages">
-<ul class="pagelist">
- {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
-</ul>
-</div><!-- /pages -->
-</div><!-- /pleft -->
-
-<div class="pright">
-<div class="strongrange  mt1">
-<dl class="tbox">
-<dt><strong>最新信息</strong></dt>
-<dd>
-<ul class="d1 ico2">
-{dede:arclistsg orderby='id' titlelen='60' row='10'}
-<li><span>[field:typename/]</span><a href="[field:arcurl/]">[field:title/]</a></li>
-{/dede:arclistsg}
-</ul>
-</dd>
-</dl>
-</div><!-- /strongrange -->
-<div class="strongrange  mt1">
-<dl class="tbox">
-<dt><strong>热门信息</strong></dt>
-<dd>
-<ul class="d1 ico2">
-{dede:arclistsg sort='click' titlelen='30' row='10'}
-<li><span>[field:typename/]</span><a href="[field:arcurl/]">[field:title/]</a></li>
-{/dede:arclistsg}
-</ul>
-</dd>
-</dl>
-</div><!-- /strongrange -->
-{dede:qrcode/}
-</div><!-- /pright -->
-
+	<div class="pleft">
+		<div class="place">
+			<strong>当前位置:</strong> {dede:field name='position'/}
+		</div><!-- /place -->
+		<div class="listbox">
+			<ul class="d5">            
+            {dede:list pagesize='20'}
+            <li><a href="[field:arcurl/]" class="title">[field:title/]</a><span class="date">[field:pubdate function="GetDateTimeMK(@me)"/]</span></li>
+            {/dede:list}
+			</ul>
+		</div><!-- /listbox -->
+		<div class="dede_pages">
+			<ul class="pagelist">
+				 {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
+			</ul>
+		</div><!-- /pages -->
+	</div><!-- /pleft -->
+	
+	<div class="pright">
+		<div class="strongrange  mt1">
+			<dl class="tbox">
+				<dt><strong>最新信息</strong></dt>
+				<dd>
+					<ul class="d1 ico2">
+                     {dede:arclistsg orderby='id' titlelen='60' row='10'}
+                        <li><span>[field:typename/]</span><a href="[field:arcurl/]">[field:title/]</a></li>
+                    {/dede:arclistsg}
+					</ul>
+				</dd>
+			</dl>
+		</div><!-- /strongrange -->
+        <div class="strongrange  mt1">
+			<dl class="tbox">
+				<dt><strong>热门信息</strong></dt>
+				<dd>
+					<ul class="d1 ico2">
+                     {dede:arclistsg sort='click' titlelen='30' row='10'}
+                    	<li><span>[field:typename/]</span><a href="[field:arcurl/]">[field:title/]</a></li>
+                    {/dede:arclistsg}
+					</ul>
+				</dd>
+			</dl>
+		</div><!-- /strongrange -->
+		{dede:qrcode/}
+	</div><!-- /pright -->
+	
 </div>
 {dede:include filename="footer.htm"/}
 <!-- /footer -->

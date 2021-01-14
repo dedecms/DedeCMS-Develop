@@ -1,17 +1,11 @@
-<!--
-- @founder   IT柏拉图, https: //weibo.com/itprato
-- @author    DedeCMS团队
-- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
---->
-
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>修改文章</title>
-<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
-<link rel="icon" href="/favicon.ico" />
+    <meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+    <link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
@@ -29,7 +23,7 @@ background: none;
 }
 #dede-modal-card-header .uk-card-header{
 height:25px;
-}
+}  
 </style>
 
 </head>
@@ -219,7 +213,7 @@ echo "<option value='".$row->rank."'>".$row->membername."</option>\r\n";
 <tr>
 <td width="90px">评论选项：</td>
 <td width="240">
-
+  
 <input type='radio' name='notpost' class="uk-radio" value='0' <?php if($arcRow["notpost"]==0) echo " checked";?> />
 允许评论 &nbsp;&nbsp;
 <input type='radio' name='notpost' class="uk-radio" value='1' <?php if($arcRow["notpost"]==1) echo " checked";?> />

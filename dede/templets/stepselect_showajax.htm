@@ -1,9 +1,3 @@
-<!--
-- @founder   IT柏拉图, https: //weibo.com/itprato
-- @author    DedeCMS团队
-- @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
---->
-
 <?php
 if($action=='edit') {
 $arr = $dsql->GetOne("Select * from `#@__stepselect` where id='$id' ");
@@ -43,7 +37,7 @@ $dsql->Execute('out',"Select evalue,ename from `#@__sys_enum` where egroup='{$ar
 $options = '';
 if($arr['issign']==0)
 {
-while($row1 = $dsql->GetArray('out')) $options .= "<option value='{$row1['evalue']}'>{$row1['ename']}</option>\r\n";
+  while($row1 = $dsql->GetArray('out')) $options .= "<option value='{$row1['evalue']}'>{$row1['ename']}</option>\r\n";
 }
 ?>
 <!-- 新增枚举表单 -->
@@ -67,20 +61,20 @@ while($row1 = $dsql->GetArray('out')) $options .= "<option value='{$row1['evalue
 </form>
 <?php
 } else if($action=='view') {
-$arr = $dsql->GetOne("Select * from `#@__stepselect` where id='$id' ");
-$dsql->Execute('out',"Select * From `#@__sys_enum` where egroup like '{$arr['egroup']}' order by disorder asc, evalue asc");
-$options = '';
-while($row1 = $dsql->GetArray('out'))
-{
- if($row1['evalue']%500==0 || $arr['issign']==1)
- {
-$options .= "<option value='{$row1['evalue']}'>{$row1['ename']}</option>\r\n";
- }
- else
- {
-$options .= "<option value='{$row1['evalue']}'>  └─{$row1['ename']}</option>\r\n";
- }
-}
+	$arr = $dsql->GetOne("Select * from `#@__stepselect` where id='$id' ");
+	$dsql->Execute('out',"Select * From `#@__sys_enum` where egroup like '{$arr['egroup']}' order by disorder asc, evalue asc");
+	$options = '';
+  while($row1 = $dsql->GetArray('out')) 
+  {
+  		 if($row1['evalue']%500==0 || $arr['issign']==1)
+  		 {
+  				$options .= "<option value='{$row1['evalue']}'>{$row1['ename']}</option>\r\n";
+  		 }
+  		 else
+  		 {
+  				$options .= "<option value='{$row1['evalue']}'>  └─{$row1['ename']}</option>\r\n";
+  		 }
+  }
 ?>
 <!-- 预览联动表单 -->
 <div style='float:left;'><b>预览联动表单</b></div>
