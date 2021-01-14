@@ -12,6 +12,7 @@
  */
 require_once dirname(__FILE__) . "/config.php";
 include DEDEDATA . '/mark/inc_photowatermark_config.php';
+
 if (empty($activepath)) {
     $activepath = '';
 }
@@ -49,80 +50,23 @@ if (!empty($CKEditorFuncNum)) {
 if (!empty($noeditor)) {
     $addparm .= '&noeditor=yes';
 }
+
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/dialog/select_images.htm");
+$tpl->Display();
+
 ?>
+
+
 <html>
 <head>
 <meta http-equiv='Content-Type' content='text/html; charset={dede:global.cfg_soft_lang/}'>
 <title>图片浏览器</title>
-<link href='../../assets/css/base.css' rel='stylesheet' type='text/css'>
-<style>
-.linerow {border-bottom: 1px solid #CBD8AC;}
-.napisdiv {left:40;top:3;width:150px;height:100px;position:absolute;z-index:3;display:none;}
-</style>
-<script>
-function nullLink(){ return; }
-function ChangeImage(surl){ document.getElementById('picview').src = surl; }
-</script>
+
+
 </head>
 <body background='img/allbg.gif' leftmargin='0' topmargin='0'>
-<div id="floater" class="napisdiv">
-<a href="javascript:nullLink();" onClick="document.getElementById('floater').style.display='none';"><img src='img/eye.png' id='picview' border='0' alt='单击关闭预览'></a>
-</div>
-<SCRIPT language=JavaScript src="../js/float.js"></SCRIPT>
-<SCRIPT language=JavaScript>
-function nullLink(){ return; }
-function ChangeImage(surl){ document.getElementById('floater').style.display='block';document.getElementById('picview').src = surl; }
-function TNav()
-{
-	if(window.navigator.userAgent.indexOf("MSIE")>=1) return 'IE';
-  else if(window.navigator.userAgent.indexOf("Firefox")>=1) return 'FF';
-  else return "OT";
-}
-// 获取地址参数
-function getUrlParam(paramName)
-{
-  var reParam = new RegExp('(?:[\?&]|&amp;)' + paramName + '=([^&]+)', 'i') ;
-  var match = window.location.search.match(reParam) ;
-  return (match && match.length > 1) ? match[1] : '' ;
-}
 
-function ReturnImg(reimg)
-{
-    var funcNum = getUrlParam('CKEditorFuncNum');
-	if(funcNum > 1)
-	{
-		var fileUrl = reimg;
-		window.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
-	}
-	if(window.opener.document.<?php echo $f ?> != null)
-	{
-		window.opener.document.<?php echo $f ?>.value=reimg;
-		if(window.opener.document.getElementById('div<?php echo $v ?>'))
-	    {
-		 if(TNav()=='IE'){
-			 //window.opener.document.getElementById('div<?php echo $v ?>').filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = reimg;
-			 window.opener.document.getElementById('div<?php echo $v ?>').src = reimg;
-			 window.opener.document.getElementById('div<?php echo $v ?>').style.width = '150px';
-			 window.opener.document.getElementById('div<?php echo $v ?>').style.height = '100px';
-		 }
-		 else
-             window.opener.document.getElementById('div<?php echo $v ?>').style.backgroundImage = "url("+reimg+")";
-
-	  }
-		else if(window.opener.document.getElementById('<?php echo $v ?>')){
-			window.opener.document.getElementById('<?php echo $v ?>').src = reimg;
-        }
-        // 适配新的缩略图
-        if (window.opener.document.getElementById('litPic'))
-        {
-            window.opener.document.getElementById('litPic').src = reimg;
-        }
-		if(document.all) window.opener=true;
-	}
-
-    window.close();
-}
-</SCRIPT>
 <table width='100%' border='0' cellspacing='0' cellpadding='0' align="center">
 <tr>
 <td colspan='4' align='right'>
