@@ -42,7 +42,7 @@ min-width: 1050px;
 <thead>
 <tr>
 <td width="4%"><input type="checkbox" id="select-all" class="uk-checkbox" /></td>
-<td align="center">文件名</td>
+<td>文件名</td>
 <td width="15%" align="center">文件大小</td>
 <td width="30%" align="center">最后修改时间</td>
 </tr>
@@ -56,43 +56,135 @@ min-width: 1050px;
 <table class="uk-table uk-table-hover uk-table-middle uk-table-divider uk-table-striped uk-margin-remove">
 <thead>
 <tr>
-<td width="6%">ID</td>
-<td width="4%"></td>
-<td width="30%">文章标题</td>
-<td width="10%">更新时间</td>
-<td width="11%">类目</td>
-<td width="8%">点击</td>
-<td width="7%">HTML</td>
-<td width="10%">权限</td>
-<td width="13%">属性</td>
+<td width="4%"><input type="checkbox" id="select-all" class="uk-checkbox" /></td>
+<td>文件名</td>
+<td width="15%" align="center">文件大小</td>
+<td width="30%" align="center">最后修改时间</td>
 </tr>
 </thead>
 <tbody>
 <!-- 内容列表 -->
+<?php
+$dh = dir($inpath);
+$ty1 = "";
+$ty2 = "";
+while ($file = $dh->read()) {
 
+    //-----计算文件大小和创建时间
+    if ($file != "." && $file != ".." && !is_dir("$inpath/$file")) {
+        $filesize = filesize("$inpath/$file");
+        $filesize = $filesize / 1024;
+        if ($filesize != "") {
+            if ($filesize < 0.1) {
+                @list($ty1, $ty2) = preg_split("\.", $filesize);
+                $filesize = $ty1 . "." . substr($ty2, 0, 2);
+            } else {
+                @list($ty1, $ty2) = preg_split("\.", $filesize);
+                $filesize = $ty1 . "." . substr($ty2, 0, 1);
+            }
+        }
+
+        $filetime = filemtime("$inpath/$file");
+        $filetime = MyDate("Y-m-d H:i:s", $filetime);
+    }
+
+    if ($file == ".") {
+        continue;
+    } else if ($file == "..") {
+        if ($activepath == "") {
+            continue;
+        }
+
+        $tmp = preg_replace("#[\/][^\/]*$#i", "", $activepath);
+        $line = "\n<tr>
+   <td colspan='2'>
+   <a href='select_images.php?imgstick=$imgstick&v=$v&f=$f&activepath=" . urlencode($tmp) . $addparm . "'>上级目录</a></td>
+   <td colspan='2'> 当前目录:$activepath</td>
+   </tr>
+   ";
+        echo $line;
+    } else if (is_dir("$inpath/$file")) {
+        if (preg_match("#^_(.*)$#i", $file)) {
+            continue;
+        }
+        #屏蔽FrontPage扩展目录和linux隐蔽目录
+        if (preg_match("#^\.(.*)$#i", $file)) {
+            continue;
+        }
+
+        $line = "\n<tr>
+   <td colspan='2'>
+   <a href='select_images.php?imgstick=$imgstick&v=$v&f=$f&activepath=" . urlencode("$activepath/$file") . $addparm . "'><img src=img/dir.gif border=0 width=16 height=16 align=absmiddle>$file</a></td>
+   <td>　</td>
+   <td>　</td>
+   </tr>";
+        echo "$line";
+    } else if (preg_match("#\.(" . $cfg_imgtype . ")#i", $file)) {
+        $reurl = "$activeurl/$file";
+        $reurl = preg_replace("#^\.\.#", "", $reurl);
+        if ($cfg_remote_site == 'Y' && $remoteuploads == 1) {
+            $reurl = $remoteupUrl . $reurl;
+        } else {
+            $reurl = $reurl;
+        }
+
+        if ($file == $comeback) {
+            $lstyle = " style='color:red' ";
+        } else {
+            $lstyle = "";
+        }
+
+        $line = "\n<tr>
+   <td align='center'>
+   <a href=\"#\" onClick=\"ChangeImage('$reurl');\"><img src='img/eye.png' width='16' height='16' border='0' align=absmiddle></a>
+   </td>
+   <td>
+   <a href=# onclick=\"ReturnImg('$reurl');\" $lstyle><img src=img/gif.gif border=0 width=16 height=16 align=absmiddle>$file</a></td>
+   <td>$filesize KB</td>
+   <td align='center'>$filetime</td>
+   </tr>";
+        echo "$line";
+    } else if (preg_match("#\.(jpg)#i", $file)) {
+        $reurl = "$activeurl/$file";
+        $reurl = preg_replace("#^\.\.#", "", $reurl);
+        if ($cfg_remote_site == 'Y' && $remoteuploads == 1) {
+            $reurl = $remoteupUrl . $reurl;
+        } else {
+            $reurl = $reurl;
+        }
+
+        if ($file == $comeback) {
+            $lstyle = " style='color:red' ";
+        } else {
+            $lstyle = "";
+        }
+
+        $line = "\n<tr>
+   <td align='center'>
+   <a href=\"#\" onClick=\"ChangeImage('$reurl');\"><img src='img/eye.png' width='16' height='16' border='0' align=absmiddle></a>
+   </td>
+   <td>
+   <a href=# onclick=\"ReturnImg('$reurl');\" $lstyle><img src=img/jpg.gif border=0 width=16 height=16 align=absmiddle>$file</a>
+   </td>
+   <td>$filesize KB</td>
+   <td align='center'>$filetime</td>
+   </tr>";
+        echo "$line";
+    }
+} //End Loop
+$dh->close();
+?>
 <!-- /内容列表 -->
 </tbody>
-<!-- 分页 -->
-<thead>
-<tr>
-<td height="36" colspan="10" align="center">
-
-</td>
-</tr>
-</thead>
-<!-- /分页 -->
 </table>
 </div>
 </div>
 </div>
 </div>
 <div class="bar-bottom uk-flex uk-light uk-flex-right">
-<div class="uk-button-group" style="margin-left: 20px;">
 
-
-</div>
-<div class="e1e02">
-<button id="submit_id" type="submit" class="uk-button uk-button-default uk-button-small" width="60px">添加所选ID</button>
+<div class="e1e02" style="margin-left: 20px;">
+<button id="submit_id" type="submit" class="uk-button uk-button-default uk-button-small" width="60px">添加所选图片</button>
 </div>
 </div>
 <!-- JS FILES -->
