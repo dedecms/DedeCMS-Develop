@@ -4,14 +4,15 @@
 - @copyright Copyright (c) 2007 - 2020, 上海卓卓网络科技有限公司 (DesDev, Inc.)
 --->
 <html>
-  
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>发布新图集</title>
-    <link rel="icon" href="/favicon.ico" />
-    <!-- CSS FILES -->
-    <!-- SYSCODE: 1V33343D362X2V2W38W5E‌4PW1E1C1C1J191E1C1E1CW1W2T2S2T1V252B1A -->
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>发布新图集</title>
+<meta name="copyright" content="2007-2020 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
+<link rel="icon" href="/favicon.ico" />
+<!-- CSS FILES -->
+<!-- SYSCODE: 1V33343D362X2V2W38W5E‌4PW1E1C1C1J191E1C1E1CW1W2T2S2T1V252B1A -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/jquery/jquery.simplecolorpicker.css">
@@ -235,67 +236,65 @@ echo "checked='1' " ; ?> /> 禁止评论
 <!-- 专题文档 -->
 <li>
 
-  <table border="0" cellspacing="0" cellpadding="0" class="uk-table">
-    <tr>
-    <td width="90" >表现方式：</td>
-    <td width='408'>
+<table border="0" cellspacing="0" cellpadding="0" class="uk-table">
+<tr>
+<td width="90" >表现方式：</td>
+<td width='408'>
 
-      <label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="1" <?php if($cfg_album_style==1) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 202X2W2X1X292F"></span> 单页多图样式</label>
-      &nbsp;&nbsp;
-      <label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="2" <?php if($cfg_album_style==2) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 1W2T2S2T1V252B"></span> 幻灯片样式</label>
-      &nbsp;&nbsp;
-      <label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="3" <?php if($cfg_album_style==3) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 3E5B5A5B3D454B"></span> 多缩略图样式</label>
+<label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="1" <?php if($cfg_album_style==1) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 202X2W2X1X292F"></span> 单页多图样式</label>
+&nbsp;&nbsp;
+<label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="2" <?php if($cfg_album_style==2) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 1W2T2S2T1V252B"></span> 幻灯片样式</label>
+&nbsp;&nbsp;
+<label style="vertical-align:middle;"><input name="pagestyle" class="uk-radio" type="radio" value="3" <?php if($cfg_album_style==3) echo " checked='checked'" ; ?> />&nbsp;&nbsp;<span uk-icon="icon: 3E5B5A5B3D454B"></span> 多缩略图样式</label>
 
-    </td>
+</td>
 
-    </tr>
-    <tr>
-    <td width="90" >上传方式：</td>
-    <td width='408'>
-      <input name="isrm" type="hidden" id="isrm" value="1" />
-      <input name="byhand" class="uk-checkbox" type="checkbox" id="byhand" value="1" disabled="ture" checked />
-      手工上传&nbsp;&nbsp;&nbsp;&nbsp;
-      <input name="formzip" class="uk-checkbox" type="checkbox" id="formzip" value="1" onClick="showZipField(this,'zipff','htmlfield');" />
-      从ZIP压缩包中解压图片
-   
-    </td>
+</tr>
+<tr>
+<td width="90" >上传方式：</td>
+<td width='408'>
+<input name="isrm" type="hidden" id="isrm" value="1" />
+<input name="byhand" class="uk-checkbox" type="checkbox" id="byhand" value="1" disabled="ture" checked />
+手工上传&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="formzip" class="uk-checkbox" type="checkbox" id="formzip" value="1" onClick="showZipField(this,'zipff','htmlfield');" />
+从ZIP压缩包中解压图片
 
-    </tr>
-    <tr>
-    <td width="90" >图集内容：</td>
-    <td width='408'>
+</td>
 
-      <div uk-form-custom>
-        <input type="file" id="add-image" accept="image/*" multiple>
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-        <span uk-icon="icon: hdd"></span>&nbsp;&nbsp;选择本地图片
-        </div>
+</tr>
+<tr>
+<td width="90" >图集内容：</td>
+<td width='408'>
 
-        </div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <div uk-form-custom>
-        <input type="file" id="add-image" accept="image/*" multiple>
-        <div class="uk-flex uk-flex-center uk-flex-middle">
-        <span uk-icon="icon: cloud"></span>&nbsp;&nbsp;选择已上传图片
-        </div>
-        </div>
-        
-    </td>
-    <td width="60" style="vertical-align:middle;"></td>
-    <td></td>
-    </tr>
-    <tr>
-      <td width="90" ></td>
-      <td colspan="3" style='min-width:860px'>
+<div uk-form-custom onclick="_DedeCMS_JSCODE_Version_Select_Local_Images()">
+<input type="file" id="Dede_Local_File_Images" accept="image/*" multiple >
+<div class="uk-flex uk-flex-center uk-flex-middle">
+<span uk-icon="icon: hdd"></span>&nbsp;&nbsp;选择本地图片
+</div>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div uk-form-custom>
+<div class="uk-flex uk-flex-center uk-flex-middle" onclick="_DedeCMS_JSCODE_Version_Open_Windows_Get_Album()">
+<span uk-icon="icon: cloud"></span>&nbsp;&nbsp;选择已上传图片
+</div>
+</div>
 
-        <ul id="addimg" class="uk-grid-small uk-child-width-1-6"  uk-grid id="add_img_button" uk-sortable="handle: .uk-sortable-handle" >
+</td>
+<td width="60" style="vertical-align:middle;"></td>
+<td></td>
+</tr>
+<tr>
+<td width="90" ></td>
+<td colspan="3" style='min-width:860px'>
 
-         
-        </ul>
-      </td>
+<ul id="Dede_Atlas_Upload" class="uk-grid-small uk-child-width-1-6"  uk-grid  uk-sortable="handle: .uk-sortable-handle" >
 
-      </tr>
-    </table>
+
+</ul>
+</td>
+
+</tr>
+</table>
 
 
 
@@ -354,16 +353,16 @@ echo "checked='1' " ; ?> /> 禁止评论
 <!-- /图片剪切 -->
 
 <!-- 列表 -->
-<div id="modal-archives" class="uk-modal-container" uk-modal>
-<div class="uk-modal-dialog">
+<div id="modal-archives" class="uk-modal-container"  uk-modal>
+<div class="uk-modal-dialog" style="width: 750px;">
 
-<div id="dede-modal-card-header" class="uk-card uk-card-default" >
+<div id="dede-modal-card-header" class="uk-card uk-card-default"  style="width: 750px;">
 <button class="uk-modal-close-default" type="button" uk-close></button>
 <div class="uk-card-header">
-<span style="margin-top:4px;">选择文章</span>
+<span style="margin-top:4px;">选择图片</span>
 </div>
-<div class="uk-card-body" style="background-color:#242A2F;" >
-<iframe id="archives" width="100%" height="450px"></iframe>
+<div class="uk-card-body" style="background-color:#242A2F;" style="width: 750px;">
+<iframe id="archives" width="750px" height="450px"></iframe>
 </div>
 
 </div>
@@ -390,53 +389,18 @@ echo "checked='1' " ; ?> /> 禁止评论
 <script language="javascript">
 $(document).ready(function() {
 
-	// if ($("#thumbnails .albCt").length > 0) {
-	// 	// 这里从thumbnails中取出图片元素信息
-	// 	$("#thumbnails .albCt").each(function(){
-	// 		albums.push({
-	// 		"img" : $(this).find("img").attr("src"),
-	// 		"txt" : $(this).find("input").val()
-	// 		})
-	// 	})
-	// }
+// if ($("#thumbnails .albCt").length > 0) {
+// 	// 这里从thumbnails中取出图片元素信息
+// 	$("#thumbnails .albCt").each(function(){
+// 		albums.push({
+// 		"img" : $(this).find("img").attr("src"),
+// 		"txt" : $(this).find("input").val()
+// 		})
+// 	})
+// }
 
-	// $("#albums").val(JSON.stringify(albums));
+// $("#albums").val(JSON.stringify(albums));
 
-$("#add-image").on('change', function() {
-
-  
-  for (var i = 0; i < $(this)[0].files.length; i++) {
-    var file = $(this)[0].files[i];
-    var _imgName = file.name.substring(file.name.lastIndexOf("\\") + 1);//获取文件名.后缀名
-    var imgname = _imgName.substring(0, _imgName.lastIndexOf('.'))
-    var extn = file.name.substring(file.name.lastIndexOf('.') + 1).toLowerCase();
-    
-    if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
-      if (typeof(FileReader) != "undefined") {
-        
-
-        var reader = new FileReader();
-        reader.fileName = imgname;
-        reader.onload = function(e) {
-              html =  "<li>";
-              html += "<div class='uk-card uk-card-default'><div  style='background-color:#FFF;' class='uk-card uk-card-default uk-card-header'>";
-              html += "<span class='uk-sortable-handle uk-margin-small-right uk-text-center' uk-icon='icon: arrows-move'></span>";
-              html += "<button type='button' onclick='delimage(this)' uk-close></button> </div>";
-              html += "<div class='uk-card-body' uk-form-custom>";
-              html += "<input type='file' onclick='editimage(this)' accept='image/*'>";
-              html += "<img style='width: 250px;height:150px' src='"+e.target.result+"'/>";
-              html += "</div>";
-              html += "<div class='uk-card-footer' style='background-color:#FFF;'><input type='text' class='uk-input uk-form-small' value='"+e.target.fileName+"' placeholder='注释'></div></div>";
-              html += "</li>";
-              $('#addimg').append(html);
-            }
-            
-        reader.readAsDataURL(file);
-        
-      }
-    }
-  }
-});
 
 
 
@@ -479,27 +443,6 @@ $(this).val(start.format("YYYY-MM-DD HH:mm:ss"));
 
 });
 
-
-function editimage(ei) {
-$(ei).on('change', function(event) {
-var file = event.target.files[0];
-var reader = new FileReader();
-var _imgName = file.name.substring(file.name.lastIndexOf("\\") + 1);//获取文件名.后缀名
-var imgname = _imgName.substring(0, _imgName.lastIndexOf('.'))
-reader.fileName = imgname
-reader.onload = (function () {
-return function (e) {
-$(ei).next().attr('src',e.target.result);
-$(ei).parent().next().children('input').val(e.target.fileName);
-};
-})(file);
-reader.readAsDataURL(file);
-});
-}
-
-function delimage(ei) {
-  $(ei).parent().parent().parent().remove();
-}
 
 
 
