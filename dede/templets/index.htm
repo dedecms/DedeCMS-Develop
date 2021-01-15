@@ -67,6 +67,11 @@ echo "<li><a href='{$link}' target='main'>{$title}</a></li>\r\n";
 <!-- JS FILES -->
 <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit.min.js"></script>
 <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit-icons.min.js"></script>
-<script src="{dede:global.cfg_assets_dir/}/js/dede.dashboard.min.js"></script>
+<script language="javascript">
+function JumpFrame(url1, url2) {
+    window.open(url1, "menu");
+    window.open(url2, "main");
+  }
+</script>
 </body>
 </html>
