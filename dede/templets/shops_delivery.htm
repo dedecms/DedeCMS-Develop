@@ -27,9 +27,9 @@
 <input type="hidden" name="do" value="add">
 
 <fieldset id="dede-dropdown-margin" class="uk-fieldset">
-<div class="uk-margin"><input name="dname" class="uk-input uk-form-small uk-flex-inline uk-width-1-1" placeholder="名称" type="text"/></div>
-<div class="uk-margin"><input name="price" class="uk-input uk-form-small uk-flex-inline uk-width-1-1" placeholder="快递费" type="text"/></div>
-<div class="uk-margin"><textarea name="des" class="uk-textarea uk-form-small uk-flex-inline uk-width-1-1" placeholder="简要说明"></textarea></div>
+<div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="名称" name="dname"/></div>
+<div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="快递费" name="price"/></div>
+<div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="简要说明" name="des"/></div>
 <button type='submit' class="uk-button-primary uk-form-small uk-width-1-1" >添加</button>
 </fieldset>
 </form>
@@ -72,13 +72,16 @@
 <input type="hidden" name="pid[]" value="{dede:field.pid/}" />
 <tr>
 <td>
-<input name="m_dname{dede:field.pid/}" type="text" value="{dede:field.dname/}" /> 
+<input name="m_dname{dede:field.pid/}" type="text" value="{dede:field.dname/}" class="uk-input uk-form-small uk-flex-inline uk-width-1-1" /> 
 </td>
 <td>
-<textarea name="m_des{dede:field.pid/}" id="m_des{dede:field.pid/}" style="margin-left:6px; width:320px;">{dede:field.des/}</textarea>
+<input name="m_des{dede:field.pid/}" id="m_des{dede:field.pid/}" class="uk-input uk-form-small uk-flex-inline uk-width-1-1" value="{dede:field.des/}" />
 </td>
 <td>
-<input name="m_price{dede:field.pid/}" type="text" id="m_price{dede:field.pid/}" style="margin-left:6px;" value="{dede:field.price/}" size="6" maxlength="6"/>元
+    <div class="uk-inline uk-width-1-1">
+        <span class="uk-form-icon" uk-icon="icon: cash"></span>
+        <input name="m_price{dede:field.pid/}" type="text" id="m_price{dede:field.pid/}" style="margin-left:6px;" value="{dede:field.price/}" class="uk-input  uk-form-small" maxlength="6"/>
+    </div>
 </td>
 <td>
 <a href="shops_delivery.php?do=del&id={dede:field.pid/}" onClick="return(confirm('删除后无法恢复,您确定删除吗?'))">[修改]</a>
