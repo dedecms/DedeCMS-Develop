@@ -26,9 +26,9 @@ if ($job == '') {
     $win->AddHidden("nid", $nid);
     $row = $dsql->GetOne("SELECT * FROM `#@__co_note` WHERE nid='$nid' ");
     $win->AddTitle("索引与基本信息配置：");
-    $win->AddMsgItem("<textarea name='listconfig' style='width:100%;height:200px'>{$row['listconfig']}</textarea>");
+    $win->AddMsgItem("<textarea class='uk-textarea uk-form-small' name='listconfig' style='width:100%;height:200px'>{$row['listconfig']}</textarea>");
     $win->AddTitle("字段配置：");
-    $win->AddMsgItem("<textarea name='itemconfig' style='width:100%;height:300px'>{$row['itemconfig']}</textarea>");
+    $win->AddMsgItem("<textarea class='uk-textarea uk-form-small' name='itemconfig' style='width:100%;height:300px'>{$row['itemconfig']}</textarea>");
     $winform = $win->GetWindow("ok");
     $win->Display();
     exit();
