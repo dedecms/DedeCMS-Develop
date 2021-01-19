@@ -109,4 +109,8 @@ $f = '';
 foreach ($fields as $k => $v) {
     $f .= ($f == '' ? $k : ' ' . $k);
 }
-require_once DEDEADMIN . "/templets/diy_field_add.htm";
+
+$dlist = new DataListCP();
+$dlist->SetTemplet(DEDEADMIN . "/templets/diy_field_add.htm");
+$dlist->display();
+$dlist->Close();

@@ -188,7 +188,8 @@ else if ($dopost == 'ddimg') {
     if (!preg_match("/^(http:\/\/)?([^\/]+)/i", $img)) {
         $img = $cfg_basedir . $img;
     }
-
+    $cfg_ddimg_width = 250;
+    $cfg_ddimg_height = 150;
     ImageResizeNew($img, $cfg_ddimg_width, $cfg_ddimg_height, '', false);
     $imagevariable = ob_get_contents();
     ob_end_clean();

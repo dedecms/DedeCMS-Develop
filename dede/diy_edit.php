@@ -79,5 +79,9 @@ else if ($dopost == "delete") {
 /*----------------
 function edit()
 -----------------*/
+
 $row = $dsql->GetOne("Select * From #@__diyforms where diyid='$diyid'");
-require DEDEADMIN . "/templets/diy_edit.htm";
+$dlist = new DataListCP();
+$dlist->SetTemplet(DEDEADMIN . "/templets/diy_edit.htm");
+$dlist->display();
+$dlist->Close();
