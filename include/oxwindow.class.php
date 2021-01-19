@@ -134,7 +134,7 @@ class OxWindow
         $this->myWinItem .= "<td $colspan><b>$title</b></td>\r\n";
         $this->myWinItem .= "</tr></table>\r\n";
         $this->myWinItem .= "<fieldset class=\"uk-fieldset\">\r\n";
-        $this->myWinItem .= "<div id=\"oswindos-container\" class=\"uk-container\">\r\n";
+        $this->myWinItem .= "<div id=\"oswindos-container\" class='uk-padding-small'>\r\n";
     }
 
     /**
