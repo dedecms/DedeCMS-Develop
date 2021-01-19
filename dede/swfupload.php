@@ -203,10 +203,13 @@ else if ($dopost == 'ddimg') {
  *************************/
 else if ($dopost == 'delold') {
     $imgfile = $cfg_basedir . $picfile;
-    if (!file_exists($imgfile) && !is_dir($imgfile) && preg_match("#^" . $cfg_medias_dir . "#", $imgfile)) {
+    
+    if (file_exists($imgfile) && !is_dir($imgfile)) {
         @unlink($imgfile);
+        echo $picfile;
+        $dsql->ExecuteNoneQuery("DELETE FROM `#@__uploads` WHERE url LIKE '{$picfile}'; ");
+        echo "<b>已删除！</b>";
     }
-    $dsql->ExecuteNoneQuery("DELETE FROM `#@__uploads` WHERE url LIKE '{$picfile}'; ");
-    echo "<b>已删除！</b>";
+    
     exit();
 }

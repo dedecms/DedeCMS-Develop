@@ -191,7 +191,7 @@ echo "     <option value='".$row->rank."'>".$row->membername."</option>\r\n";
 </td>
 <td width="90" style="vertical-align:middle;">浏览次数：</td>
 <td>
-    <input type='text' name='click' value="<?php echo $arcRow['click']; ?>" class=" uk-input uk-form-width-small uk-form-small" />
+<input type='text' name='click' value="<?php echo $arcRow['click']; ?>" class=" uk-input uk-form-width-small uk-form-small" />
 </td>
 </tr>
 <tr>
@@ -210,19 +210,19 @@ echo "     <option value='".$row->rank."'>".$row->membername."</option>\r\n";
 <tr>
 <td width="90px">评论选项：</td>
 <td>
-    <input type='radio' name='notpost' class="uk-radio" value='0' <?php if($arcRow["notpost"]==0) echo " checked";?> />
-    允许评论 &nbsp;&nbsp;
-    <input type='radio' name='notpost' class="uk-radio" value='1' <?php if($arcRow["notpost"]==1) echo " checked";?> />
-    禁止评论
+<input type='radio' name='notpost' class="uk-radio" value='0' <?php if($arcRow["notpost"]==0) echo " checked";?> />
+允许评论 &nbsp;&nbsp;
+<input type='radio' name='notpost' class="uk-radio" value='1' <?php if($arcRow["notpost"]==1) echo " checked";?> />
+禁止评论
 </td>
 </tr>
 <tr>
 <td width="90px">发布选项：</td>
 <td >
-    <input name="ishtml" type="radio" class="uk-radio" value="1" <?php if($arcRow["ismake"]!=-1) echo " checked";?>>
-    生成HTML &nbsp;&nbsp;
-    <input type="radio" name="ishtml" class="uk-radio" value="0" <?php if($arcRow["ismake"]==-1) echo " checked";?>>
-    仅动态浏览
+<input name="ishtml" type="radio" class="uk-radio" value="1" <?php if($arcRow["ismake"]!=-1) echo " checked";?>>
+生成HTML &nbsp;&nbsp;
+<input type="radio" name="ishtml" class="uk-radio" value="0" <?php if($arcRow["ismake"]==-1) echo " checked";?>>
+仅动态浏览
 </td>
 </tr>
 </table>
@@ -275,49 +275,48 @@ echo "     <option value='".$row->rank."'>".$row->membername."</option>\r\n";
 <td width="90" ></td>
 <td colspan="3" style='min-width:860px'>
 <ul id="Dede_Atlas_Upload" class="uk-grid-small uk-child-width-1-6" uk-grid uk-sortable="handle: .uk-sortable-handle" >
-    <?php
-       $j = 1;
-       if($imgurls!=""){
-       	 $dtp = new DedeTagParse();
-       	 $dtp->LoadSource($imgurls);
-       	 if(is_array($dtp->CTags))
-       	 {
-       	 	 foreach($dtp->CTags as $ctag)
-       	 	 {
-       	 	 	 if($ctag->GetName()=="img")
-       	 	 	 {
-                     $bigimg = trim($ctag->GetInnerText());
-                     if($ctag->GetAtt('ddimg') != $bigimg && $ctag->GetAtt('ddimg')!='')
-                     {
-                     		$litimg = $ctag->GetAtt('ddimg');
-                     }
-                     else
-                     {
-                     	 $litimg = 'swfupload.php?dopost=ddimg&img='.$bigimg;
-                     }
-                     
-$fhtml = '';
-$fhtml .= "<li>";
-$fhtml .= "<div class='uk-card uk-card-default'><div  style='background-color:#FFF;' class='uk-card uk-card-default uk-card-header'>";
-$fhtml .= "<span class='uk-sortable-handle uk-margin-small-right uk-text-center' uk-icon='icon: arrows-move'></span>";
-$fhtml .= "<button type='button' onclick='_DedeCMS_JSCODE_Version_Delete_Atlas_Temporary_Images(this)' uk-close></button> </div>";
-$fhtml .= "<div class='uk-card-body' uk-form-custom>";
-$fhtml .= "<input type='hidden' name='imgurl{$j}' value='{$bigimg}' />";
-$fhtml .= "<input type='hidden' name='imgddurl{$j}' value='{$litimg}' />";
-$fhtml .= "<input type='file' onclick='_DedeCMS_JSCODE_Version_Edit_Atlas_Temporary_Images(this)' accept='image/*'>";
-$fhtml .= "<img style='width: 250px;height:150px' src='{$litimg}'/>";
-$fhtml .= "</div>";
-$fhtml .= "<div class='uk-card-footer' style='background-color:#FFF;'>";
-$fhtml .= "<input type='text' class='uk-input uk-form-small' value='".$ctag->GetAtt('text')."' placeholder='注释'></div></div>";
-$fhtml .= "</li>";
-       	 	 	 	 echo $fhtml;
-       	 	 	 	 $j++;
-       	 	 	 }
-       	 	 }
-       	 }
-       	 $dtp->Clear();
-       }
-       ?>
+<?php
+$j = 1;
+if($imgurls!=""){
+$dtp = new DedeTagParse();
+$dtp->LoadSource($imgurls);
+if(is_array($dtp->CTags))
+{
+foreach($dtp->CTags as $ctag)
+{
+if($ctag->GetName()=="img")
+{
+$bigimg = trim($ctag->GetInnerText());
+if($ctag->GetAtt('ddimg') != $bigimg && $ctag->GetAtt('ddimg')!='')
+{
+$litimg = $ctag->GetAtt('ddimg');
+}
+else
+{
+$litimg = 'swfupload.php?dopost=ddimg&img='.$bigimg;
+}
+?>
+<li>
+<div class='uk-card uk-card-default'><div  style='background-color:#FFF;' class='uk-card uk-card-default uk-card-header'>
+<span class='uk-sortable-handle uk-margin-small-right uk-text-center' uk-icon='icon: arrows-move'></span>
+<button type='button' onclick="_DedeCMS_JSCODE_Version_Delete_Atlas_Upload_Images(this, '<?=$bigimg?>')" uk-close></button> </div>
+<div class='uk-card-body' uk-form-custom>
+<input type='hidden' name='imgurl<?=$j?>' value='<?=$bigimg?>' />
+<input type='hidden' name='imgddurl<?=$j?>' value='<?=$litimg?>' />
+<input type='file'   name='imgfile<?=$j?>' onclick='_DedeCMS_JSCODE_Version_Edit_Atlas_Temporary_Images(this)' accept='image/*'>
+<img style='width: 250px;height:150px' src='<?=$bigimg?>'/>
+</div>
+<div class='uk-card-footer' style='background-color:#FFF;'>
+<input type='text' class='uk-input uk-form-small' value='<?=$ctag->GetAtt('text')?>' placeholder='注释'></div></div>
+</li>
+<?php
+$j++;
+}
+}
+}
+$dtp->Clear();
+}
+?>
 </ul>
 </td>
 </tr>
