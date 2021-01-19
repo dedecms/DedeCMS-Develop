@@ -34,12 +34,8 @@ height: 35px;
     <form name="fadd" action="sys_info.php" method="post">
     <input type='hidden' name='dopost' value='add'>
     <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
-    <fieldset id="dede-dropdown-margin" class="uk-fieldset">
-
-    <div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="变量名称" name="nvarname"/></div>
-    <div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="变量值" name="nvarvalue"/></div>
-
-    <div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="参数说明" name="varmsg"/></div>
+    <fieldset id="dede-dropdown-margin" class="uk-fieldset">    <div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="变量名称" name="nvarname"/></div>
+    <div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="变量值" name="nvarvalue"/></div>    <div class="uk-margin"><input class="uk-input uk-form-small uk-flex-inline uk-width-1-1" type="text" placeholder="参数说明" name="varmsg"/></div>
     <div class="uk-margin">
         <?php
         echo "<select name='vargroup' class='uk-select uk-form-small'>\r\n";
