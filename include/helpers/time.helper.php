@@ -183,7 +183,7 @@ if (!function_exists('AddDay')) {
 if (!function_exists('GetDateTimeMk')) {
     function GetDateTimeMk($mktime)
     {
-        return MyDate('Y-m-d H:i:s', $mktime);
+        return MyDate('Y-m-d\TH:i', $mktime);
     
     }
 
