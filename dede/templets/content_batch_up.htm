@@ -62,24 +62,24 @@ echo "</select>";
 </td>
 </tr>
 <tr>
-    <td>
-    <label> <input name="seltime" type="checkbox" class="uk-checkbox" id="seltime" value="1" onClick="ShowHideTime()"> 启用时间筛选 </label>
-    </td>
-    <td>
-    <div id="seltimeField" style="display:none;">
-    开始：
-    <div class="uk-inline">
-    <span class="uk-form-icon uk-icon" uk-icon="icon: calendar4-week"></span>
-    <input class="uk-input uk-form-width-medium uk-form-small"  style="width: 230px;" name="starttime" type="datetime-local"  value="<?=GetDateTimeMk(time()-(24*3600*30))?>">
-    </div> &nbsp;&nbsp;
-    结束：
-    <div class="uk-inline">
-    <span class="uk-form-icon uk-icon" uk-icon="icon: calendar4-week"></span>
-    <input class="uk-input uk-form-width-medium uk-form-small" style="width: 230px;"  name="endtime" type="datetime-local"  value="<?=GetDateTimeMk(time())?>">
-    </div>
-    </div>
-    </td>
-    </tr>
+<td>
+<label> <input name="seltime" type="checkbox" class="uk-checkbox" id="seltime" value="1" onClick="ShowHideTime()"> 启用时间筛选 </label>
+</td>
+<td>
+<div id="seltimeField" style="display:none;">
+开始：
+<div class="uk-inline">
+<span class="uk-form-icon uk-icon" uk-icon="icon: calendar4-week"></span>
+<input class="uk-input uk-form-width-medium uk-form-small"  style="width: 230px;" name="starttime" type="datetime-local"  value="<?=GetDateTimeMk(time()-(24*3600*30))?>">
+</div> &nbsp;&nbsp;
+结束：
+<div class="uk-inline">
+<span class="uk-form-icon uk-icon" uk-icon="icon: calendar4-week"></span>
+<input class="uk-input uk-form-width-medium uk-form-small" style="width: 230px;"  name="endtime" type="datetime-local"  value="<?=GetDateTimeMk(time())?>">
+</div>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 </td>
