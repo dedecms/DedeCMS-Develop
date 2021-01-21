@@ -21,19 +21,19 @@ if ($dopost === "save") {
     $dsql->ExecuteNoneQuery($query);
     ShowMsg("成功更新友情链接网站分类表!", "friendlink_type.php");
     exit();
-} else if ($dopost === "del"){
+} else if ($dopost === "del") {
     $query = "DELETE FROM `#@__flinktype` WHERE id='$id' ";
     $dsql->ExecuteNoneQuery($query);
     ShowMsg("成功删除网站类型!", "friendlink_type.php");
     exit();
-} else if ($dopost === "dels"){
+} else if ($dopost === "dels") {
     foreach (explode(",", $aids) as $key => $value) {
         $query = "DELETE FROM `#@__flinktype` WHERE id='$value' ";
         $dsql->ExecuteNoneQuery($query);
     }
     ShowMsg("成功删除网站类型!", "friendlink_type.php");
     exit();
-} else if ($dopost === "add"){
+} else if ($dopost === "add") {
     $query = "INSERT INTO `#@__flinktype`(typename) VALUES('$typename');";
     $dsql->ExecuteNoneQuery($query);
     ShowMsg("成功创建网站类型!", "friendlink_type.php");
