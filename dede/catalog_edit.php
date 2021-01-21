@@ -305,4 +305,3 @@ if ($dopost == 'time') {
 } else {
     DedeInclude('templets/catalog_edit.htm');
 }
-?>
