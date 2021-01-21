@@ -37,76 +37,76 @@ height: 35px;
 <tbody>
 <!-- 选项 -->
 <tr>
-    <td width="19%">网址：</td>
-    <td width="81%">
-    <input name="url" type="text" id="url" value="<?=$myLink['url']?>" class="uk-input uk-form-small uk-form-width-large"/>
-    </td>
-    </tr>
-    <tr>
-    <td width="19%">排列位置：</td>
-    <td width="81%">
-    <input name="sortrank" type="text" id="sortrank" value="<?=$myLink['sortrank']?>" class="uk-input uk-form-small uk-form-width-large"/>
-    (由小到大排列)
-    </td>
-    </tr>
-    <tr>
-    <td>网站名称：</td>
-    <td><input name="webname" type="text" id="webname" value="<?=$myLink['webname']?>" class="uk-input uk-form-small uk-form-width-large"/></td>
-    </tr>
-    <tr>
-    <td>网站Logo：</td>
-    <td>
-    <input name="logo" type="text" id="logo" value="<?=$myLink['logo']?>" class="uk-input uk-form-small uk-form-width-large"/>
-    (88*31 gif或jpg)
-    </td>
-    </tr>
-    <tr>
-    <td>上传Logo：</td>
-    <td>
-        <div class="uk-margin" id="upfile1">
-        <label class="uk-form-label"></label>
-        <div class="uk-form-controls">
-        <div class="uk-inline" uk-form-custom="target: true">
-        <span class="uk-form-icon" uk-icon="icon: upload"></span>
-        <input name="logoimg" type="file" id="logoimg"/>
-        <input class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="点击选择文件" >
-        </div>
-        </div>
-        </div>
-    </td>
-    </tr>
-    <tr>
-    <td>网站简况：</td>
-    <td><textarea name="msg" cols="50" rows="4" id="msg" class="uk-textarea uk-form-small uk-form-width-large"><?=dede_htmlspecialchars($myLink['msg'])?></textarea></td>
-    </tr>
-    <tr>
-    <td>站长Email：</td>
-    <td><input name="email" type="text" id="email" value="<?=$myLink['email']?>" class="uk-input uk-form-small uk-form-width-large"/></td>
-    </tr>
-    <tr>
-    <td>链接位置：</td>
-    <td>
-    <input type="radio" name="ischeck" value="0" <?php if($myLink['ischeck']==0) echo " checked "?> class="uk-radio"/> 未审核 &nbsp;&nbsp;
-    <input type="radio" name="ischeck" value="1" <?php if($myLink['ischeck']==1) echo " checked "?> class="uk-radio"/> 内页 &nbsp;&nbsp;
-    <input type="radio" name="ischeck" value="2" <?php if($myLink['ischeck']==2) echo " checked "?> class="uk-radio"/> 首页
-    </td>
-    </tr>
-    <tr>
-    <td>网站类型：</td>
-    <td>
-    <select name="typeid" id="typeid" class="uk-select uk-form-small uk-form-width-large">
-        <?php
-        echo "	<option value='".$myLink['typeid']."'>".$myLink['typename']."</option>\r\n";
-        $dsql->SetQuery("select * from #@__flinktype where id<>'".$myLink['typeid']."'");
-        $dsql->Execute();
-        while($row=$dsql->GetObject()){
-        	echo "	<option value='".$row->id."'>".$row->typename."</option>\r\n";
-        }
-        ?>
-    </select>
-    </td>
-    </tr>
-    <!-- /选项 -->
+<td width="19%">网址：</td>
+<td width="81%">
+<input name="url" type="text" id="url" value="<?=$myLink['url']?>" class="uk-input uk-form-small uk-form-width-large"/>
+</td>
+</tr>
+<tr>
+<td width="19%">排列位置：</td>
+<td width="81%">
+<input name="sortrank" type="text" id="sortrank" value="<?=$myLink['sortrank']?>" class="uk-input uk-form-small uk-form-width-large"/>
+(由小到大排列)
+</td>
+</tr>
+<tr>
+<td>网站名称：</td>
+<td><input name="webname" type="text" id="webname" value="<?=$myLink['webname']?>" class="uk-input uk-form-small uk-form-width-large"/></td>
+</tr>
+<tr>
+<td>网站Logo：</td>
+<td>
+<input name="logo" type="text" id="logo" value="<?=$myLink['logo']?>" class="uk-input uk-form-small uk-form-width-large"/>
+(88*31 gif或jpg)
+</td>
+</tr>
+<tr>
+<td>上传Logo：</td>
+<td>
+<div class="uk-margin" id="upfile1">
+<label class="uk-form-label"></label>
+<div class="uk-form-controls">
+<div class="uk-inline" uk-form-custom="target: true">
+<span class="uk-form-icon" uk-icon="icon: upload"></span>
+<input name="logoimg" type="file" id="logoimg"/>
+<input class="uk-input uk-form-small uk-form-width-large" type="text" placeholder="点击选择文件" >
+</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td>网站简况：</td>
+<td><textarea name="msg" cols="50" rows="4" id="msg" class="uk-textarea uk-form-small uk-form-width-large"><?=dede_htmlspecialchars($myLink['msg'])?></textarea></td>
+</tr>
+<tr>
+<td>站长Email：</td>
+<td><input name="email" type="text" id="email" value="<?=$myLink['email']?>" class="uk-input uk-form-small uk-form-width-large"/></td>
+</tr>
+<tr>
+<td>链接位置：</td>
+<td>
+<input type="radio" name="ischeck" value="0" <?php if($myLink['ischeck']==0) echo " checked "?> class="uk-radio"/> 未审核 &nbsp;&nbsp;
+<input type="radio" name="ischeck" value="1" <?php if($myLink['ischeck']==1) echo " checked "?> class="uk-radio"/> 内页 &nbsp;&nbsp;
+<input type="radio" name="ischeck" value="2" <?php if($myLink['ischeck']==2) echo " checked "?> class="uk-radio"/> 首页
+</td>
+</tr>
+<tr>
+<td>网站类型：</td>
+<td>
+<select name="typeid" id="typeid" class="uk-select uk-form-small uk-form-width-large">
+<?php
+echo "	<option value='".$myLink['typeid']."'>".$myLink['typename']."</option>\r\n";
+$dsql->SetQuery("select * from #@__flinktype where id<>'".$myLink['typeid']."'");
+$dsql->Execute();
+while($row=$dsql->GetObject()){
+echo "	<option value='".$row->id."'>".$row->typename."</option>\r\n";
+}
+?>
+</select>
+</td>
+</tr>
+<!-- /选项 -->
 </tbody>
 
 </table>

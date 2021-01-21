@@ -181,4 +181,4 @@ while ($row = $dsql->GetObject()) {
 PutCookie('lastCid', GetTopid($id), 3600 * 24, "/");
 
 
-    DedeInclude('templets/catalog_edit.htm');
+DedeInclude('templets/catalog_edit.htm');
