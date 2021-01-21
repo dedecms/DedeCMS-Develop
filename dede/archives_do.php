@@ -134,11 +134,6 @@ else if ($dopost == "uploadLitpic") {
                         parent.document.getElementById('divpicview').innerHTML = \"<img src='{$upfile}?n' width='150' />\";
                     }
                 </script>";
-        } else {
-            $msg = "<script language='javascript'>
-                    parent.document.getElementById('uploadwait').style.display = 'none';
-                    window.open('imagecut.php?f=picname&isupload=yes&file={$upfile}', 'popUpImagesWin', 'scrollbars=yes,resizable=yes,statebar=no,width=800,height=600,left=150, top=50');
-                </script>";
         }
     }
     echo $msg;
