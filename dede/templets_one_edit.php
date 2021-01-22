@@ -90,15 +90,16 @@ if ($dopost == "saveedit") {
     if ($ids == 0) {
         ShowMsg('您没有选择需要更新的文档！', '-1');
         exit();
-    } else if (is_array($ids)) {
-        foreach ($ids as $aid) {
-            $sg = new sgpage($aid);
-            $sg->SaveToHtml();
-            $i++;
-        }
-        ShowMsg("成功更新 $i 个页面！", '-1');
-        exit();
+    } 
+       
+    foreach (explode(',', $ids) as $aid) {
+        $sg = new sgpage($aid);
+        $sg->SaveToHtml();
+        $i++;
     }
+    ShowMsg("成功更新 $i 个页面！", '-1');
+    exit();
+    
 } else if ($dopost == "view") {
     if (empty($aid)) {
         ShowMsg('错误的ID！', 'javascript:;');
