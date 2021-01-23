@@ -117,12 +117,6 @@ $actionSearch[3] = array(
             'purview' => 'c_List',
             'linkurl' => 'freelist_main.php',
         ),
-        4 => array(
-            'title' => '自定义表单 ',
-            'description' => '创建和管理自定义表单',
-            'purview' => 'c_List',
-            'linkurl' => 'diy_main.php',
-        ),
     ),
 );
 $actionSearch[4] = array(
