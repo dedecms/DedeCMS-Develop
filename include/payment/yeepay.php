@@ -196,17 +196,17 @@ class yeepay
                 if ($r9_BType == "1" || $r9_BType == "3") {
                     if ($ordertype == "goods") {
                         if ($this->success_db($r6_Order)) {
-                            return $msg = "支付成功!<br> <a href='/'>返回主页</a> <a href='/member'>会员中心</a>";
+                            return $msg = "支付成功!<br> <a href='/'>返回主页</a> ";
                         
                         } else {
-                            return $msg = "支付失败!<br> <a href='/'>返回主页</a> <a href='/member'>会员中心</a>";
+                            return $msg = "支付失败!<br> <a href='/'>返回主页</a> ";
                         
                         }
 
                     
                     } else if ($ordertype == "member") {
                         $oldinf = $this->success_mem($r6_Order, $pname, $product, $pid);
-                        return $msg = "<font color='red'>" . $oldinf . "</font><br> <a href='/'>返回主页</a> <a href='/member'>会员中心</a>";
+                        return $msg = "<font color='red'>" . $oldinf . "</font><br> <a href='/'>返回主页</a> ";
                     
                     }
                 
@@ -215,20 +215,20 @@ class yeepay
                     echo "success";
                     if ($ordertype == "goods") {
                         if ($this->success_db($r6_Order)) {
-                            return $msg = "支付成功!<br> <a href='/'>返回主页</a> <a href='/member'>会员中心</a>";
+                            return $msg = "支付成功!<br> <a href='/'>返回主页</a> ";
                         
                         } else {
-                            return $msg = "支付失败!<br> <a href='/'>返回主页</a> <a href='/member'>会员中心</a>";
+                            return $msg = "支付失败!<br> <a href='/'>返回主页</a> ";
                         
                         }
 
                     
                     } else if ($ordertype == "member") {
                         if ($this->success_mem($r6_Order, $pname, $product, $pid)) {
-                            return $msg = "支付成功!<br> <a href='/'>返回主页</a> <a href='/member'>会员中心</a>";
+                            return $msg = "支付成功!<br> <a href='/'>返回主页</a> ";
                         
                         } else {
-                            return $msg = "支付失败!<br> <a href='/'>返回主页</a> <a href='/member'>会员中心</a>";
+                            return $msg = "支付失败!<br> <a href='/'>返回主页</a> ";
                         
                         }
 

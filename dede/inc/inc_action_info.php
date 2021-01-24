@@ -36,12 +36,6 @@ $actionSearch[0] = array(
             'purview' => 'a_List,a_AccList,a_MyList',
             'linkurl' => 'content_list.php?mid=' . $cuserLogin->userID,
         ),
-        3 => array(
-            'title' => '评论管理',
-            'description' => '网站所有评论管理',
-            'purview' => 'sys_Feedback',
-            'linkurl' => 'feedback_main.php',
-        ),
         4 => array(
             'title' => '内容回收站',
             'description' => '如果在"系统基本参数"的"核心设置"中开启了"文章回收站(是/否)开启功能",后台删除的文档将会存放在此处',
