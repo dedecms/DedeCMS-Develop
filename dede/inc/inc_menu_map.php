@@ -78,7 +78,7 @@ $menusMain = "
   <m:item name='采集未下载内容' link='co_do.php?dopost=coall' rank='co_GetOut' target='main'/>
 </m:top>
 
-<m:top mapitem='3' item='1_3_3' name='批量维护' display='block'>
+<m:top mapitem='3' item='1_3_3' name='批量维护' display='none'>
   <m:item name='更新系统缓存' link='sys_cache_up.php' rank='sys_ArcBatch' target='main' />
   <m:item name='文档批量维护' link='content_batch_up.php' rank='sys_ArcBatch' target='main' />
   <m:item name='搜索关键词维护' link='search_keywords_main.php' rank='sys_Keyword' target='main' />
@@ -117,8 +117,6 @@ $menusMain = "
 
 <m:top mapitem='2' item='10_' name='系统设置' display='none' rank='sys_User,sys_Group,sys_Edit,sys_Log,sys_Data'>
   <m:item name='系统基本参数' link='sys_info.php' rank='sys_Edit' target='main' />
-  <m:item name='系统用户管理' link='sys_admin_user.php' rank='sys_User' target='main' />
-
   <m:item name='系统日志管理' link='log_list.php' rank='sys_Log' target='main' />
   <m:item name='验证安全设置' link='sys_safe.php' rank='sys_verify' target='main' />
   <m:item name='图片水印设置' link='sys_info_mark.php' rank='sys_Edit' target='main' />
