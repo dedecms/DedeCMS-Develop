@@ -163,8 +163,11 @@ if (!function_exists('AddDay')) {
  * @return string
 */
 if (!function_exists('GetDateTimeMk')) {
-    function GetDateTimeMk($mktime)
+    function GetDateTimeMk($mktime, $f = false)
     {
+        if ($f) {
+            return MyDate('Y-m-d H:i:s', $mktime);
+        }
         return MyDate('Y-m-d\TH:i', $mktime);
     
     }
