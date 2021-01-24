@@ -1,6 +1,6 @@
 <?php
 /**
- * 后台登陆
+ * 后台登录
  *
  * @version   $Id: login.php 1 8:48 2010年7月13日 $
  * @package   DedeCMS.Administrator
