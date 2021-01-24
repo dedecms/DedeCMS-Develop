@@ -199,7 +199,7 @@ else if ($open == 2) {
         $arcLinktitle = "<a href=\"{$arcurl}\"><u>" . $arctitle . "</u></a>";
         $pubdate = GetDateTimeMk($pubdate);
 
-        //会员级别不足
+        //用户级别不足
         if (($needRank > 1 && $cfg_ml->M_Rank < $needRank && $mid != $cfg_ml->M_ID)) {
             $dsql->Execute('me', "SELECT * FROM `#@__arcrank` ");
             while ($row = $dsql->GetObject('me')) {

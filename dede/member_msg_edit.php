@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员短消息管理
+ * 用户短消息管理
  *
  * @version   $Id: member_msg_edit.php 1 11:24 2010年7月20日 $
  * @package   DedeCMS.Administrator

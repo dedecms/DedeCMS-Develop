@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员类型
+ * 用户类型
  *
  * @version   $Id: member_type.php 1 14:14 2010年7月20日 $
  * @package   DedeCMS.Administrator
@@ -45,7 +45,7 @@ if ($dopost == "save") {
         $dsql->ExecuteNoneQuery($query);
     }
     header("Content-Type: text/html; charset={$cfg_soft_lang}");
-    echo "<script> alert('成功更新会员产品分类表！'); </script>";
+    echo "<script> alert('成功更新用户产品分类表！'); </script>";
 }
 $arcranks = array();
 $dsql->SetQuery("SELECT * FROM #@__arcrank WHERE rank>10 ");

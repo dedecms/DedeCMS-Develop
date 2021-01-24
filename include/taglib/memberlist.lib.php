@@ -1,7 +1,7 @@
 <?php if (!defined('DEDEINC')) {exit("DedeCMS Error: Request Error!");
 }
 /**
- * 会员信息调用标签
+ * 用户信息调用标签
  *
  * @version   $Id: memberlist.lib.php 1 9:29 2010年7月6日 $
  * @package   DedeCMS.Taglib
@@ -13,10 +13,10 @@
  */
 
 /*>>dede>>
-<name>会员信息列表</name>
+<name>用户信息列表</name>
 <type>全局标记</type>
 <for>V55,V56,V57</for>
-<description>会员信息调用标签</description>
+<description>用户信息调用标签</description>
 <demo>
 {dede:memberlist orderby='scores' row='20'}
 <a href="../member/index.php?uid={dede:field.userid /}">{dede:field.userid /}</a>
@@ -25,7 +25,7 @@
 </demo>
 <attributes>
 <iterm>row:调用数目</iterm>
-<iterm>iscommend:是否为推荐会员</iterm>
+<iterm>iscommend:是否为推荐用户</iterm>
 <iterm>orderby:按登陆时间排序 money 按金钱排序 scores 按积分排序</iterm>
 </attributes>
 >>dede>>*/

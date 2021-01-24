@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员日志编辑
+ * 用户日志编辑
  *
  * @version   $Id: member_feed_edit.php 1 14:08 2010年7月19日 $
  * @package   DedeCMS.Administrator

@@ -70,7 +70,7 @@ class SearchView
      * @param  string $starttime    开始时间
      * @param  string $upagesize    页数
      * @param  string $kwtype       关键词类型
-     * @param  string $mid          会员ID
+     * @param  string $mid          用户ID
      * @return string
      */
     public function __construct($typeid, $keyword, $orderby, $achanneltype = "all",

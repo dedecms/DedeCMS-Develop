@@ -55,8 +55,6 @@ if ($cuserLogin->getUserType() >= 10) {
 
 <m:top item='10_' name='系统设置' display='uk-open' rank='sys_User,sys_Group,sys_Edit,sys_Log,sys_Data'>
   <m:item name='系统基本参数' link='sys_info.php' rank='sys_Edit' target='main' />
-  <m:item name='系统用户管理' link='sys_admin_user.php' rank='sys_User' target='main' />
-  <m:item name='用户组设定' link='sys_group.php' rank='sys_Group' target='main' />
   <m:item name='系统日志管理' link='log_list.php' rank='sys_Log' target='main' />
   <m:item name='验证安全设置' link='sys_safe.php' rank='sys_verify' target='main' />
   <m:item name='图片水印设置' link='sys_info_mark.php' rank='sys_Edit' target='main' />
@@ -70,8 +68,8 @@ if ($cuserLogin->getUserType() >= 10) {
 </m:top>
 
 <m:top item='10_6_' name='支付工具' display='' rank='sys_Data'>
-  <m:item name='会员产品分类' link='member_type.php' rank='sys_Data' target='main' />
-  <m:item name='会员消费记录' link='member_operations.php' rank='sys_Data' target='main' />
+  <m:item name='用户产品分类' link='member_type.php' rank='sys_Data' target='main' />
+  <m:item name='用户消费记录' link='member_operations.php' rank='sys_Data' target='main' />
   <m:item name='商店订单记录' link='shops_operations.php' rank='sys_Data' target='main' />
   <m:item name='支付接口设置' link='sys_payment.php' .php' rank='sys_Data' target='main' />
   <m:item name='配货方式设置' link='shops_delivery.php' rank='sys_Data' target='main' />
@@ -144,10 +142,12 @@ $adminMenu1
   <m:item name='更新专题HTML' link='makehtml_spec.php' rank='sys_MakeHtml' target='main' />
 </m:top>
 
-<m:top item='6_' name='会员管理' display='uk-open' rank='member_List,member_Type'>
-  <m:item name='注册会员列表' link='member_main.php' rank='member_List' target='main' />
-  <m:item name='会员级别设置' link='member_rank.php' rank='member_Type' target='main' />
-  <m:item name='会员模型管理' link='member_model_main.php' rank='member_Type' target='main' />
+<m:top item='6_' name='用户管理' display='uk-open' rank='member_List,member_Type'>
+  <m:item name='系统用户管理' link='sys_admin_user.php' rank='sys_User' target='main' />
+  <m:item name='系统用户组管理' link='sys_group.php' rank='sys_Group' target='main' />
+  <m:item name='注册用户列表' link='member_main.php' rank='member_List' target='main' />
+  <m:item name='用户级别设置' link='member_rank.php' rank='member_Type' target='main' />
+  <m:item name='用户模型管理' link='member_model_main.php' rank='member_Type' target='main' />
 </m:top>
 
 $adminMenu2

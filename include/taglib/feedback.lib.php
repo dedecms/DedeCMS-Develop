@@ -13,7 +13,7 @@
  */
 
 /*>>dede>>
-<name>会员评论内容</name>
+<name>用户评论内容</name>
 <type>全局标记</type>
 <for>V55,V56,V57</for>
 <description>用于调用最新评论</description>

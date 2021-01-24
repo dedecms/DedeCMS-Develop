@@ -192,7 +192,7 @@ $cfg_mobileurl = $cfg_mainsite . $cfg_mobile_dir;
 $cfg_data_dir = $cfg_cmspath . '/data';
 $cfg_dataurl = $cfg_mainsite . $cfg_data_dir;
 
-//会员目录
+//用户目录
 $cfg_member_dir = $cfg_cmspath . '/member';
 $cfg_memberurl = $cfg_mainsite . $cfg_member_dir;
 
@@ -239,7 +239,7 @@ if (isset($cfg_ftp_mkdir) && $cfg_ftp_mkdir == 'Y') {
     $cfg_dir_purview = 0755;
 }
 
-//会员是否使用精简模式（已禁用）
+//用户是否使用精简模式（已禁用）
 $cfg_mb_lit = 'N';
 
 //特殊全局变量

@@ -166,7 +166,7 @@ else if ($dopost == 'getRightSide') {
     }
     ?>
 <ul class="uk-flex uk-flex-wrap uk-child-width-1-2 uk-list uk-list-circle" style="padding:12px 24px;">
-<li><span> 会员数： </span>  <?php echo $row1['dd']; ?></li>
+<li><span> 用户数： </span>  <?php echo $row1['dd']; ?></li>
 <li><span> 文档数： </span>  <?php echo $allArc; ?></li>
     <?php foreach ($chArr as $row) { ?>
 <li><span> <?php echo $row['typename']; ?>： </span>  <?php echo $row['dd']; ?></li>

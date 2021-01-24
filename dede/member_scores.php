@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员积分
+ * 用户积分
  *
  * @version   $Id: member_scores.php 1 11:24 2010年7月20日 $
  * @package   DedeCMS.Administrator

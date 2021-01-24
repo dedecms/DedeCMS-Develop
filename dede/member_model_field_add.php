@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员模型字段增加
+ * 用户模型字段增加
  *
  * @version   $Id: member_model_field_add.php 1 11:20 2010年7月20日 $
  * @package   DedeCMS.Administrator

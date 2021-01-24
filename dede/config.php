@@ -227,7 +227,7 @@ function ClearOptCache()
 }
 
 /**
- *  更新会员模型缓存
+ *  更新用户模型缓存
  *
  * @access public
  * @return void

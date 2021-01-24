@@ -3,7 +3,7 @@
 }
 
 /**
- * 会员列表视图类
+ * 用户列表视图类
  *
  * @version   $Id: arc.memberlistview.class.php 1 14:49 2010年7月7日 $
  * @package   DedeCMS.Libraries

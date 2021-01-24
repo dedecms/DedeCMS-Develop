@@ -156,7 +156,7 @@ if (!function_exists('GetTags')) {
  * @param  int  $sortrank  排序ID
  * @param  int  $channelid  模型ID
  * @param  int  $senddate  发布日期
- * @param  int  $mid  会员ID
+ * @param  int  $mid  用户ID
  * @return int
 */
 if (!function_exists('GetIndexKey')) {

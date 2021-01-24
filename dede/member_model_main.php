@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员模型管理
+ * 用户模型管理
  *
  * @version   $Id: member_model_main.php 1 11:24 2010年7月20日 $
  * @package   DedeCMS.Administrator

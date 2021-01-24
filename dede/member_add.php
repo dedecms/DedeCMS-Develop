@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员查看
+ * 用户查看
  *
  * @version   $Id: member_add.php 1 14:15 2010年7月20日 $
  * @package   DedeCMS.Administrator

@@ -19,7 +19,7 @@ $member = new MemberLogin;
 $memberID = $member->M_LoginID;
 $time = time();
 $content = $memberID . '|' . $time;
-$file = DEDEDATA . '/cache/vote_' . $aid . '_' . $member->M_ID . '.inc'; //存放会员投票记录的缓存文件
+$file = DEDEDATA . '/cache/vote_' . $aid . '_' . $member->M_ID . '.inc'; //存放用户投票记录的缓存文件
 
 $loginurl = $cfg_basehost . "/member";
 $ENV_GOBACK_URL = empty($_SERVER['HTTP_REFERER']) ? '' : $_SERVER['HTTP_REFERER'];

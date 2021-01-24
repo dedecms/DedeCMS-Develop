@@ -25,7 +25,7 @@ if ($cfg_feedbackcheck == 'Y') {
     $needCheck = 1;
 }
 
-//是否是会员或管理员
+//是否是用户或管理员
 if ($cfg_ml->IsLogin()) {
     $g_isadmin = ($cfg_ml->fields['matt'] >= 10);
     $g_mid = $cfg_ml->M_ID;

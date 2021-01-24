@@ -296,7 +296,7 @@ else if ($step == 4) {
     $adminquery = "INSERT INTO `{$dbprefix}admin` VALUES (1, 10, '$adminuser', '" . substr(md5($adminpwd), 5, 20) . "', 'admin', '', '', 0, '" . time() . "', '127.0.0.1');";
     $dbtype == 'sqlite' ? $db->exec($adminquery) : mysqli_query($conn, $adminquery);
 
-    //关连前台会员帐号
+    //关连前台用户帐号
     $adminquery = "INSERT INTO `{$dbprefix}member` (`mid`,`mtype`,`userid`,`pwd`,`uname`,`sex`,`rank`,`money`,`email`,
                    `scores` ,`matt` ,`face`,`safequestion`,`safeanswer` ,`jointime` ,`joinip` ,`logintime` ,`loginip` )
                VALUES ('1','个人','$adminuser','" . md5($adminpwd) . "','$adminuser','男','100','0','','10000','10','','0','','" . time() . "','','0',''); ";

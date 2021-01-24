@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员权限管理
+ * 用户权限管理
  *
  * @version   $Id: member_rank.php 1 12:37 2010年7月20日 $
  * @package   DedeCMS.Administrator
@@ -32,7 +32,7 @@ if ($dopost == 'save') {
                 $dsql->ExecuteNoneQuery($query);
             }
         }
-        ShowMsg("成功更新会员等级表！", "member_rank.php");
+        ShowMsg("成功更新用户等级表！", "member_rank.php");
         exit();
     }
     ShowMsg("更新失败！", "member_rank.php");

@@ -65,7 +65,7 @@ if (!empty($row['rminfo'])) {
     $row['rminfo'] = unserialize($row['rminfo']);
 }
 
-//获取会员列表
+//获取用户列表
 $query = "SELECT #@__admin.*,#@__admintype.typename FROM #@__admin LEFT JOIN #@__admintype ON #@__admin.usertype = #@__admintype.rank";
 $dsql->SetQuery($query);
 $dsql->Execute();

@@ -1,6 +1,6 @@
 <?php
 /**
- * 会员操作日志记录管理
+ * 用户操作日志记录管理
  *
  * @version   $Id: member_operations.php 1 11:24 2010年7月20日 $
  * @package   DedeCMS.Administrator
@@ -69,7 +69,7 @@ function GetPType($tname)
     } else if ($tname == 'stc') {
         return '兑换金币';
     } else {
-        return '会员升级';
+        return '用户升级';
     }
 
 }
