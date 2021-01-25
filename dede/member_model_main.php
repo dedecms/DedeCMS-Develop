@@ -34,6 +34,7 @@ if (is_array($row)) {
 }
 
 $sql = "SELECT `id`,`name`,`table`,`description`,`state`,`issystem` FROM #@__member_model ORDER BY id ASC";
+
 $dlist = new DataListCP();
 $dlist->SetTemplet(DEDEADMIN . "/templets/member_model_main.htm");
 $dlist->SetSource($sql);
