@@ -129,4 +129,6 @@ if ($newid < 10) {
     $newid = $newid + 10;
 }
 
-require_once DEDEADMIN . "/templets/mychannel_add.htm";
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/mychannel_add.htm");
+$tpl->Display();

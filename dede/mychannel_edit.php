@@ -695,4 +695,8 @@ else if ($dopost == 'del') {
     exit();
 }
 $row = $dsql->GetOne("SELECT * FROM `#@__channeltype` WHERE id='$id' ");
-require_once DEDEADMIN . "/templets/mychannel_edit.htm";
+
+
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/mychannel_edit.htm");
+$tpl->Display();
