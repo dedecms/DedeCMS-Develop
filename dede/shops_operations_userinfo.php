@@ -34,5 +34,7 @@ if (is_array($row)) {
     $rows['dprice'] = $row['dprice'];
 }
 $rows['des'] = stripslashes($rows['des']);
-require DEDEADMIN . "/templets/shops_operations_userinfo.htm";
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/shops_operations_userinfo.htm");
+$tpl->Display();
 unset($rows);

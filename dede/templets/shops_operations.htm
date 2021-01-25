@@ -86,16 +86,16 @@
 {dede:datalist}
 <tr bgcolor="#FFFFFF" height="26" onMouseMove="javascript:this.bgColor='#FBFBFB';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
 <td>
-<input type='checkbox' name='aids' value='<?php echo $fields['oid']?>' class='np'></td>
+<input type='checkbox' name='aids' value='{dede:field.oid/}' class='uk-checkbox dede-checkbox'></td>
 <td>
-<?php echo $fields['oid'];?>
+    <a onclick="_DedeCMS_JSCODE_Version_Open_Modal_Windows('shops_operations_cart.php?oid={dede:field.oid/}', '订单信息')"><?php echo $fields['oid'];?></a>
+
 </td>
 <td>
-<a href="javascript:OpenMyWinN('shops_operations_userinfo.php?oid=<?php echo $fields['oid']?>',500,350);" ><?php echo $fields['consignee']?></a>
+<a onclick="_DedeCMS_JSCODE_Version_Open_Modal_Windows('shops_operations_userinfo.php?oid={dede:field.oid/}', '收货人信息')"><?php echo $fields['consignee']?></a>
 </td>
 <td>
 <?php echo $fields['cartcount']?>
-<a href="javascript:OpenMyWinN('shops_operations_cart.php?oid=<?php echo $fields['oid']?>',680,450);" >[详情]</a>
 </td>
 <td>
 <?php echo GetDateTimeMk($fields['stime'])?>
@@ -127,11 +127,11 @@
 <thead>
 <tr>
 <td><input type="checkbox" id="select-all" class="uk-checkbox" /></td>
-<td height="36" colspan="8">
-<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Action('media_edit.php?dopost=del&ids=')" class="uk-button uk-button-default uk-button-small">删除</a>
-<a class='uk-button uk-button-default uk-button-small' onClick="UpSel();">设为已付款状态</a>
-<a class='uk-button uk-button-default uk-button-small' onClick="PushSel();">设为已发货状态</a>
-<a class='uk-button uk-button-default uk-button-small' onClick="OkSel();">设为已完成状态</a>
+<td height="36" colspan="9">
+<a onclick="DedeCMS_JSCODE_Version_Checked_Action('shops_operations.php?dopost=delete&nid=')" class="uk-button uk-button-default uk-button-small">删除</a>
+<a onclick="DedeCMS_JSCODE_Version_Checked_Action('shops_operations.php?dopost=up&nid=')" class='uk-button uk-button-default uk-button-small'>设为已付款状态</a>
+<a onclick="DedeCMS_JSCODE_Version_Checked_Action('shops_operations.php?dopost=push&nid=')" class='uk-button uk-button-default uk-button-small'>设为已发货状态</a>
+<a onclick="DedeCMS_JSCODE_Version_Checked_Action('shops_operations.php?dopost=ok&nid=')" class='uk-button uk-button-default uk-button-small'>设为已完成状态</a>
 </td>
 </tr>
 </thead>
@@ -151,6 +151,22 @@
 </div>
 </div>
 <!-- /列表主题 -->
+<!-- 列表 -->
+<div id="modal-archives" class="uk-modal-container" uk-modal>
+<div class="uk-modal-dialog" style="width: 750px;">
+<div id="dede-modal-card-header" class="uk-card uk-card-default" style="width: 750px;">
+<button class="uk-modal-close-default" type="button" uk-close></button>
+<div class="uk-card-header" style="padding:0px 16px;">
+<span id="modal_title" style="margin-top:10px;"></span>
+</div>
+<div class="uk-card-body" style="background-color:#242A2F;" style="width: 750px;">
+<iframe id="archives" width="750px" height="450px"></iframe>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- /列表 -->
 <!-- 列表底部 -->
 <div class="bar-bottom uk-flex uk-light uk-flex-right">
 <div class="uk-button-group" style="margin-left: 50px;">
@@ -163,71 +179,6 @@
 <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit-icons.min.js"></script>
 <script src="{dede:global.cfg_assets_dir/}/pkg/jquery/jquery.min.js"></script>
 <script src="{dede:global.cfg_assets_dir/}/js/dede.manage.min.js"></script>
-<script language="javascript">
-//获得选中项
-function getCheckboxItem()
-{
-var allSel="";
-if(document.form1.aids.value) return document.form1.aids.value;
-for(i=0;i<document.form1.aids.length;i++)
-{
-if(document.form1.aids[i].checked)
-{
-if(allSel=="")
-allSel=document.form1.aids[i].value;
-else
-allSel=allSel+"`"+document.form1.aids[i].value;
-}
-}
-return allSel;
-}
-function ReSel()
-{
-for(i=0;i<document.form1.aids.length;i++)
-{
-if(document.form1.aids[i].checked) document.form1.aids[i].checked = false;
-else document.form1.aids[i].checked = true;
-}
-}
-function DelSel()
-{
-var nid = getCheckboxItem();
-if(nid==""){
-alert("请选择要删除的业务记录!\r\n");
-return ;
-}
-location.href = "shops_operations.php?dopost=delete&nid="+nid;
-}
-function UpSel()
-{
-var nid = getCheckboxItem();
-if(nid==""){
-alert("请选择要更改的订单记录!\r\n");
-return ;
-}
-location.href = "shops_operations.php?dopost=up&nid="+nid;
-}
-function OkSel()
-{
-var nid = getCheckboxItem();
-if(nid==""){
-alert("请选择要更改的订单记录!\r\n");
-return ;
-}
-location.href = "shops_operations.php?dopost=ok&nid="+nid;
-}
-function PushSel(){
-var nid = getCheckboxItem();
-if(nid==""){
-alert("请选择要更改的订单记录!\r\n");
-return ;
-}
-location.href = "shops_operations.php?dopost=push&nid="+nid;
-}
-function OpenMyWinN(surl,w,h){
-window.open(surl, "popUpMyWinN", "scrollbars=yes,resizable=yes,statebar=no,width="+w+",height="+h+",left=200, top=100");
-}
-</script>
 <!-- / JS FILES -->
 </body>
 </html>
