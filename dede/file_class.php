@@ -29,7 +29,7 @@ class FileManagement
     
     }
 
-    //更改文件名
+    //修改文件名
     public function RenameFile($oldname, $newname)
     {
         $oldname = $this->baseDir . $this->activeDir . "/" . $oldname;
@@ -38,7 +38,7 @@ class FileManagement
             rename($oldname, $newname);
         
         }
-        ShowMsg("成功更改一个文件名！", "file_manage_main.php?activepath=" . $this->activeDir);
+        ShowMsg("成功修改一个文件名！", "file_manage_main.php?activepath=" . $this->activeDir);
         return 0;
     
     }

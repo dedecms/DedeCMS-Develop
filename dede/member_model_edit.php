@@ -32,7 +32,7 @@ if ($dopost == "save") {
     $dsql->ExecuteNoneQuery($query);
     //更新用户模型缓存
     UpDateMemberModCache();
-    ShowMsg("成功更改一个用户模型！", "member_model_main.php");
+    ShowMsg("成功修改一个用户模型！", "member_model_main.php");
     exit();
 }
 /*----------------

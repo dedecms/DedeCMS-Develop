@@ -18,7 +18,7 @@ if (empty($dopost)) {
 
 if ($dopost == 'save') {
     if ($rank == 10) {
-        ShowMsg('超级管理员的权限不允许更改!', 'sys_group.php');
+        ShowMsg('超级管理员的权限不允许修改!', 'sys_group.php');
         exit();
     }
     $purview = "";
@@ -29,7 +29,7 @@ if ($dopost == 'save') {
         $purview = trim($purview);
     }
     $dsql->ExecuteNoneQuery("UPDATE `#@__admintype` SET typename='$typename',purviews='$purview' WHERE CONCAT(`rank`)='$rank'");
-    ShowMsg('成功更改用户组的权限!', 'sys_group.php');
+    ShowMsg('成功修改用户组的权限!', 'sys_group.php');
     exit();
 } else if ($dopost == 'del') {
     $dsql->ExecuteNoneQuery("DELETE FROM `#@__admintype` WHERE CONCAT(`rank`)='$rank' AND system='0';");

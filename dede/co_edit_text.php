@@ -1,6 +1,6 @@
 <?php
 /**
- * 采集规则编辑-专家更改模式
+ * 采集规则编辑-专家修改模式
  *
  * @version   $Id: co_edit_text.php 1 14:31 2010年7月12日 $
  * @package   DedeCMS.Administrator
@@ -18,8 +18,8 @@ if (empty($job)) {
 
 if ($job == '') {
     include_once DEDEINC . "/oxwindow.class.php";
-    $wintitle = "更改采集规则";
-    $wecome_info = "<a href='co_main.php'><u>采集点管理</u></a>::更改采集规则 - 专家更改模式";
+    $wintitle = "修改采集规则";
+    $wecome_info = "<a href='co_main.php'><u>采集点管理</u></a>::修改采集规则 - 专家修改模式";
     $win = new OxWindow();
     $win->Init("co_edit_text.php", "js/blank.js", "POST");
     $win->AddHidden("job", "yes");

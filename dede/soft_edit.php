@@ -229,7 +229,7 @@ else if ($dopost == 'save') {
         $ismake = -1;
     }
 
-    //更改主档案表
+    //修改主档案表
     $inQuery = "UPDATE `#@__archives` SET
         typeid='$typeid',
         typeid2='$typeid2',

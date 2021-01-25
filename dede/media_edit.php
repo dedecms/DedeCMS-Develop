@@ -88,7 +88,7 @@ if ($dopost == 'del') {
     }
 }
 /*--------------------------------
-function __save_edit() //保存更改
+function __save_edit() //保存修改
 -----------------------------------*/
 else if ($dopost == 'save') {
     if ($aid == "") {
@@ -123,12 +123,12 @@ else if ($dopost == 'save') {
                 exit();
             }
             if (!preg_match("#\." . $cfg_mediatype . "#", $upfile_name)) {
-                ShowMsg("你上传的影音文件扩展名无法被识别，请更改系统配置的参数！", "javascript:history.go(-1);");
+                ShowMsg("你上传的影音文件扩展名无法被识别，请修改系统配置的参数！", "javascript:history.go(-1);");
                 exit();
             }
         } else {
             if (!preg_match("#\." . $cfg_softtype . "#", $upfile_name)) {
-                ShowMsg("你上传的附件扩展名无法被识别，请更改系统配置的参数！", "javascript:history.go(-1);");
+                ShowMsg("你上传的附件扩展名无法被识别，请修改系统配置的参数！", "javascript:history.go(-1);");
                 exit();
             }
         }
@@ -174,7 +174,7 @@ else if ($dopost == 'save') {
     $query = " UPDATE #@__uploads SET title='$title',mediatype='$mediatype',playtime='$playtime'";
     $query .= "$addquery WHERE aid='$aid' ";
     $dsql->ExecuteNoneQuery($query);
-    ShowMsg('成功更改一则附件数据！', 'media_edit.php?aid=' . $aid);
+    ShowMsg('成功修改一则附件数据！', 'media_edit.php?aid=' . $aid);
     exit();
 }
 

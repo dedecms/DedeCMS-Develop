@@ -33,7 +33,7 @@ $CKEditorFuncNum = (isset($CKEditorFuncNum)) ? $CKEditorFuncNum : 1;
 $imgfile_name = trim(preg_replace("#[ \r\n\t\*\%\\\/\?><\|\":]{1,}#", '', $imgfile_name));
 
 if (!preg_match("#\.(" . $cfg_imgtype . ")#i", $imgfile_name)) {
-    ShowMsg("你所上传的图片类型不在许可列表，请更改系统对扩展名限定的配置！", "-1");
+    ShowMsg("你所上传的图片类型不在许可列表，请修改系统对扩展名限定的配置！", "-1");
     exit();
 }
 $nowtme = time();

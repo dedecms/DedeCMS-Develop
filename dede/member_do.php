@@ -165,7 +165,7 @@ else if ($dopost == "recommend") {
 }
 /*----------------
 function __EditUser()
-更改用户
+修改用户
 ----------------*/
 else if ($dopost == 'edituser') {
     CheckPurview('member_Edit');
@@ -222,7 +222,7 @@ else if ($dopost == 'edituser') {
     }
     // /aip}}
 
-    ShowMsg('成功更改用户资料！', 'member_view.php?id=' . $id);
+    ShowMsg('成功修改用户资料！', 'member_view.php?id=' . $id);
     exit();
 }
 /*--------------

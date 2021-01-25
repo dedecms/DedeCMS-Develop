@@ -53,7 +53,7 @@ if ($dopost == 'saveedit') {
     $dsql->ExecuteNoneQuery($query);
     $query = "UPDATE `#@__member` SET uname='$uname',email='$email'$pwdm WHERE mid='$id'";
     $dsql->ExecuteNoneQuery($query);
-    ShowMsg("成功更改一个帐户！", "sys_admin_user.php");
+    ShowMsg("成功修改一个帐户！", "sys_admin_user.php");
     exit();
 } else if ($dopost == 'delete') {
     if (empty($userok)) {

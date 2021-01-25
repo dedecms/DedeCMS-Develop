@@ -67,7 +67,7 @@ if ($job == 'del' && $g_isadmin) {
      */
     $msg = addslashes($msg);
     $dsql->ExecuteNoneQuery("UPDATE `#@__guestbook` SET `msg`='$msg', `posttime`='" . time() . "' WHERE id='$id' ");
-    ShowMsg("成功更改或回复一条留言！", $GUEST_BOOK_POS);
+    ShowMsg("成功修改或回复一条留言！", $GUEST_BOOK_POS);
     exit();
 
 }

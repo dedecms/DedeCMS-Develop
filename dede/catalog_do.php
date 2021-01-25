@@ -113,7 +113,7 @@ else if ($dopost == "viewSgPage") {
     exit();
 }
 /*------------------------
-更改栏目排列顺序
+修改栏目排列顺序
 function upRank()
 ------------------------*/
 else if ($dopost == "upRank") {
@@ -121,7 +121,7 @@ else if ($dopost == "upRank") {
     CheckPurview('t_Edit,t_AccEdit');
 
     //检查栏目操作许可
-    CheckCatalog($cid, "你无权更改本栏目！");
+    CheckCatalog($cid, "你无权修改本栏目！");
     $row = $dsql->GetOne("SELECT reid,sortrank FROM #@__arctype WHERE id='$cid'");
     $reid = $row['reid'];
     $sortrank = $row['sortrank'];

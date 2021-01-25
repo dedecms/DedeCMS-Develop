@@ -81,6 +81,6 @@ if (empty($dopost)) {
      description='$description' WHERE aid='$aid';
    ";
     $dsql->ExecuteNoneQuery($inquery);
-    ShowMsg("成功更改一个自由列表!", "freelist_main.php");
+    ShowMsg("成功修改一个自由列表!", "freelist_main.php");
     exit();
 }

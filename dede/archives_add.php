@@ -255,7 +255,7 @@ color,writer,source,litpic,pubdate,senddate,mid,voteid,notpost,description,keywo
     &nbsp;&nbsp;
     <a href='$artUrl' target='_blank'><u>查看文档</u></a>
     &nbsp;&nbsp;
-    <a href='archives_do.php?aid=" . $arcID . "&dopost=editArchives'><u>更改文档</u></a>
+    <a href='archives_do.php?aid=" . $arcID . "&dopost=editArchives'><u>修改文档</u></a>
     &nbsp;&nbsp;
     <a href='catalog_do.php?cid=$typeid&dopost=listArchives'><u>已发布文档管理</u></a>
     &nbsp;&nbsp;

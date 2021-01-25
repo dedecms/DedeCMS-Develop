@@ -44,7 +44,7 @@ foreach ($ds as $d) {
     $fieldtypes[$dds[0]] = $dds[1];
 }
 
-//保存更改
+//保存修改
 /*--------------------
 function _SAVE()
 ----------------------*/
@@ -105,7 +105,7 @@ if ($action == 'save') {
 
     $oksetting = addslashes($oksetting);
     $dsql->ExecuteNoneQuery("UPDATE #@__member_model SET info='$oksetting' WHERE id='$id' ");
-    ShowMsg("成功更改一个字段的配置！", "member_model_edit.php?id={$id}");
+    ShowMsg("成功修改一个字段的配置！", "member_model_edit.php?id={$id}");
     exit();
 }
 /*----------------

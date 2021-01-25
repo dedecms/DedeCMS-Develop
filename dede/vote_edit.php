@@ -52,9 +52,9 @@ if ($dopost == "delete") {
         $vote_content = preg_replace(array("#/#", "#([\r\n])[\s]+#"), array("\/", " "), $vote_content); //取出内容中的空白字符并进行转义
         $vote_content = 'document.write("' . $vote_content . '");';
         file_put_contents($vote_file, $vote_content);
-        ShowMsg('成功更改一组投票!', $ENV_GOBACK_URL);
+        ShowMsg('成功修改一组投票!', $ENV_GOBACK_URL);
     } else {
-        ShowMsg('更改一组投票失败!', $ENV_GOBACK_URL);
+        ShowMsg('修改一组投票失败!', $ENV_GOBACK_URL);
     }
 } else {
     $row = $dsql->GetOne("SELECT * FROM #@__vote WHERE aid='$aid'");

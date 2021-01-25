@@ -162,7 +162,7 @@ class TypeUnit
                 echo " <a href='{$typeDir}' target='_blank'>[预览]</a>";
             }
             
-            echo " <a href='catalog_edit.php?id={$id}'>[更改]</a>";
+            echo " <a href='catalog_edit.php?id={$id}'>[修改]</a>";
             echo " <a href='catalog_do.php?dopost=moveCatalog&typeid={$id}'>[移动]</a>";
             echo " <a href='catalog_del.php?id={$id}&typeoldname=" . urlencode($typeName) . "'>[删除]</a>";
             echo "</td></tr>\r\n";
@@ -262,7 +262,7 @@ class TypeUnit
                     echo " <a href='{$typeDir}' target='_blank'>[预览]</a>";
                 }
 
-                echo " <a href='catalog_edit.php?id={$id}'>[更改]</a>";
+                echo " <a href='catalog_edit.php?id={$id}'>[修改]</a>";
                 echo " <a href='catalog_do.php?dopost=moveCatalog&typeid={$id}'>[移动]</a>";
                 echo " <a href='catalog_del.php?id={$id}&typeoldname=" . urlencode($typeName) . "'>[删除]</a>";
                 echo "</td></tr>\r\n";

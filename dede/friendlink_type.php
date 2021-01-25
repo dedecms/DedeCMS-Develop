@@ -15,7 +15,7 @@ if (empty($dopost)) {
     $dopost = '';
 }
 
-//保存更改
+//保存修改
 if ($dopost === "save") {
     $query = "UPDATE `#@__flinktype` SET typename='$pname' WHERE id='$tid' ";
     $dsql->ExecuteNoneQuery($query);

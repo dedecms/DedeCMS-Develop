@@ -67,7 +67,7 @@ if ($dopost == "save") {
         $dsql->ExecuteNoneQuery("UPDATE `#@__sysconfig` SET `value`='$v' WHERE varname='$k' ");
     }
     ReWriteConfig();
-    ShowMsg("成功更改站点配置！", "sys_info.php");
+    ShowMsg("成功修改站点配置！", "sys_info.php");
     exit();
 }
 //增加新变量

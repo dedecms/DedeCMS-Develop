@@ -43,7 +43,7 @@ foreach ($ds as $d) {
     $dds = explode(',', trim($d));
     $fieldtypes[$dds[0]] = $dds[1];
 }
-//保存更改
+//保存修改
 /*--------------------
 function _SAVE()
 ----------------------*/
@@ -119,7 +119,7 @@ if ($action == 'save') {
     $oksetting = addslashes($oksetting);
     $dsql->ExecuteNoneQuery("UPDATE `#@__channeltype` SET fieldset='$oksetting',listfields='$addlist' WHERE id='$id' ");
 
-    ShowMsg("成功更改一个字段的配置！", "mychannel_edit.php?id={$id}&dopost=edit&openfield=1");
+    ShowMsg("成功修改一个字段的配置！", "mychannel_edit.php?id={$id}&dopost=edit&openfield=1");
     exit();
 }
 /*------------------

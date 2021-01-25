@@ -23,7 +23,7 @@ if ($dopost == "saveedit") {
     $body = str_replace('&quot;', '\\"', $body);
     $filename = preg_replace("#^\/#", "", $nfilename);
 
-    //如果更改了文件名，删除旧文件
+    //如果修改了文件名，删除旧文件
     if ($oldfilename != $filename) {
         $oldfilename = $cfg_basedir . $cfg_cmspath . "/" . $oldfilename;
         if (is_file($oldfilename)) {

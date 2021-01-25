@@ -64,7 +64,7 @@ if ($dopost == "delete") {
     $query = "UPDATE `#@__flink` SET sortrank='$sortrank',url='$url',webname='$webname',logo='$logo',msg='$msg',
                   email='$email',typeid='$typeid',ischeck='$ischeck' WHERE id='$id' ";
     $dsql->ExecuteNoneQuery($query);
-    ShowMsg("成功更改一个链接！", $ENV_GOBACK_URL);
+    ShowMsg("成功修改一个链接！", $ENV_GOBACK_URL);
     exit();
 }
 $myLink = $dsql->GetOne("SELECT #@__flink.*,#@__flinktype.typename FROM #@__flink LEFT JOIN #@__flinktype ON #@__flink.typeid=#@__flinktype.id WHERE #@__flink.id=$id");

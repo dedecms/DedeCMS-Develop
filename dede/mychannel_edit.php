@@ -362,7 +362,7 @@ else if ($dopost == "save") {
         exit();
     }
     $dsql->ExecuteNoneQuery($query);
-    ShowMsg("成功更改一个模型！", "mychannel_main.php");
+    ShowMsg("成功修改一个模型！", "mychannel_main.php");
     exit();
 }
 /*--------------------

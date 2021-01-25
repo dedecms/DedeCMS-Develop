@@ -22,7 +22,7 @@ $ENV_GOBACK_URL = empty($_COOKIE['ENV_GOBACK_URL']) ? "article_keywords_main.php
 //更新
 if ($dopost === 'update') {
     if (!isset($aid)) {
-        ShowMsg("你没有选择要更改的内容！</br>", $ENV_GOBACK_URL);
+        ShowMsg("你没有选择要修改的内容！</br>", $ENV_GOBACK_URL);
         exit();
     }
     $aid = preg_replace("#[^0-9]#", "", $aid);
@@ -36,7 +36,7 @@ if ($dopost === 'update') {
 // 删除
 else if ($dopost == 'del') {
     if (!isset($aid)) {
-        ShowMsg("你没有选择要更改的内容！</br>", $ENV_GOBACK_URL);
+        ShowMsg("你没有选择要修改的内容！</br>", $ENV_GOBACK_URL);
         exit();
     }
     //删除项目
@@ -48,7 +48,7 @@ else if ($dopost == 'del') {
 // 禁用项目
 else if ($dopost == 'disable') {
     if (!isset($aid)) {
-        ShowMsg("你没有选择要更改的内容！</br>", $ENV_GOBACK_URL);
+        ShowMsg("你没有选择要修改的内容！</br>", $ENV_GOBACK_URL);
         exit();
     }
     $aid = preg_replace("#[^0-9]#", "", $aid);
@@ -69,7 +69,7 @@ else if ($dopost == 'disable') {
 }
 else if ($dopost == 'delall') {
     if (!isset($aids)) {
-        ShowMsg("你没有选择要更改的内容！</br>", $ENV_GOBACK_URL);
+        ShowMsg("你没有选择要修改的内容！</br>", $ENV_GOBACK_URL);
         exit();
     }
     foreach (explode(",", $aids) as $aid) {

@@ -16,7 +16,7 @@ class yeepay
     // 为"1": 需要用户将送货地址留在易宝支付系统;为"0": 不需要，默认为 "0".
     public $p9_SAF = "0";
 
-    // 网关地址不能随便更改
+    // 网关地址不能随便修改
     public $reqURL_onLine = "https://www.yeepay.com/app-merchant-proxy/node";
     //$reqURL_onLine = "http://tech.yeepay.com:8080/robot/debug.action";
 

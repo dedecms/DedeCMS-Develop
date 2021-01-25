@@ -195,7 +195,7 @@ else if ($dopost == 'save') {
     &nbsp;&nbsp;
     <a href='$artUrl' target='_blank'><u>查看文档</u></a>
     &nbsp;&nbsp;
-    <a href='archives_do.php?aid=" . $arcID . "&dopost=editArchives'><u>更改文档</u></a>
+    <a href='archives_do.php?aid=" . $arcID . "&dopost=editArchives'><u>修改文档</u></a>
     &nbsp;&nbsp;
     <a href='content_sg_list.php?cid=$typeid&channelid={$channelid}&dopost=listArchives'><u>已发布文档管理</u></a>
     &nbsp;&nbsp;

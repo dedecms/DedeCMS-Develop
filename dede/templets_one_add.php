@@ -26,7 +26,7 @@ if ($dopost == "save") {
     }
     $row = $dsql->GetOne("SELECT filename FROM `#@__sgpage` WHERE likeid='$likeid' AND filename LIKE '$filename' ");
     if (is_array($row)) {
-        ShowMsg("已经存在相同的文件名，请更改为其它文件名！", "-1");
+        ShowMsg("已经存在相同的文件名，请修改为其它文件名！", "-1");
         exit();
     }
     $inQuery = "INSERT INTO `#@__sgpage`(title,keywords,description,template,likeid,ismake,filename,uptime,body)

@@ -20,7 +20,7 @@ if ($aid == '') {
     exit();
 }
 
-//保存更改
+//保存修改
 if ($action == "save") {
     $result = '';
     for ($i = 0; $i < $endid; $i++) {

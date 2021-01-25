@@ -16,7 +16,7 @@ if (empty($dopost)) {
     $dopost = '';
 }
 
-//保存更改
+//保存修改
 if ($dopost == 'save') {
     if (!empty($ids)) {
         foreach ($ids as $key => $value) {

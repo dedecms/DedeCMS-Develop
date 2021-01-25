@@ -36,7 +36,7 @@ $_csrf = array(
     'hash' => $_csrf_hash,
 );
 
-//获得当前脚本名称，如果你的系统被禁用了$_SERVER变量，请自行更改这个选项
+//获得当前脚本名称，如果你的系统被禁用了$_SERVER变量，请自行修改这个选项
 $dedeNowurl = $s_scriptName = '';
 $isUrlOpen = @ini_get('allow_url_fopen');
 $dedeNowurl = GetCurUrl();

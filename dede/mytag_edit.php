@@ -40,7 +40,7 @@ if ($dopost == 'delete') {
      expbody='$expbody'
      WHERE aid='$aid' ";
     $dsql->ExecuteNoneQuery($query);
-    ShowMsg("成功更改一个自定义标记！", $ENV_GOBACK_URL);
+    ShowMsg("成功修改一个自定义标记！", $ENV_GOBACK_URL);
     exit();
 } else if ($dopost == "getjs") {
     include_once DEDEINC . "/oxwindow.class.php";
