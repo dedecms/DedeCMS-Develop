@@ -144,4 +144,7 @@ else if ($action == "delete") {
     ShowMsg("成功删除一个字段！", "member_model_edit.php?id={$id}");
     exit();
 }
-require_once DEDEADMIN . "/templets/member_model_field_edit.htm";
+
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/member_model_field_edit.htm");
+$tpl->Display();

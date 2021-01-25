@@ -109,4 +109,7 @@ $f = '';
 foreach ($fields as $k => $v) {
     $f .= ($f == '' ? $k : ' ' . $k);
 }
-require_once DEDEADMIN . "/templets/member_model_field_add.htm";
+
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/member_model_field_add.htm");
+$tpl->Display();

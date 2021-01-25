@@ -214,4 +214,10 @@ else if ($dopost == "delete") {
 function edit()
 -----------------*/
 $row = $dsql->GetOne("SELECT * FROM #@__member_model WHERE id='$id'");
-require DEDEADMIN . "/templets/member_model_edit.htm";
+
+
+$dlist = new DataListCP();
+$dlist->SetTemplet(DEDEADMIN . "/templets/member_model_edit.htm");
+$dlist->SetSource("SELECT * FROM #@__member_model WHERE id='$id'");
+$dlist->display();
+$dlist->Close();
