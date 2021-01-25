@@ -146,4 +146,7 @@ else if ($action == "delete") {
     exit();
 }
 
-require_once DEDEADMIN . "/templets/mychannel_field_edit.htm";
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/mychannel_field_edit.htm");
+$tpl->Display();
+
