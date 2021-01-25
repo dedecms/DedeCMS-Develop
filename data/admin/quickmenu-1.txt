@@ -1,5 +1,4 @@
 <menu:item ico="" link="content_list.php" title="文档列表" />
-<menu:item ico="" link="feedback_main.php" title="评论管理" />
 <menu:item ico="" link="public_guide.php" title="内容发布" />
 <menu:item ico="" link="catalog_main.php" title="栏目管理" />
 <menu:item ico="" link="sys_info.php" title="修改参数" />
