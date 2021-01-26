@@ -159,7 +159,7 @@ BIG5
 </tr>
 
 <tr> 
-    <td ><b>文章网址匹配规则</b></td>
+<td ><b>文章网址匹配规则</b></td>
 <td></td>
 </tr>
 
@@ -222,28 +222,28 @@ BIG5
 <script src="{dede:global.cfg_assets_dir/}/js/dede.manage.min.js"></script>
 <script language="javascript">
 $(document).ready(function () {
-    $('#source3').on( "click", function() {
-        $('#rssset').show();
-        $('#batchset').hide();
-        $('#handset').hide();
-    });
-    $('#source2').on( "click", function() {
-        $('#rssset').hide();
-        $('#batchset').hide();
-        $('#handset').show();
-    });
-    $('#source1').on( "click", function() {
-        $('#rssset').hide();
-        $('#batchset').show();
-        $('#handset').hide();
-    });
-    $('#usemore').on( "click", function() {
-        if ($(this).is(':checked')){
-            $('#handset').show();
-        }else{
-            $('#handset').hide();
-        }
-    });
+$('#source3').on( "click", function() {
+$('#rssset').show();
+$('#batchset').hide();
+$('#handset').hide();
+});
+$('#source2').on( "click", function() {
+$('#rssset').hide();
+$('#batchset').hide();
+$('#handset').show();
+});
+$('#source1').on( "click", function() {
+$('#rssset').hide();
+$('#batchset').show();
+$('#handset').hide();
+});
+$('#usemore').on( "click", function() {
+if ($(this).is(':checked')){
+$('#handset').show();
+}else{
+$('#handset').hide();
+}
+});
 
 });
 

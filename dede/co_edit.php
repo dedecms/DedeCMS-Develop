@@ -157,4 +157,6 @@ if (!isset($previewurl)) {
     $previewurl = '';
 }
 
-require_once DEDEADMIN . '/templets/co_edit.htm';
+$tpl = new DedeTemplate();
+$tpl->LoadTemplate(DEDEADMIN . "/templets/co_edit.htm");
+$tpl->Display();
