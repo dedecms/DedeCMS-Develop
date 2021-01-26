@@ -173,7 +173,7 @@ else if ($step == 5) {
    {dede:match}" . $matchstr . "{/dede:match}
    $trimstr
    {dede:function}" . $GLOBALS["function_" . $field] . "{/dede:function}
-{/dede:item}\r\n";
+    {/dede:item}\r\n";
     }
     $dsql->ExecuteNoneQuery("UPDATE `#@__co_note` SET itemconfig='$itemconfig' WHERE nid='$nid' ");
     //echo $dsql->GetError();

@@ -36,25 +36,25 @@ height: 35px;
 
 <!-- 选项 -->
 <tr> 
-    <td height="25"><strong>网址获取规则测试：</strong>(测试时不会下载远程图片)</td>
-  </tr>
-  <tr>
-    <td height="26">
-        测试的网址：<?php echo $previewurl; ?>
-    </td>
-  </tr>
-  <tr id="sitem"> 
-    <td height="23">
-        <?php
-        if($previewurl=='') echo "你没有指定测试时使用的文章网址，因此系统无法进行测试！";
-        else {
-      $dc = new DedeCollection();
-      $dc->LoadNote($nid);
-        echo "<textarea class='uk-textarea uk-form-small uk-form-width-large' name='test' style='width:100%;height:450px'>".$dc->TestArt($previewurl)."</textarea>";
-      }
-        ?>
-    </td>
-  </tr>
+<td height="25"><strong>网址获取规则测试：</strong>(测试时不会下载远程图片)</td>
+</tr>
+<tr>
+<td height="26">
+测试的网址：<?php echo $previewurl; ?>
+</td>
+</tr>
+<tr id="sitem"> 
+<td height="23">
+<?php
+if($previewurl=='') echo "你没有指定测试时使用的文章网址，因此系统无法进行测试！";
+else {
+$dc = new DedeCollection();
+$dc->LoadNote($nid);
+echo "<textarea class='uk-textarea uk-form-small uk-form-width-large' name='test' style='width:100%;height:450px'>".$dc->TestArt($previewurl)."</textarea>";
+}
+?>
+</td>
+</tr>
 <!-- /选项 -->
 
 </table>
