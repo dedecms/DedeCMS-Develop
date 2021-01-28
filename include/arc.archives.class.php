@@ -253,7 +253,7 @@ class Archives
         //处理默认缩略图等
         if (isset($this->Fields['litpic'])) {
             if ($this->Fields['litpic'] == '-' || $this->Fields['litpic'] == '') {
-                $this->Fields['litpic'] = $GLOBALS['cfg_cmspath'] . '/assets/img/defaultpic.gif';
+                $this->Fields['litpic'] = $GLOBALS['cfg_cmspath'] . '/assets/img/dede_defaultpic.png';
             }
             if (!preg_match("#^http:\/\/#i", $this->Fields['litpic']) && $GLOBALS['cfg_multi_site'] == 'Y') {
                 $this->Fields['litpic'] = $GLOBALS['cfg_mainsite'] . $this->Fields['litpic'];

@@ -10,11 +10,18 @@
 <!-- 主体 -->
 <main>
 <!-- 滚动展示 -->
-<section class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="min-height: 150; max-height: 300;">
+<section class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="min-height: 300; max-height: 300;">
 <ul class="uk-slideshow-items">
-    {dede:arclist flag='f' row=6}
-    <li style="background-color: #1f2024" align="center"><a href="[field:arcurl/]" title="[field:fulltitle/]"><img src="[field:litpic/]"/></a></li>
-    {/dede:arclist}
+{dede:arclist flag='f' row=6 infolen='80'}
+<li class="uk-background-cover " style="background-image: url([field:litpic/]);" align="center">
+    <a href="[field:arcurl/]" title="[field:fulltitle/]">
+        <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+            <h3 class="uk-margin-remove">[field:fulltitle/]</h3>
+            <p class="uk-margin-remove">[field:info/]...</p>
+        </div>
+    </a>
+</li>
+{/dede:arclist}
 </ul>
 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slideshow-item="previous" uk-slidenav-previous></a>
 <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slideshow-item="next" uk-slidenav-next></a>
@@ -29,7 +36,7 @@
 <div class="uk-grid-medium uk-child-width-1-1 uk-child-width-1-2@s" uk-grid>
 <section>
 {dede:arclist flag='h' limit='0,1' infolen='230'}
-<h4 class="uk-text-center uk-text-left@s">[头条] [field:title/]</h4>
+<h4 class="uk-text-center uk-text-left@s">[field:title/]</h4>
 <p>[field:info/]...<a href="[field:arcurl/]"><span>[阅读全文]</span></a></p>
 {/dede:arclist}
 
@@ -67,8 +74,7 @@
 <div class="tm-ratio tm-ratio-4-3"><a class="tm-media-box" href="[field:arcurl/]">
 <div class="tm-product-card-labels"><span class="uk-label uk-label-success">new</span>
 </div>
-<figure class="tm-media-box-wrap">
-[field:image/]
+<figure class="tm-media-box-wrap uk-background-cover" style="background-image: url([field:litpic/]);">
 </figure></a></div>
 </div>
 <div class="tm-product-card-body">
@@ -107,7 +113,7 @@
 <a class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large" href="[field:arcurl/]">
 <div class="tm-ratio tm-ratio-4-3">
 <div class="tm-media-box">
-<figure class="tm-media-box-wrap">[field:image/]</figure>
+<figure class="tm-media-box-wrap uk-background-cover" style="background-image: url([field:litpic/]);"></figure>
 </div>
 </div>
 <div class="uk-margin-small-top">
@@ -130,7 +136,7 @@
 <div class="uk-grid-medium uk-grid-match uk-child-width-1-1 uk-child-width-1-2@s" uk-grid>
 {dede:channelartlist typeid=1}
 <div style="font-size: 14px;">
-<article class="uk-card uk-card-default uk-card-small uk-article uk-overflow-hidden uk-box-shadow-hover-large uk-height-1-1 tm-ignore-container">
+<article class="uk-card uk-card-default uk-card-small uk-article uk-overflow-hidden uk-box-shadow-hover-large tm-ignore-container">
 <div class="uk-card-header">{dede:field name='typename'/} </div>
 <div class="uk-card-body">
 <ul class="uk-list uk-list-small uk-list-divider">
