@@ -10,26 +10,21 @@
 <!-- /header -->
 <main>
 <!-- 面包屑 -->
-<section class="uk-section uk-section-small">
-<div class="uk-container">
-<div class="uk-grid-medium uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid>
-<div class="uk-first-column">
-<ul class="uk-breadcrumb uk-margin-remove">{dede:field name='position'/}</ul>
-</div>
-</div>
-</div>
-</section>
+{dede:include filename="breadcrumb.htm"/}
 <!-- /面包屑 -->
 <!-- 图文资讯 -->
 <section class="uk-section uk-section-default uk-section-small">
 <div class="uk-container">
-<div class="uk-grid-small uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-6@m" uk-grid>
-{dede:arclist row=6 orderby=pubdate typeid='6'}
+<div uk-slider>
+<div class="uk-position-relative uk-visible-toggle" tabindex="-1">
+<ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-6@m">
+{dede:arclist row=12 orderby=pubdate type='image.'}
+<li>
 <div>
 <a class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large" href="[field:arcurl/]">
 <div class="tm-ratio tm-ratio-4-3">
 <div class="tm-media-box">
-<figure class="tm-media-box-wrap">[field:image/]</figure>
+<figure class="tm-media-box-wrap uk-background-cover" style="background-image: url([field:litpic/]);"></figure>
 </div>
 </div>
 <div class="uk-margin-small-top">
@@ -37,7 +32,13 @@
 </div>
 </a>
 </div>
+</li>
 {/dede:arclist}
+</ul>
+<a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+<a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+</div>
+<ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
 </div>
 </div>
 </section>

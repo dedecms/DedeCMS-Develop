@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>{dede:global.cfg_webname/}</title>
+<title>{dede:field.title/} - {dede:global.cfg_webname/}</title>
 <meta charset="{dede:global.cfg_soft_lang/}" />
 <meta name="keywords" content="{dede:global.cfg_keywords/}" />
 <meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
@@ -10,15 +10,7 @@
 <!-- /header -->
 <main>
 <!-- 面包屑 -->
-<section class="uk-section uk-section-small">
-<div class="uk-container">
-<div class="uk-grid-medium uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid>
-<div class="uk-first-column">
-<ul class="uk-breadcrumb uk-margin-remove">{dede:field name='position'/}</ul>
-</div>
-</div>
-</div>
-</section>
+{dede:include filename="breadcrumb.htm"/}
 <!-- /面包屑 -->
 <section class="uk-section uk-section-small uk-padding-remove-top">
 <div class="uk-container">
@@ -52,52 +44,37 @@
 </div>
 </section>
 </aside>
+
+
 <section class="uk-width-1-1 uk-width-expand@m uk-first-column">
-<div class="uk-grid-medium uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid>
-<div class="uk-first-column">
-
-
-<article class="uk-card uk-card-default uk-card-small uk-article uk-overflow-hidden uk-box-shadow-hover-large  tm-ignore-container">
-<div class="uk-card-body">
+<div class="uk-container">
+<div class="uk-card uk-card-default tm-ignore-container">
 <div class="uk-grid-collapse uk-child-width-1-3 uk-child-width-1-4@m tm-products-grid" uk-grid>
-{dede:list pagesize='24'}
+{dede:arclist row=10 orderby=click type='image.'}
 <article class="tm-product-card">
 <div class="tm-product-card-media">
 <div class="tm-ratio tm-ratio-4-3"><a class="tm-media-box" href="[field:arcurl/]">
-
-<figure class="tm-media-box-wrap">
-[field:image/]
-</figure></a>
+<figure class="tm-media-box-wrap uk-background-cover" style="background-image: url([field:litpic/]);">
+</figure></a></div>
 </div>
-</div>
-
 <div class="tm-product-card-body">
 <div class="tm-product-card-info">
-<div class="uk-text-meta uk-margin-xsmall-bottom">
 [field:title/]<br/><br/>
 <small>日期：</small><time>[field:pubdate function="MyDate('Y-m-d H:i:s',@me)"/]</time><br/>
 <small>点击：</small>[field:click/] <br/>
 <small>好评：</small>[field:scores/]  <br/>
 </div>
-</div>
 
 </div>
 </article>
-{/dede:list}
+{/dede:arclist}
 </div>
 </div>
-</article>
 </div>
-</div>
-<div class="uk-grid-medium uk-child-width-1-1" uk-grid>
+<div class="uk-grid-medium uk-child-width-1-1" uk-grid style="margin-top: 30px;">
 <ul class="uk-pagination uk-flex-center">
 {dede:pagelist listitem="info,index,end,pre,next,pageno" listsize="5"/}
 </ul>
-</div>
-</section>
-</div>
-</div>
-</div>
 </div>
 </section>
 

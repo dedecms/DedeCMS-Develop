@@ -10,15 +10,7 @@
 <!-- /header -->
 <main>
 <!-- 面包屑 -->
-<section class="uk-section uk-section-small">
-<div class="uk-container">
-<div class="uk-grid-medium uk-child-width-1-1 uk-grid uk-grid-stack" uk-grid>
-<div class="uk-first-column">
-<ul class="uk-breadcrumb uk-margin-remove">{dede:field name='position'/}</ul>
-</div>
-</div>
-</div>
-</section>
+{dede:include filename="breadcrumb.htm"/}
 <!-- /面包屑 -->
 <section class="uk-section uk-section-small uk-padding-remove-top">
 <div class="uk-container">
@@ -62,28 +54,24 @@
 <ul class="uk-list uk-list-divider uk-grid-collapse uk-child-width-1-1 uk-child-width-1-1@m " uk-grid>
 
 {dede:list pagesize='24'}
-<li class="uk-margin-small" style="height: 200px;">
+<li class="uk-margin-small">
 
-<div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
-<div class="uk-flex-wrap-top" style="width:120px;height:120px;"><img src="[field:litpic/]" style="width: 100%;height:100%;"></div>
-<div class="uk-width-expand uk-inline" uk-grid>
-
-    <div class="uk-flex-wrap-top">
-        <h5 class="uk-margin-remove"><a href="[field:arcurl/]">[field:title/]</a></h5>
+    <div class="uk-grid-small uk-flex uk-flex-middle" uk-grid>
+        <div class="uk-flex-wrap-top" style="width:120px;height:120px;"><img src="[field:litpic/]" style="width: 100%;height:100%;"></div>
+        <div class="uk-width-expand uk-inline" style="height:120px;" uk-grid>
+        
+        <div class="uk-margin-removeuk-flex-wrap-top" style="height:100px;">
+        <h5 class="uk-margin-remove-top" style="margin-bottom: 6px;"><a href="[field:arcurl/]">[field:title/]</a></h5>
         <p class="uk-margin-remove">[field:description/]...</p>
-        <p>
-        <small>上传日期：</small>[field:pubdate function="GetDateTimeMK(@me)"/]
-        <small>推荐级别：</small>[field:softrank function='GetRankStar(@me)'/]
-        <small>软件语言：</small>[field:language/]
-        <small>浏览次数：</small>[field:click/]
-        </p>
         </div>
-
-
-
-
-</div>
-</div>
+        <div class="uk-margin-remove uk-flex-wrap-bottom uk-flex-right" style="height:20px;">
+            <small>上传日期：</small>[field:pubdate function="GetDateTimeMK(@me, true)"/]
+            <small>推荐级别：</small>[field:softrank function='GetRankStar(@me)'/]
+            <small>软件语言：</small>[field:language/]
+            <small>浏览次数：</small>[field:click/]
+            </div>
+        </div>
+        </div>
 </li>
 {/dede:list}
 

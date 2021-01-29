@@ -59,6 +59,17 @@ a:hover,
 color: #0f6ecd;
 text-decoration: none; }
 
+#Header_1W2T2S2T1V252B,
+.uk-card-header{
+  background-color: #fff;
+  border-top: 2px solid;
+  border-top-color: #f98020;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: none;
+}
 /* Text-level semantics
 ========================================================================== */
 /*
@@ -1943,3 +1954,29 @@ filter: none; }
 .dede-news li{
     margin-top: 10px;
 }
+
+.dede-product-list-card-add-button{
+    position: relative;
+    bottom: 0px;
+    display: inline-flex;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 500px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.uk-button-primary {
+    background-color: #e2833c;
+    color: #fff;
+    border: 1px solid transparent;
+  }
+  
+  
+  .uk-button-primary:focus, 
+  .uk-button-primary:hover {
+    background-color: #eea86f;
+    color: #fff;
+  }
