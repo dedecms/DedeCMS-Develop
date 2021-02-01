@@ -46,17 +46,8 @@
 <div class="uk-grid-small uk-flex-middle" uk-grid>
 <div class="uk-width-expand">
 <form name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php" class="uk-search uk-search-navbar uk-width-1-1">
-<input class="uk-search-input" type="search" placeholder="在这里搜索..." >
-<select name="searchtype" class="search-option" id="search-option">
-<option value="title" selected='1'>检索标题</option>
-<option value="titlekeyword">智能模糊</option>
-</select>
-<h4>热门标签:</h4>
-<ul>
-{dede:tag row='10' getall='1' sort='month'}
-<li><a href='[field:link/]'>[field:tag /]</a></li>
-{/dede:tag}
-</ul>
+<input class="uk-search-input" type="search" name="keyword" placeholder="在这里搜索..." >
+<input type="hidden" name="searchtype" value="titlekeyword">
 </form>
 </div>
 <div class="uk-width-auto"><a class="uk-navbar-dropdown-close" href="#" uk-close></a></div>
