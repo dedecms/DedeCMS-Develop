@@ -130,6 +130,10 @@ function RunApp($ct, $ac = '', $directory = '')
     $ct = preg_replace("/[^0-9a-z_]/i", '', $ct);
     $ac = preg_replace("/[^0-9a-z_]/i", '', $ac);
 
+    $ct = strtolower($ct);
+    $ac = strtolower($ac);
+    $directory = strtolower($directory);
+    
     $ac = empty($ac) ? $ac = 'index' : $ac;
     if (!empty($directory)) {
         $path = DEDECONTROL . '/' . $directory . '/' . $ct . '.php';
