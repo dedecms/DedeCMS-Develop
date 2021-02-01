@@ -12,116 +12,84 @@
 <!-- 面包屑 -->
 {dede:include filename="breadcrumb.htm"/}
 <!-- /面包屑 -->
+
+
+<section class="uk-section uk-section-default uk-section-smalle">
+    <div class="uk-container uk-container-small">
+    <div class="uk-article">
+    <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top">{dede:field.title/}</h2>
+    <p class="uk-article-meta">
+    <small>时间:</small>{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}
+    <small>来源:</small>{dede:field.source/}
+    <small>作者:</small>{dede:field.writer/}
+    <small>点击:</small><script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script>次
+    </p>
+
+    {dede:field.description runphp='yes'} if(@me<>'' ) @me = '<p class="uk-text-lead">'.@me.'</p>';{/dede:field.description}
+    <p class="uk-article-meta">{dede:field.body/}</p>
+
+<div class="{dede:field name='pagestyle' alt='根据不同的风格输出不同的结尾信息' runphp='yes'}
+if(@me==2) {
+@me = 'uk-child-width-1-1';
+}
+else {
+@me = 'uk-child-width-1-4';
+}
+{/dede:field}@m" uk-grid uk-lightbox="animation: slide">
+
+{dede:field name='imgurls'}
+
+<div>
+<a class="uk-inline" href='[field:linkurl/]'  data-caption='[field:alttext /]'>
+<img src='[field:imgsrc/]'/>
+</a>
 </div>
-<div class="intro">{dede:field.body/}
-<div style="clear:both"></div>
+{/dede:field}
 </div>
-<div class="newdigg" id="newdigg">
-<div class="diggbox digg_good" onmousemove="this.style.backgroundPosition='left bottom';"
-onmouseout="this.style.backgroundPosition='left top';"
-onclick="javascript:postDigg('good',{dede:field.id/})">
-<div class="digg_act">顶一下</div>
-<div class="digg_num">({dede:field.goodpost/})</div>
-<div class="digg_percent">
-<div class="digg_percent_bar"><span style="width:{dede:field.goodper/}%"></span></div>
-<div class="digg_percent_num">{dede:field.goodper/}%</div>
+
+    {dede:field.vote/}
+
+    (责任编辑：{dede:adminname/})
+    </div>
+    
+    <!-- 分页 -->
+    <ul class="uk-pagination uk-flex-center">
+    {dede:pagebreak/}
+    </ul>
+    <!-- /分页 -->
+    <ul  class="uk-pagination">
+    <li><span class='uk-margin-small-right'>{dede:prenext get='pre'/}</span></li>
+    <li class="uk-margin-auto-left"><span class='uk-margin-small-left'>{dede:prenext get='next'/}</span></li>
+    </ul>
+    </div>
+    </section>
 </div>
+
+<!-- 推荐内容 -->
+<div class="uk-container uk-container-small  uk-padding">
+
+    <h4 class="uk-text-center">热点图集</h4>
+
+    <div class="uk-child-width-1-4" uk-grid>
+        {dede:arclist row='30' type='image.' orderby=click}
+        <div>
+            <a class="uk-link-muted uk-text-center uk-display-block uk-padding-small uk-box-shadow-hover-large" href="[field:arcurl/]">
+                <div class="tm-ratio tm-ratio-4-3">
+                <div class="tm-media-box">
+                <figure class="tm-media-box-wrap uk-background-cover" style="background-image: url([field:litpic/]);"></figure>
+                </div>
+                </div>
+                <div class="uk-margin-small-top">
+                <div class="uk-text-truncate">[field:title/]</div>
+                </div>
+                </a>
+        </div>
+
+
+        {/dede:arclist}
+    </div>
 </div>
-<div class="diggbox digg_bad" onmousemove="this.style.backgroundPosition='right bottom';"
-onmouseout="this.style.backgroundPosition='right top';"
-onclick="javascript:postDigg('bad',{dede:field.id/})">
-<div class="digg_act">踩一下</div>
-<div class="digg_num">({dede:field.badpost/})</div>
-<div class="digg_percent">
-<div class="digg_percent_bar"><span style="width:{dede:field.badper/}%"></span></div>
-<div class="digg_percent_num">{dede:field.badper/}%</div>
-</div>
-</div>
-</div>
-<script language="javascript" type="text/javascript">getDigg({ dede: field.id /});</script>
-<div class="boxoff">
-<strong>------分隔线----------------------------</strong>
-</div>
-<div class="handle">
-<div class="context">
-<ul>
-<li>{dede:prenext get='pre'/}</li>
-<li>{dede:prenext get='next'/}</li>
-</ul>
-</div><!-- /context -->
-<div class="actbox">
-<ul>
-<li id="act-fav"><a href="{dede:field name='phpurl'/}/stow.php?aid={dede:field.id/}"
-target="_blank">收藏</a></li>
-<li id="act-err"><a
-href="{dede:field name='phpurl'/}/erraddsave.php?aid={dede:field.id/}&title={dede:field.title/}"
-target="_blank">挑错</a></li>
-<li id="act-pus"><a href="{dede:field name='phpurl'/}/recommend.php?aid={dede:field.id/}"
-target="_blank">推荐</a></li>
-<li id="act-pnt"><a href="#" onClick="window.print();">打印</a></li>
-</ul>
-</div><!-- /actbox -->
-</div><!-- /handle -->
-</div><!-- /viewbox -->
-<!-- //AJAX评论区 -->
-{dede:include file='ajaxfeedback.htm' /}
-</div><!-- /pleft -->
-<div class="pright">
-<div class="infos_userinfo">
-{dede:memberinfos}
-<dl class="tbox">
-<dt><strong>发布者资料</strong></dt>
-<dd>
-<a href="[field:spaceurl /]" class="userface"><img src="[field:face/]" width="52"
-height="52" /></a>
-<a href='[field:spaceurl /]' class="username">[field:uname/]</a>
-<span class="useract">
-<a href="[field:spaceurl /]" class="useract-vi">查看详细资料</a>
-<a href="[field:spaceurl /]&action=guestbook" class="useract-pm">发送留言</a>
-<a href="[field:spaceurl /]&action=newfriend" class="useract-af">加为好友</a>
-</span>
-<span class="userinfo-sp"><small>用户等级:</small>[field:rankname /]</span>
-<span class="userinfo-sp"><small>注册时间:</small>[field:jointime function="MyDate('Y-m-d
-H:m',@me)"/]</span>
-<span class="userinfo-sp"><small>最后登录:</small>[field:logintime function="MyDate('Y-m-d
-H:m',@me)"/]</span>
-</dd>
-</dl>
-{/dede:memberinfos}
-</div>
-<div class="mt1">
-<dl class="tbox">
-<dt><strong>热点图集</strong></dt>
-<dd>
-<ul class="e3">
-{dede:arclist row='5' type='image.' orderby=click}
-<li>
-<a href="[field:arcurl/]" class="preview"><img src="[field:litpic/]"
-alt="[field:title function='html2text(@me)'/]" /></a>
-<a href="[field:arcurl/]" class="title">[field:title/]</a>
-<span class="intro">更新:[field:pubdate function="GetDateMK(@me)"/]</span>
-</li>
-{/dede:arclist}
-</ul>
-</dd>
-</dl>
-</div>
-<div class="mt1">
-<dl class="tbox">
-<dt><strong>推荐图集</strong></dt>
-<dd>
-<ul class="e9">
-{dede:arclist row='8' type='image.commend.'}
-<li><a href="[field:arcurl/]"><img src="[field:litpic/]"
-alt="[field:title function='html2text(@me)'/]" /><span
-class="title">[field:title/]</span></a></li>
-{/dede:arclist}
-</ul>
-</dd>
-</dl>
-</div>
-</div><!-- /pright -->
-</div>
+
 {dede:include filename="footer.htm"/}
 <!-- /footer -->
 </body>

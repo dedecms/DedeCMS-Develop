@@ -139,14 +139,15 @@ if ($tagid != '') {
         }
 
         $dsql->FreeResult("al");
-    } else {
+    }
         //处理分页字段
         $artlist .= '<div id="page_' . $tagid . '">';
         $artlist .= multipage($totalnum, $pnum, $row['pagesize'], $tagid);
         $artlist .= '</div>';
-    }
+
 }
 
 AjaxHead();
 echo $artlist;
 exit();
+}

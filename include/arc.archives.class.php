@@ -566,6 +566,7 @@ class Archives
                 echo "模板文件不存在，无法解析文档！";
                 exit();
             }
+            
             $this->dtp->LoadTemplate($tempfile);
             $this->TempSource = $this->dtp->SourceString;
         } else {
@@ -742,7 +743,7 @@ class Archives
                     );
                 }
 
-                $this->PreNext['pre'] = "上一篇：<a href='$mlink'>{$preRow['title']}</a> ";
+                $this->PreNext['pre'] = "上一篇：<a href='$mlink'>{$preRow['title']}</a>";
                 $this->PreNext['preimg'] = "<a href='$mlink'><img src=\"{$preRow['litpic']}\" alt=\"{$preRow['title']}\"/></a> ";
             } else {
                 $this->PreNext['pre'] = "上一篇：没有了 ";

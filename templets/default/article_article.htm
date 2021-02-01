@@ -15,48 +15,59 @@
 
 
 <section class="uk-section uk-section-default uk-section-smalle">
-    <div class="uk-container uk-container-small">
-        <div class="uk-article">
-            <h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top">{dede:field.title/}</h2>
-            <p class="uk-article-meta">
-                <small>时间:</small>{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}
-                <small>来源:</small>{dede:field.source/}
-                <small>作者:</small>{dede:field.writer/}
-                <small>点击:</small><script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script>次
-            </p>
-            
-            {dede:field.description runphp='yes'} if(@me<>'' ) @me = '<p class="uk-text-lead">'.@me.'</p>';{/dede:field.description}
-            <p class="uk-article-meta">{dede:field.body/}</p>
-            {dede:field.vote/}
-            (责任编辑：{dede:adminname/})
-        </div>
-    </div>
-    <!-- 分页 -->
-    {dede:pagebreak/}
-    <!-- /分页 -->
-    <ul>
-        <li>{dede:prenext get='pre'/}</li>
-        <li>{dede:prenext get='next'/}</li>
-    </ul>
+<div class="uk-container uk-container-small">
+<div class="uk-article">
+<h2 class="uk-text-bold uk-h1 uk-margin-remove-adjacent uk-margin-remove-top">{dede:field.title/}</h2>
+<p class="uk-article-meta">
+<small>时间:</small>{dede:field.pubdate function="MyDate('Y-m-d H:i',@me)"/}
+<small>来源:</small>{dede:field.source/}
+<small>作者:</small>{dede:field.writer/}
+<small>点击:</small><script src="{dede:field name='phpurl'/}/count.php?view=yes&aid={dede:field name='id'/}&mid={dede:field name='mid'/}" type='text/javascript' language="javascript"></script>次
+</p>
 
+{dede:field.description runphp='yes'} if(@me<>'' ) @me = '<p class="uk-text-lead">'.@me.'</p>';{/dede:field.description}
+<p class="uk-article-meta">{dede:field.body/}</p>
+{dede:field.vote/}
+(责任编辑：{dede:adminname/})
+</div>
+
+<!-- 分页 -->
+<ul class="uk-pagination uk-flex-center">
+{dede:pagebreak/}
+</ul>
+<!-- /分页 -->
+<ul  class="uk-pagination">
+<li><span class='uk-margin-small-right'>{dede:prenext get='pre'/}</span></li>
+<li class="uk-margin-auto-left"><span class='uk-margin-small-left'>{dede:prenext get='next'/}</span></li>
+</ul>
+</div>
 </section>
-<!-- 推荐内容 -->
-<ul class="d4">
-    {dede:arclist flag='c' titlelen=42 row=6}
-    <li><a href="[field:arcurl/]">[field:title/]</a>
-    <p>[field:description function='cn_substr(@me,80)'/]...</p>
-    </li>
-    {/dede:arclist}
-    </ul>
-    <!-- 热点内容 -->
-<ul class="d4">
-    {dede:arclist row=10 orderby=click}
-    <li><a href="[field:arcurl/]">[field:title/]</a>
-    <p>[field:description function='cn_substr(@me,80)'/]...</p>
-    </li>
-    {/dede:arclist}
-    </ul>
 
+
+
+<!-- 推荐内容 -->
+<div class="uk-container uk-container-small  uk-padding">
+
+<h4 class="uk-text-center">推荐内容</h4>
+<ul class="uk-list uk-list-large uk-list-divider">
+{dede:arclist flag='c' titlelen=254 row=6}
+<li>
+<article class="uk-article">
+<div class="uk-article-body">
+<div>
+<h5><a href="[field:arcurl/]">[field:title/]</a></h5>
+</div>
+<div class="uk-margin-small-top"><p>[field:description function='cn_substr(@me,580)'/]...</p></div>
+<div class="uk-article-meta uk-margin-xsmall-top">
+<time>[field:pubdate function="MyDate('Y-m-d H:i:s',@me)"/]</time>
+</div>
+</div>
+</article>
+</li>
+{/dede:arclist}
+</ul>
+
+</div>
 
 
 
