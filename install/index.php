@@ -14,7 +14,7 @@ error_reporting(E_ALL || ~E_NOTICE);
 
 $verMsg = 'V5.8.1';
 $s_lang = 'utf-8';
-$dfDbname = '{{.dfDbname}}';
+$dfDbname = 'dedecmsv58';
 $errmsg = '';
 define('INSTALL_DEMO_NAME', 'dedev58demo.txt');
 define('INSLOCKFILE', dirname(__FILE__) . '/install_lock.txt');
@@ -133,24 +133,21 @@ function _4_Setup()
 ------------------------*/
 else if ($step == 4) {
 
-    if ($dbtype == 'sqlite') {
-        $db = new SQLite3(DEDEDATA . '/' . $dbname . '.db');
-    } else {
-        $dbtype = 'mysql';
-        $conn = mysqli_connect($dbhost, $dbuser, $dbpwd) or die("<script>alert('数据库服务器或登录密码无效，\\n\\n无法连接数据库，请重新设定！');history.go(-1);</script>");
 
-        mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS `" . $dbname . "`;");
+    $dbtype = 'mysql';
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpwd) or die("<script>alert('数据库服务器或登录密码无效，\\n\\n无法连接数据库，请重新设定！');history.go(-1);</script>");
 
-        mysqli_select_db($conn, $dbname) or die("<script>alert('选择数据库失败，可能是你没权限，请预先创建一个数据库！');history.go(-1);</script>");
+    mysqli_query($conn, "CREATE DATABASE IF NOT EXISTS `" . $dbname . "`;");
 
-        //获得数据库版本信息
-        $rs = mysqli_query($conn, "SELECT VERSION();");
-        $row = mysqli_fetch_array($rs);
-        $mysqlVersions = explode('.', trim($row[0]));
-        $mysqlVersion = $mysqlVersions[0] . "." . $mysqlVersions[1];
+    mysqli_select_db($conn, $dbname) or die("<script>alert('选择数据库失败，可能是你没权限，请预先创建一个数据库！');history.go(-1);</script>");
 
-        mysqli_query($conn, "SET NAMES '$dblang',character_set_client=binary,sql_mode='';");
-    }
+    //获得数据库版本信息
+    $rs = mysqli_query($conn, "SELECT VERSION();");
+    $row = mysqli_fetch_array($rs);
+    $mysqlVersions = explode('.', trim($row[0]));
+    $mysqlVersion = $mysqlVersions[0] . "." . $mysqlVersions[1];
+
+    mysqli_query($conn, "SET NAMES '$dblang',character_set_client=binary,sql_mode='';");
 
     $fp = fopen(dirname(__FILE__) . "/common.inc.php", "r");
     $configStr1 = fread($fp, filesize(dirname(__FILE__) . "/common.inc.php"));
@@ -297,26 +294,21 @@ else if ($step == 4) {
     $dbtype == 'sqlite' ? $db->exec($adminquery) : mysqli_query($conn, $adminquery);
 
     //关连前台用户帐号
-    $adminquery = "INSERT INTO `{$dbprefix}member` (`mid`,`mtype`,`userid`,`pwd`,`uname`,`sex`,`rank`,`money`,`email`,
-                   `scores` ,`matt` ,`face`,`safequestion`,`safeanswer` ,`jointime` ,`joinip` ,`logintime` ,`loginip` )
-               VALUES ('1','个人','$adminuser','" . md5($adminpwd) . "','$adminuser','男','100','0','','10000','10','','0','','" . time() . "','','0',''); ";
+    $adminquery = "INSERT INTO `{$dbprefix}member` (`mid`,`mtype`,`userid`,`pwd`,`uname`,`sex`,`rank`,`money`,`email`, `scores` ,`matt` ,`face`,`safequestion`,`safeanswer` ,`jointime` ,`joinip` ,`logintime` ,`loginip` ) VALUES ('1','个人','$adminuser','" . md5($adminpwd) . "','$adminuser','男','100','0','','10000','10','','0','','" . time() . "','','0',''); ";
     $dbtype == 'sqlite' ? $db->exec($adminquery) : mysqli_query($conn, $adminquery);
 
-    $adminquery = "INSERT INTO `{$dbprefix}member_person` (`mid`,`onlynet`,`sex`,`uname`,`qq`,`msn`,`tel`,`mobile`,`place`,`oldplace`,`birthday`,`star`,
-                   `income` , `education` , `height` , `bodytype` , `blood` , `vocation` , `smoke` , `marital` , `house` ,`drink` , `datingtype` , `language` , `nature` , `lovemsg` , `address`,`uptime`)
-                VALUES ('1', '1', '男', '{$adminuser}', '', '', '', '', '0', '0','1980-01-01', '1', '0', '0', '160', '0', '0', '0', '0', '0', '0','0', '0', '', '', '', '','0'); ";
+    $adminquery = "INSERT INTO `{$dbprefix}member_person` (`mid`,`onlynet`,`sex`,`uname`,`qq`,`msn`,`tel`,`mobile`,`place`,`oldplace`,`birthday`,`star`, `income` , `education` , `height` , `bodytype` , `blood` , `vocation` , `smoke` , `marital` , `house` ,`drink` , `datingtype` , `language` , `nature` , `lovemsg` , `address`,`uptime`) VALUES ('1', '1', '男', '{$adminuser}', '', '', '', '', '0', '0','1980-01-01', '1', '0', '0', '160', '0', '0', '0', '0', '0', '0','0', '0', '', '', '', '','0'); ";
     $dbtype == 'sqlite' ? $db->exec($adminquery) : mysqli_query($conn, $adminquery);
 
-    $adminquery = "INSERT INTO `{$dbprefix}member_tj` (`mid`,`article`,`album`,`archives`,`homecount`,`pagecount`,`feedback`,`friend`,`stow`)
-                     VALUES ('1','0','0','0','0','0','0','0','0'); ";
+    $adminquery = "INSERT INTO `{$dbprefix}member_tj` (`mid`,`article`,`album`,`archives`,`homecount`,`pagecount`,`feedback`,`friend`,`stow`) VALUES ('1','0','0','0','0','0','0','0','0');";
     $dbtype == 'sqlite' ? $db->exec($adminquery) : mysqli_query($conn, $adminquery);
 
-    $adminquery = "Insert Into `{$dbprefix}member_space`(`mid` ,`pagesize` ,`matt` ,`spacename` ,`spacelogo` ,`spacestyle`, `sign` ,`spacenews`)
-                Values('1','10','0','{$adminuser}的空间','','person','',''); ";
+    $adminquery = "INSERT INTO `{$dbprefix}member_space`(`mid` ,`pagesize` ,`matt` ,`spacename` ,`spacelogo` ,`spacestyle`, `sign` ,`spacenews`) VALUES ('1','10','0','{$adminuser}的空间','','person','','');";
     $dbtype == 'sqlite' ? $db->exec($adminquery) : mysqli_query($conn, $adminquery);
 
     //安装体验数据
     if ($installdemo == 1) {
+ 
         if ($setupsql = file_get_contents(INSTALL_DEMO_NAME)) {
             $setupsql = preg_replace("#ENGINE=MyISAM#i", 'TYPE=MyISAM', $setupsql);
             $sql41tmp = 'ENGINE=MyISAM DEFAULT CHARSET=' . $cfg_db_language;
@@ -329,7 +321,6 @@ else if ($step == 4) {
                 if (trim($sql) != '') {
                     mysqli_query($conn, $sql);
                 }
-
             }
             // 更新栏目缓存
             UpDateCatCache();
@@ -337,6 +328,7 @@ else if ($step == 4) {
             die("没有体验数据包文件,请检查是否下载.");
         }
     }
+  
 
     //不安装任何可选模块
     if (!isset($modules) || !is_array($modules)) {

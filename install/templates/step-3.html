@@ -269,19 +269,13 @@
                                 </label>
 
 
-                                <label><input type='checkbox' name='modules[]' class="uk-checkbox" <?php
-                                        if(!IsDownLoad($module_local.'0a7bea5dbe571d35def883cbec796437')){?>disabled
-                                    =
-                                    'true'
-                                    <?php }?> value='0a7bea5dbe571d35def883cbec796437' /> 留言簿模块
-                                </label>
+                                <label><input type='checkbox' name='modules[]' class="uk-checkbox" <?php if(!IsDownLoad($module_local.'0a7bea5dbe571d35def883cbec796437')){?>disabled<?php }?> value='0a7bea5dbe571d35def883cbec796437' /> 留言簿模块</label>
                             </div>
                             <b>初始化数据体验包</b>
                             <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
 
                                 <label for="installdemo">
-                                    <input name="installdemo" type="checkbox" id="installdemo"
-                                        class="uk-checkbox value=" 1" /> 安装初始化数据进行体验(体验数据将含带DedeCMS大部分功能的应用操作示例)</label>
+                                    <input name="installdemo" type="checkbox" id="installdemo" class="uk-checkbox" value="1" /> 安装初始化数据进行体验(体验数据将含带DedeCMS大部分功能的应用操作示例)</label>
                                 <?php if($isdemosign == 0){ ?>
                                 <div class="olink" id="_remotesta">
                                     <font color="red">[×]</font> 不存在<a href="javascript:GetRemoteDemo()">远程获取</a>
@@ -301,12 +295,12 @@
                                     onclick="window.location.href='index.php?step=2';" />
                             </div>
                             <div class="uk-width-auto uk-text-right">
-                                <input type="button" class="uk-button  uk-button-primary" value="开始安装"
-                                    onclick="DoInstall();" />
+                                <button type="submit" class="uk-button  uk-button-primary">开始安装</button>
                             </div>
 
                         </div>
                     </div>
+                </form>
                     <footer class="uk-section ">
                         <div class="uk-container uk-text-small uk-text-center">
                             Powered by <a href="http://www.dedecms.com"
@@ -316,7 +310,6 @@
                         </div>
                     </footer>
 
-                    </from>
             </div>
 
         </div>
