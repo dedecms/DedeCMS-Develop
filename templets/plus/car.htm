@@ -1,23 +1,18 @@
-<!DOCTYPE html用户
-PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
 <title>购物车 - 订单号:{dede:var.carts.orders_id/}</title>
-<meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}" />
-<meta name="generator" content="DedeCMS V5.6" />
-<meta name="author" content="desdev.cn" />
-<link href="{dede:global.cfg_templets_skin/}/style/dedecms.css" rel="stylesheet" media="screen" type="text/css" />
-<link href="{dede:global.cfg_templets_skin/}/style/table.css" rel="stylesheet" media="screen" type="text/css" />
-<script type="text/javascript" language="javascript" src="../assets/pkg/jquery/jquery.min.js"></script>
-</head>
-<body class="buycarpage">
-<div class="header">
-<div class="top w960 center">
-<div class="title">
-<h1><a href="{dede:global.cfg_basehost/}" title="{dede:global.cfg_webname/}"><img
-src="{dede:global name='cfg_assets_dir'/}/img/dedecms.png"
-alt="{dede:global.cfg_webname/}" /></a> </h1>
-</div><!-- /title -->
+<meta charset="{dede:global.cfg_soft_lang/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+
+{dede:include filename="plus_head.htm"/}
+<!-- /header -->
+<main>
+<!-- 面包屑 -->
+{dede:include filename="plus_breadcrumb.htm"/}
+<!-- /面包屑 -->
+
 <div class="welcome">
 <?php
 if(!$cfg_ml->IsLogin()){
