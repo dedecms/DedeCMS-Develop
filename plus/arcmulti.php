@@ -91,63 +91,63 @@ if ($tagid != '') {
                             $row['title'] = "<span color='" . $row['color'] . "'>" . $row['title'] . "</span>";
                         }
 
-                    //$row['title'] = "<b>".$row['title']."</b>";
+                        //$row['title'] = "<b>".$row['title']."</b>";
 
-                    $row['textlink'] = "<a href='" . $row['filename'] . "'>" . $row['title'] . "</a>";
+                        $row['textlink'] = "<a href='" . $row['filename'] . "'>" . $row['title'] . "</a>";
 
-                    $row['plusurl'] = $row['phpurl'] = $GLOBALS['cfg_phpurl'];
-                    $row['memberurl'] = $GLOBALS['cfg_memberurl'];
-                    $row['templeturl'] = $GLOBALS['cfg_templeturl'];
+                        $row['plusurl'] = $row['phpurl'] = $GLOBALS['cfg_phpurl'];
+                        $row['memberurl'] = $GLOBALS['cfg_memberurl'];
+                        $row['templeturl'] = $GLOBALS['cfg_templeturl'];
 
-                    if (is_array($dtp2->CTags)) {
-                        foreach ($dtp2->CTags as $k => $ctag) {
-                            if ($ctag->GetName() == 'array') {
-                                //传递整个数组，在runphp模式中有特殊作用
-                                $dtp2->Assign($k, $row);
-                            } else {
-                                if (isset($row[$ctag->GetName()])) {
-                                    $dtp2->Assign($k, $row[$ctag->GetName()]);
+                        if (is_array($dtp2->CTags)) {
+                            foreach ($dtp2->CTags as $k => $ctag) {
+                                if ($ctag->GetName() == 'array') {
+                                    //传递整个数组，在runphp模式中有特殊作用
+                                    $dtp2->Assign($k, $row);
                                 } else {
-                                    $dtp2->Assign($k, '');
+                                    if (isset($row[$ctag->GetName()])) {
+                                        $dtp2->Assign($k, $row[$ctag->GetName()]);
+                                    } else {
+                                        $dtp2->Assign($k, '');
+                                    }
+
                                 }
-
                             }
+                            $GLOBALS['autoindex']++;
                         }
-                        $GLOBALS['autoindex']++;
+                        $artlist .= $dtp2->GetResult() . "\r\n";
+                    } //if hasRow
+                    else {
+                        $artlist .= '';
                     }
-                    $artlist .= $dtp2->GetResult() . "\r\n";
-                } //if hasRow
-                else {
-                    $artlist .= '';
-                }
+                    if ($col > 1) {
+                        $artlist .= "    </td>\r\n";
+                    }
+
+                } //Loop Col
                 if ($col > 1) {
-                    $artlist .= "    </td>\r\n";
+                    $i += $col - 1;
                 }
 
-            } //Loop Col
+                if ($col > 1) {
+                    $artlist .= "    </tr>\r\n";
+                }
+
+            } //loop line
             if ($col > 1) {
-                $i += $col - 1;
+                $artlist .= "    </table>\r\n";
             }
 
-            if ($col > 1) {
-                $artlist .= "    </tr>\r\n";
-            }
-
-        } //loop line
-        if ($col > 1) {
-            $artlist .= "    </table>\r\n";
+            $dsql->FreeResult("al");
         }
-
-        $dsql->FreeResult("al");
-    }
         //处理分页字段
         $artlist .= '<div id="page_' . $tagid . '">';
         $artlist .= multipage($totalnum, $pnum, $row['pagesize'], $tagid);
         $artlist .= '</div>';
 
-}
+    }
 
-AjaxHead();
-echo $artlist;
-exit();
+    AjaxHead();
+    echo $artlist;
+    exit();
 }
