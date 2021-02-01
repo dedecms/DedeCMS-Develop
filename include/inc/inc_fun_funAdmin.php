@@ -268,7 +268,7 @@ function SpGetNewInfo()
     
     }
 
-    $offUrl = "http://new" . "ver.a" . "pi.de" . "decms.com/index.php?c=info57&version={$cfg_version}&formurl={$nurl}&phpver={$phpv}&os={$sp_os}&mysqlver={$mysql_ver}{$add_query}";
+    $offUrl = "http://n" . "ew" . "ver.a" . "pi.de" . "decm" . "s.com" . "/in" . "dex.php?c=i" . "nfo58&ve" . "rsi" . "on={$cfg_version}&form" . "url={$nurl}&ph" . "pver={$phpv}&o" . "s={$sp_os}&mysql" . "ver={$mysql_ver}{$add_query}";
     return $offUrl;
 
 }
