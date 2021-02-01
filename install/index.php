@@ -12,11 +12,11 @@
 //error_reporting(E_ALL);
 error_reporting(E_ALL || ~E_NOTICE);
 
-$verMsg = '{{.verMsg}}';
+$verMsg = 'V5.8.1';
 $s_lang = 'utf-8';
 $dfDbname = '{{.dfDbname}}';
 $errmsg = '';
-define('INSTALL_DEMO_NAME', 'dedev57demo.txt');
+define('INSTALL_DEMO_NAME', 'dedev58demo.txt');
 define('INSLOCKFILE', dirname(__FILE__) . '/install_lock.txt');
 
 $moduleCacheFile = dirname(__FILE__) . '/modules.tmp.inc';
