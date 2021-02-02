@@ -52,8 +52,8 @@
 <h5 class="uk-text-center uk-text-left@s">最新内容</h5>
 <ul class="dede-news uk-list uk-list-small uk-flex uk-flex-wrap uk-child-width-1-2@s">
 <!--推荐文档-->
-{dede:arclist row=12 titlelen=64 noflag='h'}
-<li><span>[field:pubdate function="MyDate('m-d',@me)"/]</span> <a href="[field:arcurl/]">[field:title/]</a></li>
+{dede:arclist row=12 titlelen=35 noflag='h'}
+<li><span>[field:pubdate function="MyDate('m-d',@me)"/]</span> <a href="[field:arcurl/]">[field:title/]...</a></li>
 {/dede:arclist}
 <!--//推荐文档-->
 </ul>
@@ -146,7 +146,7 @@
 <div class="uk-card-header">{dede:field name='typename'/} </div>
 <div class="uk-card-body">
 <ul class="uk-list uk-list-small uk-list-divider">
-{dede:arclist titlelen='60' row='8'}
+{dede:arclist titlelen='255' row='8'}
 <li><span>[field:pubdate function="MyDate('m-d',@me)"/]</span> <a href="[field:arcurl /]">[field:title /]</a></li>
 {/dede:arclist}
 </ul>
