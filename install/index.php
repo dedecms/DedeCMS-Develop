@@ -9,7 +9,6 @@
  * @link      http://www.dedecms.com
  */
 @set_time_limit(0);
-//error_reporting(E_ALL);
 error_reporting(E_ALL || ~E_NOTICE);
 
 $verMsg = 'V5.8.1';
@@ -47,6 +46,13 @@ if (file_exists(INSLOCKFILE)) {
 if (empty($step)) {
     $step = 1;
 }
+
+// 主机地址
+$sp_host = (empty($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_HOST'] : $_SERVER['REMOTE_ADDR']);
+
+// PHP版本
+$phpv = phpversion();
+
 /*------------------------
 使用协议书
 function _1_Agreement()
@@ -60,7 +66,7 @@ if ($step == 1) {
 function _2_TestEnv()
 ------------------------*/
 else if ($step == 2) {
-    $phpv = phpversion();
+
     $sp_os = PHP_OS;
     if (!function_exists('gd_info')) {
         $sp_gd = '<font color=red>[×]Off</font>';
@@ -68,7 +74,6 @@ else if ($step == 2) {
         $sp_gd = '<font color=green>[√]On</font>' ;
     }
     $sp_server = $_SERVER['SERVER_SOFTWARE'];
-    $sp_host = (empty($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_HOST'] : $_SERVER['REMOTE_ADDR']);
     $sp_name = $_SERVER['SERVER_NAME'];
     $sp_max_execution_time = ini_get('max_execution_time');
     $sp_allow_reference = (ini_get('allow_call_time_pass_reference') ? '<font color=green>[√]On</font>' : '<font color=red>[×]Off</font>');
@@ -218,7 +223,6 @@ else if ($step == 4) {
                 $query = preg_replace('/character set (.*?) /i', '', $query);
                 $query = str_replace('unsigned', '', $query);
                 $query = str_replace('TYPE=MyISAM', '', $query);
-
                 $query = preg_replace('/TINYINT\(([\d]+)\)/i', 'INTEGER', $query);
                 $query = preg_replace('/mediumint\(([\d]+)\)/i', 'INTEGER', $query);
                 $query = preg_replace('/smallint\(([\d]+)\)/i', 'INTEGER', $query);
@@ -235,14 +239,10 @@ else if ($step == 4) {
                 }
                 $db->exec($query);
             } else {
-                if ($mysqlVersion < 4.1) {
-                    $rs = mysqli_query($conn, $query);
+                if (preg_match('#CREATE#i', $query)) {
+                    $rs = mysqli_query($conn, preg_replace("#TYPE=MyISAM#i", $sql4tmp, $query));
                 } else {
-                    if (preg_match('#CREATE#i', $query)) {
-                        $rs = mysqli_query($conn, preg_replace("#TYPE=MyISAM#i", $sql4tmp, $query));
-                    } else {
-                        $rs = mysqli_query($conn, $query);
-                    }
+                    $rs = mysqli_query($conn, $query);
                 }
             }
 

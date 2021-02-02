@@ -23,9 +23,7 @@
 <nav class="uk-navbar-transparent uk-light" data-uk-navbar>
 <div class="uk-navbar-left">
 <span class="uk-navbar-item uk-logo">
-<img src="/assets/img/dedecms.png" />
-&nbsp;
-<?=$cfg_version;?> &nbsp;系统登录
+<img src="{dede:global.cfg_assets_dir/}/img/dedecms.png" />&nbsp;<?=$cfg_version;?> &nbsp;系统登录
 </span>
 </div>
 <div class="uk-navbar-right ">
@@ -60,8 +58,7 @@
 <div class="" grid>
 <div class="uk-child-width-1-1">
 <form class="uk-padding-small" action="login.php">
-<input type="hidden" name="gotopage"
-value="<?php if(!empty($gotopage)) echo RemoveXSS($gotopage);?>" />
+<input type="hidden" name="gotopage" value="<?php if(!empty($gotopage)) echo RemoveXSS($gotopage);?>" />
 <input type="hidden" name="dopost" value="login" />
 <input name='adminstyle' type='hidden' value='newdedecms' />
 <fieldset class="uk-fieldset">
@@ -81,8 +78,7 @@ value="<?php if(!empty($gotopage)) echo RemoveXSS($gotopage);?>" />
 <div class="uk-margin" uk-grid>
 <div class="uk-inline uk-width-1-2">
 <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: code"></span>
-<input class="uk-input" required placeholder="验证码" type="text"
-name="validate" />
+<input class="uk-input" required placeholder="验证码" type="text" name="validate" />
 </div>
 <div class="uk-margin-small uk-inline uk-width-1-2 uk-flex uk-flex-middle">
 <img id="vdimgck" align="absmiddle" onClick="this.src=this.src+'?'"

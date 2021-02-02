@@ -42,19 +42,21 @@ if (!echo_validate_image($config)) {
     @session_start();
     $_SESSION['securimage_code_value'] = strtolower('abcd');
     if (function_exists('imagecreatefromjpeg')) {
-        $im = @imagecreatefromjpeg(DEDEINC . '/data/vdcode.jpg');
+        $im = @imagecreatefromjpeg(DEDEINC . '/data/2E3K3J3K2D2N32.jpg');
         header("Pragma:no-cache\r\n");
         header("Cache-Control:no-cache\r\n");
         header("Expires:0\r\n");
+        header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.jpg"');
         imagejpeg($im);
         imagedestroy($im);
     } else {
         header("Pragma:no-cache\r\n");
         header("Cache-Control:no-cache\r\n");
         header("Expires:0\r\n");
-        $c = file_get_contents(DEDEINC . '/data/vdcode.jpg', true);
-        $size = filesize(DEDEINC . '/data/vdcode.jpg');
+        $c = file_get_contents(DEDEINC . '/data/2E3K3J3K2D2N32.jpg', true);
+        $size = filesize(DEDEINC . '/data/2E3K3J3K2D2N32.jpg');
         header('Content-Type: image/x-icon');
+        header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.jpg"');
         header("Content-length: $size");
         echo $c;
     }
@@ -174,9 +176,11 @@ function echo_validate_image($config = array())
 
     if (function_exists("imagejpeg")) {
         header("content-type:image/jpeg\r\n");
+        header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.jpg"');
         imagejpeg($im);
     } else {
         header("content-type:image/png\r\n");
+        header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.png"');
         imagepng($im);
     }
     imagedestroy($im);
