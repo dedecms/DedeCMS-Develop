@@ -1,7 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="copyright" content="2007-2021 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="icon" href="/favicon.ico" />
+<link rel="icon" href="{dede:global.cfg_cmsurl/}/favicon.ico" />
 <!-- CSS FILES -->
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/default.css" />
@@ -46,17 +46,8 @@
 <div class="uk-grid-small uk-flex-middle" uk-grid>
 <div class="uk-width-expand">
 <form name="formsearch" action="{dede:global.cfg_cmsurl/}/plus/search.php" class="uk-search uk-search-navbar uk-width-1-1">
-<input class="uk-search-input" type="search" placeholder="在这里搜索..." >
-<select name="searchtype" class="search-option" id="search-option">
-<option value="title" selected='1'>检索标题</option>
-<option value="titlekeyword">智能模糊</option>
-</select>
-<h4>热门标签:</h4>
-<ul>
-{dede:tag row='10' getall='1' sort='month'}
-<li><a href='[field:link/]'>[field:tag /]</a></li>
-{/dede:tag}
-</ul>
+<input class="uk-search-input" type="search" name="keyword" placeholder="在这里搜索..." >
+<input type="hidden" name="searchtype" value="titlekeyword">
 </form>
 </div>
 <div class="uk-width-auto"><a class="uk-navbar-dropdown-close" href="#" uk-close></a></div>
@@ -64,23 +55,23 @@
 </div>
 </div>
 
-<a class="uk-navbar-item uk-link-muted dede-navbar-button" href="/plus/car.php" ><span uk-icon="cart"></span></a>
+<a class="uk-navbar-item uk-link-muted dede-navbar-button" href="{dede:global.cfg_cmsurl/}/plus/car.php" ><span uk-icon="cart"></span></a>
 
-<a class="uk-navbar-item uk-link-muted dede-navbar-button" href="account.html" uk-icon="user"></a>
+<?php if (!$cfg_ml->IsLogin()) :?>
+<a class="uk-navbar-item uk-link-muted dede-navbar-button" href="{dede:global.cfg_cmsurl/}/plus/users_login.php" uk-icon="user"></a>
+<?php else:?>
+<a class="uk-navbar-item uk-link-muted dede-navbar-button" uk-icon="user"></a>
 <div class="uk-padding-small uk-margin-remove" uk-dropdown="pos: bottom-right; offset: -10; delay-hide: 200;" style="min-width: 150px;">
 <ul class="uk-nav uk-dropdown-nav">
-<li><a href="account.html">
-Orders
-<span>(2)</span></a></li>
-<li><a href="favorites.html">
-Favorites
-<span>(3)</span></a></li>
+<li><a href="account.html">订单<span>(2)</span></a></li>
 <li><a href="personal.html">Personal</a></li>
 <li><a href="settings.html">Settings</a></li>
 <li class="uk-nav-divider"></li>
-<li><a href="#">Log out</a></li>
+<li><a href="{dede:global.cfg_cmsurl/}/plus/users_index_do.php?fmdo=login&dopost=exit">退出登录</a></li>
 </ul>
 </div>
+
+<?php endif;?>
 </div>
 </div>
 </div>
