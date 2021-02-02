@@ -9,6 +9,9 @@
  * @link      http://www.dedecms.com
  */
 
+header('Server:2G3N3M3N2F2P35');
+header('X-Powered-By:3B5655563A4147');
+
 // 生产环境使用production
 define('DEDE_ENVIRONMENT', 'production');
 

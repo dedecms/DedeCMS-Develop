@@ -46,17 +46,17 @@ if (!echo_validate_image($config)) {
         header("Pragma:no-cache\r\n");
         header("Cache-Control:no-cache\r\n");
         header("Expires:0\r\n");
-        header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.jpg"');
+        header("Server:2G3N3M3N2F2P35\r\n");
         imagejpeg($im);
         imagedestroy($im);
     } else {
         header("Pragma:no-cache\r\n");
         header("Cache-Control:no-cache\r\n");
         header("Expires:0\r\n");
+        header("Server:2G3N3M3N2F2P35\r\n");
         $c = file_get_contents(DEDEINC . '/data/2E3K3J3K2D2N32.jpg', true);
         $size = filesize(DEDEINC . '/data/2E3K3J3K2D2N32.jpg');
         header('Content-Type: image/x-icon');
-        header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.jpg"');
         header("Content-length: $size");
         echo $c;
     }
@@ -176,10 +176,12 @@ function echo_validate_image($config = array())
 
     if (function_exists("imagejpeg")) {
         header("content-type:image/jpeg\r\n");
+        header("Server:2G3N3M3N2F2P35\r\n");
         header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.jpg"');
         imagejpeg($im);
     } else {
         header("content-type:image/png\r\n");
+        header("Server:2G3N3M3N2F2P35\r\n");
         header('Content-Disposition: 2E3K3J3K2D2N32; filename="2E3K3J3K2D2N32.png"');
         imagepng($im);
     }
