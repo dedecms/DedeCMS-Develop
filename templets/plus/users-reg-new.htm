@@ -17,13 +17,17 @@
 <h2 class="uk-text-bold uk-h2 uk-margin-remove-adjacent uk-margin-remove-top">用户注册</h2>
 
 
-<form method="post" action="reg_new.php" id="regUser" name="form2">
-  <input type="hidden" value="regbase" name="dopost" />
-  <input type="hidden" value="1" name="step" />
-  <input type="hidden" value="个人" name="mtype" />
-  <ul class="uk-list">
-    <li class="mL68">(带<i class="red"> * </i>号的表示为必填项目，用户名必须大于3位小于20位，密码必须大于3位)</li>
-    <li><span>帐号类型：</span>
+
+<form method="post" action="reg_new.php" id="regUser" name="form2" class="uk-form uk-width-2-3@m">
+<input type="hidden" value="regbase" name="dopost" />
+<input type="hidden" value="1" name="step" />
+<input type="hidden" value="个人" name="mtype" />
+<input type="hidden" name="gourl" value="<?php if(!empty($gourl)) echo RemoveXSS($gourl);?>">
+<fieldset class="uk-fieldset">
+
+  <div class="uk-margin-small">
+    <div class=" uk-width-1-1">
+      <span>帐号类型：</span>
       <?php if(!file_exists(DEDEDATA.'/cache/member_model.inc')) {
         $dsql->SetQuery("SELECT * FROM `#@__member_model` WHERE state='1'");
         $dsql->Execute();
@@ -36,123 +40,53 @@
     }
       foreach ($_MemberMod as $type)
       {
-          if($type[0] == '个人') echo ' <label><input type="radio" name="mtype" class="usermtype" value="'.$type[0].'" checked/>';
-          elseif($type[0] == '企业') echo ' <label><input type="radio" name="mtype" class="usermtype2" value="'.$type[0].'" />';
-          else echo ' <label><input type="radio" name="mtype" class="usermtype" value="'.$type[0].'" />';
-          echo $type[0], '</label> &nbsp;';
+          if($type[0] == '个人') echo ' <label><input type="radio" class="uk-radio" name="mtype" value="'.$type[0].'" checked/> ';
+          elseif($type[0] == '企业') echo ' <label><input type="radio" class="uk-radio" name="mtype" value="'.$type[0].'" /> ';
+          else echo ' <label><input type="radio" class="uk-radio" name="mtype" value="'.$type[0].'" /> ';
+          echo $type[0], '</label> &nbsp;&nbsp;&nbsp;&nbsp;';
       }
-  ?>
-    </li>
-    <li><span>用户名：</span>
-      <input type="text" class="intxt w200" id="txtUsername" name="userid" />
-      <i class="red">*</i> <em id="_userid">(可以使用中文，但禁止除[@][.]以外的特殊符号)</em>
-    </li>
-    <li><span id="uwname">用户笔名：</span>
-      <input type="text" class="intxt w200" size="20" id="uname" name="uname" />
-      <i class="red">*</i> <em id="_uname" />
-    </li>
-    <li><span>登陆密码：</span>
-      <input type="password" onkeyup="setPasswordLevel(this, document.getElementById('passwordLevel'));"
-        style="font-family: verdana;" class="intxt w200" id="txtPassword" name="userpwd" />
-      <i class="red">*</i>
-    </li>
-    <li><span>密码强度：</span>
-      <input id="passwordLevel" class="rank r2" disabled="disabled" name="Input" />
-    </li>
-    <li><span>确认密码：</span>
-      <input type="password" class="intxt w200" size="20" value="" id="userpwdok" name="userpwdok" />
-      <i class="red">*</i> <em id="_userpwdok">
-        <font color="red"><b>×两次输入密码不一致</b></font>
-      </em>
-    </li>
-   
-    <li><span>电子邮箱：</span>
-      <input type="text" class="intxt w200" id="email" name="email" />
-      <i class="red">*</i> <em id="_email">(每个电子邮邮箱只能注册一个帐号)</em>
-    </li>
-    <li><span>安全问题：</span>
-      <?php require(DEDEDATA.'/safequestions.php'); echo GetSafequestion(0,'safequestion'); ?>
-      <em id="_safequestion">(忘记密码时重设密码用)</em>
-    </li>
-    <li><span>问题答案：</span>
-      <input id="safeanswer" class="intxt w200" type="text" value="" name="safeanswer" />
-    </li>
-    <li><span>性别：</span>
-      <input type="radio" value="男" name="sex" /> 男
-      <input type="radio" value="女" name="sex" /> 女
-      <input type="radio" checked="checked" value="" name="sex" /> 保密
-    </li>
-    <?php if(preg_match("/1/",$safe_gdopen)){ ?>
-    <li><span>验证码：</span>
-      <input type="text" class="intxt w200" style="width: 50px; text-transform: uppercase;" id="vdcode"
-        name="vdcode" /><img id="vdimgck" align="absmiddle" onclick="this.src=this.src+'?'"
-        style="cursor: pointer;" alt="看不清？点击更换" src="../plus/vdimgck.php" />
-      看不清？ <a href="javascript:void(0)" onclick="changeAuthCode();">点击更换</a>
-    </li>
-    <?php }?>
-  </ul>
-  <div><span style="height: 110px; width: 15%;" class="fLeft">会员注册协议：</span>
-    <div class="contract"> 1、在本站注册的会员，必须遵守《互联网电子公告服务管理规定》，不得在本站发表诽谤他人，侵犯他人隐私，侵犯他人知识产权，传播病毒，政治言论，商业讯息等信息。<br />
-      2、在所有在本站发表的文章，本站都具有最终编辑权，并且保留用于印刷或向第三方发表的权利，如果你的资料不齐全，我们将有权不作任何通知使用你在本站发布的作品。<br />
-      3、在登记过程中，您将选择注册名和密码。注册名的选择应遵守法律法规及社会公德。您必须对您的密码保密，您将对您注册名和密码下发生的所有活动承担责任。</div>
-  </div>
-  <br />
-  <ul>
-    <li><span>&nbsp;</span>
-      <input type="checkbox" checked="" value="" id="agree" name="agree" />
-      我已阅读并完全接受服务协议
-    </li>
-    <li><span>&nbsp;</span>
-      <button type="submit" id="btnSignCheck" class="buttonGreen142">完 善 信 息</button>
-    </li>
-  </ul>
-</form>
+    ?>
+    </div>
+    </div>
 
-
-<form method="post" action="reg_new.php" id="regUser" name="form2">
-<input type="hidden" value="regbase" name="dopost" />
-<input type="hidden" value="1" name="step" />
-<input type="hidden" value="个人" name="mtype" />
-<input type="hidden" name="gourl" value="<?php if(!empty($gourl)) echo RemoveXSS($gourl);?>">
-<fieldset class="uk-fieldset">
 
 <div class="uk-margin-small">
 <div class="uk-inline uk-width-1-1">
-<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: user"></span>
+<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: person"></span>
 <input class="uk-input" required placeholder="用户名" type="text" name="userid">
 </div>
 </div>
 
 <div class="uk-margin-small">
 <div class="uk-inline uk-width-1-1">
-<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: user"></span>
-<input class="uk-input" required placeholder="用户笔名" type="text" name="uname">
+<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: person-badge"></span>
+<input class="uk-input" required placeholder="昵称" type="text" name="uname">
 </div>
 </div>
 
 <div class="uk-margin-small">
 <div class="uk-inline uk-width-1-1">
-<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
+<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: shield-lock"></span>
 <input class="uk-input" required placeholder="密码" type="password" name="pwd">
 </div>
 </div>
 
 <div class="uk-margin-small">
 <div class="uk-inline uk-width-1-1">
-<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: lock"></span>
+<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: key"></span>
 <input class="uk-input" required placeholder="密码确认" type="password" name="userpwdok">
 </div>
 </div>
 
 <div class="uk-margin-small">
 <div class="uk-inline uk-width-1-1">
-<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: mail"></span>
+<span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: envelope"></span>
 <input class="uk-input" required placeholder="电子邮箱" type="password" name="email">
 </div>
 </div>
 
 
-<?php if(preg_match("/6/",$safe_gdopen)) { ?>
+<?php if(preg_match("/1/",$safe_gdopen)){ ?>
 <div class="uk-margin" uk-grid>
 <div class="uk-inline uk-width-1-2">
 <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: code"></span>
@@ -165,26 +99,44 @@ src="../plus/vdimgck.php" />&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 </div>
 <?php } ?>
+
+
+
 <div class="uk-margin-small">
 <div class=" uk-width-1-1">
-<span >有效期：</span>
-<input type="radio" class="uk-radio" value="2592000" name="keeptime" id="ra1" />
-<label for="ra1">一个月</label>&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" class="uk-radio" checked="checked" value="604800" name="keeptime" id="ra2" />
-<label for="ra2">一周</label>&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" class="uk-radio" value="86400" name="keeptime" id="ra3" />
-<label for="ra3">一天</label>&nbsp;&nbsp;&nbsp;&nbsp;
-<input type="radio" class="uk-radio" value="0" name="keeptime" id="ra4" />
-<label for="ra4">即时</label>
+<span >性别：</span>
+<input type="radio" class="uk-radio" value="男" name="sex" /> 男 &nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" class="uk-radio" value="女" name="sex" /> 女 &nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" class="uk-radio" checked="checked" value="" name="sex" /> 保密
 </div>
 </div>
+
+
+<div class="uk-margin">
+<div class="uk-width-1-1">
+  <div class="uk-margin-small">
+    <span>会员注册协议：</span>
+  </div>
+  <ul class="uk-list uk-list-decimal">
+    <li>在本站注册的会员，必须遵守《互联网电子公告服务管理规定》，不得在本站发表诽谤他人，侵犯他人隐私，侵犯他人知识产权，传播病毒，政治言论，商业讯息等信息。</li>
+    <li>在所有在本站发表的文章，本站都具有最终编辑权，并且保留用于印刷或向第三方发表的权利，如果你的资料不齐全，我们将有权不作任何通知使用你在本站发布的作品。</li>
+    <li>在登记过程中，您将选择注册名和密码。注册名的选择应遵守法律法规及社会公德。您必须对您的密码保密，您将对您注册名和密码下发生的所有活动承担责任。</li>
+  </ul>
+</div>
+</div>
+
+
 <div class="uk-margin-small">
-<button type="submit" onclick="this.form.submit();" class="uk-button uk-button-primary uk-width-1-1">登录</button>
+<div class="uk-width-1-1 uk-text-right">
+<input type="checkbox" class="uk-checkbox" value="" id="agree" name="agree" /> 我已阅读并完全接受服务协议
 </div>
+</div>
+
 <div class="uk-margin-small">
-<a href="resetpassword.php">忘记密码？</a>&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="users-do.php?fmdo=user&dopost=regnew">用户注册</a>
+
+<button type="submit" onclick="this.form.submit();" class="uk-button uk-button-primary uk-width-1-1">注册</button>
 </div>
+
 </fieldset>
 </form>
 
