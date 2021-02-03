@@ -204,10 +204,10 @@ if ($step == 1) {
     $dlist->Display();
 } else {
 
-    if ($cfg_ml->fields['spacesta'] == 2) {
-        ShowMsg('你已经登陆系统，无需重新注册！', $cfg_cmsurl."/");
-        exit;
-    }
+        if ($cfg_ml->fields['spacesta'] == 2) {
+            ShowMsg('你已经登陆系统，无需重新注册！', $cfg_cmsurl."/");
+            exit;
+        }
 
     $membermodel = new membermodel($cfg_ml->M_MbType);
     $postform = $membermodel->getForm(true);

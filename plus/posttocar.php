@@ -37,7 +37,7 @@ if ($do == 'add') {
     $rows['buynum'] = $buynum;
     $rows['title'] = $rs['title'];
     $cart->addItem($id, $rows);
-    ShowMsg("已添加加到购物车,<a href='car.php'>查看购物车</a>", "-1", 0, 1000);
+    ShowMsg("已添加加到购物车,<a href='car.php'>查看购物车</a>", "-1", 0 , 1000);
     exit();
 } elseif ($do == 'del') {
     /*
