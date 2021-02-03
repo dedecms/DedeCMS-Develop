@@ -63,7 +63,7 @@ if ($do == 'add') {
     function clearItem();        clear car products all!
      */
     $cart->clearItem();
-    ShowMsg("购物车中商品已全部清空！", "car.php");
+    ShowMsg("购物车中商品已全部清空！", $cfg_cmsurl."/");
     exit;
 } elseif ($do == 'update') {
     /*

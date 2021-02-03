@@ -8,12 +8,14 @@
 
 {dede:include filename="header.htm"/}
 <!-- 推荐内容 -->
-<div class="uk-container uk-container-small uk-padding"  >
+<section class="uk-section uk-section-default uk-section-smalle">
+<div class="uk-container uk-container-small">
+<div class="uk-article">
 
 <form class="uk-flex uk-flex-center">
 <div class="uk-margin " uk-margin>
 <div uk-form-custom="target: true">
-<div class="uk-navbar-item uk-search uk-search-navbar  uk-border-rounded" style="background-color: #fff;">
+<div class="uk-navbar-item uk-search uk-search-navbar  uk-border-rounded" style="background-color: rgb(248, 248, 248);">
 <span uk-search-icon></span>
 <input name="q" class="uk-search-input" type="search" value="{dede:global name='keyword' function='RemoveXSS(@me)'/}" placeholder="在这里搜索...">
 </div>
@@ -35,15 +37,13 @@
 <div style="float:right; margin:10px"><script src='{dede:global.cfg_cmsurl/}/plus/ad_js.php?aid=18' language='javascript'></script> </div>
 
 <h2>相关搜索</h2>
-<ul>
-<li>{dede:likewords num='8'/}</li>
-</ul>
+
 <div class="sidebar_banner"><script src='{dede:global.cfg_cmsurl/}/plus/ad_js.php?aid=16' language='javascript'></script></div>
 </div>
 <div class="resultlist">
-<ul>
+<ul class="uk-list uk-list-divider">
 {dede:list perpage='20'}
-<li> <h3><a href="[field:arcurl/]" target="_blank">[field:title/]</a></h3>
+<li style="margin-bottom: 34px;"> <h3><a href="[field:arcurl/]" target="_blank">[field:title/]</a></h3>
 <p>[field:description/]...</p>
 <span>
 <a href="[field:arcurl/]">[field:global.cfg_basehost/][field:arcurl/]</a>
@@ -54,14 +54,13 @@
 </li>
 {/dede:list}
 </ul>
-<div class="fl dede_pages">
 
-</div><!-- /pages -->
 <ul class="uk-pagination uk-flex-center" uk-margin>
 {dede:pagelist listsize='4'/}
 </ul>
 </div>
-
+</div>
+</section>
 <!-- /header -->
 
 
@@ -90,6 +89,7 @@ Powered by <a href="http://www.dedecms.com" title="织梦内容管理系统(Dede
 <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit.min.js"></script>
 <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit-icons.min.js"></script>
 <script src="{dede:global.cfg_assets_dir/}/pkg/jquery/jquery.min.js"></script>
+<script src="{dede:global.cfg_assets_dir/}/js/dede.default.min.js"></script>
 <!-- /JS FILES -->
 <!-- /底部模板 -->
 <!-- /footer -->

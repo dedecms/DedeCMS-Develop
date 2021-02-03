@@ -129,7 +129,7 @@ else if ($fmdo == 'user') {
     //引入注册页面
     else if ($dopost == "regnew") {
         $step = empty($step) ? 1 : intval(preg_replace("/[^\d]/", '', $step));
-        include_once dirname(__FILE__) . "/users_reg_new.php";
+        include_once dirname(__FILE__) . "/users-reg-new.php";
 
 
         exit();
