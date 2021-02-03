@@ -19,8 +19,12 @@ if ($dopost === 'status') {
     if ($cfg_ml->IsLogin()){
         $tpl = DEDETEMPLATE . '/plus/'."users-status-logged.htm";
     }  
-    
+
     $dlist = new DataListCP();
     $dlist->SetTemplate($tpl);
     $dlist->Display();
+} else if ($dopost === 'carnum') {
+    require_once DEDEINC . "/shopcar.class.php";
+    $cart = new MemberShops();
+    echo $cart->cartCount();
 }
