@@ -15,7 +15,6 @@ $cfg_ml = new MemberLogin();
 // 用户状态
 if ($dopost === 'status') {
     $tpl = DEDETEMPLATE . '/plus/'."users-status-notlogged.htm";
-
     if ($cfg_ml->IsLogin()){
         $tpl = DEDETEMPLATE . '/plus/'."users-status-logged.htm";
     }  
