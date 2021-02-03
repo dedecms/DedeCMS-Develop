@@ -49,18 +49,17 @@ if ($dopost == '') {
     $dl->SetSource($sql); //设定查询SQL
     $dl->Display(); //显示
 } else if ($dopost == 'del') {
-    $ids = explode(',', $ids);
-    if (isset($ids) && is_array($ids)) {
-        foreach ($ids as $id) {
-            $id = preg_replace("/^[a-z][0-9]$/", "", $id);
-            $query = "DELETE FROM `#@__shops_products` WHERE oid='$id' AND userid='{$cfg_ml->M_ID}'";
-            $query2 = "DELETE FROM `#@__shops_orders` WHERE oid='$id' AND userid='{$cfg_ml->M_ID}'";
-            $query3 = "DELETE FROM `#@__shops_userinfo` WHERE oid='$id' AND userid='{$cfg_ml->M_ID}'";
-            $dsql->ExecuteNoneQuery($query);
-            $dsql->ExecuteNoneQuery($query2);
-            $dsql->ExecuteNoneQuery($query3);
-        }
-        ShowMsg("成功删除指定的交易记录!", "shops_orders.php");
-        exit();
+
+    foreach (explode('|', $orders) as $id) {
+        $id = preg_replace("/^[a-z][0-9]$/", "", $id);
+        $query = "DELETE FROM `#@__shops_products` WHERE oid='$id' AND userid='{$cfg_ml->M_ID}'";
+        $query2 = "DELETE FROM `#@__shops_orders` WHERE oid='$id' AND userid='{$cfg_ml->M_ID}'";
+        $query3 = "DELETE FROM `#@__shops_userinfo` WHERE oid='$id' AND userid='{$cfg_ml->M_ID}'";
+        $dsql->ExecuteNoneQuery($query);
+        $dsql->ExecuteNoneQuery($query2);
+        $dsql->ExecuteNoneQuery($query3);
     }
+    ShowMsg("成功删除指定的交易记录!", "users_orders.php");
+    exit();
+    
 }

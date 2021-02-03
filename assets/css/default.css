@@ -2144,10 +2144,7 @@ table tbody tr td big{ /*表格内容:列表:强调性文字*/
 	letter-spacing:1px;
 }
 
-/*表格底*/
-table tfoot{
-	background:url(images/table_fbg.jpg) left bottom repeat-x;
-}
+
 table tfoot tr td{
 	padding:10px;
 	line-height:25px;
