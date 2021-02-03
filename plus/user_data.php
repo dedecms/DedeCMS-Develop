@@ -8,6 +8,11 @@
  * @license   http://help.dedecms.com/usersguide/license.html
  * @link      http://www.dedecms.com
  */
+
+require_once dirname(__FILE__) . '/../include/common.inc.php';
+if ($cfg_mb_open == 'N') {
+    exit();
+}
 require_once dirname(__FILE__) . "/users_config.php";
 $gourl = RemoveXSS($gourl);
 $cfg_ml = new MemberLogin();
