@@ -185,7 +185,7 @@ function SpGetEditor($fname, $fvalue, $nheight = "350", $etype = "Basic", $gtype
     } else if ($GLOBALS['cfg_html_editor'] == 'ckeditor') {
         $addConfig = "";
         if (defined("DEDEADMIN")) {
-            $addConfig = ",{filebrowserImageUploadUrl:'./dialog/select_images_post.php'}";
+            $addConfig = ",{filebrowserImageUploadUrl:'./dialog/select_images_post.php?'}";
         
         }
         $code = <<<EOT
