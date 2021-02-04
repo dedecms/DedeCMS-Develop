@@ -233,7 +233,7 @@ function ShowMsg($msg, $gourl, $onlymsg = 0, $limittime = 0)
     if (empty($GLOBALS['cfg_plus_dir'])) {
         $GLOBALS['cfg_plus_dir'] = '..';
     }
-    if ($gourl == -1){
+    if ($gourl == -1) {
         $gourl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
         if ($gourl == "") {
             $gourl = -1;
