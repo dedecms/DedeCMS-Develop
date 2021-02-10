@@ -287,11 +287,9 @@ else echo " <option value='{$row['rank']}'>{$row['membername']}</option>\r\n";
 </tr>
 <td width="90">评论选项：</td>
 <td width="240" colspan="3">
-<input type='radio' name='notpost' class="uk-radio" value='0' <?php if($cfg_feedback_forbid=='N' )
-echo "checked='1' " ; ?> /> 允许评论 &nbsp;&nbsp;&nbsp;&nbsp;
+<input type='radio' name='notpost' class="uk-radio" value='0' <?php if($cfg_feedback_forbid=='N' ) echo "checked='1' " ; ?> /> 允许评论 &nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;
-<input type='radio' name='notpost' class="uk-radio" value='1' <?php if($cfg_feedback_forbid=='Y' )
-echo "checked='1' " ; ?> /> 禁止评论
+<input type='radio' name='notpost' class="uk-radio" value='1' <?php if($cfg_feedback_forbid=='Y' ) echo "checked='1' " ; ?> /> 禁止评论
 </td>
 </tr>
 <tr>
@@ -377,6 +375,7 @@ echo "checked='1' " ; ?> /> 禁止评论
 $(document).ready(function() {
 $('#colorpicker').simplecolorpicker({picker: true, theme: 'glyphicons'});
 });
+var startNum = <?=$newRowStart?>;
 function MakeUpload()
 {
 var endNum = startNum;
