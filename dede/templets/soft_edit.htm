@@ -81,7 +81,7 @@ $dsql->SetQuery("Select * From `#@__arcatt` order by sortid asc");
 $dsql->Execute();
 while($trow = $dsql->GetObject())
 {
-if($trow->att=='j') $jumpclick = " onclick='ShowUrlTr()'";
+if($trow->att=='j') $jumpclick = " onclick='showUrl()'";
 else $jumpclick = '';
 if(preg_match("#".$trow->att."#",$arcRow['flag']))
 echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}' {$jumpclick} checked='checked' /> {$trow->attname} [{$trow->att}] &nbsp;&nbsp;";
@@ -91,6 +91,12 @@ echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow-
 ?>
 </td>
 </tr>
+<tr id="redirecturltr" class="<?=(empty($addRow['redirecturl']) ? 'uk-hidden' : '');?>">
+<td width="90">跳转网址：</td>
+<td width="240">
+<input name="redirecturl" type="text" id="redirecturl" value="<?php echo $addRow['redirecturl']?>" class="uk-input uk-form-width-large uk-form-small" />
+</td>
+<tr>
 <tr>
 <td width="90" style="vertical-align:middle;">TAG标签：</td>
 <td><input name="tags" type="text" id="tags" value="<?=$tags?>" onChange="$Obj('keywords').value=this.value;" class="uk-input uk-form-width-large uk-form-small"/></td>

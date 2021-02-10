@@ -88,10 +88,19 @@ height:25px;
 $dsql->SetQuery("Select * From `#@__arcatt` order by sortid asc");
 $dsql->Execute();
 while($trow = $dsql->GetObject()) {
+if($trow->att=='j')
+echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}' onclick='showUrl()'> {$trow->attname}[{$trow->att}] &nbsp;&nbsp;";
+else
 echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow->att}' value='{$trow->att}'> {$trow->attname}[{$trow->att}] &nbsp;&nbsp;";
 }?>
 </td>
 </tr>
+<tr id="redirecturltr" class="uk-hidden">
+<td width="90">跳转网址：</td>
+<td width="240">
+<input name="redirecturl" type="text" id="redirecturl" value="" class="uk-input uk-form-width-large uk-form-small" />
+</td>
+<tr>
 <tr>
 <td width="90">TAG标签：</td>
 <td><input name="tags" type="text" id="tags" value="" onChange="$Obj('keywords').value=this.value;" class="uk-input uk-form-width-large uk-form-small"/></td>
