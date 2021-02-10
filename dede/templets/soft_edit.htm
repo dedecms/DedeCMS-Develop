@@ -375,7 +375,7 @@ else echo " <option value='{$row['rank']}'>{$row['membername']}</option>\r\n";
 $(document).ready(function() {
 $('#colorpicker').simplecolorpicker({picker: true, theme: 'glyphicons'});
 });
-var startNum = <?=$newRowStart?>;
+var startNum = {dede:global.newRowStart/};
 function MakeUpload()
 {
 var endNum = startNum;
