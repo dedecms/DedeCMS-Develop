@@ -128,7 +128,6 @@ foreach($rows as $value) {
 function getswitch($data, $l, $typeids){
     foreach($data as $key=>$value){
         if(is_array($value)){
-        
             $result=getswitch($value, $l,$typeids);
         }
         else{

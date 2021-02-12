@@ -303,7 +303,7 @@ else if ($dopost == 'moveArchives') {
         $divname = 'moveArchives';
         echo "<button class=\"uk-modal-close-default\" type=\"button\" uk-close></button>";
         echo "<div class=\"uk-modal-header\">";
-        echo "<h2 class=\"uk-modal-title\">移动文档</h2>";
+        echo "移动文档";
         echo "</div>";
         echo "<form id='quickeditform' name='quickeditform' action='archives_do.php' method='post'  class=\"uk-form-stacked\">\r\n";
         echo "<input type='hidden' name='dopost' value='{$dopost}' />\r\n";
