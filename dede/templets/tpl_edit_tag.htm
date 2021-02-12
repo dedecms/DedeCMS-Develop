@@ -4,8 +4,8 @@
 - @copyright Copyright (c) 2007 - 2021, 上海卓卓网络科技有限公司 (DesDev, Inc.)
 --->
 
-<html>模板模板模板模板模板模板
-<!-- 模版头部 -->
+<html>
+<!-- 模板头部 -->
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset={dede:global.cfg_soft_lang/}">
 <title>{dede:global.wintitle/} - {dede:global.cfg_softname/} {dede:global.cfg_version/}
@@ -15,9 +15,9 @@
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css" />
 <link rel="stylesheet" type="text/css" href="{dede:global.cfg_assets_dir/}/css/manage.dede.css">
 </head>
-<!-- /模版头部 -->
+<!-- /模板头部 -->
 <body>
-<!-- 模版头部 -->
+<!-- 模板头部 -->
 <form method="POST" action="tpl.php" name=form1 onSubmit="return Post()">
 <input type="hidden" name="actiondo" value="<?php echo $action; ?>" />
 <input type="hidden" name="token" value="<?php echo $_SESSION['token']; ?>">
@@ -51,8 +51,8 @@
 </div>
 </td></tr></tbody></table>
 </div>
-<!-- /模版头部 -->
-<!-- 模版主体 -->
+<!-- /模板头部 -->
+<!-- 模板主体 -->
 <div id="dede-table-oswindow-code" class="uk-card uk-card-small uk-card-default">
 <div class="uk-card-body uk-overflow-auto" grid>
 <div class="uk-child-width-1-1">
@@ -63,7 +63,7 @@
 </div>
 </div>
 </div>
-<!-- /模版主体 -->
+<!-- /模板主体 -->
 </form>
 <!-- JS FILES -->
 <script src="{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit.min.js"></script>
