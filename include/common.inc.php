@@ -282,6 +282,8 @@ if (!isset($cfg_NotPrintHead)) {
     header("Content-Type: text/html; charset={$cfg_soft_lang}");
 }
 
+$cfg_icp = '<a rel="noopener noreferrer" target="_blank" href="http://www.beian.miit.gov.cn/">{$cfg_beian}<a/>';
+
 //自动加载类库处理
 require_once DEDEINC . '/autoload.inc.php';
 
