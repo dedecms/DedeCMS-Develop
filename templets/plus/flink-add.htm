@@ -2,7 +2,7 @@
 <head>
 <title><?php echo $cfg_webname;?> - 申请友情链接</title>
 <meta charset="{dede:global.cfg_soft_lang/}" />
-<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta name="keywords" content="{dede:field name='keywords' function='html2text(@me)'/}" />
 <meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
 
 {dede:include filename="plus_header.htm"/}
