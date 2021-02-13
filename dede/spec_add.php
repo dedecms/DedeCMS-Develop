@@ -25,7 +25,7 @@ if ($dopost != 'save') {
     $channelid = -1;
     $cid = isset($cid) && is_numeric($cid) ? $cid : 0;
 
-    //获得频道模型信息
+    //获得内容类型信息
     $cInfos = $dsql->GetOne(" SELECT * FROM  `#@__channeltype` WHERE id='$channelid' ");
     DedeInclude("templets/spec_add.htm");
     exit();

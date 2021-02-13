@@ -26,7 +26,7 @@ if ($dopost != 'save') {
     $channelid = empty($channelid) ? 0 : intval($channelid);
     $cid = empty($cid) ? 0 : intval($cid);
 
-    //获得频道模型ID
+    //获得内容类型ID
     if ($cid > 0 && $channelid == 0) {
         $row = $dsql->GetOne("SELECT channeltype FROM `#@__arctype` WHERE id='$cid'; ");
         $channelid = $row['channeltype'];
@@ -37,7 +37,7 @@ if ($dopost != 'save') {
         }
     }
 
-    //获得频道模型信息
+    //获得内容类型信息
     $cInfos = $dsql->GetOne(" SELECT * FROM  `#@__channeltype` WHERE id='$channelid' ");
     $channelid = $cInfos['id'];
     //获取文章最大id以确定当前权重

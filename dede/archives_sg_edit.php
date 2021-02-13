@@ -31,7 +31,7 @@ if ($dopost != 'save') {
 
     $cInfos = $dsql->GetOne($arcQuery);
     if (!is_array($cInfos)) {
-        ShowMsg("读频道模型信息出错！", "-1");
+        ShowMsg("读取内容类型信息出错！", "-1");
         exit();
     }
 

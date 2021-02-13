@@ -310,7 +310,7 @@ else if ($dopost == 'moveArchives') {
         echo "<input type='hidden' name='qstr' value='{$qstr}' />\r\n";
         ?>
     <div class="uk-alert-warning" uk-alert>
-    <p>移动到的目标栏目必须和选定的文档频道类型一致，否则程序会自动勿略不符合的文档。</p>
+    <p>移动到的目标栏目必须和选定的文档内容类型一致，否则程序会自动勿略不符合的文档。</p>
     </div>
     <div class="uk-modal-body" uk-overflow-auto>
         <fieldset class="uk-fieldset">
