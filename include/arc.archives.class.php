@@ -1017,8 +1017,14 @@ class Archives
         $i = 0;
         $karr = $kaarr = $GLOBALS['replaced'] = array();
 
-        //暂时屏蔽超链接
-        $body = preg_replace("#(<a(.*))(>)(.*)(<)(\/a>)#isU", '\\1-]-\\4-[-\\6', $body);
+        preg_match_all('#<a.*>(.*)<\/a>#isU', $body, $matches, PREG_OFFSET_CAPTURE);
+        $a_temp = array();
+
+        foreach ($matches[0] as $key => $value) {
+            $a_temp[md5($value[0])] = $matches[1][$key][0];
+            $item = str_replace($matches[1][$key][0], md5($value[0]), $value[0]);
+            $body = str_replace($value[0],$item, $body);
+        }
 
         $query = "SELECT * FROM #@__keywords WHERE rpurl<>'' ORDER BY rank DESC";
         $this->dsql->SetQuery($query);
@@ -1026,30 +1032,23 @@ class Archives
         while ($row = $this->dsql->GetArray()) {
             $key = trim($row['keyword']);
             $key_url = trim($row['rpurl']);
-            $karr[] = $key;
-            $kaarr[] = "<a href='$key_url' target='_blank'><u>$key</u></a>";
+            $keywords[$key] = "<a href='$key_url' target='_blank'><u>$key</u></a>";
         }
 
-        // 这里可能会有错误
-        if (version_compare(PHP_VERSION, '5.5.0', '>=')) {
-            if (version_compare(PHP_VERSION, '8', '>=')) {
-                $body = @preg_replace_callback("#(^|>)([^<]+)(?=<|$)#sU", "_highlight8", $body);
-            } else {
-                $body = @preg_replace_callback("#(^|>)([^<]+)(?=<|$)#sU", "_highlight('\\2', \$karr, \$kaarr, '\\1')", $body);
-            }
-        } 
+        foreach ($keywords as $key => $value) {
+            $body = str_ireplace($key, $value, $body);
+        }
 
-        //恢复超链接
-        $body = preg_replace("#(<a(.*))-\]-(.*)-\[-(\/a>)#isU", '\\1>\\3<\\4', $body);
+        foreach ($a_temp as $key => $value) {
+            $body = str_replace($key, $value, $body);
+        }
+
         return $body;
     }
 
 } //End Archives
 
-function _highlight8($matches)
-{
-    // TODO
-}
+
 
 //高亮专用, 替换多次是可能不能达到最多次
 function _highlight($string, $words, $result, $pre)
