@@ -726,7 +726,7 @@ class Lurd extends DataListCP
         $this->dsql->Execute('ana', " SHOW CREATE TABLE `{$this->tableName}`; ");
         $row = $this->dsql->GetArray('ana', MYSQLI_NUM);
         if (!is_array($row)) {
-            exit(" Analyse Table `$tablename` Error! ");
+            exit(" Analyse Table `$this->tableName` Error! ");
         }
 
         // 先去掉内容中的注释

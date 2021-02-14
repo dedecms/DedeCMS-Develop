@@ -455,7 +455,7 @@ function GetSonIdsUL($id, $channel = 0, $addthis = true)
  *
  * @access public
  * @param  int $id      栏目ID
- * @param  int $sArr    缓存数组
+ * @param  array $sArr    缓存数组
  * @param  int $channel 频道ID
  * @param  int $addthis 是否加入当前这个栏目
  * @return string
