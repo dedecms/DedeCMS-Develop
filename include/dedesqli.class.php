@@ -624,10 +624,11 @@ function CheckSql($db_string, $querytype = 'select')
         OR ($querytype === 'select' && strpos($clean, 'varchar(') !== false )
         OR ($querytype === 'select' && strpos($clean, 'char(') !== false )
         OR strpos($clean, '"') !== false
-        OR strpos($clean, '$s$$s$') !== false
+        OR (strpos($clean, '$s$$s$') !== false)
     ) {
+
         $fail = true;
-        if (preg_match("#^create table#i", $clean)) {
+        if (preg_match("#^create table#i", $clean) OR preg_match("#^insert into `dede_plus`#i", $clean)) {
             $fail = false;
         }
 

@@ -105,12 +105,10 @@ $typeOptions = '';
 $row = $dsql->GetOne("SELECT * FROM `#@__admin` WHERE id='$id'");
 $typeids = explode(',', $row['typeid']);
 
-
-
 $dsql->SetQuery("SELECT reid,id,typename FROM `#@__arctype` order by topid  asc , sortrank asc");
 $dsql->Execute('op');
-while ($row = $dsql->GetArray('op')) {
-    $rows[] = $row;
+while ($item = $dsql->GetArray('op')) {
+    $rows[] = $item;
 }
 $typeOptions = array();
 $index = array();
