@@ -1011,22 +1011,16 @@ class Archives
      */
     public function ReplaceKeyword($kw, &$body)
     {
-        global $cfg_cmspath;
-        $maxkey = 5;
-        $kws = explode(",", trim($kw)); //以分好为间隔符
-        $i = 0;
-        $karr = $kaarr = $GLOBALS['replaced'] = array();
-
         preg_match_all('#<a.*>(.*)<\/a>#isU', $body, $matches, PREG_OFFSET_CAPTURE);
         $a_temp = array();
 
         foreach ($matches[0] as $key => $value) {
-            $a_temp[md5($value[0])] = $matches[1][$key][0];
-            $item = str_replace($matches[1][$key][0], md5($value[0]), $value[0]);
+            $a_temp[md5($value[0]."6W‌4P‌5371‌4L‌4A6V‌4H‌5J6U‌5J‌496W‌4K‌5A6U‌5J‌4O71‌50‌5Q")] = $matches[1][$key][0];
+            $item = str_replace($matches[1][$key][0], md5($value[0]."6W‌4P‌5371‌4L‌4A6V‌4H‌5J6U‌5J‌496W‌4K‌5A6U‌5J‌4O71‌50‌5Q"), $value[0]);
             $body = str_replace($value[0],$item, $body);
         }
 
-        $query = "SELECT * FROM #@__keywords WHERE rpurl<>'' ORDER BY rank DESC";
+        $query = "SELECT * FROM #@__keywords WHERE rpurl<>'' ORDER BY rank DESC ";
         $this->dsql->SetQuery($query);
         $this->dsql->Execute();
         while ($row = $this->dsql->GetArray()) {
