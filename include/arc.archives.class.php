@@ -1003,7 +1003,7 @@ class Archives
     }
 
     /**
-     * 高亮问题修正, 排除alt title <a></a>直接的字符替换
+     * Archives Keyword
      *
      * @param  string $kw
      * @param  string $body
