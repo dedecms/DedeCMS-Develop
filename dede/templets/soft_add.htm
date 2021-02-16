@@ -359,7 +359,7 @@ echo " checked='1' " ?> />
 <td width="90">附加选项：</td>
 <td colspan="3">
 <input name="remote" type="checkbox" class="uk-checkbox" id="remote" value="1" <?php if($cfg_rm_remote=='Y' ) echo ' checked="1" ' ; ?> /> 下载远程图片和资源 &nbsp;&nbsp;
-<input name="dellink" type="checkbox" class="uk-checkbox" id="dellink" value="1" <?php if($cfg_arc_dellink=='Y' ) echo ' checked="1" ' ; ?> /> 删除非站内链接 <a href="javascript:OpenMyWin('article_allowurl_edit.php');">[设置]</a> &nbsp;&nbsp;
+<input name="dellink" type="checkbox" class="uk-checkbox" id="dellink" value="1" <?php if($cfg_arc_dellink=='Y' ) echo ' checked="1" ' ; ?> /> 删除非站内链接 <a href="article_allowurl_edit.php"> [设置]</a> &nbsp;&nbsp;
 <input name="autolitpic" type="checkbox" class="uk-checkbox" id="autolitpic" value="1" <?php if($cfg_arc_autopic=='Y' ) echo ' checked="1" ' ; ?> /> 提取第一个图片为缩略图 &nbsp;&nbsp;
 <input type='checkbox' name='needwatermark' value='1' class="uk-checkbox" <?php if($photo_markup=='1' ) echo "checked" ; ?> /> 图片是否加水印
 </td>
