@@ -3,12 +3,11 @@
 - @author    DedeCMS团队
 - @copyright Copyright (c) 2007 - 2021, 上海卓卓网络科技有限公司 (DesDev, Inc.)
 --->
-
 <html>
 <head>
 <meta charset="{dede:global.cfg_soft_lang/}" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>数据库管理</title>
+<title>数据库管理 - 数据还原</title>
 <meta name="copyright" content="2007-2021 DedeCMS, 上海卓卓网络科技有限公司 (DesDev, Inc.)" />
 <link rel="icon" href="/favicon.ico" />
 <!-- CSS FILES -->
@@ -20,11 +19,11 @@
 <div id="Table_Header_202X2W2X1X292F" class="uk-card uk-card-small uk-card-default" uk-sticky="bottom: #offset">
 <div id="Header_1W2T2S2T1V252B" class="uk-card-header">
 <div class="uk-grid uk-grid-small uk-text-small">
-<span><ul class="uk-breadcrumb"><li><span>数据库管理</span></li></ul></span>
+<span><ul class="uk-breadcrumb"><li><a href="sys_data.php"><span>数据库管理</span></a></li><li><span>数据还原</span></li></ul></span>
 </div>
 <!-- 搜索表单 -->
 <ul class="uk-navbar-nav dede-card-navbar" uk-navbar >
-<li style="margin-right: 12px;"><a href="sys_data_revert.php" class="uk-button uk-button-default uk-button-small uk-flex-inline ">数据还原</a></li>
+<li style="margin-right: 12px;"><a href="sys_data.php" class="uk-button uk-button-default uk-button-small uk-flex-inline ">数据库备份</a></li>
 <li style="margin-right: 12px;"><a href="sys_sql_query.php?dopost=opimizeAll&token=<?php echo $_SESSION['token']; ?>" class="uk-button uk-button-default uk-button-small uk-flex-inline ">整库优化</a></li>
 <li style="margin-right: 12px;"><a href="sys_sql_query.php?dopost=repairAll&token=<?php echo $_SESSION['token']; ?>" class="uk-button uk-button-default uk-button-small uk-flex-inline ">整库修复</a></li>
 </ul>
@@ -35,12 +34,10 @@
 <thead>
 <tr>
 <td width="5%"></td>
-<td>表名</td>
-<td width="8%">记录数</td>
-<td width="8%">数据大小</td>
-<td width="12%">创建日期</td>
-<td width="12%">更新日期</td>
-<td width="10%">操作</td>
+<td width="16%">表名</td>
+<td width="5%">ID</td>
+<td width="12%">时间</td>
+<td>文件名</td>
 </tr>
 </thead>
 </table>
@@ -57,40 +54,41 @@
 <thead>
 <tr>
 <td width="5%"></td>
-<td>表名</td>
-<td width="8%">记录数</td>
-<td width="8%">数据大小</td>
-<td width="12%">创建日期</td>
-<td width="12%">更新日期</td>
-<td width="10%">操作</td>
+<td width="16%">表名</td>
+<td width="5%">ID</td>
+<td width="12%">时间</td>
+<td>文件名</td>
 </tr>
 </thead>
 <!-- /表头隐藏部分 -->
 <tbody>
 <!-- 内容列表 -->
-{dede:array.dedeSysTables}
+<?php foreach ($filelists as $file): ?>
+<?php $t = tableinfo($file);?>
 <tr>
-<td><input type="checkbox" class="uk-checkbox dede-checkbox" value="{dede:value.Name/}" /></td>
-<td>{dede:value.Name /}</td>
-<td>{dede:value.Rows /}</td>
-<td>{dede:value.Data_length /}</td>
-<td>{dede:value.Create_time /}</td>
-<td>{dede:value.Update_time /}</td>
-<td>
-<a href="sys_sql_query.php?dopost=opimize&tablename={dede:value.Name/}&token=<?php echo $_SESSION['token']; ?>">[优化]</a>
-<a href="sys_sql_query.php?dopost=repair&tablename={dede:value.Name /}&token=<?php echo $_SESSION['token']; ?>">[修复]</a>
-</td>
+<td><input type="checkbox" class="uk-checkbox dede-checkbox" value="<?=$file?>" checked/></td>
+<td><?=$t[0];?></td>
+<td><?=$t[1];?></td>
+<td><?=date('Y-m-d H:i:s', $t[2]);?></td>
+<td><?=$file?></td>
 </tr>
-{/dede:array}
+<?php endforeach; ?>
+<?php $s = tableinfo($structfile);?>
+<tr>
+<td><input type="checkbox" class="uk-checkbox dede-checkbox" value="<?=$structfile?>" checked/></td>
+<td>还原表结构信息</td>
+<td><?=$t[1]?></td>
+<td><?=date('Y-m-d H:i:s', $t[2]);?></td>
+<td><?=$structfile?></td>
+</tr>
 <!-- /内容列表 -->
 </tbody>
 <!-- 批量操作 -->
 <thead>
 <tr>
-<td><input type="checkbox" id="select-all" class="uk-checkbox" /></td>
+<td><input type="checkbox" id="select-all" class="uk-checkbox" checked/></td>
 <td height="36" colspan="8">
-    <!-- &&tablearr -->
-<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Action('sys_data_done.php?dopost=bak&tablearr=')" class="uk-button uk-button-default uk-button-small">数据备份</a>
+<a href="#" onclick="DedeCMS_JSCODE_Version_Checked_Action('sys_data_done.php?dopost=redat&bakfiles=')" class="uk-button uk-button-default uk-button-small">还原数据</a>
 </td>
 </tr>
 </thead>
