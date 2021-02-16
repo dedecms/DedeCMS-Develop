@@ -271,7 +271,7 @@ else if ($dopost == 'redat') {
             exit();
         }
         $val = $countfiles - count(explode(',', $bakfilesTmp));
-        $tmsg = "成功还原<br/>{$nowfile}<br/>{$oknum}条记录<br/><progress class='' uk-progress''  value='{$val}'  max='{$countfiles}' ></progress><br/>正在准备还原其它数据...";
+        $tmsg = "成功还原<br/>{$nowfile}<br/>{$oknum}条记录<br/><br/><progress class='' uk-progress''  value='{$val}'  max='{$countfiles}' ></progress><br/><br/>正在准备还原其它数据...";
         $doneForm = "<form name='gonext' method='post' action='sys_data_done.php?dopost=redat'>
         <input type='hidden' name='startgo' value='1' />
         <input type='hidden' name='bakfiles' value='$bakfilesTmp' />
