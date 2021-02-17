@@ -33,7 +33,7 @@ function GetFormItem($ctag)
         if ($ctag->GetAtt("type") == 'select') {
             $myformItem = '';
             $items = explode(',', $innertext);
-            $myformItem = "<select name='$fieldname' style='width:150px'>";
+            $myformItem = "<select name='$fieldname' class='uk-select uk-form-width-large uk-form-small'>";
             foreach ($items as $v) {
                 $v = trim($v);
                 if ($v != '') {
@@ -113,7 +113,7 @@ function GetFormItem($ctag)
             $dfvalue = "";
         }
 
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:200' value='$dfvalue'>\r\n";
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' value='$dfvalue'>\r\n";
         $formitem = str_replace("~name~", $ctag->GetAtt('itemname'), $formitem);
         $formitem = str_replace("~form~", $innertext, $formitem);
         return $formitem;

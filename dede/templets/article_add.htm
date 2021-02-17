@@ -231,8 +231,12 @@ echo " checked='1' " ?> />
 <input type='checkbox' name='needwatermark' value='1' class="uk-checkbox" <?php if($photo_markup=='1' ) echo "checked" ; ?> /> 图片是否加水印
 </td>
 </tr>
+
 </table>
 </td>
+</tr>
+<tr >
+<td colspan="2"><?php PrintAutoFieldsAdd($cInfos['fieldset'],'autofield'); ?></td>
 </tr>
 </table>
 </div>
