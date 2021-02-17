@@ -21,10 +21,7 @@ if (empty($dopost)) {
 $bkdir = DEDEDATA . '/' . $cfg_backup_dir;
 
 //跳转到一下页的JS
-$gotojs = "function GotoNextPage(){
-    document.gonext." . "submit();
-}" . "\r\nset" . "Timeout('GotoNextPage()',500);";
-
+$gotojs = "function GotoNextPage(){document.gonext." . "submit();}" . "\r\nset" . "Timeout('GotoNextPage()',500);";
 $dojs = "<script language='javascript'>$gotojs</script>";
 
 $isstruct = 1;
@@ -34,7 +31,6 @@ if (empty($startpos)){
 }
 $time = time();
 
-$backup_file  = "/tmp/employee.sql";
 $tables = explode(',', $tablearr);
 
 
