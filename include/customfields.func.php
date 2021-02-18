@@ -76,7 +76,6 @@ function GetFormItem($ctag, $admintype = 'admin')
                 $i++;
             
             }
-        
         }
         $innertext = $myformItem;
     
@@ -387,7 +386,7 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
     
     }
     if ($ftype == 'select') {
-        $myformItem = "<select name='$fieldname' style='width:150px'>";
+        $myformItem = "<select name='$fieldname' class='uk-select uk-form-width-large uk-form-small'>";
         if (is_array($items)) {
             foreach ($items as $v) {
                 $v = trim($v);
@@ -430,9 +429,7 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
                     continue;
                 
                 }
-
-                $myformItem .= ($fvalue == $v ? "<input type='radio' name='$fieldname' class='uk-radio' value='$v' checked='checked' />$v\r\n" : "<input type='radio' name='$fieldname' class='uk-radio' value='$v' />$v\r\n");
-            
+                $myformItem .= ($fvalue == $v ? "<input type='radio' name='$fieldname' class='uk-radio' value='$v' checked='checked' />$v\r\n" : "<input type='radio' name='$fieldname' class='uk-radio' value='$v' /> $v \r\n");
             }
         
         }
@@ -452,10 +449,10 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
                 
                 }
                 if (in_array($v, $fvalues)) {
-                    $myformItem .= "<input type='checkbox' name='{$fieldname}[]' class='uk-checkbox' value='$v' checked='checked' />$v\r\n";
+                    $myformItem .= "<input type='checkbox' name='{$fieldname}[]' class='uk-checkbox' value='$v' checked='checked' /> $v &nbsp&nbsp\r\n";
                 
                 } else {
-                    $myformItem .= "<input type='checkbox' name='{$fieldname}[]' class='uk-checkbox' value='$v' />$v\r\n";
+                    $myformItem .= "<input type='checkbox' name='{$fieldname}[]' class='uk-checkbox' value='$v' /> $v &nbsp&nbsp\r\n";
                 
                 }
             
@@ -499,7 +496,7 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
         $innertext = $myformItem;
     
     } else if ($ftype == "multitext") {
-        $innertext = "<textarea name='$fieldname' id='$fieldname' style='width:90%;height:80px'>$fvalue</textarea>\r\n";
+        $innertext = "<textarea name='$fieldname' id='$fieldname' style='width:90%;height:80px' class='uk-textarea uk-form-width-large uk-form-small'>$fvalue</textarea>\r\n";
     
     } else if ($ftype == "datetime") {
         $nowtime = GetDateTimeMk($fvalue);
@@ -520,19 +517,33 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
             $fvalue = trim($ntag->GetInnerText());
         
         }
-        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='" . $fieldname . "_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
+        
+        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' /> <input name='" . $fieldname . "_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
     
     } else if ($ftype == "imgfile") {
-        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='" . $fieldname . "_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
+        $innertext = "
+        <div  class='uk-inline'  uk-form-custom=\"target: true\">
+        <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
+        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue'/>
+        <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择图片'>
+        </div>\r\n";
     
     } else if ($ftype == "media") {
-        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' style='width:300px'  class='text' /> <input name='" . $fieldname . "_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectMedia('form1.$fieldname')\" />\r\n";
-    
+        $innertext = "
+        <div  class='uk-inline'  uk-form-custom=\"target: true\">
+        <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
+        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue'/>
+        <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择媒体文件'>
+        </div>\r\n";
     } else if ($ftype == "addon") {
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' value='$fvalue' style='width:300px'  class='text' /> <input name='" . $fieldname . "_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectSoft('form1.$fieldname')\" />\r\n";
-    
+        $innertext = "
+        <div  class='uk-inline'  uk-form-custom=\"target: true\">
+        <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
+        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue'/>
+        <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择文件'>
+        </div>\r\n";
     } else if ($ftype == "int" || $ftype == "float") {
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='uk-input uk-form-width-large uk-form-small' value='$fvalue' /> (填写数值)\r\n";
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='uk-input uk-form-width-large uk-form-small' value='$fvalue' /> &nbsp&nbsp(填写数值)\r\n";
     
     } else {
         $innertext = "<input type='text' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' value='$fvalue' />\r\n";
