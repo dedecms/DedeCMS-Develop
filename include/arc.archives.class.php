@@ -735,7 +735,7 @@ class Archives
             $preRow = $this->dsql->GetOne($query . $pre);
             if (is_array($preRow)) {
                 if (defined('DEDEMOB')) {
-                    $mlink = 'view.php?aid=' . $preRow['id'];
+                    $mlink = 'view.php?aid=' . $nextRow['id'];
                 } else {
                     $mlink = GetFileUrl(
                         $preRow['id'], $preRow['typeid'], $preRow['senddate'], $preRow['title'], $preRow['ismake'], $preRow['arcrank'],
