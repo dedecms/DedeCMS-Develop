@@ -79,7 +79,7 @@ else if ($dopost == 'save') {
     }
 
     //对保存的内容进行处理
-    $pubdate = GetMkTime($pubdate);
+    $pubdate = strtotime($pubdate);
     $sortrank = AddDay($pubdate, $sortup);
     if ($ishtml == 0) {
         $ismake = -1;

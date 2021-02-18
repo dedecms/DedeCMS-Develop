@@ -104,7 +104,7 @@ else if ($dopost == 'save') {
         $source = '未知';
     }
 
-    $pubdate = GetMkTime($pubdate);
+    $pubdate = strtotime($pubdate);
     $senddate = time();
     $sortrank = AddDay($pubdate, $sortup);
 

@@ -95,7 +95,7 @@ else if($dopost=='save') {
     }
     if(empty($source)) { $source='未知';
     }
-    $pubdate = GetMkTime($pubdate);
+    $pubdate = strtotime($pubdate);
     $senddate = time();
     $sortrank = AddDay($pubdate, $sortup);
     $ismake = $ishtml==0 ? -1 : 0;

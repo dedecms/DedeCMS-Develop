@@ -191,7 +191,7 @@ echo " <option value='".$row->rank."'>".$row->membername."</option>\r\n";
 <td>
 <div class="uk-inline">
 <span class="uk-form-icon uk-icon" uk-icon="icon: calendar4-week"></span>
-<input class="uk-input uk-form-width-large uk-form-small" name="pubdate" type="datetime-local" value="<?=GetDateTimeMk(time())?>" placeholder="<?=GetDateTimeMk(time())?>">
+<input class="uk-input uk-form-width-large uk-form-small" name="pubdate" type="datetime-local" value="<?=GetDateTimeMk($arcRow['pubdate'])?>" placeholder="1970-01-01T00:00">
 </div>
 </td>
 <td width="90" style="vertical-align:middle;">浏览次数：</td>

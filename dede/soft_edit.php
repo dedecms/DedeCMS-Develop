@@ -145,7 +145,7 @@ else if ($dopost == 'save') {
     }
 
     //对保存的内容进行处理
-    $pubdate = GetMkTime($pubdate);
+    $pubdate = strtotime($pubdate);
     $senddate = time();
     $sortrank = AddDay($pubdate, $sortup);
     if ($ishtml == 0) {

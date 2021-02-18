@@ -187,7 +187,7 @@ else echo " <option value='{$row['rank']}'>{$row['membername']}</option>\r\n";
 <td>
 <div class="uk-inline">
 <span class="uk-form-icon uk-icon" uk-icon="icon: calendar4-week"></span>
-<input name="pubdate" value="<?=GetDateTimeMk(time())?>" placeholder="<?=GetDateTimeMk(time())?>" class="uk-input uk-form-width-large uk-form-small" type="datetime-local" >
+<input name="pubdate" value="<?=GetDateTimeMk($arcRow['pubdate'])?>" placeholder="1970-01-01T00:00" class="uk-input uk-form-width-large uk-form-small" type="datetime-local" >
 </div>
 </td>
 <td width="90" style="vertical-align:middle;">浏览次数：</td>
