@@ -86,11 +86,8 @@ if ($action == 'add') {
                     `badpost` MEDIUMINT( 8 ) UNSIGNED NOT NULL DEFAULT '0',
             ";
             }
-            if ($mysql_version < 4.1) {
-                $tabsql .= "    PRIMARY KEY  (`aid`), KEY `typeid` (`typeid`)\r\n) TYPE=MyISAM; ";
-            } else {
-                $tabsql .= "    PRIMARY KEY  (`aid`), KEY `typeid` (`typeid`)\r\n) ENGINE=MyISAM DEFAULT CHARSET=" . $cfg_db_language . "; ";
-            }
+
+            $tabsql .= "    PRIMARY KEY  (`aid`), KEY `typeid` (`typeid`)\r\n) ENGINE=MyISAM DEFAULT CHARSET=" . $cfg_db_language . "; ";
             $rs = $dsql->ExecuteNoneQuery($tabsql);
             if (!$rs) {
                 ShowMsg("创建附加表失败!" . $dsql->GetError(), "javascript:;");
