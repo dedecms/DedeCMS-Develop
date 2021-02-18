@@ -73,6 +73,7 @@
 <td><?=$file?></td>
 </tr>
 <?php endforeach; ?>
+<?php if (!empty($structfile)) :?>
 <?php $s = tableinfo($structfile);?>
 <tr>
 <td><input type="checkbox" class="uk-checkbox dede-checkbox" value="<?=$structfile?>" checked/></td>
@@ -81,6 +82,7 @@
 <td><?=date('Y-m-d H:i:s', $t[2]);?></td>
 <td><?=$structfile?></td>
 </tr>
+<?php endif;?>
 <!-- /内容列表 -->
 </tbody>
 <!-- 批量操作 -->
