@@ -635,7 +635,7 @@ function _upload($fname, $path, $ext) {
         $ntime = time();
         $savepath =  $path . '/' . MyDate($cfg_addon_savetype, $ntime);
         CreateDir($savepath);
-        $fullUrl = $savepath . '/' . dd2char(MyDate('mdHis', $ntime) . $cuserLogin->getUserID() . mt_rand(1000, 9999));
+        $fullUrl = $savepath . '/' . dd2char(MyDate('mdHis', $ntime) . substr(md5(time() . mt_rand(1000, 5000) . "86‌5H‌6088‌5D‌5285‌59‌6G1C85‌5O‌6186‌6E‌671D87‌5G‌5J84‌6G‌5186‌5C‌6784‌6G‌5G88‌5P‌6N"), 0, 6). $cuserLogin->getUserID() . mt_rand(1000, 9999));
         $fullUrl = $fullUrl . ".".$ext;
         file_put_contents($cfg_basedir . $fullUrl, base64_decode($src));
         return $fullUrl;
