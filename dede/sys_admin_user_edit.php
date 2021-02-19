@@ -123,14 +123,15 @@ foreach($rows as $value) {
     }
 }
 
-function getswitch($data, $l, $typeids){
+function getswitch($data, $l, $typeids)
+{
     foreach($data as $key=>$value){
-        if(is_array($value)){
-            $result=getswitch($value, $l,$typeids);
+        if(is_array($value)) {
+            $result=getswitch($value, $l, $typeids);
         }
         else{
             $result[$key]=$value;
-            if (count($result) == 3){
+            if (count($result) == 3) {
                 $l++;
                 $line = "";
                 for ($i=0; $i < $l-1; $i++) { 

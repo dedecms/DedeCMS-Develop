@@ -210,18 +210,18 @@ else if ($dopost == 'save') {
                 if ($vs[1] == 'htmltext' || $vs[1] == 'textdata') //HTML文本特殊处理
                 {
                     ${$vs[0]} = AnalyseHtmlBody(${$vs[0]}, $description, $litpic, $keywords, $vs[1]);
-                } else if ($vs[1]=='img'){
-                    if (empty(${$vs[0]}) === false){
+                } else if ($vs[1]=='img') {
+                    if (empty(${$vs[0]}) === false) {
                         $url = UploadImage($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
-                } else if ($vs[1]=='media'){
-                    if (empty(${$vs[0]}) === false){
+                } else if ($vs[1]=='media') {
+                    if (empty(${$vs[0]}) === false) {
                         $url = UploadMedia($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
-                } else if ($vs[1]=='addon'){
-                    if (empty(${$vs[0]}) === false){
+                } else if ($vs[1]=='addon') {
+                    if (empty(${$vs[0]}) === false) {
                         $url = UploadAddon($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }

@@ -94,14 +94,15 @@ foreach($rows as $value) {
     }
 }
 
-function getswitch($data, $l){
+function getswitch($data, $l)
+{
     foreach($data as $key=>$value){
-        if(is_array($value)){
+        if(is_array($value)) {
             $result=getswitch($value, $l);
         }
         else{
             $result[$key]=$value;
-            if (count($result) == 3){
+            if (count($result) == 3) {
                 $l++;
                 $line = "";
                 for ($i=0; $i < $l-1; $i++) { 

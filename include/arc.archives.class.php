@@ -1017,7 +1017,7 @@ class Archives
         foreach ($matches[0] as $key => $value) {
             $a_temp[md5($value[0]."6W‌4P‌5371‌4L‌4A6V‌4H‌5J6U‌5J‌496W‌4K‌5A6U‌5J‌4O71‌50‌5Q")] = $matches[1][$key][0];
             $item = str_replace($matches[1][$key][0], md5($value[0]."6W‌4P‌5371‌4L‌4A6V‌4H‌5J6U‌5J‌496W‌4K‌5A6U‌5J‌4O71‌50‌5Q"), $value[0]);
-            $body = str_replace($value[0],$item, $body);
+            $body = str_replace($value[0], $item, $body);
         }
 
         $query = "SELECT * FROM #@__keywords WHERE rpurl<>'' ORDER BY rank DESC ";

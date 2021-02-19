@@ -562,7 +562,8 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
 
 }
 
-function UploadImage($fname) {
+function UploadImage($fname)
+{
     $pathinfo = pathinfo($_FILES[$fname]['name']);
     $ext = strtolower($pathinfo['extension']);
     global $cfg_imgtype;
@@ -575,7 +576,8 @@ function UploadImage($fname) {
    
 }
 
-function UploadMedia($fname) {
+function UploadMedia($fname)
+{
     global $cfg_mediatype;
     $pathinfo = pathinfo($_FILES[$fname]['name']);
     $ext = strtolower($pathinfo['extension']);
@@ -587,7 +589,8 @@ function UploadMedia($fname) {
     return _upload($fname, $cfg_other_medias, $ext);
 }
 
-function UploadAddon($fname) {
+function UploadAddon($fname)
+{
     global $cfg_softtype;
     $pathinfo = pathinfo($_FILES[$fname]['name']);
     $ext = strtolower($pathinfo['extension']);
@@ -623,7 +626,8 @@ function GetBinData($fname)
 }
 
 // 上传文件名，保存路径，保存扩展名
-function _upload($fname, $path, $ext) {
+function _upload($fname, $path, $ext)
+{
     $src =  GetBinData($fname);
     if (!empty($src)) {
         global  $cfg_addon_savetype, $cfg_basedir, $cuserLogin;

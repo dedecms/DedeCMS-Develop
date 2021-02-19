@@ -26,7 +26,7 @@ $dojs = "<script language='javascript'>$gotojs</script>";
 
 $isstruct = 1;
 $iszip = 1;
-if (empty($startpos)){
+if (empty($startpos)) {
     $startpos = 0;
 }
 $time = time();
@@ -205,12 +205,10 @@ else if ($dopost == 'redat') {
     }
 
     foreach ($bakfiles as $filename) {
-        if(preg_match("#tables_struct#", $filename))
-        {
+        if(preg_match("#tables_struct#", $filename)) {
             $structfile = $filename;
         }
-        else if( filesize("$bkdir/$filename") > 0 )
-        {
+        else if(filesize("$bkdir/$filename") > 0 ) {
             $filelists[] = $filename;
         }
     }

@@ -15,8 +15,10 @@ if($dopost!='save') {
     ClearMyAddon();
     $channelid = empty($channelid) ? 0 : intval($channelid);
     $cid = empty($cid) ? 0 : intval($cid);
-    if(empty($litpic_b64)) {  $litpic_b64 = '';  }
-    if(empty($geturl)) {  $geturl = ''; }
+    if(empty($litpic_b64)) {  $litpic_b64 = '';  
+    }
+    if(empty($geturl)) {  $geturl = ''; 
+    }
     $keywords = $writer = $source = $body = $description = $title = '';
 
 
@@ -157,22 +159,23 @@ else if($dopost=='save') {
         if(is_array($addonfields)) {
             foreach($addonfields as $v)
             {
-                if($v=='') { continue; }
+                if($v=='') { continue; 
+                }
                 $vs = explode(',', $v);
                 if($vs[1]=='htmltext'||$vs[1]=='textdata') {
                     ${$vs[0]} = AnalyseHtmlBody(${$vs[0]}, $description, $litpic, $keywords, $vs[1]);
-                } else if ($vs[1]=='img'){
-                    if (empty(${$vs[0]}) === false){
+                } else if ($vs[1]=='img') {
+                    if (empty(${$vs[0]}) === false) {
                         $url = UploadImage($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
-                } else if ($vs[1]=='media'){
-                    if (empty(${$vs[0]}) === false){
+                } else if ($vs[1]=='media') {
+                    if (empty(${$vs[0]}) === false) {
                         $url = UploadMedia($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
-                } else if ($vs[1]=='addon'){
-                    if (empty(${$vs[0]}) === false){
+                } else if ($vs[1]=='addon') {
+                    if (empty(${$vs[0]}) === false) {
                         $url = UploadAddon($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
