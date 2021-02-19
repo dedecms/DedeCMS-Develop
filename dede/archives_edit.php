@@ -170,6 +170,7 @@ else if ($dopost == 'save') {
                 else if ($vs[1]=='img'){
                     if (empty(${$vs[0]}) === false){
                         $url = UploadImage($vs[0]);
+                        @unlink($cfg_basedir.${$vs[0]."_url"});
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }else{
                         ${$vs[0]} = GetFieldValueA(${$vs[0]."_url"}, $vs[1], $id);
@@ -177,6 +178,7 @@ else if ($dopost == 'save') {
                 } else if ($vs[1]=='media'){
                     if (empty(${$vs[0]}) === false){
                         $url = UploadMedia($vs[0]);
+                        @unlink($cfg_basedir.${$vs[0]."_url"});
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     } else{
                         ${$vs[0]} = GetFieldValueA(${$vs[0]."_url"}, $vs[1], $id);
@@ -184,6 +186,7 @@ else if ($dopost == 'save') {
                 } else if ($vs[1]=='media'){
                     if (empty(${$vs[0]}) === false){
                         $url = UploadAddon($vs[0]);
+                        @unlink($cfg_basedir.${$vs[0]."_url"});
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     } else{
                         ${$vs[0]} = GetFieldValueA(${$vs[0]."_url"}, $vs[1], $id);

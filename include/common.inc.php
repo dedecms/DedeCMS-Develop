@@ -82,7 +82,6 @@ if (!defined('DEDEREQUEST')) {
         }
     }
 
-    //var_dump($_REQUEST);exit;
     CheckRequest($_REQUEST);
     CheckRequest($_COOKIE);
 

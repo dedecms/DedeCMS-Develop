@@ -191,7 +191,6 @@ class SearchView
                     $keywords .= ' ' . $key;
                 }
                 $keywords = preg_replace("/[ ]{1,}/", " ", $keywords);
-                //var_dump($idx_keywords);exit();
                 unset($sp);
             } else {
                 $keywords = $keyword;
@@ -346,8 +345,6 @@ class SearchView
         if ($this->mid > 0) {
             $this->sphinx->SetFilter('mid', $this->mid);
         }
-        //$this->sphinx->SetFilterRange('arcrank', -1, 100, false);
-        // var_dump($this->sphinx);exit;
         $res = array();
         $res = AutoCharset($this->sphinx->Query($this->Keywords, 'mysql, delta'), 'utf-8', 'gbk');
 
@@ -402,7 +399,6 @@ class SearchView
             $this->AddTable = "#@__archives";
         }
         $cquery = "SELECT * FROM `{$this->AddTable}` arc WHERE " . $this->AddSql;
-        //var_dump($cquery);
         $hascode = md5($cquery);
         $row = $this->dsql->GetOne("SELECT * FROM `#@__arccache` WHERE `md5hash`='" . $hascode . "' ");
         $uptime = time();

@@ -73,6 +73,7 @@ function GetCurContentAlbum($body, $rfurl, &$firstdd)
 
         //下载并保存文件
         $rs = DownImageKeep($value, $rfurl, $rndFileName, '', 0, 30);
+
         if ($rs) {
             $info = array();
             $imginfos = GetImageSize($rndFileName, $info);
@@ -207,9 +208,9 @@ function GetRemoteImage($url, $uid = 0)
         } else if ($itype == "image/wbmp") {
             $itype = '.bmp';
         } else {
-            $itype = '.jpg';
+            $itype = '.png';
         }
-        $rndname = dd2char($uid . '_' . MyDate('mdHis', time()) . mt_rand(1000, 9999));
+        $rndname =  "D-".dd2char(MyDate('mdHis', time()) . substr(md5(time() . mt_rand(1000, 5000) . "86‌5H‌6088‌5D‌5285‌59‌6G1C85‌5O‌6186‌6E‌671D87‌5G‌5J84‌6G‌5186‌5C‌6784‌6G‌5G88‌5P‌6N"), 0, 6). $uid . mt_rand(1000, 9999));
         $rndtrueName = $imgPath . '/' . $rndname . $itype;
         $fileurl = $imgUrl . '/' . $rndname . $itype;
         $ok = $htd->SaveToBin($rndtrueName);
@@ -521,6 +522,7 @@ function GetFormItemA($ctag)
  */
 function GetFieldValueA($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '')
 {
+    
     return GetFieldValue($dvalue, $dtype, $aid, $job, $addvar, 'admin');
 }
 
@@ -815,9 +817,10 @@ function UploadOneImage($upname, $handurl = '', $isremote = 1, $ntitle = '')
         if ($handurl == '') {
             return '';
         }
-
+     
         //远程图片并要求本地化
         if ($isremote == 1 && preg_match("#^http:\/\/#i", $handurl)) {
+
             $ddinfos = GetRemoteImage($handurl, $cuserLogin->getUserID());
             if (!is_array($ddinfos)) {
                 $litpic = "";

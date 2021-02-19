@@ -134,7 +134,7 @@ function GetFormItem($ctag, $admintype = 'admin')
         }
     } else if ($fieldType == 'imgfile') {
         if ($admintype == 'diy') {
-            $innertext = "<input type='file' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' />\r\n";
+            $innertext = "<input type='text' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' />\r\n";
         } else {
             $innertext = "<input type='text' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' /> （图片网址）\r\n";
         }
@@ -142,7 +142,6 @@ function GetFormItem($ctag, $admintype = 'admin')
     }  else if ($fieldType == 'media') {
         if ($admintype == 'diy') {
             $innertext = "<input type='hidden' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small'/> 不支持的类型\r\n";
-        
         } else {
             $innertext = "
             <div  class='uk-inline'  uk-form-custom=\"target: true\">
@@ -276,6 +275,7 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
         return $filename;
     
     } else if ($dtype == 'img' || $dtype == 'imgfile') {
+       
         if (preg_match("#[\\|/]uploads[\\|/]userup#", $dvalue)) {
             return $dvalue;
         
@@ -294,27 +294,16 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
         $iurl = trim(str_replace($GLOBALS['cfg_basehost'], "", $iurl));
         $imgurl = "{dede:img text='' width='' height=''} " . $iurl . " {/dede:img}";
         if (preg_match("/^http:\/\//i", $iurl) && $GLOBALS['cfg_isUrlOpen']) {
+            
             //远程图片
             $reimgs = '';
-            if ($GLOBALS['cfg_isUrlOpen']) {
+            if ($GLOBALS['cfg_isUrlOpen'] && $GLOBALS['cfg_rm_remote'] == 'Y') {
                 $reimgs = GetRemoteImage($iurl, $adminid);
                 if (is_array($reimgs)) {
-                    if ($dtype == 'imgfile') {
-                        $imgurl = $reimgs[1];
-                    } else {
-                        $imgurl = "{dede:img text='' width='" . $reimgs[1] . "' height='" . $reimgs[2] . "'} " . $reimgs[0] . " {/dede:img}";
-                    
-                    }
-                
+                    $imgurl = "{dede:img text='' width='" . $reimgs[1] . "' height='" . $reimgs[2] . "'} " . $reimgs[0] . " {/dede:img}";
                 }
-            
             } else {
-                if ($dtype == 'imgfile') {
-                    $imgurl = $iurl;
-                } else {
                     $imgurl = "{dede:img text='' width='' height=''} " . $iurl . " {/dede:img}";
-                }
-            
             }
         
         } else if ($iurl != '') {
@@ -323,13 +312,9 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
             if (is_file($imgfile)) {
                 $info = array();
                 $imginfos = GetImageSize($imgfile, $info);
-                if ($dtype == "imgfile") {
-                    $imgurl = $iurl;
-                
-                } else {
+
                     $imgurl = "{dede:img text='' width='" . $imginfos[0] . "' height='" . $imginfos[1] . "'} $iurl {/dede:img}";
                 
-                }
             
             }
         
@@ -619,10 +604,10 @@ function GetBinData($fname)
         if (!$rs) {
             return '';
         }
-
         $fp = fopen($tmpfile, 'r');
         $data = base64_encode(fread($fp, filesize($tmpfile)));
         fclose($fp);
+        @unlink($tmpfile);
         return $data;
     }
 }
@@ -635,7 +620,7 @@ function _upload($fname, $path, $ext) {
         $ntime = time();
         $savepath =  $path . '/' . MyDate($cfg_addon_savetype, $ntime);
         CreateDir($savepath);
-        $fullUrl = $savepath . '/' . dd2char(MyDate('mdHis', $ntime) . substr(md5(time() . mt_rand(1000, 5000) . "86‌5H‌6088‌5D‌5285‌59‌6G1C85‌5O‌6186‌6E‌671D87‌5G‌5J84‌6G‌5186‌5C‌6784‌6G‌5G88‌5P‌6N"), 0, 6). $cuserLogin->getUserID() . mt_rand(1000, 9999));
+        $fullUrl = $savepath . '/U-' . dd2char(MyDate('mdHis', $ntime) . substr(md5(time() . mt_rand(1000, 5000) . "86‌5H‌6088‌5D‌5285‌59‌6G1C85‌5O‌6186‌6E‌671D87‌5G‌5J84‌6G‌5186‌5C‌6784‌6G‌5G88‌5P‌6N"), 0, 6). $cuserLogin->getUserID() . mt_rand(1000, 9999));
         $fullUrl = $fullUrl . ".".$ext;
         file_put_contents($cfg_basedir . $fullUrl, base64_decode($src));
         return $fullUrl;

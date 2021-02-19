@@ -133,6 +133,7 @@ function GetFormItem($ctag)
  */
 function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '')
 {
+    
     global $cfg_cookie_encode, $cfg_dir_purview, $isUrlOpen;
     if ($dtype == "int") {
         $dvalue = trim(preg_replace("#[^0-9]#", "", $dvalue));
@@ -181,10 +182,12 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '')
             return $filename;
         }
     } else if ($dtype == "img") {
+
         $iurl = stripslashes($dvalue);
         if (trim($iurl) == "") {
             return "";
         }
+
         $iurl = trim(str_replace($GLOBALS['cfg_basehost'], "", $iurl));
         $imgurl = "{dede:img text='' width='' height=''} " . $iurl . " {/dede:img}";
         if (preg_match("#^http:\/\/#i", $iurl) && $GLOBALS['isUrlOpen']) {
@@ -208,6 +211,7 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '')
         }
         return addslashes($imgurl);
     } else {
+ 
         return $dvalue;
     }
 }
