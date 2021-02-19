@@ -148,7 +148,7 @@ function GetFormItem($ctag, $admintype = 'admin')
             <div  class='uk-inline'  uk-form-custom=\"target: true\">
             <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
             <input name='$fieldname' type='file' id='$fieldname' />
-            <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择文件'>
+            <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择多媒体文件'>
             </div>\r\n";
         }
     
@@ -161,7 +161,7 @@ function GetFormItem($ctag, $admintype = 'admin')
             <div  class='uk-inline'  uk-form-custom=\"target: true\">
             <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
             <input name='$fieldname' type='file' id='$fieldname' />
-            <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择文件'>
+            <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择压缩文件'>
             </div>\r\n";
         }
     
@@ -514,7 +514,6 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
         }
         $val = trim($fvalue->InnerText);
         $innertext = "
-
         <div uk-form-custom='target: true'>
             <input name='$fieldname' type='file' id='$fieldname'>
             <input class='uk-input uk-form-width-large' name='$fieldname"."_url' type='text' id='$fieldname"."_url'  value='$val' placeholder='$val' disabled> &nbsp&nbsp (点击选择本地图片)
@@ -533,35 +532,20 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
         $innertext = "<input type='text' name='$fieldname' id='$fieldname'  value='$val' class='uk-input uk-form-width-large uk-form-small' /> &nbsp&nbsp（图片网址）\r\n";
     
     } else if ($ftype == "media") {
-        $ndtp = new DedeTagParse();
-        $ndtp->LoadSource($fvalue);
-        if (!is_array($ndtp->CTags)) {
-            $ndtp->Clear();
-            $fvalue = (object) null;
-        } else {
-            $fvalue = $ndtp->GetTag("media");
-        }
+        $val = trim($fvalue);
         $innertext = "
-        <div  class='uk-inline'  uk-form-custom=\"target: true\">
-        <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
-        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue->InnerText'/>
-        <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择媒体文件'>
-        </div>\r\n";
+        <div uk-form-custom='target: true'>
+            <input name='$fieldname' type='file' id='$fieldname'>
+            <input class='uk-input uk-form-width-large' name='$fieldname"."_url' type='text' id='$fieldname"."_url'  value='$val' placeholder='$val' disabled> &nbsp&nbsp (点击选择多媒体文件)
+        </div> \r\n";
+
     } else if ($ftype == "addon") {
-        $ndtp = new DedeTagParse();
-        $ndtp->LoadSource($fvalue);
-        if (!is_array($ndtp->CTags)) {
-            $ndtp->Clear();
-            $fvalue = (object) null;
-        } else {
-            $fvalue = $ndtp->GetTag("addon");
-        }
+        $val = trim($fvalue);
         $innertext = "
-        <div  class='uk-inline'  uk-form-custom=\"target: true\">
-        <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
-        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue->InnerText'/>
-        <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择文件'>
-        </div>\r\n";
+        <div uk-form-custom='target: true'>
+            <input name='$fieldname' type='file' id='$fieldname'>
+            <input class='uk-input uk-form-width-large' name='$fieldname"."_url' type='text' id='$fieldname"."_url'  value='$val' placeholder='$val' disabled> &nbsp&nbsp (点击选择压缩包)
+        </div> \r\n";
     } else if ($ftype == "int" || $ftype == "float") {
         $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='uk-input uk-form-width-large uk-form-small' value='$fvalue' /> &nbsp&nbsp(填写数值)\r\n";
     
@@ -575,16 +559,46 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
 
 }
 
+function UploadImage($fname) {
+    $pathinfo = pathinfo($_FILES[$fname]['name']);
+    $ext = strtolower($pathinfo['extension']);
+    if (in_array(strtolower($ext), array("jpeg", "gif", "png")) === false) {
+        ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
+        exit();
+    }
+    global $cfg_image_dir;
+    return _upload($fname, $cfg_image_dir, 'png');
+   
+}
+
+function UploadMedia($fname) {
+    $pathinfo = pathinfo($_FILES[$fname]['name']);
+    $ext = strtolower($pathinfo['extension']);
+    if (in_array(strtolower($ext), array("mp3", "mp4", "m4a")) === false) {
+        ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
+        exit();
+    }
+    global $cfg_other_medias;
+    return _upload($fname, $cfg_other_medias, $ext);
+}
+
+function UploadAddon($fname) {
+    $pathinfo = pathinfo($_FILES[$fname]['name']);
+    $ext = strtolower($pathinfo['extension']);
+    if (in_array(strtolower($ext), array("zip", "rar")) === false) {
+        ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
+        exit();
+    }
+    global $cfg_soft_dir;
+    return _upload($fname, $cfg_soft_dir, $ext);
+}
+
+
 
 //保存二进制文件数据
 //为了安全起见，对二进制数据保存使用base64编码后存入
 function GetBinData($fname)
 {
-    $pathinfo = pathinfo($_FILES[$fname]['name']);
-    if (in_array(strtolower($pathinfo['extension']), array("jpeg", "gif", "png")) === false) {
-        ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
-        exit();
-    }
     $tmp = DEDEDATA . '/uploadtmp';
     if (!isset($_FILES[$fname]['tmp_name']) || !is_uploaded_file($_FILES[$fname]['tmp_name'])) {
         return '';
@@ -600,4 +614,19 @@ function GetBinData($fname)
         fclose($fp);
         return $data;
     }
+}
+
+// 上传文件名，保存路径，保存扩展名
+function _upload($fname, $path, $ext) {
+    $src =  GetBinData($fname);
+    if (!empty($src)) {
+        global  $cfg_addon_savetype, $cfg_basedir, $cuserLogin;
+        $ntime = time();
+        $savepath =  $path . '/' . MyDate($cfg_addon_savetype, $ntime);
+        CreateDir($savepath);
+        $fullUrl = $savepath . '/' . dd2char(MyDate('mdHis', $ntime) . $cuserLogin->getUserID() . mt_rand(1000, 9999));
+        $fullUrl = $fullUrl . ".".$ext;
+        file_put_contents($cfg_basedir . $fullUrl, base64_decode($src));
+        return $fullUrl;
+    } 
 }
