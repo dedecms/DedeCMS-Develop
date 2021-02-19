@@ -136,7 +136,11 @@ function GetFormItem($ctag, $admintype = 'admin')
         if ($admintype == 'diy') {
             $innertext = "<input type='text' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' />\r\n";
         } else {
-            $innertext = "<input type='text' name='$fieldname' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' /> （图片网址）\r\n";
+            $innertext = "
+            <div  class='uk-inline'  uk-form-custom=\"target: true\">
+            <span class='uk-form-icon uk-icon' uk-icon='icon: globe2'></span>
+            <input type='text' name='$fieldname' id='$fieldname'   class='uk-input uk-form-width-large uk-form-small'/> &nbsp&nbsp（图片网址）
+            </div>\r\n";
         }
     
     }  else if ($fieldType == 'media') {
@@ -517,7 +521,13 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
             $fvalue = $ndtp->GetTag("img");
         }
         $val = trim($fvalue->InnerText);
-        $innertext = "<input type='text' name='$fieldname' id='$fieldname'  value='$val' class='uk-input uk-form-width-large uk-form-small' /> &nbsp&nbsp（图片网址）\r\n";
+
+        $innertext = "
+        <input name='$fieldname"."_url' type='hidden' id='$fieldname"."_url' value='$val'>
+        <div  class='uk-inline'  uk-form-custom=\"target: true\">
+        <span class='uk-form-icon uk-icon' uk-icon='icon: globe2'></span>
+        <input type='text' name='$fieldname' id='$fieldname'  value='$val' class='uk-input uk-form-width-large uk-form-small' placeholder='$val'/> &nbsp&nbsp（图片网址）
+        </div>\r\n";
     
     } else if ($ftype == "media") {
         $val = trim($fvalue);

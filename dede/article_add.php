@@ -161,8 +161,7 @@ else if($dopost=='save') {
                 $vs = explode(',', $v);
                 if($vs[1]=='htmltext'||$vs[1]=='textdata') {
                     ${$vs[0]} = AnalyseHtmlBody(${$vs[0]}, $description, $litpic, $keywords, $vs[1]);
-                } 
-                else if ($vs[1]=='img'){
+                } else if ($vs[1]=='img'){
                     if (empty(${$vs[0]}) === false){
                         $url = UploadImage($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
@@ -172,14 +171,12 @@ else if($dopost=='save') {
                         $url = UploadMedia($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
-                } else if ($vs[1]=='media'){
+                } else if ($vs[1]=='addon'){
                     if (empty(${$vs[0]}) === false){
                         $url = UploadAddon($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
-                }
-                else
-                {
+                } else {
                     if(!isset(${$vs[0]})) { ${$vs[0]} = '';
                     }
                     ${$vs[0]} = GetFieldValueA(${$vs[0]}, $vs[1], $arcID);

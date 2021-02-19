@@ -220,7 +220,7 @@ else if ($dopost == 'save') {
                         $url = UploadMedia($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
                     }
-                } else if ($vs[1]=='media'){
+                } else if ($vs[1]=='addon'){
                     if (empty(${$vs[0]}) === false){
                         $url = UploadAddon($vs[0]);
                         ${$vs[0]} = GetFieldValueA($url, $vs[1], $id);
