@@ -175,7 +175,8 @@ else if ($dopost == 'save') {
                     } else{
                         ${$vs[0]} = GetFieldValueA(${$vs[0]."_url"}, $vs[1], $id);
                     }
-                } else {
+                }
+                else {
                     if (!isset(${$vs[0]})) {
                         ${$vs[0]} = '';
                     }

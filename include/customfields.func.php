@@ -127,7 +127,7 @@ function GetFormItem($ctag, $admintype = 'admin')
         } else {
             $innertext = "
             <div  class='uk-inline'  uk-form-custom=\"target: true\">
-            <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
+            <span class='uk-form-icon uk-icon' uk-icon='icon: card-image'></span>
             <input name='$fieldname' type='file' id='$fieldname' />
             <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择本地图片'>
             </div>\r\n";
@@ -146,7 +146,7 @@ function GetFormItem($ctag, $admintype = 'admin')
         } else {
             $innertext = "
             <div  class='uk-inline'  uk-form-custom=\"target: true\">
-            <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
+            <span class='uk-form-icon uk-icon' uk-icon='icon: play-btn'></span>
             <input name='$fieldname' type='file' id='$fieldname' />
             <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择多媒体文件'>
             </div>\r\n";
@@ -159,7 +159,7 @@ function GetFormItem($ctag, $admintype = 'admin')
         } else {
             $innertext = "
             <div  class='uk-inline'  uk-form-custom=\"target: true\">
-            <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
+            <span class='uk-form-icon uk-icon' uk-icon='icon: archive'></span>
             <input name='$fieldname' type='file' id='$fieldname' />
             <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择压缩文件'>
             </div>\r\n";
@@ -513,11 +513,14 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
             $fvalue = $ndtp->GetTag("img");
         }
         $val = trim($fvalue->InnerText);
+
         $innertext = "
-        <div uk-form-custom='target: true'>
-            <input name='$fieldname' type='file' id='$fieldname'>
-            <input class='uk-input uk-form-width-large' name='$fieldname"."_url' type='text' id='$fieldname"."_url'  value='$val' placeholder='$val' disabled> &nbsp&nbsp (点击选择本地图片)
-        </div> \r\n";
+        <input name='$fieldname"."_url' type='hidden' id='$fieldname"."_url' value='$val'>
+        <div  class='uk-inline'  uk-form-custom=\"target: true\">
+        <span class='uk-form-icon uk-icon' uk-icon='icon: card-image'></span>
+        <input name='$fieldname' type='file' id='$fieldname' />
+        <input class='uk-input uk-form-width-large' name='$fieldname' type='text' id='$fieldname' placeholder='$val'> &nbsp&nbsp (点击选择本地图片)
+        </div>\r\n";
     
     } else if ($ftype == "imgfile") {
         $ndtp = new DedeTagParse();
@@ -534,18 +537,23 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
     } else if ($ftype == "media") {
         $val = trim($fvalue);
         $innertext = "
-        <div uk-form-custom='target: true'>
-            <input name='$fieldname' type='file' id='$fieldname'>
-            <input class='uk-input uk-form-width-large' name='$fieldname"."_url' type='text' id='$fieldname"."_url'  value='$val' placeholder='$val' disabled> &nbsp&nbsp (点击选择多媒体文件)
-        </div> \r\n";
+        <input name='$fieldname"."_url' type='hidden' id='$fieldname"."_url' value='$val'>
+        <div  class='uk-inline'  uk-form-custom=\"target: true\">
+        <span class='uk-form-icon uk-icon' uk-icon='icon: play-btn'></span>
+        <input name='$fieldname' type='file' id='$fieldname' />
+        <input class='uk-input uk-form-width-large' name='$fieldname' type='text' id='$fieldname' placeholder='$val'> &nbsp&nbsp (点击选择多媒体文件)
+        </div>\r\n";
 
     } else if ($ftype == "addon") {
+        $fvalue = trim($fvalue);
         $val = trim($fvalue);
         $innertext = "
-        <div uk-form-custom='target: true'>
-            <input name='$fieldname' type='file' id='$fieldname'>
-            <input class='uk-input uk-form-width-large' name='$fieldname"."_url' type='text' id='$fieldname"."_url'  value='$val' placeholder='$val' disabled> &nbsp&nbsp (点击选择压缩包)
-        </div> \r\n";
+        <input name='$fieldname"."_url' type='hidden' id='$fieldname"."_url' value='$val'>
+        <div  class='uk-inline'  uk-form-custom=\"target: true\">
+        <span class='uk-form-icon uk-icon' uk-icon='icon: parchive'></span>
+        <input name='$fieldname' type='file' id='$fieldname' />
+        <input class='uk-input uk-form-width-large' name='$fieldname' type='text' id='$fieldname' placeholder='$val'> &nbsp&nbsp (点击选择压缩包)
+        </div>\r\n";
     } else if ($ftype == "int" || $ftype == "float") {
         $innertext = "<input type='text' name='$fieldname' id='$fieldname' style='width:100px'  class='uk-input uk-form-width-large uk-form-small' value='$fvalue' /> &nbsp&nbsp(填写数值)\r\n";
     
