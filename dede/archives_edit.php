@@ -166,7 +166,25 @@ else if ($dopost == 'save') {
                 if ($vs[1] == 'htmltext' || $vs[1] == 'textdata') //HTML文本特殊处理
                 {
                     ${$vs[0]} = AnalyseHtmlBody(${$vs[0]}, $description, $litpic, $keywords, $vs[1]);
-                } else {
+                } 
+                else if ($vs[1]=='img'){
+                    if (empty(${$vs[0]}) === false){
+                        $src = GetBinData($vs[0]);
+                        if (!empty($src)) {
+                            $ntime = time();
+                            $savepath = $cfg_image_dir . '/' . MyDate($cfg_addon_savetype, $ntime);
+                            CreateDir($savepath);
+                            $fullUrl = $savepath . '/' . dd2char(MyDate('mdHis', $ntime) . $cuserLogin->getUserID() . mt_rand(1000, 9999));
+                            $fullUrl = $fullUrl . ".png";
+                            file_put_contents($cfg_basedir . $fullUrl, base64_decode($src));
+                            WaterImg($cfg_basedir . $fullUrl, 'up');
+                            ${$vs[0]} = GetFieldValueA($fullUrl, $vs[1], $id);
+                        }
+                    }else{
+                        ${$vs[0]} = GetFieldValueA(${$vs[0]."_url"}, $vs[1], $id);
+                    }
+                }
+                else {
                     if (!isset(${$vs[0]})) {
                         ${$vs[0]} = '';
                     }
