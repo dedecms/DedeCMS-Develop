@@ -570,7 +570,8 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
 function UploadImage($fname) {
     $pathinfo = pathinfo($_FILES[$fname]['name']);
     $ext = strtolower($pathinfo['extension']);
-    if (in_array(strtolower($ext), array("jpeg", "gif", "png")) === false) {
+    global $cfg_imgtype;
+    if (in_array(strtolower($ext), explode("|", $cfg_imgtype)) === false) {
         ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
         exit();
     }
@@ -580,9 +581,10 @@ function UploadImage($fname) {
 }
 
 function UploadMedia($fname) {
+    global $cfg_mediatype;
     $pathinfo = pathinfo($_FILES[$fname]['name']);
     $ext = strtolower($pathinfo['extension']);
-    if (in_array(strtolower($ext), array("mp3", "mp4", "m4a")) === false) {
+    if (in_array(strtolower($ext), explode("|", $cfg_mediatype)) === false) {
         ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
         exit();
     }
@@ -591,9 +593,10 @@ function UploadMedia($fname) {
 }
 
 function UploadAddon($fname) {
+    global $cfg_softtype;
     $pathinfo = pathinfo($_FILES[$fname]['name']);
     $ext = strtolower($pathinfo['extension']);
-    if (in_array(strtolower($ext), array("zip", "rar")) === false) {
+    if (in_array(strtolower($ext), explode("|", $cfg_softtype)) === false) {
         ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
         exit();
     }
