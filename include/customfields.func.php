@@ -226,7 +226,7 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
             return 0;
         
         }
-        return GetMkTime($dvalue);
+        return strtotime($dvalue);
     
     } else if ($dtype == 'checkbox') {
         $okvalue = '';
@@ -301,7 +301,6 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
                 if (is_array($reimgs)) {
                     if ($dtype == 'imgfile') {
                         $imgurl = $reimgs[1];
-                    
                     } else {
                         $imgurl = "{dede:img text='' width='" . $reimgs[1] . "' height='" . $reimgs[2] . "'} " . $reimgs[0] . " {/dede:img}";
                     
@@ -312,10 +311,8 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
             } else {
                 if ($dtype == 'imgfile') {
                     $imgurl = $iurl;
-                
                 } else {
                     $imgurl = "{dede:img text='' width='' height=''} " . $iurl . " {/dede:img}";
-                
                 }
             
             }
@@ -324,7 +321,7 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '', $a
             //站内图片
             $imgfile = $cfg_basedir . $iurl;
             if (is_file($imgfile)) {
-                $info = '';
+                $info = array();
                 $imginfos = GetImageSize($imgfile, $info);
                 if ($dtype == "imgfile") {
                     $imgurl = $iurl;
@@ -502,7 +499,7 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
         $nowtime = GetDateTimeMk($fvalue);
         $innertext = "<div class='uk-inline'>";
         $innertext .= "<span class='uk-form-icon uk-icon' uk-icon='icon: calendar4-week'></span>";
-        $innertext .= "<input name='$fieldname' value='$nowtime' placeholder='$nowtime' class='uk-input uk-form-width-large uk-form-small' type='datetime-local' >";
+        $innertext .= "<input name='$fieldname' value='$nowtime' placeholder='1970-01-01T00:00:00Z' class='uk-input uk-form-width-large uk-form-small' type='datetime-local' >";
         $innertext .= "</div>";
     
     } else if ($ftype == "img") {
@@ -510,36 +507,59 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
         $ndtp->LoadSource($fvalue);
         if (!is_array($ndtp->CTags)) {
             $ndtp->Clear();
-            $fvalue = "";
+            $fvalue = (object) null;
         
         } else {
-            $ntag = $ndtp->GetTag("img");
-            $fvalue = trim($ntag->GetInnerText());
-        
+            $fvalue = $ndtp->GetTag("img");
         }
-        
-        $innertext = "<input type='text' name='$fieldname' value='$fvalue' id='$fieldname' class='uk-input uk-form-width-large uk-form-small' /> <input name='" . $fieldname . "_bt' class='inputbut' type='button' value='浏览...' onClick=\"SelectImage('form1.$fieldname','big')\" />\r\n";
+        $val = trim($fvalue->InnerText);
+        $innertext = "
+
+        <div uk-form-custom='target: true'>
+            <input name='$fieldname' type='file' id='$fieldname'>
+            <input class='uk-input uk-form-width-large' name='$fieldname"."_url' type='text' id='$fieldname"."_url'  value='$val' placeholder='$val' disabled> &nbsp&nbsp (点击选择本地图片)
+        </div> \r\n";
     
     } else if ($ftype == "imgfile") {
-        $innertext = "
-        <div  class='uk-inline'  uk-form-custom=\"target: true\">
-        <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
-        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue'/>
-        <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择图片'>
-        </div>\r\n";
+        $ndtp = new DedeTagParse();
+        $ndtp->LoadSource($fvalue);
+        if (!is_array($ndtp->CTags)) {
+            $ndtp->Clear();
+            $fvalue = (object) null;
+        } else {
+            $fvalue = $ndtp->GetTag("img");
+        }
+        $val = trim($fvalue->InnerText);
+        $innertext = "<input type='text' name='$fieldname' id='$fieldname'  value='$val' class='uk-input uk-form-width-large uk-form-small' /> &nbsp&nbsp（图片网址）\r\n";
     
     } else if ($ftype == "media") {
+        $ndtp = new DedeTagParse();
+        $ndtp->LoadSource($fvalue);
+        if (!is_array($ndtp->CTags)) {
+            $ndtp->Clear();
+            $fvalue = (object) null;
+        } else {
+            $fvalue = $ndtp->GetTag("media");
+        }
         $innertext = "
         <div  class='uk-inline'  uk-form-custom=\"target: true\">
         <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
-        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue'/>
+        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue->InnerText'/>
         <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择媒体文件'>
         </div>\r\n";
     } else if ($ftype == "addon") {
+        $ndtp = new DedeTagParse();
+        $ndtp->LoadSource($fvalue);
+        if (!is_array($ndtp->CTags)) {
+            $ndtp->Clear();
+            $fvalue = (object) null;
+        } else {
+            $fvalue = $ndtp->GetTag("addon");
+        }
         $innertext = "
         <div  class='uk-inline'  uk-form-custom=\"target: true\">
         <span class='uk-form-icon uk-icon' uk-icon='icon: upload'></span>
-        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue'/>
+        <input name='$fieldname' type='file' id='$fieldname' value='$fvalue->InnerText'/>
         <input class='uk-input uk-form-small uk-form-width-large' type='text' placeholder='点击选择文件'>
         </div>\r\n";
     } else if ($ftype == "int" || $ftype == "float") {
@@ -553,4 +573,31 @@ function GetFormItemValue($ctag, $fvalue, $admintype = 'admin', $fieldname = '')
     $formitem = str_replace('~form~', $innertext, $formitem);
     return $formitem;
 
+}
+
+
+//保存二进制文件数据
+//为了安全起见，对二进制数据保存使用base64编码后存入
+function GetBinData($fname)
+{
+    $pathinfo = pathinfo($_FILES[$fname]['name']);
+    if (in_array(strtolower($pathinfo['extension']), array("jpeg", "gif", "png")) === false) {
+        ShowMsg("系统不支持上传".$pathinfo['extension']."类型，".$_FILES[$fname]['name']."上传失败。", "-1");
+        exit();
+    }
+    $tmp = DEDEDATA . '/uploadtmp';
+    if (!isset($_FILES[$fname]['tmp_name']) || !is_uploaded_file($_FILES[$fname]['tmp_name'])) {
+        return '';
+    } else {
+        $tmpfile = $tmp . '/' . md5(time() . mt_rand(1000, 5000)) . '.tmp';
+        $rs = move_uploaded_file($_FILES[$fname]['tmp_name'], $tmpfile);
+        if (!$rs) {
+            return '';
+        }
+
+        $fp = fopen($tmpfile, 'r');
+        $data = base64_encode(fread($fp, filesize($tmpfile)));
+        fclose($fp);
+        return $data;
+    }
 }

@@ -149,7 +149,7 @@ function GetFieldValue($dvalue, $dtype, $aid = 0, $job = 'add', $addvar = '')
 
         return $dvalue;
     } else if ($dtype == "datetime") {
-        return GetMkTime($dvalue);
+        return strtotime($dvalue);
     } else if ($dtype == "textdata") {
         if ($job == 'edit') {
             $addvarDirs = explode('/', $addvar);

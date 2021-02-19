@@ -15,20 +15,10 @@ if($dopost!='save') {
     ClearMyAddon();
     $channelid = empty($channelid) ? 0 : intval($channelid);
     $cid = empty($cid) ? 0 : intval($cid);
-    if(empty($litpic_b64)) { $litpic_b64 = '';
-    }
-
-    if(empty($geturl)) { $geturl = '';
-    }
-    
+    if(empty($litpic_b64)) {  $litpic_b64 = '';  }
+    if(empty($geturl)) {  $geturl = ''; }
     $keywords = $writer = $source = $body = $description = $title = '';
 
-    //采集单个网页
-    if(preg_match("#^http:\/\/#", $geturl)) {
-        include_once DEDEADMIN."/inc/inc_coonepage.php";
-        $redatas = CoOnePage($geturl);
-        extract($redatas);
-    }
 
     //获得内容类型ID
     if($cid>0 && $channelid==0) {
@@ -173,6 +163,21 @@ else if($dopost=='save') {
                 if($vs[1]=='htmltext'||$vs[1]=='textdata') {
                     ${$vs[0]} = AnalyseHtmlBody(${$vs[0]}, $description, $litpic, $keywords, $vs[1]);
                 }
+                else if ($vs[1]=='img'){
+                    if (empty(${$vs[0]}) === false){
+                        $src = GetBinData($vs[0]);
+                        if (!empty($src)) {
+                            $ntime = time();
+                            $savepath = $cfg_image_dir . '/' . MyDate($cfg_addon_savetype, $ntime);
+                            CreateDir($savepath);
+                            $fullUrl = $savepath . '/' . dd2char(MyDate('mdHis', $ntime) . $cuserLogin->getUserID() . mt_rand(1000, 9999));
+                            $fullUrl = $fullUrl . ".png";
+                            file_put_contents($cfg_basedir . $fullUrl, base64_decode($src));
+                            WaterImg($cfg_basedir . $fullUrl, 'up');
+                            ${$vs[0]} = GetFieldValueA($fullUrl, $vs[1], $id);
+                        }
+                    }
+                }
                 else
                 {
                     if(!isset(${$vs[0]})) { ${$vs[0]} = '';
@@ -215,6 +220,7 @@ else if($dopost=='save') {
     //保存到附加表
     $cts = $dsql->GetOne("SELECT addtable FROM `#@__channeltype` WHERE id='$channelid' ");
     $addtable = trim($cts['addtable']);
+
     if(empty($addtable)) {
         $dsql->ExecuteNoneQuery("DELETE FROM `#@__archives` WHERE id='$arcID'");
         $dsql->ExecuteNoneQuery("DELETE FROM `#@__arctiny` WHERE id='$arcID'");

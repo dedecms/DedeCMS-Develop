@@ -14,6 +14,7 @@ require_once DEDEINC . '/dedehttpdown.class.php';
 require_once DEDEINC . '/image.func.php';
 require_once DEDEINC . '/archives.func.php';
 require_once DEDEINC . '/arc.partview.class.php';
+
 $backurl = !empty($_COOKIE['ENV_GOBACK_URL']) ? $_COOKIE['ENV_GOBACK_URL'] : '';
 $backurl = preg_match("#content_#", $backurl) ? "<a href='$backurl'>[<u>记忆的列表页</u>]</a> &nbsp;" : '';
 if (!isset($_NOT_ARCHIVES)) {
@@ -34,7 +35,7 @@ global $colors;
  */
 function GetCurContentAlbum($body, $rfurl, &$firstdd)
 {
-    global $dsql, $cfg_multi_site, $cfg_basehost, $cfg_ddimg_width;
+    global $dsql,  $cfg_basehost, $cfg_ddimg_width;
     global $cfg_basedir, $pagestyle, $cuserLogin, $cfg_addon_savetype;
     include_once DEDEINC . '/dedecollection.func.php';
     if (empty($cfg_ddimg_width)) {
@@ -73,7 +74,7 @@ function GetCurContentAlbum($body, $rfurl, &$firstdd)
         //下载并保存文件
         $rs = DownImageKeep($value, $rfurl, $rndFileName, '', 0, 30);
         if ($rs) {
-            $info = '';
+            $info = array();
             $imginfos = GetImageSize($rndFileName, $info);
             $fsize = filesize($rndFileName);
             $filename = $milliSecond . '-' . $key . $itype;
@@ -155,7 +156,7 @@ function GetCurContent($body)
 
         $rs = $htd->SaveToBin($rndFileName);
         if ($rs) {
-            $info = '';
+            $info = array();
             $imginfos = GetImageSize($rndFileName, $info);
             $fsize = filesize($rndFileName);
             //保存图片附件信息
@@ -551,7 +552,7 @@ function PrintAutoFieldsAdd(&$fieldset, $loadtype = 'all')
     $dtp->LoadSource($fieldset);
     $dede_addonfields = '';
     if (is_array($dtp->CTags)) {
-        foreach ($dtp->CTags as $tid => $ctag) {
+        foreach ($dtp->CTags as $ctag) {
             if ($loadtype != 'autofield'
                 || ($loadtype == 'autofield' && $ctag->GetAtt('autofield') == 1)
             ) {
@@ -579,7 +580,7 @@ function PrintAutoFieldsEdit(&$fieldset, &$fieldValues, $loadtype = 'all')
     $dtp->LoadSource($fieldset);
     $dede_addonfields = "";
     if (is_array($dtp->CTags)) {
-        foreach ($dtp->CTags as $tid => $ctag) {
+        foreach ($dtp->CTags as $ctag) {
             if ($loadtype != 'autofield'
                 || ($loadtype == 'autofield' && $ctag->GetAtt('autofield') == 1)
             ) {
@@ -605,7 +606,7 @@ function PrintAutoFieldsEdit(&$fieldset, &$fieldValues, $loadtype = 'all')
  */
 function AnalyseHtmlBody($body, &$description, &$litpic, &$keywords, $dtype = '')
 {
-    global $autolitpic, $remote, $dellink, $autokey, $cfg_basehost, $cfg_auot_description, $id, $title, $cfg_soft_lang;
+    global $autolitpic, $remote, $dellink, $autokey, $cfg_auot_description, $id, $title, $cfg_soft_lang;
     $autolitpic = (empty($autolitpic) ? '' : $autolitpic);
     $body = stripslashes($body);
 
@@ -695,7 +696,7 @@ function Replace_Links(&$body, $allow_urls = array())
     $host_rule = preg_replace("#[\n\r]#", '', $host_rule);
     $host_rule = str_replace('.', "\\.", $host_rule);
     $host_rule = str_replace('/', "\\/", $host_rule);
-    $arr = '';
+    $arr = array();
     preg_match_all("#<a([^>]*)>(.*)<\/a>#iU", $body, $arr);
     if (is_array($arr[0])) {
         $rparr = array();
@@ -785,9 +786,6 @@ function UploadOneImage($upname, $handurl = '', $isremote = 1, $ntitle = '')
             exit();
         }
         if (!empty($handurl) && !preg_match("#^http:\/\/#i", $handurl) && file_exists($cfg_basedir . $handurl)) {
-            if (!is_object($dsql)) {
-                $dsql = new DedeSqli();
-            }
             $dsql->ExecuteNoneQuery("DELETE FROM `#@__uploads` WHERE url LIKE '$handurl' ");
             $fullUrl = preg_replace("#\.([a-z]*)$#i", "", $handurl);
         } else {
@@ -808,7 +806,7 @@ function UploadOneImage($upname, $handurl = '', $isremote = 1, $ntitle = '')
         $filename = $fullUrl;
 
         //水印
-        @WaterImg($imgfile, 'up');
+        @WaterImg($filename, 'up');
         $isrm_up = true;
     }
 
@@ -835,7 +833,7 @@ function UploadOneImage($upname, $handurl = '', $isremote = 1, $ntitle = '')
     }
     $imgfile = $cfg_basedir . $filename;
     if (is_file($imgfile) && $isrm_up && $filename != '') {
-        $info = "";
+        $info = array();
         $imginfos = GetImageSize($imgfile, $info);
 
         //把新上传的图片信息保存到媒体文档管理档案中
