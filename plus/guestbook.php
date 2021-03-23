@@ -77,7 +77,7 @@ else if ($action == 'save') {
         $msg = "
         <font color='red'><b>成功发送或回复留言！</b></font> &nbsp; <a href='guestbook.php' style='font-size:14px;font-weight:bold'><u>我已经知道了，点击此返回&gt;&gt;</u></a>";
         $wintitle = "留言发布成功提示";
-        $wecome_info = "留言发布成功：";
+        $wecome_info = "<ul class='uk-breadcrumb'><li><span>留言发布成功</span></li></ul>";
         $win = new OxWindow();
         $win->Init("", "js/blank.js", "post");
         $win->AddTitle("提示：");

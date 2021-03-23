@@ -263,7 +263,7 @@ else if ($action == 'savetagfile') {
     </form>
     ";
     $wintitle = "成功修改/创建文件！";
-    $wecome_info = "<a href='templets_tagsource.php'>标签源码碎片管理</a> &gt;&gt; 修改/新建标签";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='templets_tagsource.php'>标签源码碎片管理</a></li><li><span>修改/新建标签</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle("修改/新建标签：");
     $win->AddMsgItem($msg);

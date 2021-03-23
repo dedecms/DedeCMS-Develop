@@ -279,7 +279,7 @@ color,writer,source,litpic,pubdate,senddate,mid,voteid,notpost,description,keywo
     $msg = "<div style=\"line-height:36px;height:36px\">{$msg}</div>" . GetUpdateTest();
 
     $wintitle = '成功发布文档！';
-    $wecome_info = '文档管理::发布文档';
+    $wecome_info = "<ul class='uk-breadcrumb'><li><span>文档管理</span></li><li><span>发布文档</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle('成功发布文档：');
     $win->AddMsgItem($msg);

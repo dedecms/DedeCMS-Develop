@@ -43,7 +43,7 @@ if (empty($allsource) && filesize($m_file) > 0) {
 }
 make_hash();
 $wintitle = "防采集混淆字符串管理";
-$wecome_info = "防采集混淆字符串管理";
+$wecome_info = "<ul class='uk-breadcrumb'><li><span>防采集混淆字符串管理</span></li></ul>";
 $win = new OxWindow();
 $win->Init('article_string_mix.php', 'js/blank.js', 'POST');
 $win->AddHidden('dopost', 'save');

@@ -13,13 +13,12 @@
 require_once dirname(__FILE__) . '/config.php';
 CheckPurview('sys_ArcBatch');
 require_once dirname(__FILE__) . '/../include/oxwindow.class.php';
-//ShowMsg("目前暂不需要此工具，以后有需要系统会进行自动升级这个程序！<br /><a href='index_body.php'>&lt;&lt;点击此返回&gt;&gt;</a>", "javascript:;");
-//exit();
+
 if (empty($dopost)) {
     $win = new OxWindow();
     $win->Init("sys_repair.php", "js/blank.js", "POST' enctype='multipart/form-data' ");
     $win->mainTitle = "系统修复工具";
-    $wecome_info = "<a href='index_body.php'>系统主页</a> &gt;&gt; 系统错误修复工具";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='index_body.php'>系统主页</a></li><li><span>系统错误修复工具</span></li></ul>";
     $win->AddTitle('本工具用于检测和修复你的系统可能存在的错误');
     $msg = "
     <table width='98%' border='0' cellspacing='0' cellpadding='0' align='center'>
@@ -53,7 +52,7 @@ else if ($dopost == 1) {
     $win = new OxWindow();
     $win->Init("sys_repair.php", "js/blank.js", "POST' enctype='multipart/form-data' ");
     $win->mainTitle = "系统修复工具";
-    $wecome_info = "<a href='sys_repair.php'>系统错误修复工具</a> &gt;&gt; 检测数据结构";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='sys_repair.php'>系统错误修复工具</a></li><li><span>检测数据结构</span></li></ul>";
     $win->AddTitle('本工具用于检测和修复你的系统可能存在的错误');
     $msg = "
     <table width='98%' border='0' cellspacing='0' cellpadding='0' align='center'>
@@ -138,7 +137,7 @@ else if ($dopost == 2) {
     $win = new OxWindow();
     $win->Init("sys_repair.php", "js/blank.js", "POST' enctype='multipart/form-data' ");
     $win->mainTitle = "系统修复工具";
-    $wecome_info = "<a href='sys_repair.php'>系统错误修复工具</a> &gt;&gt; 检测微表正确性";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='sys_repair.php'>系统错误修复工具</a></li><li><span>检测微表正确性</span></li></ul>";
     $win->AddTitle('本工具用于检测和修复你的系统可能存在的错误');
     $msg = "
     <table width='98%' border='0' cellspacing='0' cellpadding='0' align='center'>
@@ -202,7 +201,7 @@ else if ($dopost == 3) {
     $win = new OxWindow();
     $win->Init("sys_repair.php", "js/blank.js", "POST' enctype='multipart/form-data' ");
     $win->mainTitle = "系统修复工具";
-    $wecome_info = "<a href='sys_repair.php'>系统错误修复工具</a> &gt;&gt; 高级综合检测修复";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='sys_repair.php'>系统错误修复工具</a></li><li><span>高级综合检测修复</span></li></ul>";
     $win->AddTitle('本工具用于检测和修复你的系统可能存在的错误');
     $msg = "
     <table width='98%' border='0' cellspacing='0' cellpadding='0' align='center'>

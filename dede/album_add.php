@@ -429,7 +429,7 @@ else if ($dopost == 'save') {
     $msg = "<div style=\"line-height:36px;height:36px\">{$msg}</div>" . GetUpdateTest();
 
     $wintitle = "成功发布一个图集！";
-    $wecome_info = "文章管理::发布图集";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><span>文章管理</span></li><li><span>发布图集</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle("成功发布一个图集：");
     $win->AddMsgItem($msg);

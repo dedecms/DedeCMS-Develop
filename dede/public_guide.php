@@ -28,7 +28,7 @@ if ($action == 'setdefault') {
     $win = new OxWindow();
     $win->Init();
     $win->mainTitle = "内容发布向导";
-    $wecome_info = "<a href='public_guide.php?action=edit'>内容发布向导</a>";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='public_guide.php?action=edit'>内容发布向导</a></li></ul>";
     $win->AddTitle("<a href='public_guide.php?action=edit'>内容发布向导</a> &gt;&gt; 设置默认发布表单");
     if ($cid == 0) {
         $msg = "

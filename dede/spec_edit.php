@@ -320,7 +320,7 @@ else if ($dopost == 'save') {
     &nbsp;&nbsp;
     <a href='content_s_list.php'><u>已发布专题管理</u></a> ";
     $wintitle = "成功修改一个专题！";
-    $wecome_info = "专题管理::修改专题";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><span>专题管理</span></li><li><span>修改专题</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle("成功修改专题！");
     $win->AddMsgItem($msg);

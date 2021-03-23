@@ -75,7 +75,7 @@ else if ($dopost == "copy") {
     //确认提示
     if ($job == "") {
         $wintitle = "用户模型管理-复制用户模型";
-        $wecome_info = "<span><ul class='uk-breadcrumb'><li><a href='member_model_main.php'>用户模型管理</a></li><li><span>复制用户模型</span></li></ul></span>";
+        $wecome_info = "<ul class='uk-breadcrumb'><li><a href='member_model_main.php'>用户模型管理</a></li><li><span>复制用户模型</span></li></ul>";
         $win = new OxWindow();
         $win->Init("member_model_edit.php", "js/blank.js", "POST");
         $win->AddHidden("job", "yes");
@@ -179,7 +179,7 @@ else if ($dopost == "delete") {
     //确认提示
     if ($job == "") {
         $wintitle = "用户模型管理-删除用户模型";
-        $wecome_info = "<a href='member_model_main.php'>用户模型管理</a>::删除用户模型";
+        $wecome_info = "<ul class='uk-breadcrumb'><li><a href='member_model_main.php'>用户模型管理</a></li><li><span>删除用户模型</span></li></ul>";
         $win = new OxWindow();
         $win->Init("member_model_edit.php", "js/blank.js", "POST");
         $win->AddHidden("job", "yes");

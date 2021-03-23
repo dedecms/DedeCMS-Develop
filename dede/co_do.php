@@ -106,7 +106,7 @@ else if ($dopost == "replace") {
                 $result = trim(preg_replace("/$fdstring/isU", $rpstring, $rs));
             }
             $wintitle = "采集管理-内容替换";
-            $wecome_info = "<a href='co_main.php'>采集管理</a>::内容替换";
+            $wecome_info = "<ul class='uk-breadcrumb'><li><a href='co_main.php'>采集节点管理</a></li><li><span>内容替换</span></li></ul>";
             $win = new OxWindow();
             $win->Init("co_do.php", "js/blank.js", "POST");
             $win->AddHidden('dopost', $dopost);
@@ -148,7 +148,7 @@ else if ($dopost == "copy") {
     CheckPurview('co_AddNote');
     if (empty($mynotename)) {
         $wintitle = "采集管理-复制节点";
-        $wecome_info = "<a href='co_main.php'>采集管理</a>::复制节点";
+        $wecome_info = "<ul class='uk-breadcrumb'><li><a href='co_main.php'>采集节点管理</a></li><li><span>复制节点</span></li></ul>";
         $win = new OxWindow();
         $win->Init("co_do.php", "js/blank.js", "POST");
         $win->AddHidden("dopost", $dopost);
@@ -195,7 +195,7 @@ else if ($dopost == "testrss") {
         }
     }
     $wintitle = "采集管理-测试";
-    $wecome_info = "<a href='co_main.php'>采集管理</a>::RSS地址测试";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='co_main.php'>采集节点管理</a></li><li><span>RSS地址测试</span></li></ul>";
     $win = new OxWindow();
     $win->AddMsgItem($msg);
     $winform = $win->GetWindow("hand");
@@ -220,7 +220,7 @@ else if ($dopost == "testregx") {
         }
     }
     $wintitle = "采集管理-测试匹配规则";
-    $wecome_info = "<a href='co_main.php'>采集管理</a>::测试匹配列表网址规则";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='co_main.php'>采集节点管理</a></li><li><span>测试匹配列表网址规则</span></li></ul>";
     $win = new OxWindow();
     $win->AddMsgItem($msg);
     $winform = $win->GetWindow("hand");

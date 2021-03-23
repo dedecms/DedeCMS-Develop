@@ -40,7 +40,7 @@ if (empty($allsource) && filesize($m_file) > 0) {
     fclose($fp);
 }
 $wintitle = "文章来源管理";
-$wecome_info = "文章来源管理";
+$wecome_info = "<ul class='uk-breadcrumb'><li><span>文章来源管理</span></li></ul>";
 $win = new OxWindow();
 $win->Init('article_source_edit.php', 'js/blank.js', 'POST');
 $win->AddHidden('dopost', 'save');

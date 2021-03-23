@@ -304,7 +304,7 @@ else if ($dopost == 'save') {
     ";
 
     $wintitle = "成功修改文章！";
-    $wecome_info = "文章管理::修改文章";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><span>文章管理</span></li><li><span>修改文章</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle("成功修改文章：");
     $win->AddMsgItem($msg);

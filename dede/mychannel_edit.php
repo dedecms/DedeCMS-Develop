@@ -59,7 +59,7 @@ else if ($dopost == "copystart") {
     }
     $row = $dsql->GetOne("SELECT * FROM `#@__channeltype` WHERE id='$id'");
     $wintitle = "内容类型管理-模型复制";
-    $wecome_info = "&nbsp;<a href='mychannel_main.php'>内容类型管理</a> - 模型复制";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='mychannel_main.php'>内容类型管理</a></li><li><span>模型复制</span></li></ul>";
     $win = new OxWindow();
     $win->Init("mychannel_edit.php", "js/blank.js", "post");
     $win->AddTitle("&nbsp;被复制频道： [<font color='red'>" . $row['typename'] . "</font>]");
@@ -119,7 +119,7 @@ else if ($dopost == "export") {
         $channelconfig .= "<channel:{$k}>$v</channel:{$k}>\r\n";
     }
     $wintitle = "导出内容类型规则";
-    $wecome_info = "<a href='mychannel_main.php'><u>内容类型管理</u></a>::导出内容类型规则";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='mychannel_main.php'>内容类型管理</a></li><li><span>导出内容类型规则</span></li></ul>";
     $win = new OxWindow();
     $win->Init();
     $win->AddTitle("以下为规则 [{$row['typename']}] 的模型规则，你可以共享给你的朋友：");
@@ -132,7 +132,7 @@ function __ExportIn()
 -----------------*/
 else if ($dopost == "exportin") {
     $wintitle = "导入内容类型规则";
-    $wecome_info = "<a href='mychannel_main.php'>内容类型管理</a>::导入内容类型规则";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='mychannel_main.php'>内容类型管理</a></li><li><span>导入内容类型规则</span></li></ul>";
     $win = new OxWindow();
     $win->Init("mychannel_edit.php", "js/blank.js", "post");
     $win->AddHidden("dopost", "exportinok");
@@ -151,7 +151,7 @@ else if ($dopost == "exportinok") {
     {
         global $wintitle, $wecome_info, $winform;
         $wintitle = "导入内容类型规则";
-        $wecome_info = "<a href='mychannel_main.php'>内容类型管理</a>::导入内容类型规则";
+        $wecome_info = "<ul class='uk-breadcrumb'><li><a href='mychannel_main.php'>内容类型管理</a></li><li><span>导入内容类型规则</span></li></ul>";
         $win = new OxWindow();
         $win->Init();
         $win->AddTitle("操作状态提示：");
@@ -372,7 +372,7 @@ else if ($dopost == "gettemplets") {
     include_once DEDEINC . "/oxwindow.class.php";
     $row = $dsql->GetOne("SELECT * FROM `#@__channeltype` WHERE id='$id'");
     $wintitle = "&nbsp;内容类型管理-查看模板";
-    $wecome_info = "<a href='mychannel_main.php'>内容类型管理</a>::查看模板";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='mychannel_main.php'>内容类型管理</a></li><li><span>查看模板</span></li></ul>";
     $win = new OxWindow();
     $win->Init("", "js/blank.js", "");
     $win->AddTitle("&nbsp;频道：（" . $row['typename'] . "）默认模板文件说明：");
@@ -409,7 +409,7 @@ else if ($dopost == "delete") {
     {
         include_once DEDEINC . "/oxwindow.class.php";
         $wintitle = "内容类型管理-删除模型";
-        $wecome_info = "<a href='mychannel_main.php'>内容类型管理</a>::删除模型";
+        $wecome_info = "<ul class='uk-breadcrumb'><li><a href='mychannel_main.php'>内容类型管理</a></li><li><span>删除模型</span></li></ul>";
         $win = new OxWindow();
         $win->Init("mychannel_edit.php", "js/blank.js", "POST");
         $win->AddHidden("job", "yes");

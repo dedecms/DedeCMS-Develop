@@ -78,7 +78,7 @@ if (empty($templates) && filesize($m_file) > 0) {
     fclose($fp);
 }
 $wintitle = "随机模板防采集设置";
-$wecome_info = "随机模板防采集设置";
+$wecome_info = "<ul class='uk-breadcrumb'><li><span>随机模板防采集设置</span></li></ul>";
 make_hash();
 $msg = "
 <link href='images/base.css' rel='stylesheet' type='text/css' />

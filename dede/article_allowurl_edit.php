@@ -40,7 +40,7 @@ if (empty($allurls) && filesize($m_file) > 0) {
     fclose($fp);
 }
 $wintitle = "";
-$wecome_info = "允许的超链接";
+$wecome_info = "<ul class='uk-breadcrumb'><li><span>允许的超链接</span></li></ul>";
 $win = new OxWindow();
 $win->Init('article_allowurl_edit.php', 'js/blank.js', 'POST');
 $win->AddHidden('dopost', 'save');

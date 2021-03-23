@@ -25,7 +25,7 @@ if (empty($extype) || $extype == 'base64') {
     $exmsg = " &nbsp; <a href='co_export_corule.php?nid={$nid}&extype=base64'>【导出为Base64格式】</a> ";
 }
 $wintitle = "导出采集规则";
-$wecome_info = "<a href='co_main.php'><u>采集节点管理</u></a>::导出采集规则 $exmsg";
+$wecome_info = "<ul class='uk-breadcrumb'><li><a href='co_main.php'>采集节点管理</a></li><li><span>导出采集规则 $exmsg</span></li></ul>";
 $win = new OxWindow();
 $win->Init();
 $win->AddTitle("以下为规则 [{$row['notename']}] 的文本配置，你可以共享给你的朋友：");

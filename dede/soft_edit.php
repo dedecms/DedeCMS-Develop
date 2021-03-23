@@ -382,7 +382,7 @@ else if ($dopost == 'save') {
     <a href='catalog_main.php'><u>网站栏目管理</u></a>
     ";
     $wintitle = "成功修改一个软件！";
-    $wecome_info = "文章管理::修改软件";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><span>文章管理</span></li><li><span>修改软件</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle("成功修改软件：");
     $win->AddMsgItem($msg);

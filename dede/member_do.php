@@ -77,7 +77,7 @@ if ($dopost == "delmember") {
     $randcode = mt_rand(10000, 99999);
     $safecode = substr(md5($cfg_cookie_encode . $randcode), 0, 24);
     $wintitle = "用户管理-删除用户";
-    $wecome_info = "<a href='" . $ENV_GOBACK_URL . "'>用户管理</a>::删除用户";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='" . $ENV_GOBACK_URL . "'>用户管理</a></li><li><span>删除用户</span></li></ul>";
     $win = new OxWindow();
     $win->Init("member_do.php", "js/blank.js", "POST");
     $win->AddHidden("fmdo", "yes");
@@ -128,7 +128,7 @@ if ($dopost == "delmember") {
     $randcode = mt_rand(10000, 99999);
     $safecode = substr(md5($cfg_cookie_encode . $randcode), 0, 24);
     $wintitle = "用户管理-删除用户";
-    $wecome_info = "<a href='" . $ENV_GOBACK_URL . "'>用户管理</a>::删除用户";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><a href='" . $ENV_GOBACK_URL . "'>用户管理</a></li><li><span>删除用户</span></li></ul>";
     $win = new OxWindow();
     $win->Init("member_do.php", "js/blank.js", "POST");
     $win->AddHidden("fmdo", "yes");

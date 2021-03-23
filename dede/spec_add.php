@@ -281,7 +281,7 @@ else if ($dopost == 'save') {
     <a href='content_s_list.php'><u>已发布专题管理</u></a>
     ";
     $wintitle = "成功创建专题！";
-    $wecome_info = "文章管理::发布专题";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><span>文章管理</span></li><li><span>发布专题</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle("成功创建专题：");
     $win->AddMsgItem($msg);

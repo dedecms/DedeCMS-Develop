@@ -218,7 +218,7 @@ else if ($dopost == 'save') {
     ";
 
     $wintitle = "成功发布文档！";
-    $wecome_info = "文档管理::发布文档";
+    $wecome_info = "<ul class='uk-breadcrumb'><li><span>文档管理</span></li><li><span>发布文档</span></li></ul>";
     $win = new OxWindow();
     $win->AddTitle("成功发布文档：");
     $win->AddMsgItem($msg);

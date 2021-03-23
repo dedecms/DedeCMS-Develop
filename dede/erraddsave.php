@@ -84,7 +84,7 @@ if ($dopost == "delete") {
     } else {
         include_once DEDEINC . "/oxwindow.class.php";
         $wintitle = "删除";
-        $wecome_info = "<a href='erraddsave.php'>错误管理</a>::删除错误";
+        $wecome_info = "<ul class='uk-breadcrumb'><li><a href='erraddsave.php'>错误管理</a></li><li><span>删除错误</span></li></ul>";
         $win = new OxWindow();
         $win->Init("erraddsave.php", "js/blank.js", "POST");
         $win->AddHidden("fmdo", "yes");
