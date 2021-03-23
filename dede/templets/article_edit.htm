@@ -57,6 +57,7 @@ height:25px;
 <div uk-form-custom style="border: 1px solid rgb(187, 187, 187);width: 188px;">
 <input type="file" id="upload-image" name="files[]" accept="image/*">
 {dede:if global.arcRow['litpic']===""}
+<img id="result-image" class="uk-hidden"/>
 <div id="no_image" class="uk-flex uk-flex-center uk-flex-middle">
 <span uk-icon="icon: image; ratio: 4"></span>
 </div>
@@ -102,7 +103,7 @@ echo "<input class='uk-checkbox' type='checkbox' name='flags[]' id='flags{$trow-
 <tr>
 <tr>
 <td width="90">TAG标签：</td>
-<td><input name="tags" type="text" id="tags" value="<?=$tags?>" onChange="$Obj('keywords').value=this.value;" class="uk-input uk-form-width-large uk-form-small"/></td>
+<td><input name="tags" type="text" id="tags" value="<?=$tags?>" class="uk-input uk-form-width-large uk-form-small"/></td>
 <td width="47">权重：</td>
 <td><input name="weight" type="text" id="weight" value="<?=$arcRow['weight']?>" class="uk-input uk-form-width-small uk-form-small" /> (越小越靠前)</td>
 </tr>
