@@ -240,14 +240,16 @@ function ShowMsg($msg, $gourl, $onlymsg = 0, $limittime = 0)
         }
     }
 
+    global $cfg_assets_dir, $cfg_soft_lang;
+
     $htmlhead = "
     <html>\r\n<head>\r\n<title>DedeCMS提示信息</title>\r\n
-    <meta http-equiv=\"Content-Type\" content=\"text/html; charset={dede:global.cfg_soft_lang/}\" />
+    <meta http-equiv=\"Content-Type\" content=\"text/html; charset={$cfg_soft_lang}\" />
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no\">
     <meta name=\"renderer\" content=\"webkit\">
     <meta http-equiv=\"Cache-Control\" content=\"no-siteapp\" />
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"{dede:global.cfg_assets_dir/}/pkg/uikit/css/uikit.min.css\" />
-    <link rel=\"stylesheet\" type=\"text/css\" href=\"{dede:global.cfg_assets_dir/}/css/manage.dede.css\">
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"{$cfg_assets_dir}/pkg/uikit/css/uikit.min.css\" />
+    <link rel=\"stylesheet\" type=\"text/css\" href=\"{$cfg_assets_dir}/css/manage.dede.css\">
     <base target='_self'/>
     </head>
     <body>
@@ -264,8 +266,8 @@ function ShowMsg($msg, $gourl, $onlymsg = 0, $limittime = 0)
     
     </center>
     
-    <script src=\"{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit.min.js\"></script>
-	<script src=\"{dede:global.cfg_assets_dir/}/pkg/uikit/js/uikit-icons.min.js\"></script>
+    <script src=\"{$cfg_assets_dir}/pkg/uikit/js/uikit.min.js\"></script>
+	<script src=\"{$cfg_assets_dir}/pkg/uikit/js/uikit-icons.min.js\"></script>
     </body>\r\n</html>\r\n";
 
     $litime = ($limittime == 0 ? 1000 : $limittime);
@@ -311,10 +313,7 @@ function ShowMsg($msg, $gourl, $onlymsg = 0, $limittime = 0)
         }
         $msg = $htmlhead . $rmsg . $htmlfoot;
     }
-    
-    $tpl = new DedeTemplate();
-    $tpl->LoadString($msg);
-    $tpl->Display();
+    echo $msg;
 }
 
 /**
